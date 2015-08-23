@@ -1,2 +1,5 @@
 Sphinx
 Django
+cx_Oracle
+psycopg2
+MySQL-python
