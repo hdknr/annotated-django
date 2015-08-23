@@ -96,10 +96,10 @@ def module(out, package, modname, root):
     automodule(out, package, modname)
 
 
-def create_index(pkgs):
-    index = "{0}/annotate_index.{1}".format(ANNOTATE, EXT)
+def create_toc(text, toc_name, pkgs):
+    index = "{0}/{1}_index.{2}".format(ANNOTATE, toc_name, EXT)
     with open(index, "w") as index_file:
-        title(index_file, "Django Annotation")
+        title(index_file, text)
         contents(index_file)
         index_file.write('''
 .. toctree::
@@ -150,7 +150,10 @@ def main():
 
             rstfile.close()
 
-    create_index(pkgs)
+    create_toc("Annotated Django: Index", "main",
+               [p for p in pkgs if p.find('.locale.') < 0])
+    create_toc("Annotated Django: Locale", "locale",
+               [p for p in pkgs if p.find('.locale.') >= 0])
 
 if __name__ == '__main__':
     main()

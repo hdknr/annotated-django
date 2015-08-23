@@ -1,5 +1,12 @@
+=================
+Django Annotation
+=================
 
-- :doc:`annotate_index`
+.. toctree::
+    :maxdepth: 1 
+
+    main_index
+    locale_index
 
 Indices and tables
 ==================
