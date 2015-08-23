@@ -105,6 +105,11 @@ def create_reference_role(rolename, urlbase):
             options = {}
         if content is None:
             content = []
+
+        if not hasattr(inliner.document.settings, 'link_base'):
+            # HDKNR to make html to work
+            return[], []
+
         node = docutils.nodes.reference(
             rawtext,
             text,
@@ -118,7 +123,8 @@ def create_reference_role(rolename, urlbase):
     docutils.parsers.rst.roles.register_canonical_role(rolename, _role)
 
 
-def default_reference_role(name, rawtext, text, lineno, inliner, options=None, content=None):
+def default_reference_role(
+        name, rawtext, text, lineno, inliner, options=None, content=None):
     if options is None:
         options = {}
     if content is None:
@@ -136,7 +142,8 @@ def default_reference_role(name, rawtext, text, lineno, inliner, options=None, c
     return [node], []
 
 if docutils_is_available:
-    docutils.parsers.rst.roles.register_canonical_role('cmsreference', default_reference_role)
+    docutils.parsers.rst.roles.register_canonical_role(
+        'cmsreference', default_reference_role)
 
     for name, urlbase in ROLES.items():
         create_reference_role(name, urlbase)
