@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import warnings
@@ -2049,6 +2050,7 @@ class OneToOneField(ForeignKey):
         return super(OneToOneField, self).formfield(**kwargs)
 
     def save_form_data(self, instance, data):
+        ''' モデルインスタンスに当該フィールドのデータをセットする '''
         if isinstance(data, self.rel.to):
             setattr(instance, self.name, data)
         else:
@@ -2062,7 +2064,8 @@ class OneToOneField(ForeignKey):
 def create_many_to_many_intermediary_model(field, klass):
     from django.db import models
     managed = True
-    if isinstance(field.rel.to, six.string_types) and field.rel.to != RECURSIVE_RELATIONSHIP_CONSTANT:
+    if isinstance(field.rel.to, six.string_types) and \
+            field.rel.to != RECURSIVE_RELATIONSHIP_CONSTANT:
         to_model = field.rel.to
         to = to_model.split('.')[-1]
 
@@ -2559,25 +2562,31 @@ class ManyToManyField(RelatedField):
         if isinstance(self.rel.through, six.string_types):
             def resolve_through_model(field, model, cls):
                 field.rel.through = model
-            add_lazy_relation(cls, self, self.rel.through, resolve_through_model)
+            add_lazy_relation(cls, self, self.rel.through,
+                              resolve_through_model)
 
     def contribute_to_related_class(self, cls, related):
         # Internal M2Ms (i.e., those with a related name ending with '+')
         # and swapped models don't get a related descriptor.
         if not self.rel.is_hidden() and not related.related_model._meta.swapped:
-            setattr(cls, related.get_accessor_name(), ManyRelatedObjectsDescriptor(related))
+            setattr(cls, related.get_accessor_name(),
+                    ManyRelatedObjectsDescriptor(related))
 
         # Set up the accessors for the column names on the m2m table
         self.m2m_column_name = curry(self._get_m2m_attr, related, 'column')
-        self.m2m_reverse_name = curry(self._get_m2m_reverse_attr, related, 'column')
+        self.m2m_reverse_name = curry(
+            self._get_m2m_reverse_attr, related, 'column')
 
         self.m2m_field_name = curry(self._get_m2m_attr, related, 'name')
-        self.m2m_reverse_field_name = curry(self._get_m2m_reverse_attr, related, 'name')
+        self.m2m_reverse_field_name = curry(
+            self._get_m2m_reverse_attr, related, 'name')
 
         get_m2m_rel = curry(self._get_m2m_attr, related, 'rel')
         self.m2m_target_field_name = lambda: get_m2m_rel().field_name
+
         get_m2m_reverse_rel = curry(self._get_m2m_reverse_attr, related, 'rel')
-        self.m2m_reverse_target_field_name = lambda: get_m2m_reverse_rel().field_name
+        self.m2m_reverse_target_field_name = \
+            lambda: get_m2m_reverse_rel().field_name
 
     def set_attributes_from_rel(self):
         pass

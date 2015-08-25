@@ -871,6 +871,7 @@ class Field(RegisterLookupMixin):
     flatchoices = property(_get_flatchoices)
 
     def save_form_data(self, instance, data):
+        ''' モデルインスタンスに当該フィールドのデータをセットする '''
         setattr(instance, self.name, data)
 
     def formfield(self, form_class=None, choices_form_class=None, **kwargs):
