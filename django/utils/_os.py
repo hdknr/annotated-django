@@ -33,6 +33,17 @@ else:
         Version of os.path.abspath that uses the unicode representation
         of the current working directory, thus avoiding a UnicodeDecodeError
         in join when the cwd has non-ASCII characters.
+
+        .. code-block:: python
+
+            >>> from django.utils._os import abspathu
+
+            >>> abspathu('upload/')
+            u'/home/vagrant/.anyenv/envs/pyenv/versions/
+            wordpress/src/djuploader/sample/upload'
+
+            >>> abspathu('/tmp/upload/')
+            '/tmp/upload'
         """
         if not isabs(path):
             path = join(os.getcwdu(), path)
@@ -76,7 +87,8 @@ def safe_join(base, *paths):
     #  a) The next character is the path separator (to prevent conditions like
     #     safe_join("/dir", "/../d"))
     #  b) The final path must be the same as the base path.
-    #  c) The base path must be the most root path (meaning either "/" or "C:\\")
+    #  c) The base path must be the most root path (meaning either "/"
+    #     or "C:\\")
     if (not normcase(final_path).startswith(normcase(base_path + sep)) and
             normcase(final_path) != normcase(base_path) and
             dirname(normcase(base_path)) != normcase(base_path)):
