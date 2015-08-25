@@ -27,7 +27,7 @@ django.conf.locale.az.formats
 
 - `Source:django.conf.locale.az.formats <https://github.com/django/django/blob/stable/1.8.x/django/conf/locale/az/formats.py>`_ 
 
-.. include:: cheat/django.conf.locale.az.rst
+.. include:: cheat/django.conf.locale.az.formats.rst
 
 .. automodule:: django.conf.locale.az.formats
     :members:

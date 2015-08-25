@@ -27,7 +27,7 @@ django.contrib.postgres.forms.array
 
 - `Source:django.contrib.postgres.forms.array <https://github.com/django/django/blob/stable/1.8.x/django/contrib/postgres/forms/array.py>`_ 
 
-.. include:: cheat/django.contrib.postgres.forms.rst
+.. include:: cheat/django.contrib.postgres.forms.array.rst
 
 .. automodule:: django.contrib.postgres.forms.array
     :members:
@@ -41,7 +41,7 @@ django.contrib.postgres.forms.hstore
 
 - `Source:django.contrib.postgres.forms.hstore <https://github.com/django/django/blob/stable/1.8.x/django/contrib/postgres/forms/hstore.py>`_ 
 
-.. include:: cheat/django.contrib.postgres.forms.rst
+.. include:: cheat/django.contrib.postgres.forms.hstore.rst
 
 .. automodule:: django.contrib.postgres.forms.hstore
     :members:
@@ -55,7 +55,7 @@ django.contrib.postgres.forms.ranges
 
 - `Source:django.contrib.postgres.forms.ranges <https://github.com/django/django/blob/stable/1.8.x/django/contrib/postgres/forms/ranges.py>`_ 
 
-.. include:: cheat/django.contrib.postgres.forms.rst
+.. include:: cheat/django.contrib.postgres.forms.ranges.rst
 
 .. automodule:: django.contrib.postgres.forms.ranges
     :members:

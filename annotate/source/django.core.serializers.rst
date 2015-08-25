@@ -27,7 +27,7 @@ django.core.serializers.base
 
 - `Source:django.core.serializers.base <https://github.com/django/django/blob/stable/1.8.x/django/core/serializers/base.py>`_ 
 
-.. include:: cheat/django.core.serializers.rst
+.. include:: cheat/django.core.serializers.base.rst
 
 .. automodule:: django.core.serializers.base
     :members:
@@ -41,7 +41,7 @@ django.core.serializers.json
 
 - `Source:django.core.serializers.json <https://github.com/django/django/blob/stable/1.8.x/django/core/serializers/json.py>`_ 
 
-.. include:: cheat/django.core.serializers.rst
+.. include:: cheat/django.core.serializers.json.rst
 
 .. automodule:: django.core.serializers.json
     :members:
@@ -55,7 +55,7 @@ django.core.serializers.python
 
 - `Source:django.core.serializers.python <https://github.com/django/django/blob/stable/1.8.x/django/core/serializers/python.py>`_ 
 
-.. include:: cheat/django.core.serializers.rst
+.. include:: cheat/django.core.serializers.python.rst
 
 .. automodule:: django.core.serializers.python
     :members:
@@ -69,7 +69,7 @@ django.core.serializers.pyyaml
 
 - `Source:django.core.serializers.pyyaml <https://github.com/django/django/blob/stable/1.8.x/django/core/serializers/pyyaml.py>`_ 
 
-.. include:: cheat/django.core.serializers.rst
+.. include:: cheat/django.core.serializers.pyyaml.rst
 
 .. automodule:: django.core.serializers.pyyaml
     :members:
@@ -83,7 +83,7 @@ django.core.serializers.xml_serializer
 
 - `Source:django.core.serializers.xml_serializer <https://github.com/django/django/blob/stable/1.8.x/django/core/serializers/xml_serializer.py>`_ 
 
-.. include:: cheat/django.core.serializers.rst
+.. include:: cheat/django.core.serializers.xml_serializer.rst
 
 .. automodule:: django.core.serializers.xml_serializer
     :members:

@@ -27,7 +27,7 @@ django.contrib.gis.serializers.geojson
 
 - `Source:django.contrib.gis.serializers.geojson <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/serializers/geojson.py>`_ 
 
-.. include:: cheat/django.contrib.gis.serializers.rst
+.. include:: cheat/django.contrib.gis.serializers.geojson.rst
 
 .. automodule:: django.contrib.gis.serializers.geojson
     :members:

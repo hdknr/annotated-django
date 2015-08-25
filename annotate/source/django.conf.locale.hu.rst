@@ -27,7 +27,7 @@ django.conf.locale.hu.formats
 
 - `Source:django.conf.locale.hu.formats <https://github.com/django/django/blob/stable/1.8.x/django/conf/locale/hu/formats.py>`_ 
 
-.. include:: cheat/django.conf.locale.hu.rst
+.. include:: cheat/django.conf.locale.hu.formats.rst
 
 .. automodule:: django.conf.locale.hu.formats
     :members:

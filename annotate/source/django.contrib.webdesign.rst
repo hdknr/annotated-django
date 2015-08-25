@@ -27,7 +27,7 @@ django.contrib.webdesign.apps
 
 - `Source:django.contrib.webdesign.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/webdesign/apps.py>`_ 
 
-.. include:: cheat/django.contrib.webdesign.rst
+.. include:: cheat/django.contrib.webdesign.apps.rst
 
 .. automodule:: django.contrib.webdesign.apps
     :members:

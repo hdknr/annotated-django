@@ -30,7 +30,7 @@ django.contrib.admindocs.apps
 
 - `Source:django.contrib.admindocs.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admindocs/apps.py>`_ 
 
-.. include:: cheat/django.contrib.admindocs.rst
+.. include:: cheat/django.contrib.admindocs.apps.rst
 
 .. automodule:: django.contrib.admindocs.apps
     :members:
@@ -44,7 +44,7 @@ django.contrib.admindocs.middleware
 
 - `Source:django.contrib.admindocs.middleware <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admindocs/middleware.py>`_ 
 
-.. include:: cheat/django.contrib.admindocs.rst
+.. include:: cheat/django.contrib.admindocs.middleware.rst
 
 .. automodule:: django.contrib.admindocs.middleware
     :members:
@@ -58,7 +58,7 @@ django.contrib.admindocs.urls
 
 - `Source:django.contrib.admindocs.urls <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admindocs/urls.py>`_ 
 
-.. include:: cheat/django.contrib.admindocs.rst
+.. include:: cheat/django.contrib.admindocs.urls.rst
 
 .. automodule:: django.contrib.admindocs.urls
     :members:
@@ -72,7 +72,7 @@ django.contrib.admindocs.utils
 
 - `Source:django.contrib.admindocs.utils <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admindocs/utils.py>`_ 
 
-.. include:: cheat/django.contrib.admindocs.rst
+.. include:: cheat/django.contrib.admindocs.utils.rst
 
 .. automodule:: django.contrib.admindocs.utils
     :members:
@@ -86,7 +86,7 @@ django.contrib.admindocs.views
 
 - `Source:django.contrib.admindocs.views <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admindocs/views.py>`_ 
 
-.. include:: cheat/django.contrib.admindocs.rst
+.. include:: cheat/django.contrib.admindocs.views.rst
 
 .. automodule:: django.contrib.admindocs.views
     :members:

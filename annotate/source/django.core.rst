@@ -30,7 +30,7 @@ django.core.context_processors
 
 - `Source:django.core.context_processors <https://github.com/django/django/blob/stable/1.8.x/django/core/context_processors.py>`_ 
 
-.. include:: cheat/django.core.rst
+.. include:: cheat/django.core.context_processors.rst
 
 .. automodule:: django.core.context_processors
     :members:
@@ -44,7 +44,7 @@ django.core.exceptions
 
 - `Source:django.core.exceptions <https://github.com/django/django/blob/stable/1.8.x/django/core/exceptions.py>`_ 
 
-.. include:: cheat/django.core.rst
+.. include:: cheat/django.core.exceptions.rst
 
 .. automodule:: django.core.exceptions
     :members:
@@ -58,7 +58,7 @@ django.core.paginator
 
 - `Source:django.core.paginator <https://github.com/django/django/blob/stable/1.8.x/django/core/paginator.py>`_ 
 
-.. include:: cheat/django.core.rst
+.. include:: cheat/django.core.paginator.rst
 
 .. automodule:: django.core.paginator
     :members:
@@ -72,7 +72,7 @@ django.core.signals
 
 - `Source:django.core.signals <https://github.com/django/django/blob/stable/1.8.x/django/core/signals.py>`_ 
 
-.. include:: cheat/django.core.rst
+.. include:: cheat/django.core.signals.rst
 
 .. automodule:: django.core.signals
     :members:
@@ -86,7 +86,7 @@ django.core.signing
 
 - `Source:django.core.signing <https://github.com/django/django/blob/stable/1.8.x/django/core/signing.py>`_ 
 
-.. include:: cheat/django.core.rst
+.. include:: cheat/django.core.signing.rst
 
 .. automodule:: django.core.signing
     :members:
@@ -100,7 +100,7 @@ django.core.urlresolvers
 
 - `Source:django.core.urlresolvers <https://github.com/django/django/blob/stable/1.8.x/django/core/urlresolvers.py>`_ 
 
-.. include:: cheat/django.core.rst
+.. include:: cheat/django.core.urlresolvers.rst
 
 .. automodule:: django.core.urlresolvers
     :members:
@@ -114,7 +114,7 @@ django.core.validators
 
 - `Source:django.core.validators <https://github.com/django/django/blob/stable/1.8.x/django/core/validators.py>`_ 
 
-.. include:: cheat/django.core.rst
+.. include:: cheat/django.core.validators.rst
 
 .. automodule:: django.core.validators
     :members:
@@ -128,7 +128,7 @@ django.core.wsgi
 
 - `Source:django.core.wsgi <https://github.com/django/django/blob/stable/1.8.x/django/core/wsgi.py>`_ 
 
-.. include:: cheat/django.core.rst
+.. include:: cheat/django.core.wsgi.rst
 
 .. automodule:: django.core.wsgi
     :members:

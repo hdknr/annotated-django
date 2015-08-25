@@ -27,7 +27,7 @@ django.test.client
 
 - `Source:django.test.client <https://github.com/django/django/blob/stable/1.8.x/django/test/client.py>`_ 
 
-.. include:: cheat/django.test.rst
+.. include:: cheat/django.test.client.rst
 
 .. automodule:: django.test.client
     :members:
@@ -41,7 +41,7 @@ django.test.html
 
 - `Source:django.test.html <https://github.com/django/django/blob/stable/1.8.x/django/test/html.py>`_ 
 
-.. include:: cheat/django.test.rst
+.. include:: cheat/django.test.html.rst
 
 .. automodule:: django.test.html
     :members:
@@ -55,7 +55,7 @@ django.test.runner
 
 - `Source:django.test.runner <https://github.com/django/django/blob/stable/1.8.x/django/test/runner.py>`_ 
 
-.. include:: cheat/django.test.rst
+.. include:: cheat/django.test.runner.rst
 
 .. automodule:: django.test.runner
     :members:
@@ -69,7 +69,7 @@ django.test.signals
 
 - `Source:django.test.signals <https://github.com/django/django/blob/stable/1.8.x/django/test/signals.py>`_ 
 
-.. include:: cheat/django.test.rst
+.. include:: cheat/django.test.signals.rst
 
 .. automodule:: django.test.signals
     :members:
@@ -83,7 +83,7 @@ django.test.testcases
 
 - `Source:django.test.testcases <https://github.com/django/django/blob/stable/1.8.x/django/test/testcases.py>`_ 
 
-.. include:: cheat/django.test.rst
+.. include:: cheat/django.test.testcases.rst
 
 .. automodule:: django.test.testcases
     :members:
@@ -97,7 +97,7 @@ django.test.utils
 
 - `Source:django.test.utils <https://github.com/django/django/blob/stable/1.8.x/django/test/utils.py>`_ 
 
-.. include:: cheat/django.test.rst
+.. include:: cheat/django.test.utils.rst
 
 .. automodule:: django.test.utils
     :members:

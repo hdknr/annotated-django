@@ -27,7 +27,7 @@ django.contrib.staticfiles.templatetags.staticfiles
 
 - `Source:django.contrib.staticfiles.templatetags.staticfiles <https://github.com/django/django/blob/stable/1.8.x/django/contrib/staticfiles/templatetags/staticfiles.py>`_ 
 
-.. include:: cheat/django.contrib.staticfiles.templatetags.rst
+.. include:: cheat/django.contrib.staticfiles.templatetags.staticfiles.rst
 
 .. automodule:: django.contrib.staticfiles.templatetags.staticfiles
     :members:

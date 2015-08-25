@@ -27,7 +27,7 @@ django.contrib.flatpages.migrations.0001_initial
 
 - `Source:django.contrib.flatpages.migrations.0001_initial <https://github.com/django/django/blob/stable/1.8.x/django/contrib/flatpages/migrations/0001_initial.py>`_ 
 
-.. include:: cheat/django.contrib.flatpages.migrations.rst
+.. include:: cheat/django.contrib.flatpages.migrations.0001_initial.rst
 
 .. automodule:: django.contrib.flatpages.migrations.0001_initial
     :members:

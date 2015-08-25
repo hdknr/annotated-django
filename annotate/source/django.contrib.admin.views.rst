@@ -27,7 +27,7 @@ django.contrib.admin.views.decorators
 
 - `Source:django.contrib.admin.views.decorators <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/views/decorators.py>`_ 
 
-.. include:: cheat/django.contrib.admin.views.rst
+.. include:: cheat/django.contrib.admin.views.decorators.rst
 
 .. automodule:: django.contrib.admin.views.decorators
     :members:
@@ -41,7 +41,7 @@ django.contrib.admin.views.main
 
 - `Source:django.contrib.admin.views.main <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/views/main.py>`_ 
 
-.. include:: cheat/django.contrib.admin.views.rst
+.. include:: cheat/django.contrib.admin.views.main.rst
 
 .. automodule:: django.contrib.admin.views.main
     :members:

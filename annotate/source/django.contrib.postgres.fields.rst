@@ -27,7 +27,7 @@ django.contrib.postgres.fields.array
 
 - `Source:django.contrib.postgres.fields.array <https://github.com/django/django/blob/stable/1.8.x/django/contrib/postgres/fields/array.py>`_ 
 
-.. include:: cheat/django.contrib.postgres.fields.rst
+.. include:: cheat/django.contrib.postgres.fields.array.rst
 
 .. automodule:: django.contrib.postgres.fields.array
     :members:
@@ -41,7 +41,7 @@ django.contrib.postgres.fields.hstore
 
 - `Source:django.contrib.postgres.fields.hstore <https://github.com/django/django/blob/stable/1.8.x/django/contrib/postgres/fields/hstore.py>`_ 
 
-.. include:: cheat/django.contrib.postgres.fields.rst
+.. include:: cheat/django.contrib.postgres.fields.hstore.rst
 
 .. automodule:: django.contrib.postgres.fields.hstore
     :members:
@@ -55,7 +55,7 @@ django.contrib.postgres.fields.ranges
 
 - `Source:django.contrib.postgres.fields.ranges <https://github.com/django/django/blob/stable/1.8.x/django/contrib/postgres/fields/ranges.py>`_ 
 
-.. include:: cheat/django.contrib.postgres.fields.rst
+.. include:: cheat/django.contrib.postgres.fields.ranges.rst
 
 .. automodule:: django.contrib.postgres.fields.ranges
     :members:

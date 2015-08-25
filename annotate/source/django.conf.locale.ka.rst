@@ -27,7 +27,7 @@ django.conf.locale.ka.formats
 
 - `Source:django.conf.locale.ka.formats <https://github.com/django/django/blob/stable/1.8.x/django/conf/locale/ka/formats.py>`_ 
 
-.. include:: cheat/django.conf.locale.ka.rst
+.. include:: cheat/django.conf.locale.ka.formats.rst
 
 .. automodule:: django.conf.locale.ka.formats
     :members:

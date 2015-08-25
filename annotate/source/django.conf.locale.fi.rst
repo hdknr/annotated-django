@@ -27,7 +27,7 @@ django.conf.locale.fi.formats
 
 - `Source:django.conf.locale.fi.formats <https://github.com/django/django/blob/stable/1.8.x/django/conf/locale/fi/formats.py>`_ 
 
-.. include:: cheat/django.conf.locale.fi.rst
+.. include:: cheat/django.conf.locale.fi.formats.rst
 
 .. automodule:: django.conf.locale.fi.formats
     :members:

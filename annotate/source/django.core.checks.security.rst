@@ -27,7 +27,7 @@ django.core.checks.security.base
 
 - `Source:django.core.checks.security.base <https://github.com/django/django/blob/stable/1.8.x/django/core/checks/security/base.py>`_ 
 
-.. include:: cheat/django.core.checks.security.rst
+.. include:: cheat/django.core.checks.security.base.rst
 
 .. automodule:: django.core.checks.security.base
     :members:
@@ -41,7 +41,7 @@ django.core.checks.security.csrf
 
 - `Source:django.core.checks.security.csrf <https://github.com/django/django/blob/stable/1.8.x/django/core/checks/security/csrf.py>`_ 
 
-.. include:: cheat/django.core.checks.security.rst
+.. include:: cheat/django.core.checks.security.csrf.rst
 
 .. automodule:: django.core.checks.security.csrf
     :members:
@@ -55,7 +55,7 @@ django.core.checks.security.sessions
 
 - `Source:django.core.checks.security.sessions <https://github.com/django/django/blob/stable/1.8.x/django/core/checks/security/sessions.py>`_ 
 
-.. include:: cheat/django.core.checks.security.rst
+.. include:: cheat/django.core.checks.security.sessions.rst
 
 .. automodule:: django.core.checks.security.sessions
     :members:

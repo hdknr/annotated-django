@@ -27,7 +27,7 @@ django.contrib.gis.db.backends.base.adapter
 
 - `Source:django.contrib.gis.db.backends.base.adapter <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/base/adapter.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.base.rst
+.. include:: cheat/django.contrib.gis.db.backends.base.adapter.rst
 
 .. automodule:: django.contrib.gis.db.backends.base.adapter
     :members:
@@ -41,7 +41,7 @@ django.contrib.gis.db.backends.base.features
 
 - `Source:django.contrib.gis.db.backends.base.features <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/base/features.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.base.rst
+.. include:: cheat/django.contrib.gis.db.backends.base.features.rst
 
 .. automodule:: django.contrib.gis.db.backends.base.features
     :members:
@@ -55,7 +55,7 @@ django.contrib.gis.db.backends.base.models
 
 - `Source:django.contrib.gis.db.backends.base.models <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/base/models.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.base.rst
+.. include:: cheat/django.contrib.gis.db.backends.base.models.rst
 
 .. automodule:: django.contrib.gis.db.backends.base.models
     :members:
@@ -69,7 +69,7 @@ django.contrib.gis.db.backends.base.operations
 
 - `Source:django.contrib.gis.db.backends.base.operations <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/base/operations.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.base.rst
+.. include:: cheat/django.contrib.gis.db.backends.base.operations.rst
 
 .. automodule:: django.contrib.gis.db.backends.base.operations
     :members:

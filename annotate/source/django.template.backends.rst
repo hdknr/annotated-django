@@ -27,7 +27,7 @@ django.template.backends.base
 
 - `Source:django.template.backends.base <https://github.com/django/django/blob/stable/1.8.x/django/template/backends/base.py>`_ 
 
-.. include:: cheat/django.template.backends.rst
+.. include:: cheat/django.template.backends.base.rst
 
 .. automodule:: django.template.backends.base
     :members:
@@ -41,7 +41,7 @@ django.template.backends.django
 
 - `Source:django.template.backends.django <https://github.com/django/django/blob/stable/1.8.x/django/template/backends/django.py>`_ 
 
-.. include:: cheat/django.template.backends.rst
+.. include:: cheat/django.template.backends.django.rst
 
 .. automodule:: django.template.backends.django
     :members:
@@ -55,7 +55,7 @@ django.template.backends.dummy
 
 - `Source:django.template.backends.dummy <https://github.com/django/django/blob/stable/1.8.x/django/template/backends/dummy.py>`_ 
 
-.. include:: cheat/django.template.backends.rst
+.. include:: cheat/django.template.backends.dummy.rst
 
 .. automodule:: django.template.backends.dummy
     :members:
@@ -69,7 +69,7 @@ django.template.backends.jinja2
 
 - `Source:django.template.backends.jinja2 <https://github.com/django/django/blob/stable/1.8.x/django/template/backends/jinja2.py>`_ 
 
-.. include:: cheat/django.template.backends.rst
+.. include:: cheat/django.template.backends.jinja2.rst
 
 .. automodule:: django.template.backends.jinja2
     :members:
@@ -83,7 +83,7 @@ django.template.backends.utils
 
 - `Source:django.template.backends.utils <https://github.com/django/django/blob/stable/1.8.x/django/template/backends/utils.py>`_ 
 
-.. include:: cheat/django.template.backends.rst
+.. include:: cheat/django.template.backends.utils.rst
 
 .. automodule:: django.template.backends.utils
     :members:

@@ -27,7 +27,7 @@ django.db.migrations.operations.base
 
 - `Source:django.db.migrations.operations.base <https://github.com/django/django/blob/stable/1.8.x/django/db/migrations/operations/base.py>`_ 
 
-.. include:: cheat/django.db.migrations.operations.rst
+.. include:: cheat/django.db.migrations.operations.base.rst
 
 .. automodule:: django.db.migrations.operations.base
     :members:
@@ -41,7 +41,7 @@ django.db.migrations.operations.fields
 
 - `Source:django.db.migrations.operations.fields <https://github.com/django/django/blob/stable/1.8.x/django/db/migrations/operations/fields.py>`_ 
 
-.. include:: cheat/django.db.migrations.operations.rst
+.. include:: cheat/django.db.migrations.operations.fields.rst
 
 .. automodule:: django.db.migrations.operations.fields
     :members:
@@ -55,7 +55,7 @@ django.db.migrations.operations.models
 
 - `Source:django.db.migrations.operations.models <https://github.com/django/django/blob/stable/1.8.x/django/db/migrations/operations/models.py>`_ 
 
-.. include:: cheat/django.db.migrations.operations.rst
+.. include:: cheat/django.db.migrations.operations.models.rst
 
 .. automodule:: django.db.migrations.operations.models
     :members:
@@ -69,7 +69,7 @@ django.db.migrations.operations.special
 
 - `Source:django.db.migrations.operations.special <https://github.com/django/django/blob/stable/1.8.x/django/db/migrations/operations/special.py>`_ 
 
-.. include:: cheat/django.db.migrations.operations.rst
+.. include:: cheat/django.db.migrations.operations.special.rst
 
 .. automodule:: django.db.migrations.operations.special
     :members:

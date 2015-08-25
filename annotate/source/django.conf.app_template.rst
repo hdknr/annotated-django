@@ -27,7 +27,7 @@ django.conf.app_template.admin
 
 - `Source:django.conf.app_template.admin <https://github.com/django/django/blob/stable/1.8.x/django/conf/app_template/admin.py>`_ 
 
-.. include:: cheat/django.conf.app_template.rst
+.. include:: cheat/django.conf.app_template.admin.rst
 
 .. automodule:: django.conf.app_template.admin
     :members:
@@ -41,7 +41,7 @@ django.conf.app_template.models
 
 - `Source:django.conf.app_template.models <https://github.com/django/django/blob/stable/1.8.x/django/conf/app_template/models.py>`_ 
 
-.. include:: cheat/django.conf.app_template.rst
+.. include:: cheat/django.conf.app_template.models.rst
 
 .. automodule:: django.conf.app_template.models
     :members:
@@ -55,7 +55,7 @@ django.conf.app_template.tests
 
 - `Source:django.conf.app_template.tests <https://github.com/django/django/blob/stable/1.8.x/django/conf/app_template/tests.py>`_ 
 
-.. include:: cheat/django.conf.app_template.rst
+.. include:: cheat/django.conf.app_template.tests.rst
 
 .. automodule:: django.conf.app_template.tests
     :members:
@@ -69,7 +69,7 @@ django.conf.app_template.views
 
 - `Source:django.conf.app_template.views <https://github.com/django/django/blob/stable/1.8.x/django/conf/app_template/views.py>`_ 
 
-.. include:: cheat/django.conf.app_template.rst
+.. include:: cheat/django.conf.app_template.views.rst
 
 .. automodule:: django.conf.app_template.views
     :members:

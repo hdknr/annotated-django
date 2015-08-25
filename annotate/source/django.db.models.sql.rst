@@ -27,7 +27,7 @@ django.db.models.sql.aggregates
 
 - `Source:django.db.models.sql.aggregates <https://github.com/django/django/blob/stable/1.8.x/django/db/models/sql/aggregates.py>`_ 
 
-.. include:: cheat/django.db.models.sql.rst
+.. include:: cheat/django.db.models.sql.aggregates.rst
 
 .. automodule:: django.db.models.sql.aggregates
     :members:
@@ -41,7 +41,7 @@ django.db.models.sql.compiler
 
 - `Source:django.db.models.sql.compiler <https://github.com/django/django/blob/stable/1.8.x/django/db/models/sql/compiler.py>`_ 
 
-.. include:: cheat/django.db.models.sql.rst
+.. include:: cheat/django.db.models.sql.compiler.rst
 
 .. automodule:: django.db.models.sql.compiler
     :members:
@@ -55,7 +55,7 @@ django.db.models.sql.constants
 
 - `Source:django.db.models.sql.constants <https://github.com/django/django/blob/stable/1.8.x/django/db/models/sql/constants.py>`_ 
 
-.. include:: cheat/django.db.models.sql.rst
+.. include:: cheat/django.db.models.sql.constants.rst
 
 .. automodule:: django.db.models.sql.constants
     :members:
@@ -69,7 +69,7 @@ django.db.models.sql.datastructures
 
 - `Source:django.db.models.sql.datastructures <https://github.com/django/django/blob/stable/1.8.x/django/db/models/sql/datastructures.py>`_ 
 
-.. include:: cheat/django.db.models.sql.rst
+.. include:: cheat/django.db.models.sql.datastructures.rst
 
 .. automodule:: django.db.models.sql.datastructures
     :members:
@@ -83,7 +83,7 @@ django.db.models.sql.query
 
 - `Source:django.db.models.sql.query <https://github.com/django/django/blob/stable/1.8.x/django/db/models/sql/query.py>`_ 
 
-.. include:: cheat/django.db.models.sql.rst
+.. include:: cheat/django.db.models.sql.query.rst
 
 .. automodule:: django.db.models.sql.query
     :members:
@@ -97,7 +97,7 @@ django.db.models.sql.subqueries
 
 - `Source:django.db.models.sql.subqueries <https://github.com/django/django/blob/stable/1.8.x/django/db/models/sql/subqueries.py>`_ 
 
-.. include:: cheat/django.db.models.sql.rst
+.. include:: cheat/django.db.models.sql.subqueries.rst
 
 .. automodule:: django.db.models.sql.subqueries
     :members:
@@ -111,7 +111,7 @@ django.db.models.sql.where
 
 - `Source:django.db.models.sql.where <https://github.com/django/django/blob/stable/1.8.x/django/db/models/sql/where.py>`_ 
 
-.. include:: cheat/django.db.models.sql.rst
+.. include:: cheat/django.db.models.sql.where.rst
 
 .. automodule:: django.db.models.sql.where
     :members:

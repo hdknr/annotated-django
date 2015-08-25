@@ -30,7 +30,7 @@ django.shortcuts
 
 - `Source:django.shortcuts <https://github.com/django/django/blob/stable/1.8.x/django/shortcuts.py>`_ 
 
-.. include:: cheat/django.rst
+.. include:: cheat/django.shortcuts.rst
 
 .. automodule:: django.shortcuts
     :members:

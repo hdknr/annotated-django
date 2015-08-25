@@ -27,7 +27,7 @@ django.conf.urls.i18n
 
 - `Source:django.conf.urls.i18n <https://github.com/django/django/blob/stable/1.8.x/django/conf/urls/i18n.py>`_ 
 
-.. include:: cheat/django.conf.urls.rst
+.. include:: cheat/django.conf.urls.i18n.rst
 
 .. automodule:: django.conf.urls.i18n
     :members:
@@ -41,7 +41,7 @@ django.conf.urls.static
 
 - `Source:django.conf.urls.static <https://github.com/django/django/blob/stable/1.8.x/django/conf/urls/static.py>`_ 
 
-.. include:: cheat/django.conf.urls.rst
+.. include:: cheat/django.conf.urls.static.rst
 
 .. automodule:: django.conf.urls.static
     :members:

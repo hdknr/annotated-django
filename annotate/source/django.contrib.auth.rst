@@ -30,7 +30,7 @@ django.contrib.auth.admin
 
 - `Source:django.contrib.auth.admin <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/admin.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.admin.rst
 
 .. automodule:: django.contrib.auth.admin
     :members:
@@ -44,7 +44,7 @@ django.contrib.auth.apps
 
 - `Source:django.contrib.auth.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/apps.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.apps.rst
 
 .. automodule:: django.contrib.auth.apps
     :members:
@@ -58,7 +58,7 @@ django.contrib.auth.backends
 
 - `Source:django.contrib.auth.backends <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/backends.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.backends.rst
 
 .. automodule:: django.contrib.auth.backends
     :members:
@@ -72,7 +72,7 @@ django.contrib.auth.checks
 
 - `Source:django.contrib.auth.checks <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/checks.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.checks.rst
 
 .. automodule:: django.contrib.auth.checks
     :members:
@@ -86,7 +86,7 @@ django.contrib.auth.context_processors
 
 - `Source:django.contrib.auth.context_processors <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/context_processors.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.context_processors.rst
 
 .. automodule:: django.contrib.auth.context_processors
     :members:
@@ -100,7 +100,7 @@ django.contrib.auth.decorators
 
 - `Source:django.contrib.auth.decorators <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/decorators.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.decorators.rst
 
 .. automodule:: django.contrib.auth.decorators
     :members:
@@ -114,7 +114,7 @@ django.contrib.auth.forms
 
 - `Source:django.contrib.auth.forms <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/forms.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.forms.rst
 
 .. automodule:: django.contrib.auth.forms
     :members:
@@ -128,7 +128,7 @@ django.contrib.auth.hashers
 
 - `Source:django.contrib.auth.hashers <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/hashers.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.hashers.rst
 
 .. automodule:: django.contrib.auth.hashers
     :members:
@@ -142,7 +142,7 @@ django.contrib.auth.middleware
 
 - `Source:django.contrib.auth.middleware <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/middleware.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.middleware.rst
 
 .. automodule:: django.contrib.auth.middleware
     :members:
@@ -156,7 +156,7 @@ django.contrib.auth.models
 
 - `Source:django.contrib.auth.models <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/models.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.models.rst
 
 .. automodule:: django.contrib.auth.models
     :members:
@@ -170,7 +170,7 @@ django.contrib.auth.signals
 
 - `Source:django.contrib.auth.signals <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/signals.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.signals.rst
 
 .. automodule:: django.contrib.auth.signals
     :members:
@@ -184,7 +184,7 @@ django.contrib.auth.tokens
 
 - `Source:django.contrib.auth.tokens <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/tokens.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.tokens.rst
 
 .. automodule:: django.contrib.auth.tokens
     :members:
@@ -198,7 +198,7 @@ django.contrib.auth.urls
 
 - `Source:django.contrib.auth.urls <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/urls.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.urls.rst
 
 .. automodule:: django.contrib.auth.urls
     :members:
@@ -212,7 +212,7 @@ django.contrib.auth.views
 
 - `Source:django.contrib.auth.views <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/views.py>`_ 
 
-.. include:: cheat/django.contrib.auth.rst
+.. include:: cheat/django.contrib.auth.views.rst
 
 .. automodule:: django.contrib.auth.views
     :members:

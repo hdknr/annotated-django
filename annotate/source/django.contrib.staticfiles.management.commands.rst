@@ -27,7 +27,7 @@ django.contrib.staticfiles.management.commands.collectstatic
 
 - `Source:django.contrib.staticfiles.management.commands.collectstatic <https://github.com/django/django/blob/stable/1.8.x/django/contrib/staticfiles/management/commands/collectstatic.py>`_ 
 
-.. include:: cheat/django.contrib.staticfiles.management.commands.rst
+.. include:: cheat/django.contrib.staticfiles.management.commands.collectstatic.rst
 
 .. automodule:: django.contrib.staticfiles.management.commands.collectstatic
     :members:
@@ -41,7 +41,7 @@ django.contrib.staticfiles.management.commands.findstatic
 
 - `Source:django.contrib.staticfiles.management.commands.findstatic <https://github.com/django/django/blob/stable/1.8.x/django/contrib/staticfiles/management/commands/findstatic.py>`_ 
 
-.. include:: cheat/django.contrib.staticfiles.management.commands.rst
+.. include:: cheat/django.contrib.staticfiles.management.commands.findstatic.rst
 
 .. automodule:: django.contrib.staticfiles.management.commands.findstatic
     :members:
@@ -55,7 +55,7 @@ django.contrib.staticfiles.management.commands.runserver
 
 - `Source:django.contrib.staticfiles.management.commands.runserver <https://github.com/django/django/blob/stable/1.8.x/django/contrib/staticfiles/management/commands/runserver.py>`_ 
 
-.. include:: cheat/django.contrib.staticfiles.management.commands.rst
+.. include:: cheat/django.contrib.staticfiles.management.commands.runserver.rst
 
 .. automodule:: django.contrib.staticfiles.management.commands.runserver
     :members:

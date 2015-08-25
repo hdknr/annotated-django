@@ -27,7 +27,7 @@ django.contrib.webdesign.templatetags.webdesign
 
 - `Source:django.contrib.webdesign.templatetags.webdesign <https://github.com/django/django/blob/stable/1.8.x/django/contrib/webdesign/templatetags/webdesign.py>`_ 
 
-.. include:: cheat/django.contrib.webdesign.templatetags.rst
+.. include:: cheat/django.contrib.webdesign.templatetags.webdesign.rst
 
 .. automodule:: django.contrib.webdesign.templatetags.webdesign
     :members:

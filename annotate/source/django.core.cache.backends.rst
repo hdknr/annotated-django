@@ -27,7 +27,7 @@ django.core.cache.backends.base
 
 - `Source:django.core.cache.backends.base <https://github.com/django/django/blob/stable/1.8.x/django/core/cache/backends/base.py>`_ 
 
-.. include:: cheat/django.core.cache.backends.rst
+.. include:: cheat/django.core.cache.backends.base.rst
 
 .. automodule:: django.core.cache.backends.base
     :members:
@@ -41,7 +41,7 @@ django.core.cache.backends.db
 
 - `Source:django.core.cache.backends.db <https://github.com/django/django/blob/stable/1.8.x/django/core/cache/backends/db.py>`_ 
 
-.. include:: cheat/django.core.cache.backends.rst
+.. include:: cheat/django.core.cache.backends.db.rst
 
 .. automodule:: django.core.cache.backends.db
     :members:
@@ -55,7 +55,7 @@ django.core.cache.backends.dummy
 
 - `Source:django.core.cache.backends.dummy <https://github.com/django/django/blob/stable/1.8.x/django/core/cache/backends/dummy.py>`_ 
 
-.. include:: cheat/django.core.cache.backends.rst
+.. include:: cheat/django.core.cache.backends.dummy.rst
 
 .. automodule:: django.core.cache.backends.dummy
     :members:
@@ -69,7 +69,7 @@ django.core.cache.backends.filebased
 
 - `Source:django.core.cache.backends.filebased <https://github.com/django/django/blob/stable/1.8.x/django/core/cache/backends/filebased.py>`_ 
 
-.. include:: cheat/django.core.cache.backends.rst
+.. include:: cheat/django.core.cache.backends.filebased.rst
 
 .. automodule:: django.core.cache.backends.filebased
     :members:
@@ -83,7 +83,7 @@ django.core.cache.backends.locmem
 
 - `Source:django.core.cache.backends.locmem <https://github.com/django/django/blob/stable/1.8.x/django/core/cache/backends/locmem.py>`_ 
 
-.. include:: cheat/django.core.cache.backends.rst
+.. include:: cheat/django.core.cache.backends.locmem.rst
 
 .. automodule:: django.core.cache.backends.locmem
     :members:
@@ -97,7 +97,7 @@ django.core.cache.backends.memcached
 
 - `Source:django.core.cache.backends.memcached <https://github.com/django/django/blob/stable/1.8.x/django/core/cache/backends/memcached.py>`_ 
 
-.. include:: cheat/django.core.cache.backends.rst
+.. include:: cheat/django.core.cache.backends.memcached.rst
 
 .. automodule:: django.core.cache.backends.memcached
     :members:

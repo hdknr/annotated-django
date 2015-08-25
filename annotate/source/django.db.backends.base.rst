@@ -27,7 +27,7 @@ django.db.backends.base.base
 
 - `Source:django.db.backends.base.base <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/base/base.py>`_ 
 
-.. include:: cheat/django.db.backends.base.rst
+.. include:: cheat/django.db.backends.base.base.rst
 
 .. automodule:: django.db.backends.base.base
     :members:
@@ -41,7 +41,7 @@ django.db.backends.base.client
 
 - `Source:django.db.backends.base.client <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/base/client.py>`_ 
 
-.. include:: cheat/django.db.backends.base.rst
+.. include:: cheat/django.db.backends.base.client.rst
 
 .. automodule:: django.db.backends.base.client
     :members:
@@ -55,7 +55,7 @@ django.db.backends.base.creation
 
 - `Source:django.db.backends.base.creation <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/base/creation.py>`_ 
 
-.. include:: cheat/django.db.backends.base.rst
+.. include:: cheat/django.db.backends.base.creation.rst
 
 .. automodule:: django.db.backends.base.creation
     :members:
@@ -69,7 +69,7 @@ django.db.backends.base.features
 
 - `Source:django.db.backends.base.features <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/base/features.py>`_ 
 
-.. include:: cheat/django.db.backends.base.rst
+.. include:: cheat/django.db.backends.base.features.rst
 
 .. automodule:: django.db.backends.base.features
     :members:
@@ -83,7 +83,7 @@ django.db.backends.base.introspection
 
 - `Source:django.db.backends.base.introspection <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/base/introspection.py>`_ 
 
-.. include:: cheat/django.db.backends.base.rst
+.. include:: cheat/django.db.backends.base.introspection.rst
 
 .. automodule:: django.db.backends.base.introspection
     :members:
@@ -97,7 +97,7 @@ django.db.backends.base.operations
 
 - `Source:django.db.backends.base.operations <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/base/operations.py>`_ 
 
-.. include:: cheat/django.db.backends.base.rst
+.. include:: cheat/django.db.backends.base.operations.rst
 
 .. automodule:: django.db.backends.base.operations
     :members:
@@ -111,7 +111,7 @@ django.db.backends.base.schema
 
 - `Source:django.db.backends.base.schema <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/base/schema.py>`_ 
 
-.. include:: cheat/django.db.backends.base.rst
+.. include:: cheat/django.db.backends.base.schema.rst
 
 .. automodule:: django.db.backends.base.schema
     :members:
@@ -125,7 +125,7 @@ django.db.backends.base.validation
 
 - `Source:django.db.backends.base.validation <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/base/validation.py>`_ 
 
-.. include:: cheat/django.db.backends.base.rst
+.. include:: cheat/django.db.backends.base.validation.rst
 
 .. automodule:: django.db.backends.base.validation
     :members:

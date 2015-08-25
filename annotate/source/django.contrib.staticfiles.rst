@@ -30,7 +30,7 @@ django.contrib.staticfiles.apps
 
 - `Source:django.contrib.staticfiles.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/staticfiles/apps.py>`_ 
 
-.. include:: cheat/django.contrib.staticfiles.rst
+.. include:: cheat/django.contrib.staticfiles.apps.rst
 
 .. automodule:: django.contrib.staticfiles.apps
     :members:
@@ -44,7 +44,7 @@ django.contrib.staticfiles.finders
 
 - `Source:django.contrib.staticfiles.finders <https://github.com/django/django/blob/stable/1.8.x/django/contrib/staticfiles/finders.py>`_ 
 
-.. include:: cheat/django.contrib.staticfiles.rst
+.. include:: cheat/django.contrib.staticfiles.finders.rst
 
 .. automodule:: django.contrib.staticfiles.finders
     :members:
@@ -58,7 +58,7 @@ django.contrib.staticfiles.handlers
 
 - `Source:django.contrib.staticfiles.handlers <https://github.com/django/django/blob/stable/1.8.x/django/contrib/staticfiles/handlers.py>`_ 
 
-.. include:: cheat/django.contrib.staticfiles.rst
+.. include:: cheat/django.contrib.staticfiles.handlers.rst
 
 .. automodule:: django.contrib.staticfiles.handlers
     :members:
@@ -72,7 +72,7 @@ django.contrib.staticfiles.storage
 
 - `Source:django.contrib.staticfiles.storage <https://github.com/django/django/blob/stable/1.8.x/django/contrib/staticfiles/storage.py>`_ 
 
-.. include:: cheat/django.contrib.staticfiles.rst
+.. include:: cheat/django.contrib.staticfiles.storage.rst
 
 .. automodule:: django.contrib.staticfiles.storage
     :members:
@@ -86,7 +86,7 @@ django.contrib.staticfiles.testing
 
 - `Source:django.contrib.staticfiles.testing <https://github.com/django/django/blob/stable/1.8.x/django/contrib/staticfiles/testing.py>`_ 
 
-.. include:: cheat/django.contrib.staticfiles.rst
+.. include:: cheat/django.contrib.staticfiles.testing.rst
 
 .. automodule:: django.contrib.staticfiles.testing
     :members:
@@ -100,7 +100,7 @@ django.contrib.staticfiles.urls
 
 - `Source:django.contrib.staticfiles.urls <https://github.com/django/django/blob/stable/1.8.x/django/contrib/staticfiles/urls.py>`_ 
 
-.. include:: cheat/django.contrib.staticfiles.rst
+.. include:: cheat/django.contrib.staticfiles.urls.rst
 
 .. automodule:: django.contrib.staticfiles.urls
     :members:
@@ -114,7 +114,7 @@ django.contrib.staticfiles.utils
 
 - `Source:django.contrib.staticfiles.utils <https://github.com/django/django/blob/stable/1.8.x/django/contrib/staticfiles/utils.py>`_ 
 
-.. include:: cheat/django.contrib.staticfiles.rst
+.. include:: cheat/django.contrib.staticfiles.utils.rst
 
 .. automodule:: django.contrib.staticfiles.utils
     :members:
@@ -128,7 +128,7 @@ django.contrib.staticfiles.views
 
 - `Source:django.contrib.staticfiles.views <https://github.com/django/django/blob/stable/1.8.x/django/contrib/staticfiles/views.py>`_ 
 
-.. include:: cheat/django.contrib.staticfiles.rst
+.. include:: cheat/django.contrib.staticfiles.views.rst
 
 .. automodule:: django.contrib.staticfiles.views
     :members:

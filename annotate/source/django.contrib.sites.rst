@@ -30,7 +30,7 @@ django.contrib.sites.admin
 
 - `Source:django.contrib.sites.admin <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sites/admin.py>`_ 
 
-.. include:: cheat/django.contrib.sites.rst
+.. include:: cheat/django.contrib.sites.admin.rst
 
 .. automodule:: django.contrib.sites.admin
     :members:
@@ -44,7 +44,7 @@ django.contrib.sites.apps
 
 - `Source:django.contrib.sites.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sites/apps.py>`_ 
 
-.. include:: cheat/django.contrib.sites.rst
+.. include:: cheat/django.contrib.sites.apps.rst
 
 .. automodule:: django.contrib.sites.apps
     :members:
@@ -58,7 +58,7 @@ django.contrib.sites.management
 
 - `Source:django.contrib.sites.management <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sites/management.py>`_ 
 
-.. include:: cheat/django.contrib.sites.rst
+.. include:: cheat/django.contrib.sites.management.rst
 
 .. automodule:: django.contrib.sites.management
     :members:
@@ -72,7 +72,7 @@ django.contrib.sites.managers
 
 - `Source:django.contrib.sites.managers <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sites/managers.py>`_ 
 
-.. include:: cheat/django.contrib.sites.rst
+.. include:: cheat/django.contrib.sites.managers.rst
 
 .. automodule:: django.contrib.sites.managers
     :members:
@@ -86,7 +86,7 @@ django.contrib.sites.middleware
 
 - `Source:django.contrib.sites.middleware <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sites/middleware.py>`_ 
 
-.. include:: cheat/django.contrib.sites.rst
+.. include:: cheat/django.contrib.sites.middleware.rst
 
 .. automodule:: django.contrib.sites.middleware
     :members:
@@ -100,7 +100,7 @@ django.contrib.sites.models
 
 - `Source:django.contrib.sites.models <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sites/models.py>`_ 
 
-.. include:: cheat/django.contrib.sites.rst
+.. include:: cheat/django.contrib.sites.models.rst
 
 .. automodule:: django.contrib.sites.models
     :members:
@@ -114,7 +114,7 @@ django.contrib.sites.requests
 
 - `Source:django.contrib.sites.requests <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sites/requests.py>`_ 
 
-.. include:: cheat/django.contrib.sites.rst
+.. include:: cheat/django.contrib.sites.requests.rst
 
 .. automodule:: django.contrib.sites.requests
     :members:
@@ -128,7 +128,7 @@ django.contrib.sites.shortcuts
 
 - `Source:django.contrib.sites.shortcuts <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sites/shortcuts.py>`_ 
 
-.. include:: cheat/django.contrib.sites.rst
+.. include:: cheat/django.contrib.sites.shortcuts.rst
 
 .. automodule:: django.contrib.sites.shortcuts
     :members:

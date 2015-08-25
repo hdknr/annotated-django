@@ -27,7 +27,7 @@ django.conf.locale.nb.formats
 
 - `Source:django.conf.locale.nb.formats <https://github.com/django/django/blob/stable/1.8.x/django/conf/locale/nb/formats.py>`_ 
 
-.. include:: cheat/django.conf.locale.nb.rst
+.. include:: cheat/django.conf.locale.nb.formats.rst
 
 .. automodule:: django.conf.locale.nb.formats
     :members:

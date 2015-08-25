@@ -27,7 +27,7 @@ django.core.checks.compatibility.django_1_7_0
 
 - `Source:django.core.checks.compatibility.django_1_7_0 <https://github.com/django/django/blob/stable/1.8.x/django/core/checks/compatibility/django_1_7_0.py>`_ 
 
-.. include:: cheat/django.core.checks.compatibility.rst
+.. include:: cheat/django.core.checks.compatibility.django_1_7_0.rst
 
 .. automodule:: django.core.checks.compatibility.django_1_7_0
     :members:
@@ -41,7 +41,7 @@ django.core.checks.compatibility.django_1_8_0
 
 - `Source:django.core.checks.compatibility.django_1_8_0 <https://github.com/django/django/blob/stable/1.8.x/django/core/checks/compatibility/django_1_8_0.py>`_ 
 
-.. include:: cheat/django.core.checks.compatibility.rst
+.. include:: cheat/django.core.checks.compatibility.django_1_8_0.rst
 
 .. automodule:: django.core.checks.compatibility.django_1_8_0
     :members:

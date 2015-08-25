@@ -27,7 +27,7 @@ django.conf.locale.sk.formats
 
 - `Source:django.conf.locale.sk.formats <https://github.com/django/django/blob/stable/1.8.x/django/conf/locale/sk/formats.py>`_ 
 
-.. include:: cheat/django.conf.locale.sk.rst
+.. include:: cheat/django.conf.locale.sk.formats.rst
 
 .. automodule:: django.conf.locale.sk.formats
     :members:

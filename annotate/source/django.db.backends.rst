@@ -30,7 +30,7 @@ django.db.backends.signals
 
 - `Source:django.db.backends.signals <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/signals.py>`_ 
 
-.. include:: cheat/django.db.backends.rst
+.. include:: cheat/django.db.backends.signals.rst
 
 .. automodule:: django.db.backends.signals
     :members:
@@ -44,7 +44,7 @@ django.db.backends.util
 
 - `Source:django.db.backends.util <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/util.py>`_ 
 
-.. include:: cheat/django.db.backends.rst
+.. include:: cheat/django.db.backends.util.rst
 
 .. automodule:: django.db.backends.util
     :members:
@@ -58,7 +58,7 @@ django.db.backends.utils
 
 - `Source:django.db.backends.utils <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/utils.py>`_ 
 
-.. include:: cheat/django.db.backends.rst
+.. include:: cheat/django.db.backends.utils.rst
 
 .. automodule:: django.db.backends.utils
     :members:

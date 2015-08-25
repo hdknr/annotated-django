@@ -30,7 +30,7 @@ django.contrib.admin.actions
 
 - `Source:django.contrib.admin.actions <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/actions.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.actions.rst
 
 .. automodule:: django.contrib.admin.actions
     :members:
@@ -44,7 +44,7 @@ django.contrib.admin.apps
 
 - `Source:django.contrib.admin.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/apps.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.apps.rst
 
 .. automodule:: django.contrib.admin.apps
     :members:
@@ -58,7 +58,7 @@ django.contrib.admin.checks
 
 - `Source:django.contrib.admin.checks <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/checks.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.checks.rst
 
 .. automodule:: django.contrib.admin.checks
     :members:
@@ -72,7 +72,7 @@ django.contrib.admin.decorators
 
 - `Source:django.contrib.admin.decorators <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/decorators.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.decorators.rst
 
 .. automodule:: django.contrib.admin.decorators
     :members:
@@ -86,7 +86,7 @@ django.contrib.admin.exceptions
 
 - `Source:django.contrib.admin.exceptions <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/exceptions.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.exceptions.rst
 
 .. automodule:: django.contrib.admin.exceptions
     :members:
@@ -100,7 +100,7 @@ django.contrib.admin.filters
 
 - `Source:django.contrib.admin.filters <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/filters.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.filters.rst
 
 .. automodule:: django.contrib.admin.filters
     :members:
@@ -114,7 +114,7 @@ django.contrib.admin.forms
 
 - `Source:django.contrib.admin.forms <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/forms.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.forms.rst
 
 .. automodule:: django.contrib.admin.forms
     :members:
@@ -128,7 +128,7 @@ django.contrib.admin.helpers
 
 - `Source:django.contrib.admin.helpers <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/helpers.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.helpers.rst
 
 .. automodule:: django.contrib.admin.helpers
     :members:
@@ -142,7 +142,7 @@ django.contrib.admin.models
 
 - `Source:django.contrib.admin.models <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/models.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.models.rst
 
 .. automodule:: django.contrib.admin.models
     :members:
@@ -156,7 +156,7 @@ django.contrib.admin.options
 
 - `Source:django.contrib.admin.options <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/options.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.options.rst
 
 .. automodule:: django.contrib.admin.options
     :members:
@@ -170,7 +170,7 @@ django.contrib.admin.sites
 
 - `Source:django.contrib.admin.sites <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/sites.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.sites.rst
 
 .. automodule:: django.contrib.admin.sites
     :members:
@@ -184,7 +184,7 @@ django.contrib.admin.tests
 
 - `Source:django.contrib.admin.tests <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/tests.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.tests.rst
 
 .. automodule:: django.contrib.admin.tests
     :members:
@@ -198,7 +198,7 @@ django.contrib.admin.util
 
 - `Source:django.contrib.admin.util <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/util.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.util.rst
 
 .. automodule:: django.contrib.admin.util
     :members:
@@ -212,7 +212,7 @@ django.contrib.admin.utils
 
 - `Source:django.contrib.admin.utils <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/utils.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.utils.rst
 
 .. automodule:: django.contrib.admin.utils
     :members:
@@ -226,7 +226,7 @@ django.contrib.admin.validation
 
 - `Source:django.contrib.admin.validation <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/validation.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.validation.rst
 
 .. automodule:: django.contrib.admin.validation
     :members:
@@ -240,7 +240,7 @@ django.contrib.admin.widgets
 
 - `Source:django.contrib.admin.widgets <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/widgets.py>`_ 
 
-.. include:: cheat/django.contrib.admin.rst
+.. include:: cheat/django.contrib.admin.widgets.rst
 
 .. automodule:: django.contrib.admin.widgets
     :members:

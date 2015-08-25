@@ -30,7 +30,7 @@ django.conf.global_settings
 
 - `Source:django.conf.global_settings <https://github.com/django/django/blob/stable/1.8.x/django/conf/global_settings.py>`_ 
 
-.. include:: cheat/django.conf.rst
+.. include:: cheat/django.conf.global_settings.rst
 
 .. automodule:: django.conf.global_settings
     :members:

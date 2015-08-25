@@ -30,7 +30,7 @@ django.views.csrf
 
 - `Source:django.views.csrf <https://github.com/django/django/blob/stable/1.8.x/django/views/csrf.py>`_ 
 
-.. include:: cheat/django.views.rst
+.. include:: cheat/django.views.csrf.rst
 
 .. automodule:: django.views.csrf
     :members:
@@ -44,7 +44,7 @@ django.views.debug
 
 - `Source:django.views.debug <https://github.com/django/django/blob/stable/1.8.x/django/views/debug.py>`_ 
 
-.. include:: cheat/django.views.rst
+.. include:: cheat/django.views.debug.rst
 
 .. automodule:: django.views.debug
     :members:
@@ -58,7 +58,7 @@ django.views.defaults
 
 - `Source:django.views.defaults <https://github.com/django/django/blob/stable/1.8.x/django/views/defaults.py>`_ 
 
-.. include:: cheat/django.views.rst
+.. include:: cheat/django.views.defaults.rst
 
 .. automodule:: django.views.defaults
     :members:
@@ -72,7 +72,7 @@ django.views.i18n
 
 - `Source:django.views.i18n <https://github.com/django/django/blob/stable/1.8.x/django/views/i18n.py>`_ 
 
-.. include:: cheat/django.views.rst
+.. include:: cheat/django.views.i18n.rst
 
 .. automodule:: django.views.i18n
     :members:
@@ -86,7 +86,7 @@ django.views.static
 
 - `Source:django.views.static <https://github.com/django/django/blob/stable/1.8.x/django/views/static.py>`_ 
 
-.. include:: cheat/django.views.rst
+.. include:: cheat/django.views.static.rst
 
 .. automodule:: django.views.static
     :members:

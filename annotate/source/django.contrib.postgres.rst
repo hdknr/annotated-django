@@ -30,7 +30,7 @@ django.contrib.postgres.apps
 
 - `Source:django.contrib.postgres.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/postgres/apps.py>`_ 
 
-.. include:: cheat/django.contrib.postgres.rst
+.. include:: cheat/django.contrib.postgres.apps.rst
 
 .. automodule:: django.contrib.postgres.apps
     :members:
@@ -44,7 +44,7 @@ django.contrib.postgres.lookups
 
 - `Source:django.contrib.postgres.lookups <https://github.com/django/django/blob/stable/1.8.x/django/contrib/postgres/lookups.py>`_ 
 
-.. include:: cheat/django.contrib.postgres.rst
+.. include:: cheat/django.contrib.postgres.lookups.rst
 
 .. automodule:: django.contrib.postgres.lookups
     :members:
@@ -58,7 +58,7 @@ django.contrib.postgres.operations
 
 - `Source:django.contrib.postgres.operations <https://github.com/django/django/blob/stable/1.8.x/django/contrib/postgres/operations.py>`_ 
 
-.. include:: cheat/django.contrib.postgres.rst
+.. include:: cheat/django.contrib.postgres.operations.rst
 
 .. automodule:: django.contrib.postgres.operations
     :members:
@@ -72,7 +72,7 @@ django.contrib.postgres.signals
 
 - `Source:django.contrib.postgres.signals <https://github.com/django/django/blob/stable/1.8.x/django/contrib/postgres/signals.py>`_ 
 
-.. include:: cheat/django.contrib.postgres.rst
+.. include:: cheat/django.contrib.postgres.signals.rst
 
 .. automodule:: django.contrib.postgres.signals
     :members:
@@ -86,7 +86,7 @@ django.contrib.postgres.validators
 
 - `Source:django.contrib.postgres.validators <https://github.com/django/django/blob/stable/1.8.x/django/contrib/postgres/validators.py>`_ 
 
-.. include:: cheat/django.contrib.postgres.rst
+.. include:: cheat/django.contrib.postgres.validators.rst
 
 .. automodule:: django.contrib.postgres.validators
     :members:

@@ -27,7 +27,7 @@ django.utils._os
 
 - `Source:django.utils._os <https://github.com/django/django/blob/stable/1.8.x/django/utils/_os.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils._os.rst
 
 .. automodule:: django.utils._os
     :members:
@@ -41,7 +41,7 @@ django.utils.archive
 
 - `Source:django.utils.archive <https://github.com/django/django/blob/stable/1.8.x/django/utils/archive.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.archive.rst
 
 .. automodule:: django.utils.archive
     :members:
@@ -55,7 +55,7 @@ django.utils.autoreload
 
 - `Source:django.utils.autoreload <https://github.com/django/django/blob/stable/1.8.x/django/utils/autoreload.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.autoreload.rst
 
 .. automodule:: django.utils.autoreload
     :members:
@@ -69,7 +69,7 @@ django.utils.baseconv
 
 - `Source:django.utils.baseconv <https://github.com/django/django/blob/stable/1.8.x/django/utils/baseconv.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.baseconv.rst
 
 .. automodule:: django.utils.baseconv
     :members:
@@ -83,7 +83,7 @@ django.utils.cache
 
 - `Source:django.utils.cache <https://github.com/django/django/blob/stable/1.8.x/django/utils/cache.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.cache.rst
 
 .. automodule:: django.utils.cache
     :members:
@@ -97,7 +97,7 @@ django.utils.checksums
 
 - `Source:django.utils.checksums <https://github.com/django/django/blob/stable/1.8.x/django/utils/checksums.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.checksums.rst
 
 .. automodule:: django.utils.checksums
     :members:
@@ -111,7 +111,7 @@ django.utils.crypto
 
 - `Source:django.utils.crypto <https://github.com/django/django/blob/stable/1.8.x/django/utils/crypto.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.crypto.rst
 
 .. automodule:: django.utils.crypto
     :members:
@@ -125,7 +125,7 @@ django.utils.daemonize
 
 - `Source:django.utils.daemonize <https://github.com/django/django/blob/stable/1.8.x/django/utils/daemonize.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.daemonize.rst
 
 .. automodule:: django.utils.daemonize
     :members:
@@ -139,7 +139,7 @@ django.utils.datastructures
 
 - `Source:django.utils.datastructures <https://github.com/django/django/blob/stable/1.8.x/django/utils/datastructures.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.datastructures.rst
 
 .. automodule:: django.utils.datastructures
     :members:
@@ -153,7 +153,7 @@ django.utils.dateformat
 
 - `Source:django.utils.dateformat <https://github.com/django/django/blob/stable/1.8.x/django/utils/dateformat.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.dateformat.rst
 
 .. automodule:: django.utils.dateformat
     :members:
@@ -167,7 +167,7 @@ django.utils.dateparse
 
 - `Source:django.utils.dateparse <https://github.com/django/django/blob/stable/1.8.x/django/utils/dateparse.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.dateparse.rst
 
 .. automodule:: django.utils.dateparse
     :members:
@@ -181,7 +181,7 @@ django.utils.dates
 
 - `Source:django.utils.dates <https://github.com/django/django/blob/stable/1.8.x/django/utils/dates.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.dates.rst
 
 .. automodule:: django.utils.dates
     :members:
@@ -195,7 +195,7 @@ django.utils.datetime_safe
 
 - `Source:django.utils.datetime_safe <https://github.com/django/django/blob/stable/1.8.x/django/utils/datetime_safe.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.datetime_safe.rst
 
 .. automodule:: django.utils.datetime_safe
     :members:
@@ -209,7 +209,7 @@ django.utils.deconstruct
 
 - `Source:django.utils.deconstruct <https://github.com/django/django/blob/stable/1.8.x/django/utils/deconstruct.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.deconstruct.rst
 
 .. automodule:: django.utils.deconstruct
     :members:
@@ -223,7 +223,7 @@ django.utils.decorators
 
 - `Source:django.utils.decorators <https://github.com/django/django/blob/stable/1.8.x/django/utils/decorators.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.decorators.rst
 
 .. automodule:: django.utils.decorators
     :members:
@@ -237,7 +237,7 @@ django.utils.deprecation
 
 - `Source:django.utils.deprecation <https://github.com/django/django/blob/stable/1.8.x/django/utils/deprecation.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.deprecation.rst
 
 .. automodule:: django.utils.deprecation
     :members:
@@ -251,7 +251,7 @@ django.utils.dictconfig
 
 - `Source:django.utils.dictconfig <https://github.com/django/django/blob/stable/1.8.x/django/utils/dictconfig.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.dictconfig.rst
 
 .. automodule:: django.utils.dictconfig
     :members:
@@ -265,7 +265,7 @@ django.utils.duration
 
 - `Source:django.utils.duration <https://github.com/django/django/blob/stable/1.8.x/django/utils/duration.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.duration.rst
 
 .. automodule:: django.utils.duration
     :members:
@@ -279,7 +279,7 @@ django.utils.encoding
 
 - `Source:django.utils.encoding <https://github.com/django/django/blob/stable/1.8.x/django/utils/encoding.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.encoding.rst
 
 .. automodule:: django.utils.encoding
     :members:
@@ -293,7 +293,7 @@ django.utils.feedgenerator
 
 - `Source:django.utils.feedgenerator <https://github.com/django/django/blob/stable/1.8.x/django/utils/feedgenerator.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.feedgenerator.rst
 
 .. automodule:: django.utils.feedgenerator
     :members:
@@ -307,7 +307,7 @@ django.utils.formats
 
 - `Source:django.utils.formats <https://github.com/django/django/blob/stable/1.8.x/django/utils/formats.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.formats.rst
 
 .. automodule:: django.utils.formats
     :members:
@@ -321,7 +321,7 @@ django.utils.functional
 
 - `Source:django.utils.functional <https://github.com/django/django/blob/stable/1.8.x/django/utils/functional.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.functional.rst
 
 .. automodule:: django.utils.functional
     :members:
@@ -335,7 +335,7 @@ django.utils.html
 
 - `Source:django.utils.html <https://github.com/django/django/blob/stable/1.8.x/django/utils/html.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.html.rst
 
 .. automodule:: django.utils.html
     :members:
@@ -349,7 +349,7 @@ django.utils.html_parser
 
 - `Source:django.utils.html_parser <https://github.com/django/django/blob/stable/1.8.x/django/utils/html_parser.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.html_parser.rst
 
 .. automodule:: django.utils.html_parser
     :members:
@@ -363,7 +363,7 @@ django.utils.http
 
 - `Source:django.utils.http <https://github.com/django/django/blob/stable/1.8.x/django/utils/http.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.http.rst
 
 .. automodule:: django.utils.http
     :members:
@@ -377,7 +377,7 @@ django.utils.importlib
 
 - `Source:django.utils.importlib <https://github.com/django/django/blob/stable/1.8.x/django/utils/importlib.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.importlib.rst
 
 .. automodule:: django.utils.importlib
     :members:
@@ -391,7 +391,7 @@ django.utils.ipv6
 
 - `Source:django.utils.ipv6 <https://github.com/django/django/blob/stable/1.8.x/django/utils/ipv6.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.ipv6.rst
 
 .. automodule:: django.utils.ipv6
     :members:
@@ -405,7 +405,7 @@ django.utils.itercompat
 
 - `Source:django.utils.itercompat <https://github.com/django/django/blob/stable/1.8.x/django/utils/itercompat.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.itercompat.rst
 
 .. automodule:: django.utils.itercompat
     :members:
@@ -419,7 +419,7 @@ django.utils.jslex
 
 - `Source:django.utils.jslex <https://github.com/django/django/blob/stable/1.8.x/django/utils/jslex.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.jslex.rst
 
 .. automodule:: django.utils.jslex
     :members:
@@ -433,7 +433,7 @@ django.utils.log
 
 - `Source:django.utils.log <https://github.com/django/django/blob/stable/1.8.x/django/utils/log.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.log.rst
 
 .. automodule:: django.utils.log
     :members:
@@ -447,7 +447,7 @@ django.utils.lorem_ipsum
 
 - `Source:django.utils.lorem_ipsum <https://github.com/django/django/blob/stable/1.8.x/django/utils/lorem_ipsum.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.lorem_ipsum.rst
 
 .. automodule:: django.utils.lorem_ipsum
     :members:
@@ -461,7 +461,7 @@ django.utils.lru_cache
 
 - `Source:django.utils.lru_cache <https://github.com/django/django/blob/stable/1.8.x/django/utils/lru_cache.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.lru_cache.rst
 
 .. automodule:: django.utils.lru_cache
     :members:
@@ -475,7 +475,7 @@ django.utils.module_loading
 
 - `Source:django.utils.module_loading <https://github.com/django/django/blob/stable/1.8.x/django/utils/module_loading.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.module_loading.rst
 
 .. automodule:: django.utils.module_loading
     :members:
@@ -489,7 +489,7 @@ django.utils.numberformat
 
 - `Source:django.utils.numberformat <https://github.com/django/django/blob/stable/1.8.x/django/utils/numberformat.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.numberformat.rst
 
 .. automodule:: django.utils.numberformat
     :members:
@@ -503,7 +503,7 @@ django.utils.regex_helper
 
 - `Source:django.utils.regex_helper <https://github.com/django/django/blob/stable/1.8.x/django/utils/regex_helper.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.regex_helper.rst
 
 .. automodule:: django.utils.regex_helper
     :members:
@@ -517,7 +517,7 @@ django.utils.safestring
 
 - `Source:django.utils.safestring <https://github.com/django/django/blob/stable/1.8.x/django/utils/safestring.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.safestring.rst
 
 .. automodule:: django.utils.safestring
     :members:
@@ -531,7 +531,7 @@ django.utils.six
 
 - `Source:django.utils.six <https://github.com/django/django/blob/stable/1.8.x/django/utils/six.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.six.rst
 
 .. automodule:: django.utils.six
     :members:
@@ -545,7 +545,7 @@ django.utils.synch
 
 - `Source:django.utils.synch <https://github.com/django/django/blob/stable/1.8.x/django/utils/synch.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.synch.rst
 
 .. automodule:: django.utils.synch
     :members:
@@ -559,7 +559,7 @@ django.utils.termcolors
 
 - `Source:django.utils.termcolors <https://github.com/django/django/blob/stable/1.8.x/django/utils/termcolors.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.termcolors.rst
 
 .. automodule:: django.utils.termcolors
     :members:
@@ -573,7 +573,7 @@ django.utils.text
 
 - `Source:django.utils.text <https://github.com/django/django/blob/stable/1.8.x/django/utils/text.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.text.rst
 
 .. automodule:: django.utils.text
     :members:
@@ -587,7 +587,7 @@ django.utils.timesince
 
 - `Source:django.utils.timesince <https://github.com/django/django/blob/stable/1.8.x/django/utils/timesince.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.timesince.rst
 
 .. automodule:: django.utils.timesince
     :members:
@@ -601,7 +601,7 @@ django.utils.timezone
 
 - `Source:django.utils.timezone <https://github.com/django/django/blob/stable/1.8.x/django/utils/timezone.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.timezone.rst
 
 .. automodule:: django.utils.timezone
     :members:
@@ -615,7 +615,7 @@ django.utils.tree
 
 - `Source:django.utils.tree <https://github.com/django/django/blob/stable/1.8.x/django/utils/tree.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.tree.rst
 
 .. automodule:: django.utils.tree
     :members:
@@ -629,7 +629,7 @@ django.utils.tzinfo
 
 - `Source:django.utils.tzinfo <https://github.com/django/django/blob/stable/1.8.x/django/utils/tzinfo.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.tzinfo.rst
 
 .. automodule:: django.utils.tzinfo
     :members:
@@ -643,7 +643,7 @@ django.utils.unittest
 
 - `Source:django.utils.unittest <https://github.com/django/django/blob/stable/1.8.x/django/utils/unittest.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.unittest.rst
 
 .. automodule:: django.utils.unittest
     :members:
@@ -657,7 +657,7 @@ django.utils.version
 
 - `Source:django.utils.version <https://github.com/django/django/blob/stable/1.8.x/django/utils/version.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.version.rst
 
 .. automodule:: django.utils.version
     :members:
@@ -671,7 +671,7 @@ django.utils.xmlutils
 
 - `Source:django.utils.xmlutils <https://github.com/django/django/blob/stable/1.8.x/django/utils/xmlutils.py>`_ 
 
-.. include:: cheat/django.utils.rst
+.. include:: cheat/django.utils.xmlutils.rst
 
 .. automodule:: django.utils.xmlutils
     :members:

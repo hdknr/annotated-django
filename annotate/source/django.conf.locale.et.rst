@@ -27,7 +27,7 @@ django.conf.locale.et.formats
 
 - `Source:django.conf.locale.et.formats <https://github.com/django/django/blob/stable/1.8.x/django/conf/locale/et/formats.py>`_ 
 
-.. include:: cheat/django.conf.locale.et.rst
+.. include:: cheat/django.conf.locale.et.formats.rst
 
 .. automodule:: django.conf.locale.et.formats
     :members:

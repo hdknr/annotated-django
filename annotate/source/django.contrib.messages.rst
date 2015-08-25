@@ -27,7 +27,7 @@ django.contrib.messages.api
 
 - `Source:django.contrib.messages.api <https://github.com/django/django/blob/stable/1.8.x/django/contrib/messages/api.py>`_ 
 
-.. include:: cheat/django.contrib.messages.rst
+.. include:: cheat/django.contrib.messages.api.rst
 
 .. automodule:: django.contrib.messages.api
     :members:
@@ -41,7 +41,7 @@ django.contrib.messages.apps
 
 - `Source:django.contrib.messages.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/messages/apps.py>`_ 
 
-.. include:: cheat/django.contrib.messages.rst
+.. include:: cheat/django.contrib.messages.apps.rst
 
 .. automodule:: django.contrib.messages.apps
     :members:
@@ -55,7 +55,7 @@ django.contrib.messages.constants
 
 - `Source:django.contrib.messages.constants <https://github.com/django/django/blob/stable/1.8.x/django/contrib/messages/constants.py>`_ 
 
-.. include:: cheat/django.contrib.messages.rst
+.. include:: cheat/django.contrib.messages.constants.rst
 
 .. automodule:: django.contrib.messages.constants
     :members:
@@ -69,7 +69,7 @@ django.contrib.messages.context_processors
 
 - `Source:django.contrib.messages.context_processors <https://github.com/django/django/blob/stable/1.8.x/django/contrib/messages/context_processors.py>`_ 
 
-.. include:: cheat/django.contrib.messages.rst
+.. include:: cheat/django.contrib.messages.context_processors.rst
 
 .. automodule:: django.contrib.messages.context_processors
     :members:
@@ -83,7 +83,7 @@ django.contrib.messages.middleware
 
 - `Source:django.contrib.messages.middleware <https://github.com/django/django/blob/stable/1.8.x/django/contrib/messages/middleware.py>`_ 
 
-.. include:: cheat/django.contrib.messages.rst
+.. include:: cheat/django.contrib.messages.middleware.rst
 
 .. automodule:: django.contrib.messages.middleware
     :members:
@@ -97,7 +97,7 @@ django.contrib.messages.utils
 
 - `Source:django.contrib.messages.utils <https://github.com/django/django/blob/stable/1.8.x/django/contrib/messages/utils.py>`_ 
 
-.. include:: cheat/django.contrib.messages.rst
+.. include:: cheat/django.contrib.messages.utils.rst
 
 .. automodule:: django.contrib.messages.utils
     :members:
@@ -111,7 +111,7 @@ django.contrib.messages.views
 
 - `Source:django.contrib.messages.views <https://github.com/django/django/blob/stable/1.8.x/django/contrib/messages/views.py>`_ 
 
-.. include:: cheat/django.contrib.messages.rst
+.. include:: cheat/django.contrib.messages.views.rst
 
 .. automodule:: django.contrib.messages.views
     :members:

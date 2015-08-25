@@ -27,7 +27,7 @@ django.contrib.sitemaps.management.commands.ping_google
 
 - `Source:django.contrib.sitemaps.management.commands.ping_google <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sitemaps/management/commands/ping_google.py>`_ 
 
-.. include:: cheat/django.contrib.sitemaps.management.commands.rst
+.. include:: cheat/django.contrib.sitemaps.management.commands.ping_google.rst
 
 .. automodule:: django.contrib.sitemaps.management.commands.ping_google
     :members:

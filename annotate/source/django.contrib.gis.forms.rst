@@ -27,7 +27,7 @@ django.contrib.gis.forms.fields
 
 - `Source:django.contrib.gis.forms.fields <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/forms/fields.py>`_ 
 
-.. include:: cheat/django.contrib.gis.forms.rst
+.. include:: cheat/django.contrib.gis.forms.fields.rst
 
 .. automodule:: django.contrib.gis.forms.fields
     :members:
@@ -41,7 +41,7 @@ django.contrib.gis.forms.widgets
 
 - `Source:django.contrib.gis.forms.widgets <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/forms/widgets.py>`_ 
 
-.. include:: cheat/django.contrib.gis.forms.rst
+.. include:: cheat/django.contrib.gis.forms.widgets.rst
 
 .. automodule:: django.contrib.gis.forms.widgets
     :members:

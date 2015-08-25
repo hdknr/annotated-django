@@ -27,7 +27,7 @@ django.contrib.admin.templatetags.admin_list
 
 - `Source:django.contrib.admin.templatetags.admin_list <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/templatetags/admin_list.py>`_ 
 
-.. include:: cheat/django.contrib.admin.templatetags.rst
+.. include:: cheat/django.contrib.admin.templatetags.admin_list.rst
 
 .. automodule:: django.contrib.admin.templatetags.admin_list
     :members:
@@ -41,7 +41,7 @@ django.contrib.admin.templatetags.admin_modify
 
 - `Source:django.contrib.admin.templatetags.admin_modify <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/templatetags/admin_modify.py>`_ 
 
-.. include:: cheat/django.contrib.admin.templatetags.rst
+.. include:: cheat/django.contrib.admin.templatetags.admin_modify.rst
 
 .. automodule:: django.contrib.admin.templatetags.admin_modify
     :members:
@@ -55,7 +55,7 @@ django.contrib.admin.templatetags.admin_static
 
 - `Source:django.contrib.admin.templatetags.admin_static <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/templatetags/admin_static.py>`_ 
 
-.. include:: cheat/django.contrib.admin.templatetags.rst
+.. include:: cheat/django.contrib.admin.templatetags.admin_static.rst
 
 .. automodule:: django.contrib.admin.templatetags.admin_static
     :members:
@@ -69,7 +69,7 @@ django.contrib.admin.templatetags.admin_urls
 
 - `Source:django.contrib.admin.templatetags.admin_urls <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/templatetags/admin_urls.py>`_ 
 
-.. include:: cheat/django.contrib.admin.templatetags.rst
+.. include:: cheat/django.contrib.admin.templatetags.admin_urls.rst
 
 .. automodule:: django.contrib.admin.templatetags.admin_urls
     :members:
@@ -83,7 +83,7 @@ django.contrib.admin.templatetags.log
 
 - `Source:django.contrib.admin.templatetags.log <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/templatetags/log.py>`_ 
 
-.. include:: cheat/django.contrib.admin.templatetags.rst
+.. include:: cheat/django.contrib.admin.templatetags.log.rst
 
 .. automodule:: django.contrib.admin.templatetags.log
     :members:

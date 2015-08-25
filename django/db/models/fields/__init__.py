@@ -19,13 +19,20 @@ from django.conf import settings
 from django import forms
 from django.core import exceptions, validators, checks
 from django.utils.datastructures import DictWrapper
-from django.utils.dateparse import parse_date, parse_datetime, parse_time, parse_duration
+from django.utils.dateparse import (
+    parse_date, parse_datetime,
+    parse_time, parse_duration
+)
 from django.utils.duration import duration_string
-from django.utils.functional import cached_property, curry, total_ordering, Promise
+from django.utils.functional import (
+    cached_property,
+    curry, total_ordering, Promise
+)
 from django.utils.text import capfirst
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-from django.utils.encoding import (smart_text, force_text, force_bytes,
+from django.utils.encoding import (
+    smart_text, force_text, force_bytes,
     python_2_unicode_compatible)
 from django.utils.ipv6 import clean_ipv6_address
 from django.utils import six
@@ -69,10 +76,15 @@ def _load_field(app_label, model_name, field_name):
 # A guide to Field parameters:
 #
 #   * name:      The name of the field specified in the model.
+#                モデルに指定されたフィールド名
+#
 #   * attname:   The attribute to use on the model object. This is the same as
 #                "name", except in the case of ForeignKeys, where "_id" is
 #                appended.
+#                ForeignKeyの場合 "_id"が後ろに追加される。
+#
 #   * db_column: The db_column specified in the model (or None).
+#
 #   * column:    The database column for this field. This is the same as
 #                "attname", except if db_column is specified.
 #
@@ -134,7 +146,8 @@ class Field(RegisterLookupMixin):
         }
     description = property(_description)
 
-    def __init__(self, verbose_name=None, name=None, primary_key=False,
+    def __init__(
+            self, verbose_name=None, name=None, primary_key=False,
             max_length=None, unique=False, blank=False, null=False,
             db_index=False, rel=None, default=NOT_PROVIDED, editable=True,
             serialize=True, unique_for_date=None, unique_for_month=None,
@@ -142,7 +155,9 @@ class Field(RegisterLookupMixin):
             db_tablespace=None, auto_created=False, validators=[],
             error_messages=None):
         self.name = name
-        self.verbose_name = verbose_name  # May be set by set_attributes_from_name
+        self.verbose_name = verbose_name
+        # May be set by set_attributes_from_name
+
         self._verbose_name = verbose_name  # Store original for deconstruction
         self.primary_key = primary_key
         self.max_length, self._unique = max_length, unique
@@ -316,7 +331,8 @@ class Field(RegisterLookupMixin):
                     ),
                     hint=self.system_check_removed_details.get('hint'),
                     obj=self,
-                    id=self.system_check_removed_details.get('id', 'fields.EXXX'),
+                    id=self.system_check_removed_details.get(
+                        'id', 'fields.EXXX'),
                 )
             ]
         elif self.system_check_deprecated_details is not None:
@@ -328,7 +344,8 @@ class Field(RegisterLookupMixin):
                     ),
                     hint=self.system_check_deprecated_details.get('hint'),
                     obj=self,
-                    id=self.system_check_deprecated_details.get('id', 'fields.WXXX'),
+                    id=self.system_check_deprecated_details.get(
+                        'id', 'fields.WXXX'),
                 )
             ]
         return []
@@ -349,9 +366,11 @@ class Field(RegisterLookupMixin):
 
     def select_format(self, compiler, sql, params):
         """
-        Custom format for select clauses. For example, GIS columns need to be
-        selected as AsText(table.col) on MySQL as the table.col data can't be used
-        by Django.
+        Custom format for select clauses.
+
+        For example, GIS columns need to be
+        selected as AsText(table.col)
+        on MySQL as the table.col data can't be used by Django.
         """
         return sql, params
 
@@ -359,9 +378,12 @@ class Field(RegisterLookupMixin):
         """
         Returns enough information to recreate the field as a 4-tuple:
 
-         * The name of the field on the model, if contribute_to_class has been run
-         * The import path of the field, including the class: django.db.models.IntegerField
-           This should be the most portable version, so less specific may be better.
+         * The name of the field on the model,
+           if contribute_to_class has been run
+         * The import path of the field, including the class:
+           django.db.models.IntegerField
+           This should be the most portable version,
+           so less specific may be better.
          * A list of positional arguments
          * A dict of keyword arguments
 
@@ -2336,7 +2358,8 @@ class BinaryField(Field):
         kwargs['editable'] = False
         super(BinaryField, self).__init__(*args, **kwargs)
         if self.max_length is not None:
-            self.validators.append(validators.MaxLengthValidator(self.max_length))
+            self.validators.append(
+                validators.MaxLengthValidator(self.max_length))
 
     def deconstruct(self):
         name, path, args, kwargs = super(BinaryField, self).deconstruct()
@@ -2355,14 +2378,16 @@ class BinaryField(Field):
         return default
 
     def get_db_prep_value(self, value, connection, prepared=False):
-        value = super(BinaryField, self).get_db_prep_value(value, connection, prepared)
+        value = super(BinaryField, self).get_db_prep_value(
+            value, connection, prepared)
         if value is not None:
             return connection.Database.Binary(value)
         return value
 
     def value_to_string(self, obj):
         """Binary data is serialized as base64"""
-        return b64encode(force_bytes(self._get_val_from_obj(obj))).decode('ascii')
+        return b64encode(
+            force_bytes(self._get_val_from_obj(obj))).decode('ascii')
 
     def to_python(self, value):
         # If it's a string, it should be base64-encoded data

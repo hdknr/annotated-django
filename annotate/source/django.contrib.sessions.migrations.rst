@@ -27,7 +27,7 @@ django.contrib.sessions.migrations.0001_initial
 
 - `Source:django.contrib.sessions.migrations.0001_initial <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sessions/migrations/0001_initial.py>`_ 
 
-.. include:: cheat/django.contrib.sessions.migrations.rst
+.. include:: cheat/django.contrib.sessions.migrations.0001_initial.rst
 
 .. automodule:: django.contrib.sessions.migrations.0001_initial
     :members:

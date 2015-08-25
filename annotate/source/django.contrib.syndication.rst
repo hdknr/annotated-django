@@ -27,7 +27,7 @@ django.contrib.syndication.apps
 
 - `Source:django.contrib.syndication.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/syndication/apps.py>`_ 
 
-.. include:: cheat/django.contrib.syndication.rst
+.. include:: cheat/django.contrib.syndication.apps.rst
 
 .. automodule:: django.contrib.syndication.apps
     :members:
@@ -41,7 +41,7 @@ django.contrib.syndication.views
 
 - `Source:django.contrib.syndication.views <https://github.com/django/django/blob/stable/1.8.x/django/contrib/syndication/views.py>`_ 
 
-.. include:: cheat/django.contrib.syndication.rst
+.. include:: cheat/django.contrib.syndication.views.rst
 
 .. automodule:: django.contrib.syndication.views
     :members:

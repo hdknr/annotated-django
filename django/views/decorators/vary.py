@@ -9,6 +9,8 @@ def vary_on_headers(*headers):
     A view decorator that adds the specified headers to the Vary header of the
     response. Usage:
 
+    .. code-block:: python
+
        @vary_on_headers('Cookie', 'Accept-language')
        def index(request):
            ...
@@ -29,6 +31,8 @@ def vary_on_cookie(func):
     """
     A view decorator that adds "Cookie" to the Vary header of a response. This
     indicates that a page's contents depends on cookies. Usage:
+
+    .. code-block:: python
 
         @vary_on_cookie
         def index(request):

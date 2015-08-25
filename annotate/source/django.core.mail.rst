@@ -27,7 +27,7 @@ django.core.mail.message
 
 - `Source:django.core.mail.message <https://github.com/django/django/blob/stable/1.8.x/django/core/mail/message.py>`_ 
 
-.. include:: cheat/django.core.mail.rst
+.. include:: cheat/django.core.mail.message.rst
 
 .. automodule:: django.core.mail.message
     :members:
@@ -41,7 +41,7 @@ django.core.mail.utils
 
 - `Source:django.core.mail.utils <https://github.com/django/django/blob/stable/1.8.x/django/core/mail/utils.py>`_ 
 
-.. include:: cheat/django.core.mail.rst
+.. include:: cheat/django.core.mail.utils.rst
 
 .. automodule:: django.core.mail.utils
     :members:

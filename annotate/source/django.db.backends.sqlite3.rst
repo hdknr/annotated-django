@@ -27,7 +27,7 @@ django.db.backends.sqlite3.base
 
 - `Source:django.db.backends.sqlite3.base <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/sqlite3/base.py>`_ 
 
-.. include:: cheat/django.db.backends.sqlite3.rst
+.. include:: cheat/django.db.backends.sqlite3.base.rst
 
 .. automodule:: django.db.backends.sqlite3.base
     :members:
@@ -41,7 +41,7 @@ django.db.backends.sqlite3.client
 
 - `Source:django.db.backends.sqlite3.client <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/sqlite3/client.py>`_ 
 
-.. include:: cheat/django.db.backends.sqlite3.rst
+.. include:: cheat/django.db.backends.sqlite3.client.rst
 
 .. automodule:: django.db.backends.sqlite3.client
     :members:
@@ -55,7 +55,7 @@ django.db.backends.sqlite3.creation
 
 - `Source:django.db.backends.sqlite3.creation <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/sqlite3/creation.py>`_ 
 
-.. include:: cheat/django.db.backends.sqlite3.rst
+.. include:: cheat/django.db.backends.sqlite3.creation.rst
 
 .. automodule:: django.db.backends.sqlite3.creation
     :members:
@@ -69,7 +69,7 @@ django.db.backends.sqlite3.features
 
 - `Source:django.db.backends.sqlite3.features <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/sqlite3/features.py>`_ 
 
-.. include:: cheat/django.db.backends.sqlite3.rst
+.. include:: cheat/django.db.backends.sqlite3.features.rst
 
 .. automodule:: django.db.backends.sqlite3.features
     :members:
@@ -83,7 +83,7 @@ django.db.backends.sqlite3.introspection
 
 - `Source:django.db.backends.sqlite3.introspection <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/sqlite3/introspection.py>`_ 
 
-.. include:: cheat/django.db.backends.sqlite3.rst
+.. include:: cheat/django.db.backends.sqlite3.introspection.rst
 
 .. automodule:: django.db.backends.sqlite3.introspection
     :members:
@@ -97,7 +97,7 @@ django.db.backends.sqlite3.operations
 
 - `Source:django.db.backends.sqlite3.operations <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/sqlite3/operations.py>`_ 
 
-.. include:: cheat/django.db.backends.sqlite3.rst
+.. include:: cheat/django.db.backends.sqlite3.operations.rst
 
 .. automodule:: django.db.backends.sqlite3.operations
     :members:
@@ -111,7 +111,7 @@ django.db.backends.sqlite3.schema
 
 - `Source:django.db.backends.sqlite3.schema <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/sqlite3/schema.py>`_ 
 
-.. include:: cheat/django.db.backends.sqlite3.rst
+.. include:: cheat/django.db.backends.sqlite3.schema.rst
 
 .. automodule:: django.db.backends.sqlite3.schema
     :members:
@@ -125,7 +125,7 @@ django.db.backends.sqlite3.utils
 
 - `Source:django.db.backends.sqlite3.utils <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/sqlite3/utils.py>`_ 
 
-.. include:: cheat/django.db.backends.sqlite3.rst
+.. include:: cheat/django.db.backends.sqlite3.utils.rst
 
 .. automodule:: django.db.backends.sqlite3.utils
     :members:

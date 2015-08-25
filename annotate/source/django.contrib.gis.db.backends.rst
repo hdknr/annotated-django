@@ -30,7 +30,7 @@ django.contrib.gis.db.backends.util
 
 - `Source:django.contrib.gis.db.backends.util <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/util.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.rst
+.. include:: cheat/django.contrib.gis.db.backends.util.rst
 
 .. automodule:: django.contrib.gis.db.backends.util
     :members:
@@ -44,7 +44,7 @@ django.contrib.gis.db.backends.utils
 
 - `Source:django.contrib.gis.db.backends.utils <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/utils.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.rst
+.. include:: cheat/django.contrib.gis.db.backends.utils.rst
 
 .. automodule:: django.contrib.gis.db.backends.utils
     :members:

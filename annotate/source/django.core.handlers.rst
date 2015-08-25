@@ -27,7 +27,7 @@ django.core.handlers.base
 
 - `Source:django.core.handlers.base <https://github.com/django/django/blob/stable/1.8.x/django/core/handlers/base.py>`_ 
 
-.. include:: cheat/django.core.handlers.rst
+.. include:: cheat/django.core.handlers.base.rst
 
 .. automodule:: django.core.handlers.base
     :members:
@@ -41,7 +41,7 @@ django.core.handlers.wsgi
 
 - `Source:django.core.handlers.wsgi <https://github.com/django/django/blob/stable/1.8.x/django/core/handlers/wsgi.py>`_ 
 
-.. include:: cheat/django.core.handlers.rst
+.. include:: cheat/django.core.handlers.wsgi.rst
 
 .. automodule:: django.core.handlers.wsgi
     :members:

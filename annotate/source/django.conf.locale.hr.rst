@@ -27,7 +27,7 @@ django.conf.locale.hr.formats
 
 - `Source:django.conf.locale.hr.formats <https://github.com/django/django/blob/stable/1.8.x/django/conf/locale/hr/formats.py>`_ 
 
-.. include:: cheat/django.conf.locale.hr.rst
+.. include:: cheat/django.conf.locale.hr.formats.rst
 
 .. automodule:: django.conf.locale.hr.formats
     :members:

@@ -30,7 +30,7 @@ django.contrib.gis.apps
 
 - `Source:django.contrib.gis.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/apps.py>`_ 
 
-.. include:: cheat/django.contrib.gis.rst
+.. include:: cheat/django.contrib.gis.apps.rst
 
 .. automodule:: django.contrib.gis.apps
     :members:
@@ -44,7 +44,7 @@ django.contrib.gis.feeds
 
 - `Source:django.contrib.gis.feeds <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/feeds.py>`_ 
 
-.. include:: cheat/django.contrib.gis.rst
+.. include:: cheat/django.contrib.gis.feeds.rst
 
 .. automodule:: django.contrib.gis.feeds
     :members:
@@ -58,7 +58,7 @@ django.contrib.gis.measure
 
 - `Source:django.contrib.gis.measure <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/measure.py>`_ 
 
-.. include:: cheat/django.contrib.gis.rst
+.. include:: cheat/django.contrib.gis.measure.rst
 
 .. automodule:: django.contrib.gis.measure
     :members:
@@ -72,7 +72,7 @@ django.contrib.gis.shortcuts
 
 - `Source:django.contrib.gis.shortcuts <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/shortcuts.py>`_ 
 
-.. include:: cheat/django.contrib.gis.rst
+.. include:: cheat/django.contrib.gis.shortcuts.rst
 
 .. automodule:: django.contrib.gis.shortcuts
     :members:
@@ -86,7 +86,7 @@ django.contrib.gis.views
 
 - `Source:django.contrib.gis.views <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/views.py>`_ 
 
-.. include:: cheat/django.contrib.gis.rst
+.. include:: cheat/django.contrib.gis.views.rst
 
 .. automodule:: django.contrib.gis.views
     :members:

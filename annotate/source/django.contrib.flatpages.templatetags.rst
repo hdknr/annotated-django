@@ -27,7 +27,7 @@ django.contrib.flatpages.templatetags.flatpages
 
 - `Source:django.contrib.flatpages.templatetags.flatpages <https://github.com/django/django/blob/stable/1.8.x/django/contrib/flatpages/templatetags/flatpages.py>`_ 
 
-.. include:: cheat/django.contrib.flatpages.templatetags.rst
+.. include:: cheat/django.contrib.flatpages.templatetags.flatpages.rst
 
 .. automodule:: django.contrib.flatpages.templatetags.flatpages
     :members:

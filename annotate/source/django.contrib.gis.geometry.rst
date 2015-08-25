@@ -27,7 +27,7 @@ django.contrib.gis.geometry.regex
 
 - `Source:django.contrib.gis.geometry.regex <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/geometry/regex.py>`_ 
 
-.. include:: cheat/django.contrib.gis.geometry.rst
+.. include:: cheat/django.contrib.gis.geometry.regex.rst
 
 .. automodule:: django.contrib.gis.geometry.regex
     :members:

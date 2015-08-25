@@ -27,7 +27,7 @@ django.contrib.gis.management.commands.inspectdb
 
 - `Source:django.contrib.gis.management.commands.inspectdb <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/management/commands/inspectdb.py>`_ 
 
-.. include:: cheat/django.contrib.gis.management.commands.rst
+.. include:: cheat/django.contrib.gis.management.commands.inspectdb.rst
 
 .. automodule:: django.contrib.gis.management.commands.inspectdb
     :members:
@@ -41,7 +41,7 @@ django.contrib.gis.management.commands.ogrinspect
 
 - `Source:django.contrib.gis.management.commands.ogrinspect <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/management/commands/ogrinspect.py>`_ 
 
-.. include:: cheat/django.contrib.gis.management.commands.rst
+.. include:: cheat/django.contrib.gis.management.commands.ogrinspect.rst
 
 .. automodule:: django.contrib.gis.management.commands.ogrinspect
     :members:

@@ -27,7 +27,7 @@ django.forms.fields
 
 - `Source:django.forms.fields <https://github.com/django/django/blob/stable/1.8.x/django/forms/fields.py>`_ 
 
-.. include:: cheat/django.forms.rst
+.. include:: cheat/django.forms.fields.rst
 
 .. automodule:: django.forms.fields
     :members:
@@ -41,7 +41,7 @@ django.forms.forms
 
 - `Source:django.forms.forms <https://github.com/django/django/blob/stable/1.8.x/django/forms/forms.py>`_ 
 
-.. include:: cheat/django.forms.rst
+.. include:: cheat/django.forms.forms.rst
 
 .. automodule:: django.forms.forms
     :members:
@@ -55,7 +55,7 @@ django.forms.formsets
 
 - `Source:django.forms.formsets <https://github.com/django/django/blob/stable/1.8.x/django/forms/formsets.py>`_ 
 
-.. include:: cheat/django.forms.rst
+.. include:: cheat/django.forms.formsets.rst
 
 .. automodule:: django.forms.formsets
     :members:
@@ -69,7 +69,7 @@ django.forms.models
 
 - `Source:django.forms.models <https://github.com/django/django/blob/stable/1.8.x/django/forms/models.py>`_ 
 
-.. include:: cheat/django.forms.rst
+.. include:: cheat/django.forms.models.rst
 
 .. automodule:: django.forms.models
     :members:
@@ -83,7 +83,7 @@ django.forms.util
 
 - `Source:django.forms.util <https://github.com/django/django/blob/stable/1.8.x/django/forms/util.py>`_ 
 
-.. include:: cheat/django.forms.rst
+.. include:: cheat/django.forms.util.rst
 
 .. automodule:: django.forms.util
     :members:
@@ -97,7 +97,7 @@ django.forms.utils
 
 - `Source:django.forms.utils <https://github.com/django/django/blob/stable/1.8.x/django/forms/utils.py>`_ 
 
-.. include:: cheat/django.forms.rst
+.. include:: cheat/django.forms.utils.rst
 
 .. automodule:: django.forms.utils
     :members:
@@ -111,7 +111,7 @@ django.forms.widgets
 
 - `Source:django.forms.widgets <https://github.com/django/django/blob/stable/1.8.x/django/forms/widgets.py>`_ 
 
-.. include:: cheat/django.forms.rst
+.. include:: cheat/django.forms.widgets.rst
 
 .. automodule:: django.forms.widgets
     :members:

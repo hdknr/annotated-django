@@ -30,7 +30,7 @@ django.core.checks.messages
 
 - `Source:django.core.checks.messages <https://github.com/django/django/blob/stable/1.8.x/django/core/checks/messages.py>`_ 
 
-.. include:: cheat/django.core.checks.rst
+.. include:: cheat/django.core.checks.messages.rst
 
 .. automodule:: django.core.checks.messages
     :members:
@@ -44,7 +44,7 @@ django.core.checks.model_checks
 
 - `Source:django.core.checks.model_checks <https://github.com/django/django/blob/stable/1.8.x/django/core/checks/model_checks.py>`_ 
 
-.. include:: cheat/django.core.checks.rst
+.. include:: cheat/django.core.checks.model_checks.rst
 
 .. automodule:: django.core.checks.model_checks
     :members:
@@ -58,7 +58,7 @@ django.core.checks.registry
 
 - `Source:django.core.checks.registry <https://github.com/django/django/blob/stable/1.8.x/django/core/checks/registry.py>`_ 
 
-.. include:: cheat/django.core.checks.rst
+.. include:: cheat/django.core.checks.registry.rst
 
 .. automodule:: django.core.checks.registry
     :members:

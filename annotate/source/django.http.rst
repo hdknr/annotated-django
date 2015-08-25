@@ -27,7 +27,7 @@ django.http.cookie
 
 - `Source:django.http.cookie <https://github.com/django/django/blob/stable/1.8.x/django/http/cookie.py>`_ 
 
-.. include:: cheat/django.http.rst
+.. include:: cheat/django.http.cookie.rst
 
 .. automodule:: django.http.cookie
     :members:
@@ -41,7 +41,7 @@ django.http.multipartparser
 
 - `Source:django.http.multipartparser <https://github.com/django/django/blob/stable/1.8.x/django/http/multipartparser.py>`_ 
 
-.. include:: cheat/django.http.rst
+.. include:: cheat/django.http.multipartparser.rst
 
 .. automodule:: django.http.multipartparser
     :members:
@@ -55,7 +55,7 @@ django.http.request
 
 - `Source:django.http.request <https://github.com/django/django/blob/stable/1.8.x/django/http/request.py>`_ 
 
-.. include:: cheat/django.http.rst
+.. include:: cheat/django.http.request.rst
 
 .. automodule:: django.http.request
     :members:
@@ -69,7 +69,7 @@ django.http.response
 
 - `Source:django.http.response <https://github.com/django/django/blob/stable/1.8.x/django/http/response.py>`_ 
 
-.. include:: cheat/django.http.rst
+.. include:: cheat/django.http.response.rst
 
 .. automodule:: django.http.response
     :members:
@@ -83,7 +83,7 @@ django.http.utils
 
 - `Source:django.http.utils <https://github.com/django/django/blob/stable/1.8.x/django/http/utils.py>`_ 
 
-.. include:: cheat/django.http.rst
+.. include:: cheat/django.http.utils.rst
 
 .. automodule:: django.http.utils
     :members:

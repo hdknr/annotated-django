@@ -27,7 +27,7 @@ django.db.backends.oracle.base
 
 - `Source:django.db.backends.oracle.base <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/oracle/base.py>`_ 
 
-.. include:: cheat/django.db.backends.oracle.rst
+.. include:: cheat/django.db.backends.oracle.base.rst
 
 .. automodule:: django.db.backends.oracle.base
     :members:
@@ -41,7 +41,7 @@ django.db.backends.oracle.client
 
 - `Source:django.db.backends.oracle.client <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/oracle/client.py>`_ 
 
-.. include:: cheat/django.db.backends.oracle.rst
+.. include:: cheat/django.db.backends.oracle.client.rst
 
 .. automodule:: django.db.backends.oracle.client
     :members:
@@ -55,7 +55,7 @@ django.db.backends.oracle.compiler
 
 - `Source:django.db.backends.oracle.compiler <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/oracle/compiler.py>`_ 
 
-.. include:: cheat/django.db.backends.oracle.rst
+.. include:: cheat/django.db.backends.oracle.compiler.rst
 
 .. automodule:: django.db.backends.oracle.compiler
     :members:
@@ -69,7 +69,7 @@ django.db.backends.oracle.creation
 
 - `Source:django.db.backends.oracle.creation <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/oracle/creation.py>`_ 
 
-.. include:: cheat/django.db.backends.oracle.rst
+.. include:: cheat/django.db.backends.oracle.creation.rst
 
 .. automodule:: django.db.backends.oracle.creation
     :members:
@@ -83,7 +83,7 @@ django.db.backends.oracle.features
 
 - `Source:django.db.backends.oracle.features <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/oracle/features.py>`_ 
 
-.. include:: cheat/django.db.backends.oracle.rst
+.. include:: cheat/django.db.backends.oracle.features.rst
 
 .. automodule:: django.db.backends.oracle.features
     :members:
@@ -97,7 +97,7 @@ django.db.backends.oracle.introspection
 
 - `Source:django.db.backends.oracle.introspection <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/oracle/introspection.py>`_ 
 
-.. include:: cheat/django.db.backends.oracle.rst
+.. include:: cheat/django.db.backends.oracle.introspection.rst
 
 .. automodule:: django.db.backends.oracle.introspection
     :members:
@@ -111,7 +111,7 @@ django.db.backends.oracle.operations
 
 - `Source:django.db.backends.oracle.operations <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/oracle/operations.py>`_ 
 
-.. include:: cheat/django.db.backends.oracle.rst
+.. include:: cheat/django.db.backends.oracle.operations.rst
 
 .. automodule:: django.db.backends.oracle.operations
     :members:
@@ -125,7 +125,7 @@ django.db.backends.oracle.schema
 
 - `Source:django.db.backends.oracle.schema <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/oracle/schema.py>`_ 
 
-.. include:: cheat/django.db.backends.oracle.rst
+.. include:: cheat/django.db.backends.oracle.schema.rst
 
 .. automodule:: django.db.backends.oracle.schema
     :members:
@@ -139,7 +139,7 @@ django.db.backends.oracle.utils
 
 - `Source:django.db.backends.oracle.utils <https://github.com/django/django/blob/stable/1.8.x/django/db/backends/oracle/utils.py>`_ 
 
-.. include:: cheat/django.db.backends.oracle.rst
+.. include:: cheat/django.db.backends.oracle.utils.rst
 
 .. automodule:: django.db.backends.oracle.utils
     :members:

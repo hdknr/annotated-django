@@ -30,7 +30,7 @@ django.contrib.contenttypes.admin
 
 - `Source:django.contrib.contenttypes.admin <https://github.com/django/django/blob/stable/1.8.x/django/contrib/contenttypes/admin.py>`_ 
 
-.. include:: cheat/django.contrib.contenttypes.rst
+.. include:: cheat/django.contrib.contenttypes.admin.rst
 
 .. automodule:: django.contrib.contenttypes.admin
     :members:
@@ -44,7 +44,7 @@ django.contrib.contenttypes.apps
 
 - `Source:django.contrib.contenttypes.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/contenttypes/apps.py>`_ 
 
-.. include:: cheat/django.contrib.contenttypes.rst
+.. include:: cheat/django.contrib.contenttypes.apps.rst
 
 .. automodule:: django.contrib.contenttypes.apps
     :members:
@@ -58,7 +58,7 @@ django.contrib.contenttypes.checks
 
 - `Source:django.contrib.contenttypes.checks <https://github.com/django/django/blob/stable/1.8.x/django/contrib/contenttypes/checks.py>`_ 
 
-.. include:: cheat/django.contrib.contenttypes.rst
+.. include:: cheat/django.contrib.contenttypes.checks.rst
 
 .. automodule:: django.contrib.contenttypes.checks
     :members:
@@ -72,7 +72,7 @@ django.contrib.contenttypes.fields
 
 - `Source:django.contrib.contenttypes.fields <https://github.com/django/django/blob/stable/1.8.x/django/contrib/contenttypes/fields.py>`_ 
 
-.. include:: cheat/django.contrib.contenttypes.rst
+.. include:: cheat/django.contrib.contenttypes.fields.rst
 
 .. automodule:: django.contrib.contenttypes.fields
     :members:
@@ -86,7 +86,7 @@ django.contrib.contenttypes.forms
 
 - `Source:django.contrib.contenttypes.forms <https://github.com/django/django/blob/stable/1.8.x/django/contrib/contenttypes/forms.py>`_ 
 
-.. include:: cheat/django.contrib.contenttypes.rst
+.. include:: cheat/django.contrib.contenttypes.forms.rst
 
 .. automodule:: django.contrib.contenttypes.forms
     :members:
@@ -100,7 +100,7 @@ django.contrib.contenttypes.generic
 
 - `Source:django.contrib.contenttypes.generic <https://github.com/django/django/blob/stable/1.8.x/django/contrib/contenttypes/generic.py>`_ 
 
-.. include:: cheat/django.contrib.contenttypes.rst
+.. include:: cheat/django.contrib.contenttypes.generic.rst
 
 .. automodule:: django.contrib.contenttypes.generic
     :members:
@@ -114,7 +114,7 @@ django.contrib.contenttypes.management
 
 - `Source:django.contrib.contenttypes.management <https://github.com/django/django/blob/stable/1.8.x/django/contrib/contenttypes/management.py>`_ 
 
-.. include:: cheat/django.contrib.contenttypes.rst
+.. include:: cheat/django.contrib.contenttypes.management.rst
 
 .. automodule:: django.contrib.contenttypes.management
     :members:
@@ -128,7 +128,7 @@ django.contrib.contenttypes.models
 
 - `Source:django.contrib.contenttypes.models <https://github.com/django/django/blob/stable/1.8.x/django/contrib/contenttypes/models.py>`_ 
 
-.. include:: cheat/django.contrib.contenttypes.rst
+.. include:: cheat/django.contrib.contenttypes.models.rst
 
 .. automodule:: django.contrib.contenttypes.models
     :members:
@@ -142,7 +142,7 @@ django.contrib.contenttypes.views
 
 - `Source:django.contrib.contenttypes.views <https://github.com/django/django/blob/stable/1.8.x/django/contrib/contenttypes/views.py>`_ 
 
-.. include:: cheat/django.contrib.contenttypes.rst
+.. include:: cheat/django.contrib.contenttypes.views.rst
 
 .. automodule:: django.contrib.contenttypes.views
     :members:

@@ -27,7 +27,7 @@ django.conf.locale.id.formats
 
 - `Source:django.conf.locale.id.formats <https://github.com/django/django/blob/stable/1.8.x/django/conf/locale/id/formats.py>`_ 
 
-.. include:: cheat/django.conf.locale.id.rst
+.. include:: cheat/django.conf.locale.id.formats.rst
 
 .. automodule:: django.conf.locale.id.formats
     :members:

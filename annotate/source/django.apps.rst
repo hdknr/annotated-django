@@ -27,7 +27,7 @@ django.apps.config
 
 - `Source:django.apps.config <https://github.com/django/django/blob/stable/1.8.x/django/apps/config.py>`_ 
 
-.. include:: cheat/django.apps.rst
+.. include:: cheat/django.apps.config.rst
 
 .. automodule:: django.apps.config
     :members:
@@ -41,7 +41,7 @@ django.apps.registry
 
 - `Source:django.apps.registry <https://github.com/django/django/blob/stable/1.8.x/django/apps/registry.py>`_ 
 
-.. include:: cheat/django.apps.rst
+.. include:: cheat/django.apps.registry.rst
 
 .. automodule:: django.apps.registry
     :members:

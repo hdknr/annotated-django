@@ -30,7 +30,7 @@ django.contrib.redirects.admin
 
 - `Source:django.contrib.redirects.admin <https://github.com/django/django/blob/stable/1.8.x/django/contrib/redirects/admin.py>`_ 
 
-.. include:: cheat/django.contrib.redirects.rst
+.. include:: cheat/django.contrib.redirects.admin.rst
 
 .. automodule:: django.contrib.redirects.admin
     :members:
@@ -44,7 +44,7 @@ django.contrib.redirects.apps
 
 - `Source:django.contrib.redirects.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/redirects/apps.py>`_ 
 
-.. include:: cheat/django.contrib.redirects.rst
+.. include:: cheat/django.contrib.redirects.apps.rst
 
 .. automodule:: django.contrib.redirects.apps
     :members:
@@ -58,7 +58,7 @@ django.contrib.redirects.middleware
 
 - `Source:django.contrib.redirects.middleware <https://github.com/django/django/blob/stable/1.8.x/django/contrib/redirects/middleware.py>`_ 
 
-.. include:: cheat/django.contrib.redirects.rst
+.. include:: cheat/django.contrib.redirects.middleware.rst
 
 .. automodule:: django.contrib.redirects.middleware
     :members:
@@ -72,7 +72,7 @@ django.contrib.redirects.models
 
 - `Source:django.contrib.redirects.models <https://github.com/django/django/blob/stable/1.8.x/django/contrib/redirects/models.py>`_ 
 
-.. include:: cheat/django.contrib.redirects.rst
+.. include:: cheat/django.contrib.redirects.models.rst
 
 .. automodule:: django.contrib.redirects.models
     :members:

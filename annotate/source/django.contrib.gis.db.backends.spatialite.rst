@@ -27,7 +27,7 @@ django.contrib.gis.db.backends.spatialite.adapter
 
 - `Source:django.contrib.gis.db.backends.spatialite.adapter <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/spatialite/adapter.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.spatialite.rst
+.. include:: cheat/django.contrib.gis.db.backends.spatialite.adapter.rst
 
 .. automodule:: django.contrib.gis.db.backends.spatialite.adapter
     :members:
@@ -41,7 +41,7 @@ django.contrib.gis.db.backends.spatialite.base
 
 - `Source:django.contrib.gis.db.backends.spatialite.base <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/spatialite/base.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.spatialite.rst
+.. include:: cheat/django.contrib.gis.db.backends.spatialite.base.rst
 
 .. automodule:: django.contrib.gis.db.backends.spatialite.base
     :members:
@@ -55,7 +55,7 @@ django.contrib.gis.db.backends.spatialite.client
 
 - `Source:django.contrib.gis.db.backends.spatialite.client <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/spatialite/client.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.spatialite.rst
+.. include:: cheat/django.contrib.gis.db.backends.spatialite.client.rst
 
 .. automodule:: django.contrib.gis.db.backends.spatialite.client
     :members:
@@ -69,7 +69,7 @@ django.contrib.gis.db.backends.spatialite.creation
 
 - `Source:django.contrib.gis.db.backends.spatialite.creation <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/spatialite/creation.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.spatialite.rst
+.. include:: cheat/django.contrib.gis.db.backends.spatialite.creation.rst
 
 .. automodule:: django.contrib.gis.db.backends.spatialite.creation
     :members:
@@ -83,7 +83,7 @@ django.contrib.gis.db.backends.spatialite.features
 
 - `Source:django.contrib.gis.db.backends.spatialite.features <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/spatialite/features.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.spatialite.rst
+.. include:: cheat/django.contrib.gis.db.backends.spatialite.features.rst
 
 .. automodule:: django.contrib.gis.db.backends.spatialite.features
     :members:
@@ -97,7 +97,7 @@ django.contrib.gis.db.backends.spatialite.introspection
 
 - `Source:django.contrib.gis.db.backends.spatialite.introspection <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/spatialite/introspection.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.spatialite.rst
+.. include:: cheat/django.contrib.gis.db.backends.spatialite.introspection.rst
 
 .. automodule:: django.contrib.gis.db.backends.spatialite.introspection
     :members:
@@ -111,7 +111,7 @@ django.contrib.gis.db.backends.spatialite.models
 
 - `Source:django.contrib.gis.db.backends.spatialite.models <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/spatialite/models.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.spatialite.rst
+.. include:: cheat/django.contrib.gis.db.backends.spatialite.models.rst
 
 .. automodule:: django.contrib.gis.db.backends.spatialite.models
     :members:
@@ -125,7 +125,7 @@ django.contrib.gis.db.backends.spatialite.operations
 
 - `Source:django.contrib.gis.db.backends.spatialite.operations <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/spatialite/operations.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.spatialite.rst
+.. include:: cheat/django.contrib.gis.db.backends.spatialite.operations.rst
 
 .. automodule:: django.contrib.gis.db.backends.spatialite.operations
     :members:
@@ -139,7 +139,7 @@ django.contrib.gis.db.backends.spatialite.schema
 
 - `Source:django.contrib.gis.db.backends.spatialite.schema <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/spatialite/schema.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.spatialite.rst
+.. include:: cheat/django.contrib.gis.db.backends.spatialite.schema.rst
 
 .. automodule:: django.contrib.gis.db.backends.spatialite.schema
     :members:

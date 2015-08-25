@@ -27,7 +27,7 @@ django.contrib.gis.db.backends.oracle.adapter
 
 - `Source:django.contrib.gis.db.backends.oracle.adapter <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/oracle/adapter.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.oracle.rst
+.. include:: cheat/django.contrib.gis.db.backends.oracle.adapter.rst
 
 .. automodule:: django.contrib.gis.db.backends.oracle.adapter
     :members:
@@ -41,7 +41,7 @@ django.contrib.gis.db.backends.oracle.base
 
 - `Source:django.contrib.gis.db.backends.oracle.base <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/oracle/base.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.oracle.rst
+.. include:: cheat/django.contrib.gis.db.backends.oracle.base.rst
 
 .. automodule:: django.contrib.gis.db.backends.oracle.base
     :members:
@@ -55,7 +55,7 @@ django.contrib.gis.db.backends.oracle.creation
 
 - `Source:django.contrib.gis.db.backends.oracle.creation <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/oracle/creation.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.oracle.rst
+.. include:: cheat/django.contrib.gis.db.backends.oracle.creation.rst
 
 .. automodule:: django.contrib.gis.db.backends.oracle.creation
     :members:
@@ -69,7 +69,7 @@ django.contrib.gis.db.backends.oracle.features
 
 - `Source:django.contrib.gis.db.backends.oracle.features <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/oracle/features.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.oracle.rst
+.. include:: cheat/django.contrib.gis.db.backends.oracle.features.rst
 
 .. automodule:: django.contrib.gis.db.backends.oracle.features
     :members:
@@ -83,7 +83,7 @@ django.contrib.gis.db.backends.oracle.introspection
 
 - `Source:django.contrib.gis.db.backends.oracle.introspection <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/oracle/introspection.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.oracle.rst
+.. include:: cheat/django.contrib.gis.db.backends.oracle.introspection.rst
 
 .. automodule:: django.contrib.gis.db.backends.oracle.introspection
     :members:
@@ -97,7 +97,7 @@ django.contrib.gis.db.backends.oracle.models
 
 - `Source:django.contrib.gis.db.backends.oracle.models <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/oracle/models.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.oracle.rst
+.. include:: cheat/django.contrib.gis.db.backends.oracle.models.rst
 
 .. automodule:: django.contrib.gis.db.backends.oracle.models
     :members:
@@ -111,7 +111,7 @@ django.contrib.gis.db.backends.oracle.operations
 
 - `Source:django.contrib.gis.db.backends.oracle.operations <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/oracle/operations.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.oracle.rst
+.. include:: cheat/django.contrib.gis.db.backends.oracle.operations.rst
 
 .. automodule:: django.contrib.gis.db.backends.oracle.operations
     :members:
@@ -125,7 +125,7 @@ django.contrib.gis.db.backends.oracle.schema
 
 - `Source:django.contrib.gis.db.backends.oracle.schema <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/backends/oracle/schema.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.backends.oracle.rst
+.. include:: cheat/django.contrib.gis.db.backends.oracle.schema.rst
 
 .. automodule:: django.contrib.gis.db.backends.oracle.schema
     :members:

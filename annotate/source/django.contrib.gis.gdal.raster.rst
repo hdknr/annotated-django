@@ -27,7 +27,7 @@ django.contrib.gis.gdal.raster.band
 
 - `Source:django.contrib.gis.gdal.raster.band <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/gdal/raster/band.py>`_ 
 
-.. include:: cheat/django.contrib.gis.gdal.raster.rst
+.. include:: cheat/django.contrib.gis.gdal.raster.band.rst
 
 .. automodule:: django.contrib.gis.gdal.raster.band
     :members:
@@ -41,7 +41,7 @@ django.contrib.gis.gdal.raster.const
 
 - `Source:django.contrib.gis.gdal.raster.const <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/gdal/raster/const.py>`_ 
 
-.. include:: cheat/django.contrib.gis.gdal.raster.rst
+.. include:: cheat/django.contrib.gis.gdal.raster.const.rst
 
 .. automodule:: django.contrib.gis.gdal.raster.const
     :members:
@@ -55,7 +55,7 @@ django.contrib.gis.gdal.raster.source
 
 - `Source:django.contrib.gis.gdal.raster.source <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/gdal/raster/source.py>`_ 
 
-.. include:: cheat/django.contrib.gis.gdal.raster.rst
+.. include:: cheat/django.contrib.gis.gdal.raster.source.rst
 
 .. automodule:: django.contrib.gis.gdal.raster.source
     :members:

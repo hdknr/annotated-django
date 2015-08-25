@@ -27,7 +27,7 @@ django.core.files.base
 
 - `Source:django.core.files.base <https://github.com/django/django/blob/stable/1.8.x/django/core/files/base.py>`_ 
 
-.. include:: cheat/django.core.files.rst
+.. include:: cheat/django.core.files.base.rst
 
 .. automodule:: django.core.files.base
     :members:
@@ -41,7 +41,7 @@ django.core.files.images
 
 - `Source:django.core.files.images <https://github.com/django/django/blob/stable/1.8.x/django/core/files/images.py>`_ 
 
-.. include:: cheat/django.core.files.rst
+.. include:: cheat/django.core.files.images.rst
 
 .. automodule:: django.core.files.images
     :members:
@@ -55,7 +55,7 @@ django.core.files.locks
 
 - `Source:django.core.files.locks <https://github.com/django/django/blob/stable/1.8.x/django/core/files/locks.py>`_ 
 
-.. include:: cheat/django.core.files.rst
+.. include:: cheat/django.core.files.locks.rst
 
 .. automodule:: django.core.files.locks
     :members:
@@ -69,7 +69,7 @@ django.core.files.move
 
 - `Source:django.core.files.move <https://github.com/django/django/blob/stable/1.8.x/django/core/files/move.py>`_ 
 
-.. include:: cheat/django.core.files.rst
+.. include:: cheat/django.core.files.move.rst
 
 .. automodule:: django.core.files.move
     :members:
@@ -83,7 +83,7 @@ django.core.files.storage
 
 - `Source:django.core.files.storage <https://github.com/django/django/blob/stable/1.8.x/django/core/files/storage.py>`_ 
 
-.. include:: cheat/django.core.files.rst
+.. include:: cheat/django.core.files.storage.rst
 
 .. automodule:: django.core.files.storage
     :members:
@@ -97,7 +97,7 @@ django.core.files.temp
 
 - `Source:django.core.files.temp <https://github.com/django/django/blob/stable/1.8.x/django/core/files/temp.py>`_ 
 
-.. include:: cheat/django.core.files.rst
+.. include:: cheat/django.core.files.temp.rst
 
 .. automodule:: django.core.files.temp
     :members:
@@ -111,7 +111,7 @@ django.core.files.uploadedfile
 
 - `Source:django.core.files.uploadedfile <https://github.com/django/django/blob/stable/1.8.x/django/core/files/uploadedfile.py>`_ 
 
-.. include:: cheat/django.core.files.rst
+.. include:: cheat/django.core.files.uploadedfile.rst
 
 .. automodule:: django.core.files.uploadedfile
     :members:
@@ -125,7 +125,7 @@ django.core.files.uploadhandler
 
 - `Source:django.core.files.uploadhandler <https://github.com/django/django/blob/stable/1.8.x/django/core/files/uploadhandler.py>`_ 
 
-.. include:: cheat/django.core.files.rst
+.. include:: cheat/django.core.files.uploadhandler.rst
 
 .. automodule:: django.core.files.uploadhandler
     :members:
@@ -139,7 +139,7 @@ django.core.files.utils
 
 - `Source:django.core.files.utils <https://github.com/django/django/blob/stable/1.8.x/django/core/files/utils.py>`_ 
 
-.. include:: cheat/django.core.files.rst
+.. include:: cheat/django.core.files.utils.rst
 
 .. automodule:: django.core.files.utils
     :members:

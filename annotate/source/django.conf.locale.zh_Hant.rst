@@ -27,7 +27,7 @@ django.conf.locale.zh_Hant.formats
 
 - `Source:django.conf.locale.zh_Hant.formats <https://github.com/django/django/blob/stable/1.8.x/django/conf/locale/zh_Hant/formats.py>`_ 
 
-.. include:: cheat/django.conf.locale.zh_Hant.rst
+.. include:: cheat/django.conf.locale.zh_Hant.formats.rst
 
 .. automodule:: django.conf.locale.zh_Hant.formats
     :members:

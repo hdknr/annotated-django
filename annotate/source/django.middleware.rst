@@ -27,7 +27,7 @@ django.middleware.cache
 
 - `Source:django.middleware.cache <https://github.com/django/django/blob/stable/1.8.x/django/middleware/cache.py>`_ 
 
-.. include:: cheat/django.middleware.rst
+.. include:: cheat/django.middleware.cache.rst
 
 .. automodule:: django.middleware.cache
     :members:
@@ -41,7 +41,7 @@ django.middleware.clickjacking
 
 - `Source:django.middleware.clickjacking <https://github.com/django/django/blob/stable/1.8.x/django/middleware/clickjacking.py>`_ 
 
-.. include:: cheat/django.middleware.rst
+.. include:: cheat/django.middleware.clickjacking.rst
 
 .. automodule:: django.middleware.clickjacking
     :members:
@@ -55,7 +55,7 @@ django.middleware.common
 
 - `Source:django.middleware.common <https://github.com/django/django/blob/stable/1.8.x/django/middleware/common.py>`_ 
 
-.. include:: cheat/django.middleware.rst
+.. include:: cheat/django.middleware.common.rst
 
 .. automodule:: django.middleware.common
     :members:
@@ -69,7 +69,7 @@ django.middleware.csrf
 
 - `Source:django.middleware.csrf <https://github.com/django/django/blob/stable/1.8.x/django/middleware/csrf.py>`_ 
 
-.. include:: cheat/django.middleware.rst
+.. include:: cheat/django.middleware.csrf.rst
 
 .. automodule:: django.middleware.csrf
     :members:
@@ -83,7 +83,7 @@ django.middleware.gzip
 
 - `Source:django.middleware.gzip <https://github.com/django/django/blob/stable/1.8.x/django/middleware/gzip.py>`_ 
 
-.. include:: cheat/django.middleware.rst
+.. include:: cheat/django.middleware.gzip.rst
 
 .. automodule:: django.middleware.gzip
     :members:
@@ -97,7 +97,7 @@ django.middleware.http
 
 - `Source:django.middleware.http <https://github.com/django/django/blob/stable/1.8.x/django/middleware/http.py>`_ 
 
-.. include:: cheat/django.middleware.rst
+.. include:: cheat/django.middleware.http.rst
 
 .. automodule:: django.middleware.http
     :members:
@@ -111,7 +111,7 @@ django.middleware.locale
 
 - `Source:django.middleware.locale <https://github.com/django/django/blob/stable/1.8.x/django/middleware/locale.py>`_ 
 
-.. include:: cheat/django.middleware.rst
+.. include:: cheat/django.middleware.locale.rst
 
 .. automodule:: django.middleware.locale
     :members:
@@ -125,7 +125,7 @@ django.middleware.security
 
 - `Source:django.middleware.security <https://github.com/django/django/blob/stable/1.8.x/django/middleware/security.py>`_ 
 
-.. include:: cheat/django.middleware.rst
+.. include:: cheat/django.middleware.security.rst
 
 .. automodule:: django.middleware.security
     :members:

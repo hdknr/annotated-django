@@ -27,7 +27,7 @@ django.contrib.gis.sitemaps.kml
 
 - `Source:django.contrib.gis.sitemaps.kml <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/sitemaps/kml.py>`_ 
 
-.. include:: cheat/django.contrib.gis.sitemaps.rst
+.. include:: cheat/django.contrib.gis.sitemaps.kml.rst
 
 .. automodule:: django.contrib.gis.sitemaps.kml
     :members:
@@ -41,7 +41,7 @@ django.contrib.gis.sitemaps.views
 
 - `Source:django.contrib.gis.sitemaps.views <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/sitemaps/views.py>`_ 
 
-.. include:: cheat/django.contrib.gis.sitemaps.rst
+.. include:: cheat/django.contrib.gis.sitemaps.views.rst
 
 .. automodule:: django.contrib.gis.sitemaps.views
     :members:

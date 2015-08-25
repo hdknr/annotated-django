@@ -27,7 +27,7 @@ django.contrib.auth.management.commands.changepassword
 
 - `Source:django.contrib.auth.management.commands.changepassword <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/management/commands/changepassword.py>`_ 
 
-.. include:: cheat/django.contrib.auth.management.commands.rst
+.. include:: cheat/django.contrib.auth.management.commands.changepassword.rst
 
 .. automodule:: django.contrib.auth.management.commands.changepassword
     :members:
@@ -41,7 +41,7 @@ django.contrib.auth.management.commands.createsuperuser
 
 - `Source:django.contrib.auth.management.commands.createsuperuser <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/management/commands/createsuperuser.py>`_ 
 
-.. include:: cheat/django.contrib.auth.management.commands.rst
+.. include:: cheat/django.contrib.auth.management.commands.createsuperuser.rst
 
 .. automodule:: django.contrib.auth.management.commands.createsuperuser
     :members:

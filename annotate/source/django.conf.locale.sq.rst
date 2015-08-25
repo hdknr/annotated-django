@@ -27,7 +27,7 @@ django.conf.locale.sq.formats
 
 - `Source:django.conf.locale.sq.formats <https://github.com/django/django/blob/stable/1.8.x/django/conf/locale/sq/formats.py>`_ 
 
-.. include:: cheat/django.conf.locale.sq.rst
+.. include:: cheat/django.conf.locale.sq.formats.rst
 
 .. automodule:: django.conf.locale.sq.formats
     :members:

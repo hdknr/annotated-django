@@ -11,9 +11,11 @@ def xframe_options_deny(view_func):
 
     e.g.
 
-    @xframe_options_deny
-    def some_view(request):
-        ...
+    .. code-block:: python
+
+        @xframe_options_deny
+        def some_view(request):
+            ...
 
     """
     def wrapped_view(*args, **kwargs):
@@ -32,9 +34,11 @@ def xframe_options_sameorigin(view_func):
 
     e.g.
 
-    @xframe_options_sameorigin
-    def some_view(request):
-        ...
+    .. code-block:: python
+
+        @xframe_options_sameorigin
+        def some_view(request):
+            ...
 
     """
     def wrapped_view(*args, **kwargs):
@@ -52,9 +56,11 @@ def xframe_options_exempt(view_func):
 
     e.g.
 
-    @xframe_options_exempt
-    def some_view(request):
-        ...
+    .. code-block:: python
+
+        @xframe_options_exempt
+        def some_view(request):
+            ...
 
     """
     def wrapped_view(*args, **kwargs):

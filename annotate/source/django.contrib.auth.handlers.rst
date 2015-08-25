@@ -27,7 +27,7 @@ django.contrib.auth.handlers.modwsgi
 
 - `Source:django.contrib.auth.handlers.modwsgi <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/handlers/modwsgi.py>`_ 
 
-.. include:: cheat/django.contrib.auth.handlers.rst
+.. include:: cheat/django.contrib.auth.handlers.modwsgi.rst
 
 .. automodule:: django.contrib.auth.handlers.modwsgi
     :members:

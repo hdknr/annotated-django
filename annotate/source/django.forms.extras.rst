@@ -27,7 +27,7 @@ django.forms.extras.widgets
 
 - `Source:django.forms.extras.widgets <https://github.com/django/django/blob/stable/1.8.x/django/forms/extras/widgets.py>`_ 
 
-.. include:: cheat/django.forms.extras.rst
+.. include:: cheat/django.forms.extras.widgets.rst
 
 .. automodule:: django.forms.extras.widgets
     :members:

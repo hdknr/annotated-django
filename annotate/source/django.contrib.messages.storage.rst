@@ -27,7 +27,7 @@ django.contrib.messages.storage.base
 
 - `Source:django.contrib.messages.storage.base <https://github.com/django/django/blob/stable/1.8.x/django/contrib/messages/storage/base.py>`_ 
 
-.. include:: cheat/django.contrib.messages.storage.rst
+.. include:: cheat/django.contrib.messages.storage.base.rst
 
 .. automodule:: django.contrib.messages.storage.base
     :members:
@@ -41,7 +41,7 @@ django.contrib.messages.storage.cookie
 
 - `Source:django.contrib.messages.storage.cookie <https://github.com/django/django/blob/stable/1.8.x/django/contrib/messages/storage/cookie.py>`_ 
 
-.. include:: cheat/django.contrib.messages.storage.rst
+.. include:: cheat/django.contrib.messages.storage.cookie.rst
 
 .. automodule:: django.contrib.messages.storage.cookie
     :members:
@@ -55,7 +55,7 @@ django.contrib.messages.storage.fallback
 
 - `Source:django.contrib.messages.storage.fallback <https://github.com/django/django/blob/stable/1.8.x/django/contrib/messages/storage/fallback.py>`_ 
 
-.. include:: cheat/django.contrib.messages.storage.rst
+.. include:: cheat/django.contrib.messages.storage.fallback.rst
 
 .. automodule:: django.contrib.messages.storage.fallback
     :members:
@@ -69,7 +69,7 @@ django.contrib.messages.storage.session
 
 - `Source:django.contrib.messages.storage.session <https://github.com/django/django/blob/stable/1.8.x/django/contrib/messages/storage/session.py>`_ 
 
-.. include:: cheat/django.contrib.messages.storage.rst
+.. include:: cheat/django.contrib.messages.storage.session.rst
 
 .. automodule:: django.contrib.messages.storage.session
     :members:

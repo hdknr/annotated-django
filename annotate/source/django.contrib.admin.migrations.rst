@@ -27,7 +27,7 @@ django.contrib.admin.migrations.0001_initial
 
 - `Source:django.contrib.admin.migrations.0001_initial <https://github.com/django/django/blob/stable/1.8.x/django/contrib/admin/migrations/0001_initial.py>`_ 
 
-.. include:: cheat/django.contrib.admin.migrations.rst
+.. include:: cheat/django.contrib.admin.migrations.0001_initial.rst
 
 .. automodule:: django.contrib.admin.migrations.0001_initial
     :members:

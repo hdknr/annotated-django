@@ -30,7 +30,7 @@ django.contrib.humanize.apps
 
 - `Source:django.contrib.humanize.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/humanize/apps.py>`_ 
 
-.. include:: cheat/django.contrib.humanize.rst
+.. include:: cheat/django.contrib.humanize.apps.rst
 
 .. automodule:: django.contrib.humanize.apps
     :members:

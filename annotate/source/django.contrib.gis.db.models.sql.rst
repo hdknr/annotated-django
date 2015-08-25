@@ -27,7 +27,7 @@ django.contrib.gis.db.models.sql.aggregates
 
 - `Source:django.contrib.gis.db.models.sql.aggregates <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/models/sql/aggregates.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.models.sql.rst
+.. include:: cheat/django.contrib.gis.db.models.sql.aggregates.rst
 
 .. automodule:: django.contrib.gis.db.models.sql.aggregates
     :members:
@@ -41,7 +41,7 @@ django.contrib.gis.db.models.sql.conversion
 
 - `Source:django.contrib.gis.db.models.sql.conversion <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/db/models/sql/conversion.py>`_ 
 
-.. include:: cheat/django.contrib.gis.db.models.sql.rst
+.. include:: cheat/django.contrib.gis.db.models.sql.conversion.rst
 
 .. automodule:: django.contrib.gis.db.models.sql.conversion
     :members:

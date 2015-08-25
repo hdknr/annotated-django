@@ -27,7 +27,7 @@ django.contrib.auth.tests.custom_user
 
 - `Source:django.contrib.auth.tests.custom_user <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/tests/custom_user.py>`_ 
 
-.. include:: cheat/django.contrib.auth.tests.rst
+.. include:: cheat/django.contrib.auth.tests.custom_user.rst
 
 .. automodule:: django.contrib.auth.tests.custom_user
     :members:
@@ -41,7 +41,7 @@ django.contrib.auth.tests.utils
 
 - `Source:django.contrib.auth.tests.utils <https://github.com/django/django/blob/stable/1.8.x/django/contrib/auth/tests/utils.py>`_ 
 
-.. include:: cheat/django.contrib.auth.tests.rst
+.. include:: cheat/django.contrib.auth.tests.utils.rst
 
 .. automodule:: django.contrib.auth.tests.utils
     :members:

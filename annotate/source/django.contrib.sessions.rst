@@ -30,7 +30,7 @@ django.contrib.sessions.apps
 
 - `Source:django.contrib.sessions.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sessions/apps.py>`_ 
 
-.. include:: cheat/django.contrib.sessions.rst
+.. include:: cheat/django.contrib.sessions.apps.rst
 
 .. automodule:: django.contrib.sessions.apps
     :members:
@@ -44,7 +44,7 @@ django.contrib.sessions.exceptions
 
 - `Source:django.contrib.sessions.exceptions <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sessions/exceptions.py>`_ 
 
-.. include:: cheat/django.contrib.sessions.rst
+.. include:: cheat/django.contrib.sessions.exceptions.rst
 
 .. automodule:: django.contrib.sessions.exceptions
     :members:
@@ -58,7 +58,7 @@ django.contrib.sessions.middleware
 
 - `Source:django.contrib.sessions.middleware <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sessions/middleware.py>`_ 
 
-.. include:: cheat/django.contrib.sessions.rst
+.. include:: cheat/django.contrib.sessions.middleware.rst
 
 .. automodule:: django.contrib.sessions.middleware
     :members:
@@ -72,7 +72,7 @@ django.contrib.sessions.models
 
 - `Source:django.contrib.sessions.models <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sessions/models.py>`_ 
 
-.. include:: cheat/django.contrib.sessions.rst
+.. include:: cheat/django.contrib.sessions.models.rst
 
 .. automodule:: django.contrib.sessions.models
     :members:
@@ -86,7 +86,7 @@ django.contrib.sessions.serializers
 
 - `Source:django.contrib.sessions.serializers <https://github.com/django/django/blob/stable/1.8.x/django/contrib/sessions/serializers.py>`_ 
 
-.. include:: cheat/django.contrib.sessions.rst
+.. include:: cheat/django.contrib.sessions.serializers.rst
 
 .. automodule:: django.contrib.sessions.serializers
     :members:

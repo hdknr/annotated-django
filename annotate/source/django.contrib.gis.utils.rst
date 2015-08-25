@@ -27,7 +27,7 @@ django.contrib.gis.utils.layermapping
 
 - `Source:django.contrib.gis.utils.layermapping <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/utils/layermapping.py>`_ 
 
-.. include:: cheat/django.contrib.gis.utils.rst
+.. include:: cheat/django.contrib.gis.utils.layermapping.rst
 
 .. automodule:: django.contrib.gis.utils.layermapping
     :members:
@@ -41,7 +41,7 @@ django.contrib.gis.utils.ogrinfo
 
 - `Source:django.contrib.gis.utils.ogrinfo <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/utils/ogrinfo.py>`_ 
 
-.. include:: cheat/django.contrib.gis.utils.rst
+.. include:: cheat/django.contrib.gis.utils.ogrinfo.rst
 
 .. automodule:: django.contrib.gis.utils.ogrinfo
     :members:
@@ -55,7 +55,7 @@ django.contrib.gis.utils.ogrinspect
 
 - `Source:django.contrib.gis.utils.ogrinspect <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/utils/ogrinspect.py>`_ 
 
-.. include:: cheat/django.contrib.gis.utils.rst
+.. include:: cheat/django.contrib.gis.utils.ogrinspect.rst
 
 .. automodule:: django.contrib.gis.utils.ogrinspect
     :members:
@@ -69,7 +69,7 @@ django.contrib.gis.utils.srs
 
 - `Source:django.contrib.gis.utils.srs <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/utils/srs.py>`_ 
 
-.. include:: cheat/django.contrib.gis.utils.rst
+.. include:: cheat/django.contrib.gis.utils.srs.rst
 
 .. automodule:: django.contrib.gis.utils.srs
     :members:
@@ -83,7 +83,7 @@ django.contrib.gis.utils.wkt
 
 - `Source:django.contrib.gis.utils.wkt <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/utils/wkt.py>`_ 
 
-.. include:: cheat/django.contrib.gis.utils.rst
+.. include:: cheat/django.contrib.gis.utils.wkt.rst
 
 .. automodule:: django.contrib.gis.utils.wkt
     :members:

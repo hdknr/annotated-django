@@ -54,7 +54,7 @@ def meta(out, pkg_path, mod_name):
         GIT, pkg_path.replace('.', '/'), mod_name))
 
     # include `cheat` memo
-    mod_name = mod_name == '__init__' and '' or ''
+    mod_name = '' if mod_name == '__init__' else mod_name
     sep = mod_name and '.' or ''
     out.write("\n.. include:: {0}/{1}{2}{3}.{4}\n\n".format(
         CHEAT, pkg_path, sep, mod_name, EXT))

@@ -27,7 +27,7 @@ django.core.mail.backends.base
 
 - `Source:django.core.mail.backends.base <https://github.com/django/django/blob/stable/1.8.x/django/core/mail/backends/base.py>`_ 
 
-.. include:: cheat/django.core.mail.backends.rst
+.. include:: cheat/django.core.mail.backends.base.rst
 
 .. automodule:: django.core.mail.backends.base
     :members:
@@ -41,7 +41,7 @@ django.core.mail.backends.console
 
 - `Source:django.core.mail.backends.console <https://github.com/django/django/blob/stable/1.8.x/django/core/mail/backends/console.py>`_ 
 
-.. include:: cheat/django.core.mail.backends.rst
+.. include:: cheat/django.core.mail.backends.console.rst
 
 .. automodule:: django.core.mail.backends.console
     :members:
@@ -55,7 +55,7 @@ django.core.mail.backends.dummy
 
 - `Source:django.core.mail.backends.dummy <https://github.com/django/django/blob/stable/1.8.x/django/core/mail/backends/dummy.py>`_ 
 
-.. include:: cheat/django.core.mail.backends.rst
+.. include:: cheat/django.core.mail.backends.dummy.rst
 
 .. automodule:: django.core.mail.backends.dummy
     :members:
@@ -69,7 +69,7 @@ django.core.mail.backends.filebased
 
 - `Source:django.core.mail.backends.filebased <https://github.com/django/django/blob/stable/1.8.x/django/core/mail/backends/filebased.py>`_ 
 
-.. include:: cheat/django.core.mail.backends.rst
+.. include:: cheat/django.core.mail.backends.filebased.rst
 
 .. automodule:: django.core.mail.backends.filebased
     :members:
@@ -83,7 +83,7 @@ django.core.mail.backends.locmem
 
 - `Source:django.core.mail.backends.locmem <https://github.com/django/django/blob/stable/1.8.x/django/core/mail/backends/locmem.py>`_ 
 
-.. include:: cheat/django.core.mail.backends.rst
+.. include:: cheat/django.core.mail.backends.locmem.rst
 
 .. automodule:: django.core.mail.backends.locmem
     :members:
@@ -97,7 +97,7 @@ django.core.mail.backends.smtp
 
 - `Source:django.core.mail.backends.smtp <https://github.com/django/django/blob/stable/1.8.x/django/core/mail/backends/smtp.py>`_ 
 
-.. include:: cheat/django.core.mail.backends.rst
+.. include:: cheat/django.core.mail.backends.smtp.rst
 
 .. automodule:: django.core.mail.backends.smtp
     :members:

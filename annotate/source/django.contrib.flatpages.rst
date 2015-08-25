@@ -30,7 +30,7 @@ django.contrib.flatpages.admin
 
 - `Source:django.contrib.flatpages.admin <https://github.com/django/django/blob/stable/1.8.x/django/contrib/flatpages/admin.py>`_ 
 
-.. include:: cheat/django.contrib.flatpages.rst
+.. include:: cheat/django.contrib.flatpages.admin.rst
 
 .. automodule:: django.contrib.flatpages.admin
     :members:
@@ -44,7 +44,7 @@ django.contrib.flatpages.apps
 
 - `Source:django.contrib.flatpages.apps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/flatpages/apps.py>`_ 
 
-.. include:: cheat/django.contrib.flatpages.rst
+.. include:: cheat/django.contrib.flatpages.apps.rst
 
 .. automodule:: django.contrib.flatpages.apps
     :members:
@@ -58,7 +58,7 @@ django.contrib.flatpages.forms
 
 - `Source:django.contrib.flatpages.forms <https://github.com/django/django/blob/stable/1.8.x/django/contrib/flatpages/forms.py>`_ 
 
-.. include:: cheat/django.contrib.flatpages.rst
+.. include:: cheat/django.contrib.flatpages.forms.rst
 
 .. automodule:: django.contrib.flatpages.forms
     :members:
@@ -72,7 +72,7 @@ django.contrib.flatpages.middleware
 
 - `Source:django.contrib.flatpages.middleware <https://github.com/django/django/blob/stable/1.8.x/django/contrib/flatpages/middleware.py>`_ 
 
-.. include:: cheat/django.contrib.flatpages.rst
+.. include:: cheat/django.contrib.flatpages.middleware.rst
 
 .. automodule:: django.contrib.flatpages.middleware
     :members:
@@ -86,7 +86,7 @@ django.contrib.flatpages.models
 
 - `Source:django.contrib.flatpages.models <https://github.com/django/django/blob/stable/1.8.x/django/contrib/flatpages/models.py>`_ 
 
-.. include:: cheat/django.contrib.flatpages.rst
+.. include:: cheat/django.contrib.flatpages.models.rst
 
 .. automodule:: django.contrib.flatpages.models
     :members:
@@ -100,7 +100,7 @@ django.contrib.flatpages.sitemaps
 
 - `Source:django.contrib.flatpages.sitemaps <https://github.com/django/django/blob/stable/1.8.x/django/contrib/flatpages/sitemaps.py>`_ 
 
-.. include:: cheat/django.contrib.flatpages.rst
+.. include:: cheat/django.contrib.flatpages.sitemaps.rst
 
 .. automodule:: django.contrib.flatpages.sitemaps
     :members:
@@ -114,7 +114,7 @@ django.contrib.flatpages.urls
 
 - `Source:django.contrib.flatpages.urls <https://github.com/django/django/blob/stable/1.8.x/django/contrib/flatpages/urls.py>`_ 
 
-.. include:: cheat/django.contrib.flatpages.rst
+.. include:: cheat/django.contrib.flatpages.urls.rst
 
 .. automodule:: django.contrib.flatpages.urls
     :members:
@@ -128,7 +128,7 @@ django.contrib.flatpages.views
 
 - `Source:django.contrib.flatpages.views <https://github.com/django/django/blob/stable/1.8.x/django/contrib/flatpages/views.py>`_ 
 
-.. include:: cheat/django.contrib.flatpages.rst
+.. include:: cheat/django.contrib.flatpages.views.rst
 
 .. automodule:: django.contrib.flatpages.views
     :members:

@@ -27,7 +27,7 @@ django.utils.translation.trans_null
 
 - `Source:django.utils.translation.trans_null <https://github.com/django/django/blob/stable/1.8.x/django/utils/translation/trans_null.py>`_ 
 
-.. include:: cheat/django.utils.translation.rst
+.. include:: cheat/django.utils.translation.trans_null.rst
 
 .. automodule:: django.utils.translation.trans_null
     :members:
@@ -41,7 +41,7 @@ django.utils.translation.trans_real
 
 - `Source:django.utils.translation.trans_real <https://github.com/django/django/blob/stable/1.8.x/django/utils/translation/trans_real.py>`_ 
 
-.. include:: cheat/django.utils.translation.rst
+.. include:: cheat/django.utils.translation.trans_real.rst
 
 .. automodule:: django.utils.translation.trans_real
     :members:

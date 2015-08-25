@@ -27,7 +27,7 @@ django.contrib.gis.geoip.base
 
 - `Source:django.contrib.gis.geoip.base <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/geoip/base.py>`_ 
 
-.. include:: cheat/django.contrib.gis.geoip.rst
+.. include:: cheat/django.contrib.gis.geoip.base.rst
 
 .. automodule:: django.contrib.gis.geoip.base
     :members:
@@ -41,7 +41,7 @@ django.contrib.gis.geoip.libgeoip
 
 - `Source:django.contrib.gis.geoip.libgeoip <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/geoip/libgeoip.py>`_ 
 
-.. include:: cheat/django.contrib.gis.geoip.rst
+.. include:: cheat/django.contrib.gis.geoip.libgeoip.rst
 
 .. automodule:: django.contrib.gis.geoip.libgeoip
     :members:
@@ -55,7 +55,7 @@ django.contrib.gis.geoip.prototypes
 
 - `Source:django.contrib.gis.geoip.prototypes <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/geoip/prototypes.py>`_ 
 
-.. include:: cheat/django.contrib.gis.geoip.rst
+.. include:: cheat/django.contrib.gis.geoip.prototypes.rst
 
 .. automodule:: django.contrib.gis.geoip.prototypes
     :members:

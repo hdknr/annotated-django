@@ -27,7 +27,7 @@ django.contrib.humanize.templatetags.humanize
 
 - `Source:django.contrib.humanize.templatetags.humanize <https://github.com/django/django/blob/stable/1.8.x/django/contrib/humanize/templatetags/humanize.py>`_ 
 
-.. include:: cheat/django.contrib.humanize.templatetags.rst
+.. include:: cheat/django.contrib.humanize.templatetags.humanize.rst
 
 .. automodule:: django.contrib.humanize.templatetags.humanize
     :members:

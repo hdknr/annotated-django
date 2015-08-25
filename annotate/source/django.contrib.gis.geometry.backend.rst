@@ -27,7 +27,7 @@ django.contrib.gis.geometry.backend.geos
 
 - `Source:django.contrib.gis.geometry.backend.geos <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/geometry/backend/geos.py>`_ 
 
-.. include:: cheat/django.contrib.gis.geometry.backend.rst
+.. include:: cheat/django.contrib.gis.geometry.backend.geos.rst
 
 .. automodule:: django.contrib.gis.geometry.backend.geos
     :members:

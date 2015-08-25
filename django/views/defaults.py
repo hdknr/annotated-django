@@ -13,6 +13,7 @@ def page_not_found(request, template_name='404.html'):
 
     Templates: :template:`404.html`
     Context:
+
         request_path
             The path of the requested URL (e.g., '/app/pages/bad_page/')
     """
@@ -24,7 +25,9 @@ def page_not_found(request, template_name='404.html'):
     except TemplateDoesNotExist:
         template = Engine().from_string(
             '<h1>Not Found</h1>'
-            '<p>The requested URL {{ request_path }} was not found on this server.</p>')
+            '<p>The requested URL {{ request_path }} '
+            'was not found on this server.</p>'
+        )
         body = template.render(Context(context))
         content_type = 'text/html'
     return http.HttpResponseNotFound(body, content_type=content_type)
@@ -41,7 +44,8 @@ def server_error(request, template_name='500.html'):
     try:
         template = loader.get_template(template_name)
     except TemplateDoesNotExist:
-        return http.HttpResponseServerError('<h1>Server Error (500)</h1>', content_type='text/html')
+        return http.HttpResponseServerError(
+            '<h1>Server Error (500)</h1>', content_type='text/html')
     return http.HttpResponseServerError(template.render())
 
 
@@ -56,7 +60,8 @@ def bad_request(request, template_name='400.html'):
     try:
         template = loader.get_template(template_name)
     except TemplateDoesNotExist:
-        return http.HttpResponseBadRequest('<h1>Bad Request (400)</h1>', content_type='text/html')
+        return http.HttpResponseBadRequest(
+            '<h1>Bad Request (400)</h1>', content_type='text/html')
     return http.HttpResponseBadRequest(template.render())
 
 
@@ -77,5 +82,6 @@ def permission_denied(request, template_name='403.html'):
     try:
         template = loader.get_template(template_name)
     except TemplateDoesNotExist:
-        return http.HttpResponseForbidden('<h1>403 Forbidden</h1>', content_type='text/html')
+        return http.HttpResponseForbidden(
+            '<h1>403 Forbidden</h1>', content_type='text/html')
     return http.HttpResponseForbidden(template.render(request=request))

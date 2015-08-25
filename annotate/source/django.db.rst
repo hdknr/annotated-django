@@ -30,7 +30,7 @@ django.db.transaction
 
 - `Source:django.db.transaction <https://github.com/django/django/blob/stable/1.8.x/django/db/transaction.py>`_ 
 
-.. include:: cheat/django.db.rst
+.. include:: cheat/django.db.transaction.rst
 
 .. automodule:: django.db.transaction
     :members:
@@ -44,7 +44,7 @@ django.db.utils
 
 - `Source:django.db.utils <https://github.com/django/django/blob/stable/1.8.x/django/db/utils.py>`_ 
 
-.. include:: cheat/django.db.rst
+.. include:: cheat/django.db.utils.rst
 
 .. automodule:: django.db.utils
     :members:

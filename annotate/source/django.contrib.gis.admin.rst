@@ -27,7 +27,7 @@ django.contrib.gis.admin.options
 
 - `Source:django.contrib.gis.admin.options <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/admin/options.py>`_ 
 
-.. include:: cheat/django.contrib.gis.admin.rst
+.. include:: cheat/django.contrib.gis.admin.options.rst
 
 .. automodule:: django.contrib.gis.admin.options
     :members:
@@ -41,7 +41,7 @@ django.contrib.gis.admin.widgets
 
 - `Source:django.contrib.gis.admin.widgets <https://github.com/django/django/blob/stable/1.8.x/django/contrib/gis/admin/widgets.py>`_ 
 
-.. include:: cheat/django.contrib.gis.admin.rst
+.. include:: cheat/django.contrib.gis.admin.widgets.rst
 
 .. automodule:: django.contrib.gis.admin.widgets
     :members:

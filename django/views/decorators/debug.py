@@ -13,6 +13,8 @@ def sensitive_variables(*variables):
 
     * with specified variable names:
 
+    .. code-block:: python
+
         @sensitive_variables('user', 'password', 'credit_card')
         def my_function(user):
             password = user.pass_word
@@ -21,6 +23,8 @@ def sensitive_variables(*variables):
 
     * without any specified variable names, in which case it is assumed that
       all variables are considered sensitive:
+
+    .. code-block:: python
 
         @sensitive_variables()
         def my_function()
@@ -48,6 +52,8 @@ def sensitive_post_parameters(*parameters):
 
     * with specified parameters:
 
+    .. code-block:: python
+
         @sensitive_post_parameters('password', 'credit_card')
         def my_view(request):
             pw = request.POST['password']
@@ -56,6 +62,8 @@ def sensitive_post_parameters(*parameters):
 
     * without any specified parameters, in which case it is assumed that
       all parameters are considered sensitive:
+
+    .. code-block:: python
 
         @sensitive_post_parameters()
         def my_view(request)

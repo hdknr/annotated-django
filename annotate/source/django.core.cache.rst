@@ -27,7 +27,7 @@ django.core.cache.utils
 
 - `Source:django.core.cache.utils <https://github.com/django/django/blob/stable/1.8.x/django/core/cache/utils.py>`_ 
 
-.. include:: cheat/django.core.cache.rst
+.. include:: cheat/django.core.cache.utils.rst
 
 .. automodule:: django.core.cache.utils
     :members:
