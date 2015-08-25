@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django's support for templates.
 
@@ -61,6 +62,7 @@ from .context import ContextPopException                                # NOQA
 # Template parts
 from .base import (Context, Node, NodeList, RequestContext,             # NOQA
                    StringOrigin, Template, Variable)
+# 文字列をテンプレート化するのであれば、Templateを使う
 
 # Deprecated in Django 1.8, will be removed in Django 1.10.
 from .base import resolve_variable                                      # NOQA
