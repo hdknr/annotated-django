@@ -2,6 +2,7 @@
 *.pot
 *.py[co]
 __pycache__
+.ropeproject
 MANIFEST
 dist/
 docs/_build/

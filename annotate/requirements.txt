@@ -3,3 +3,5 @@ Django
 cx_Oracle
 psycopg2
 MySQL-python
+PyYAML
+GDAL==1.10.0
