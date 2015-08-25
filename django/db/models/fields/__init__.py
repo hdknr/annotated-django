@@ -571,23 +571,28 @@ class Field(RegisterLookupMixin):
 
     def validate(self, value, model_instance):
         """
-        Validates value and throws ValidationError. Subclasses should override
-        this to provide validation logic.
+        Validates value and throws ValidationError.
+
+        Subclasses should override this to provide validation logic.
+
+        型エラーチェックしない
         """
         if not self.editable:
             # Skip validation for non-editable fields.
             return
 
         if self._choices and value not in self.empty_values:
+            # 選択肢の検証
             for option_key, option_value in self.choices:
                 if isinstance(option_value, (list, tuple)):
-                    # This is an optgroup, so look inside the group for
-                    # options.
+                    # This is an optgroup, so look inside the group for options.
                     for optgroup_key, optgroup_value in option_value:
                         if value == optgroup_key:
                             return
                 elif value == option_key:
                     return
+
+            # 選択肢に一致しないのでエラー
             raise exceptions.ValidationError(
                 self.error_messages['invalid_choice'],
                 code='invalid_choice',
@@ -595,10 +600,15 @@ class Field(RegisterLookupMixin):
             )
 
         if value is None and not self.null:
-            raise exceptions.ValidationError(self.error_messages['null'], code='null')
+            # null違反
+            raise exceptions.ValidationError(
+                self.error_messages['null'],
+                code='null')
 
         if not self.blank and value in self.empty_values:
-            raise exceptions.ValidationError(self.error_messages['blank'], code='blank')
+            # ブランク違反
+            raise exceptions.ValidationError(
+                self.error_messages['blank'], code='blank')
 
     def clean(self, value, model_instance):
         """
