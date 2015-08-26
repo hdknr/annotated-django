@@ -3,5 +3,5 @@ CP932
 ==========
 
 
-
-
+.. literalinclude:: cp932.py
+  :language: python
