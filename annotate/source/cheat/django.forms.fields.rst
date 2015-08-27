@@ -1,5 +1,5 @@
 バリデーション
--------------
+--------------------------
 
 - :ref:`django.core.validators.RegexValidator`
 

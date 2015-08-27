@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 HTTP server that implements the Python WSGI protocol (PEP 333, rev 1.21).
 
@@ -130,7 +131,7 @@ class WSGIRequestHandler(simple_server.WSGIRequestHandler, object):
             # 0x16 = Handshake, 0x03 = SSL 3.0 or TLS 1.x
             if args[0].startswith(str('\x16\x03')):
                 msg = ("You're accessing the development server over HTTPS, "
-                    "but it only supports HTTP.\n")
+                       "but it only supports HTTP.\n")
             msg = self.style.HTTP_BAD_REQUEST(msg)
         else:
             # Any 5XX, or any other response
@@ -139,10 +140,16 @@ class WSGIRequestHandler(simple_server.WSGIRequestHandler, object):
         sys.stderr.write(msg)
 
     def get_environ(self):
-        # Strip all headers with underscores in the name before constructing
-        # the WSGI environ. This prevents header-spoofing based on ambiguity
-        # between underscores and dashes both normalized to underscores in WSGI
-        # env vars. Nginx and Apache 2.4+ both do this as well.
+        '''
+        Strip all headers with underscores in the name before constructing
+        the WSGI environ.
+
+        This prevents header-spoofing based on ambiguity
+        between underscores and dashes both normalized to underscores in WSGI
+        env vars.
+
+        Nginx and Apache 2.4+ both do this as well.
+        '''
         for k, v in self.headers.items():
             if '_' in k:
                 del self.headers[k]

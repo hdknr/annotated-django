@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import copy
@@ -23,7 +24,8 @@ from django.utils.six.moves.urllib.parse import (
 )
 
 RAISE_ERROR = object()
-host_validation_re = re.compile(r"^([a-z0-9.-]+|\[[a-f0-9]*:[a-f0-9:]+\])(:\d+)?$")
+host_validation_re = re.compile(
+    r"^([a-z0-9.-]+|\[[a-f0-9]*:[a-f0-9:]+\])(:\d+)?$")
 
 
 class UnreadablePostError(IOError):
@@ -157,20 +159,30 @@ class HttpRequest(object):
         return iri_to_uri(location)
 
     def _get_scheme(self):
+        ''' 環境変数 HTTPS が 'on' だとhttps  それ以外は http
+        '''
         return 'https' if os.environ.get("HTTPS") == "on" else 'http'
 
     @property
     def scheme(self):
+        '''
+        - settings.SECURE_PROXY_SSL_HEADER でSSLのヘッダーを定義指定できる
+
+            `SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')`
+
+        '''
         # First, check the SECURE_PROXY_SSL_HEADER setting.
         if settings.SECURE_PROXY_SSL_HEADER:
             try:
                 header, value = settings.SECURE_PROXY_SSL_HEADER
             except ValueError:
                 raise ImproperlyConfigured(
-                    'The SECURE_PROXY_SSL_HEADER setting must be a tuple containing two values.'
+                    'The SECURE_PROXY_SSL_HEADER setting '
+                    'must be a tuple containing two values.'
                 )
             if self.META.get(header, None) == value:
                 return 'https'
+
         # Failing that, fall back to _get_scheme(), which is a hook for
         # subclasses to implement.
         return self._get_scheme()

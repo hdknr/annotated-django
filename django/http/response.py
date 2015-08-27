@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import datetime
@@ -448,12 +449,14 @@ class FileResponse(StreamingHttpResponse):
 
 
 class HttpResponseRedirectBase(HttpResponse):
+    ''' Location ヘッダーを返す応答のベースクラス '''
     allowed_schemes = ['http', 'https', 'ftp']
 
     def __init__(self, redirect_to, *args, **kwargs):
         parsed = urlparse(force_text(redirect_to))
         if parsed.scheme and parsed.scheme not in self.allowed_schemes:
-            raise DisallowedRedirect("Unsafe redirect to URL with protocol '%s'" % parsed.scheme)
+            raise DisallowedRedirect(
+                "Unsafe redirect to URL with protocol '%s'" % parsed.scheme)
         super(HttpResponseRedirectBase, self).__init__(*args, **kwargs)
         self['Location'] = iri_to_uri(redirect_to)
 
@@ -461,6 +464,7 @@ class HttpResponseRedirectBase(HttpResponse):
 
 
 class HttpResponseRedirect(HttpResponseRedirectBase):
+    ''' 302 + Location を返します '''
     status_code = 302
 
 

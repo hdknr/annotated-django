@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import cgi
@@ -117,6 +118,22 @@ class WSGIRequest(http.HttpRequest):
         self.resolver_match = None
 
     def _get_scheme(self):
+        ''' wsgi.url_scheme (https://www.python.org/dev/peps/pep-0333/)
+
+            A string representing the "scheme" portion of the URL
+            at which the application is being invoked.
+
+            Normally, this will have the value "http" or "https" ,
+            as appropriate.
+
+        - apache mod_proxy
+
+            `RequestHeader set X-Forwarded-Proto https env=HTTPS`
+
+        - nginx
+
+            `proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; `
+        '''
         return self.environ.get('wsgi.url_scheme')
 
     def _get_request(self):
