@@ -2,7 +2,6 @@
 -------------
 
 - :ref:`django.core.validators.RegexValidator`
-- モデルフォームはモデルの方に設定することもできる
 
 .. code-block:: python
 
@@ -20,3 +19,16 @@
             ]
             ....
             super(OrderForm, self).__init__(*args, **kwargs)
+
+- モデルレベルで設定すればModelFormに引き継がれる
+
+.. code-block:: python
+
+    class Order(models.Model)
+        phone = models.CharField(
+          _('Phone Number'), help_text=_('Phone Number Help'),
+          max_length=13,
+          validators=[
+              RegexValidator(
+                  regex=r'^[\d\-]{9,15}$',
+                  message=_('Phone Number Validation'), )],)
