@@ -23,7 +23,7 @@ django.db.migrations.state.InvalidBasesError
 
 .. code-block:: python
 
-    class BaseModel):
+    class BaseModel(models.Model):
         ...
 
     class MailAddress(BaseModel):    
