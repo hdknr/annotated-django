@@ -1,7 +1,7 @@
 バリデーション
 --------------------------
 
-- :ref:`django.core.validators.RegexValidator`
+- :ref:`django.core.validators` RegexValidator
 
 .. code-block:: python
 
