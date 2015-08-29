@@ -28,6 +28,7 @@ cx_Oracle インストール
     $ cd $ORACLE_HOME && ln -s libclntsh.so.10.1 libclntsh.so
 
     # OSX
+    $ export DYLD_LIBRARY_PATH=$LD_LIBRARY_PATH
     $ ln -s libclntsh.dylib.11.1 libclntsh.dylib
 
 .. code-block:: bash
