@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Base email backend class."""
 
 
@@ -7,8 +8,10 @@ class BaseEmailBackend(object):
 
     Subclasses must at least overwrite send_messages().
 
-   open() and close() can be called indirectly by using a backend object as a
-   context manager:
+    open() and close() can be called indirectly by using a backend object as a
+    context manager:
+
+    .. code-block:: python
 
        with backend as connection:
            # do something with connection
@@ -51,4 +54,6 @@ class BaseEmailBackend(object):
         Sends one or more EmailMessage objects and returns the number of email
         messages sent.
         """
-        raise NotImplementedError('subclasses of BaseEmailBackend must override send_messages() method')
+        raise NotImplementedError(
+            'subclasses of BaseEmailBackend must override '
+            'send_messages() method')
