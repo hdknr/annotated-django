@@ -1,5 +1,9 @@
+# -*- coding: utf-8 -*-
 """
 Backend for test environment.
+
+- outbox という配列を用意
+- send_messages が呼ばれたら、そこにメッセージを追加するだけ
 """
 
 from django.core import mail
@@ -13,6 +17,7 @@ class EmailBackend(BaseEmailBackend):
     rather than sending them out on the wire.
 
     The dummy outbox is accessible through the outbox instance attribute.
+
     """
     def __init__(self, *args, **kwargs):
         super(EmailBackend, self).__init__(*args, **kwargs)

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import logging
 import os
 import unittest
@@ -16,7 +17,8 @@ class DebugSQLTextTestResult(unittest.TextTestResult):
     def __init__(self, stream, descriptions, verbosity):
         self.logger = logging.getLogger('django.db.backends')
         self.logger.setLevel(logging.DEBUG)
-        super(DebugSQLTextTestResult, self).__init__(stream, descriptions, verbosity)
+        super(DebugSQLTextTestResult, self).__init__(
+            stream, descriptions, verbosity)
 
     def startTest(self, test):
         self.debug_sql_stream = StringIO()
@@ -55,6 +57,10 @@ class DebugSQLTextTestResult(unittest.TextTestResult):
 class DiscoverRunner(object):
     """
     A Django test runner that uses unittest2 test discovery.
+
+    .. note::
+        - settings.TEST_RUNNER  にデフォルトで設定されているランナーです
+        - :ref:`other-testing-frameworks`
     """
 
     test_suite = TestSuite
@@ -78,23 +84,30 @@ class DiscoverRunner(object):
 
     @classmethod
     def add_arguments(cls, parser):
-        parser.add_argument('-t', '--top-level-directory',
+        parser.add_argument(
+            '-t', '--top-level-directory',
             action='store', dest='top_level', default=None,
             help='Top level of project for unittest discovery.')
-        parser.add_argument('-p', '--pattern', action='store', dest='pattern',
+        parser.add_argument(
+            '-p', '--pattern', action='store', dest='pattern',
             default="test*.py",
             help='The test matching pattern. Defaults to test*.py.')
-        parser.add_argument('-k', '--keepdb', action='store_true', dest='keepdb',
+        parser.add_argument(
+            '-k', '--keepdb', action='store_true', dest='keepdb',
             default=False,
             help='Preserves the test DB between runs.')
-        parser.add_argument('-r', '--reverse', action='store_true', dest='reverse',
+        parser.add_argument(
+            '-r', '--reverse', action='store_true', dest='reverse',
             default=False,
             help='Reverses test cases order.')
-        parser.add_argument('-d', '--debug-sql', action='store_true', dest='debug_sql',
+        parser.add_argument(
+            '-d', '--debug-sql',
+            action='store_true', dest='debug_sql',
             default=False,
             help='Prints logged SQL queries on failure.')
 
     def setup_test_environment(self, **kwargs):
+        '''テスト用に settings にパッチを当てます '''
         setup_test_environment()
         settings.DEBUG = False
         unittest.installHandler()
@@ -145,7 +158,8 @@ class DiscoverRunner(object):
                     break
                 kwargs['top_level_dir'] = top_level
 
-            if not (tests and tests.countTestCases()) and is_discoverable(label):
+            if not (tests and tests.countTestCases()) and \
+                    is_discoverable(label):
                 # Try discovery if path is a package or directory
                 tests = self.test_loader.discover(start_dir=label, **kwargs)
 
@@ -204,6 +218,10 @@ class DiscoverRunner(object):
         will be added to the test suite.
 
         Returns the number of tests that failed.
+
+        .. note::
+            - テスト実行のメイン
+            - settings にパッチ当てます
         """
         self.setup_test_environment()
         suite = self.build_suite(test_labels, extra_tests)

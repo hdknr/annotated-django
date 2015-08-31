@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import logging
 import re
 import sys
@@ -102,6 +103,10 @@ def setup_test_environment():
         - Installing the instrumented test renderer
         - Set the email backend to the locmem email backend.
         - Setting the active locale to match the LANGUAGE_CODE setting.
+
+    .. note::
+        - EMAIL_BACKEND に
+          :ref:`django.core.mail.backends.locmem.EmailBackend` を指定します
     """
     Template._original_render = Template._render
     Template._render = instrumented_test_render
