@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import mimetypes
@@ -217,8 +218,8 @@ class EmailMessage(object):
                  connection=None, attachments=None, headers=None, cc=None,
                  reply_to=None):
         """
-        Initialize a single email message (which can be sent to multiple
-        recipients).
+        Initialize a single email message
+        (which can be sent to multiple recipients).
 
         All strings used to create the message can be unicode strings
         (or UTF-8 bytestrings). The SafeMIMEText class will handle any
@@ -262,16 +263,24 @@ class EmailMessage(object):
         return self.connection
 
     def message(self):
-        encoding = self.encoding or settings.DEFAULT_CHARSET
-        msg = SafeMIMEText(self.body, self.content_subtype, encoding)
-        msg = self._create_message(msg)
+        '''メッセージ(SafeMIMEText)を作る
+
+        - encodingがしていされないと settings.DEFAULT_CHARSET
+        '''
+        msg = SafeMIMEText(
+            self.body,
+            self.content_subtype,
+            self.encoding or settings.DEFAULT_CHARSET)
+
+        msg = self._create_message(msg)     # 添付の処理
         msg['Subject'] = self.subject
         msg['From'] = self.extra_headers.get('From', self.from_email)
         msg['To'] = self.extra_headers.get('To', ', '.join(self.to))
         if self.cc:
             msg['Cc'] = ', '.join(self.cc)
         if self.reply_to:
-            msg['Reply-To'] = self.extra_headers.get('Reply-To', ', '.join(self.reply_to))
+            msg['Reply-To'] = self.extra_headers.get(
+                'Reply-To', ', '.join(self.reply_to))
 
         # Email header names are case-insensitive (RFC 2045), so we have to
         # accommodate that when doing comparisons.
@@ -282,7 +291,8 @@ class EmailMessage(object):
             # Use cached DNS_NAME for performance
             msg['Message-ID'] = make_msgid(domain=DNS_NAME)
         for name, value in self.extra_headers.items():
-            if name.lower() in ('from', 'to'):  # From and To are already handled
+            if name.lower() in ('from', 'to'):
+                # From and To are already handled
                 continue
             msg[name] = value
         return msg
@@ -326,9 +336,11 @@ class EmailMessage(object):
         self.attach(filename, content, mimetype)
 
     def _create_message(self, msg):
+        ''':param SafeMIMText msg: '''
         return self._create_attachments(msg)
 
     def _create_attachments(self, msg):
+        '''もしも添付ファイルが指定されていたらmultipartで追加する '''
         if self.attachments:
             encoding = self.encoding or settings.DEFAULT_CHARSET
             body_msg = msg
