@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import warnings
 
 from django.utils.deprecation import RemovedInDjango110Warning
@@ -25,6 +26,8 @@ def get_template(template_name, dirs=_dirs_undefined, using=None):
     Loads and returns a template for the given name.
 
     Raises TemplateDoesNotExist if no such template exists.
+
+    - テンプレート名は / で始めない事
     """
     engines = _engine_list(using)
     for engine in engines:

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import warnings
 from collections import Counter, OrderedDict
@@ -27,6 +28,22 @@ class EngineHandler(object):
 
     @cached_property
     def templates(self):
+        '''
+        settings.TEMPLATES に設定をすること(1.10で必須):
+
+        - BACKEND (django.template.backends.django.DjangoTemplates)
+        - DIRS (setings.TEMPLATE_DIRS)
+        - OPTIONS
+
+            - allowed_include_roots(settings.ALLOWED_INCLUDE_ROOTS)
+            - context_processors(settings.TEMPLATE_CONTEXT_PROCESSORS)
+            - debug (settings.TEMPLATE_DEBUG)
+            - loaders (settings.TEMPLATE_LOADERS)
+            - string_if_invalid(settings.TEMPLATE_STRING_IF_INVALID)
+
+        .. note::
+            - https://docs.djangoproject.com/en/1.8/ref/settings/#templates
+        '''
         if self._templates is None:
             self._templates = settings.TEMPLATES
 
@@ -72,7 +89,8 @@ class EngineHandler(object):
             backend_names.append(tpl['NAME'])
 
         counts = Counter(backend_names)
-        duplicates = [alias for alias, count in counts.most_common() if count > 1]
+        duplicates = [
+            alias for alias, count in counts.most_common() if count > 1]
         if duplicates:
             raise ImproperlyConfigured(
                 "Template engine aliases aren't unique, duplicates: {}. "
