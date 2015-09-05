@@ -140,6 +140,7 @@ class EmailBackend(BaseEmailBackend):
                       for addr in email_message.recipients()]
         message = email_message.message()
         try:
+            # connectionはsmtplib.SMTPもしくはsmtplib.SMTP_SSL
             self.connection.sendmail(
                 from_email, recipients, message.as_bytes(linesep='\r\n'))
         except smtplib.SMTPException:
