@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+'''Sessionモデル
+
+- 実際のsession_dataはつかっているSessionStoreのエンコーディング方式に
+  によってことなります
+
+'''
 from __future__ import unicode_literals
 
 from django.db import models
@@ -58,5 +65,5 @@ class Session(models.Model):
     def get_decoded(self):
         return SessionStore().decode(self.session_data)
 
-# At bottom to avoid circular import
+# セッションストア: At bottom to avoid circular import
 from django.contrib.sessions.backends.db import SessionStore  # isort:skip

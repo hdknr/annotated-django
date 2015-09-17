@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import base64
@@ -22,8 +23,8 @@ VALID_KEY_CHARS = string.ascii_lowercase + string.digits
 
 class CreateError(Exception):
     """
-    Used internally as a consistent exception type to catch from save (see the
-    docstring for SessionBase.save() for details).
+    Used internally as a consistent exception type to catch from save
+    (see the docstring for SessionBase.save() for details).
     """
     pass
 
@@ -80,14 +81,22 @@ class SessionBase(object):
         del self[self.TEST_COOKIE_NAME]
 
     def _hash(self, value):
+        ''' hmac でハッシュを作ります '''
         key_salt = "django.contrib.sessions" + self.__class__.__name__
         return salted_hmac(key_salt, value).hexdigest()
 
     def encode(self, session_dict):
-        "Returns the given session dictionary serialized and encoded as a string."
+        """Returns the given session dictionary serialized
+        and encoded as a string.
+
+        - session_dict をシリアライザでシリアライズ(settings)
+        - シリアライザのハッシュを生成(hmac)
+        - (ハッシュ + ":" + シリアリアズ)文字列をASCII化
+        """
         serialized = self.serializer().dumps(session_dict)
         hash = self._hash(serialized)
-        return base64.b64encode(hash.encode() + b":" + serialized).decode('ascii')
+        return base64.b64encode(
+            hash.encode() + b":" + serialized).decode('ascii')
 
     def decode(self, session_data):
         encoded_data = base64.b64decode(force_bytes(session_data))
@@ -103,8 +112,8 @@ class SessionBase(object):
             # ValueError, SuspiciousOperation, unpickling exceptions. If any of
             # these happen, just return an empty dictionary (an empty session).
             if isinstance(e, SuspiciousOperation):
-                logger = logging.getLogger('django.security.%s' %
-                        e.__class__.__name__)
+                logger = logging.getLogger(
+                    'django.security.%s' % e.__class__.__name__)
                 logger.warning(force_text(e))
             return {}
 
@@ -292,7 +301,8 @@ class SessionBase(object):
         """
         Returns True if the given session_key already exists.
         """
-        raise NotImplementedError('subclasses of SessionBase must provide an exists() method')
+        raise NotImplementedError(
+            'subclasses of SessionBase must provide an exists() method')
 
     def create(self):
         """
@@ -300,7 +310,8 @@ class SessionBase(object):
         a unique key and will have saved the result once (with empty data)
         before the method returns.
         """
-        raise NotImplementedError('subclasses of SessionBase must provide a create() method')
+        raise NotImplementedError(
+            'subclasses of SessionBase must provide a create() method')
 
     def save(self, must_create=False):
         """
@@ -308,20 +319,23 @@ class SessionBase(object):
         is created (otherwise a CreateError exception is raised). Otherwise,
         save() can update an existing object with the same key.
         """
-        raise NotImplementedError('subclasses of SessionBase must provide a save() method')
+        raise NotImplementedError(
+            'subclasses of SessionBase must provide a save() method')
 
     def delete(self, session_key=None):
         """
         Deletes the session data under this key. If the key is None, the
         current session key value is used.
         """
-        raise NotImplementedError('subclasses of SessionBase must provide a delete() method')
+        raise NotImplementedError(
+            'subclasses of SessionBase must provide a delete() method')
 
     def load(self):
         """
         Loads the session data and returns a dictionary.
         """
-        raise NotImplementedError('subclasses of SessionBase must provide a load() method')
+        raise NotImplementedError(
+            'subclasses of SessionBase must provide a load() method')
 
     @classmethod
     def clear_expired(cls):
@@ -332,4 +346,5 @@ class SessionBase(object):
         NotImplementedError. If it isn't necessary, because the backend has
         a built-in expiration mechanism, it should be a no-op.
         """
-        raise NotImplementedError('This backend does not support clear_expired().')
+        raise NotImplementedError(
+            'This backend does not support clear_expired().')
