@@ -347,6 +347,8 @@ class PermissionsMixin(models.Model):
 
     def has_perm(self, perm, obj=None):
         """
+        指定した codename のパーミッションを満たしているか？
+
         Returns True if the user has the specified permission. This method
         queries all available auth backends, but returns immediately if any
         backend returns True. Thus, a user who has permission from a single
@@ -363,6 +365,8 @@ class PermissionsMixin(models.Model):
 
     def has_perms(self, perm_list, obj=None):
         """
+        perm_list のパーミッションをすべて満たしているか？
+
         Returns True if the user has each of the specified permissions. If
         object is passed, it checks if the user has all required perms for this
         object.
@@ -374,6 +378,8 @@ class PermissionsMixin(models.Model):
 
     def has_module_perms(self, app_label):
         """
+        アプリケーションのパーミッションを満たしているか？
+
         Returns True if the user has any permissions in the given app label.
         Uses pretty much the same logic as has_perm, above.
         """
