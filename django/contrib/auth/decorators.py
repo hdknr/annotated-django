@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from functools import wraps
 
 from django.conf import settings
@@ -8,7 +9,10 @@ from django.utils.decorators import available_attrs
 from django.utils.six.moves.urllib.parse import urlparse
 
 
-def user_passes_test(test_func, login_url=None, redirect_field_name=REDIRECT_FIELD_NAME):
+def user_passes_test(
+    test_func, login_url=None,
+    redirect_field_name=REDIRECT_FIELD_NAME
+):
     """
     Decorator for views that checks that the user passes the given test,
     redirecting to the log-in page if necessary. The test should be a callable
@@ -36,7 +40,9 @@ def user_passes_test(test_func, login_url=None, redirect_field_name=REDIRECT_FIE
     return decorator
 
 
-def login_required(function=None, redirect_field_name=REDIRECT_FIELD_NAME, login_url=None):
+def login_required(
+        function=None, redirect_field_name=REDIRECT_FIELD_NAME,
+        login_url=None):
     """
     Decorator for views that checks that the user is logged in, redirecting
     to the log-in page if necessary.
@@ -53,6 +59,8 @@ def login_required(function=None, redirect_field_name=REDIRECT_FIELD_NAME, login
 
 def permission_required(perm, login_url=None, raise_exception=False):
     """
+    user.has_perms(perms) を使ってパーミッションの有無を確認します。
+
     Decorator for views that checks whether a user has a particular permission
     enabled, redirecting to the log-in page if necessary.
     If the raise_exception parameter is given the PermissionDenied exception
