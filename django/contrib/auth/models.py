@@ -293,9 +293,11 @@ def _user_has_perm(user, perm, obj):
 
 def _user_has_module_perms(user, app_label):
     """
+    認証バックエンドの has_module_perms() をコールして確認
     A backend can raise `PermissionDenied` to short-circuit permission checking.
     """
     for backend in auth.get_backends():
+        # 例えば、django.contrib.auth.backends.ModelBackend
         if not hasattr(backend, 'has_module_perms'):
             continue
         try:
@@ -385,6 +387,7 @@ class PermissionsMixin(models.Model):
         """
         # Active superusers have all permissions.
         if self.is_active and self.is_superuser:
+            # アクティブなスーパーユーザーはいつもOK
             return True
 
         return _user_has_module_perms(self, app_label)

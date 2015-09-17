@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.contrib.auth import get_user_model
@@ -23,9 +24,14 @@ class ModelBackend(object):
             UserModel().set_password(password)
 
     def _get_user_permissions(self, user_obj):
+        '''ユーザーオブジェクトのパーミッションを一覧します'''
         return user_obj.user_permissions.all()
 
     def _get_group_permissions(self, user_obj):
+        '''GroupはパーミッションをManyToManyで参照しているので、
+        ユーザーの所属するグループが持っているパーミッションをすべて
+        取得する
+        '''
         user_groups_field = get_user_model()._meta.get_field('groups')
         user_groups_query = 'group__%s' % user_groups_field.related_query_name()
         return Permission.objects.filter(**{user_groups_query: user_obj})
@@ -40,13 +46,22 @@ class ModelBackend(object):
             return set()
 
         perm_cache_name = '_%s_perm_cache' % from_name
+
         if not hasattr(user_obj, perm_cache_name):
             if user_obj.is_superuser:
+                # スーパーユーザーは全パーミッションもらえるよ
                 perms = Permission.objects.all()
             else:
-                perms = getattr(self, '_get_%s_permissions' % from_name)(user_obj)
-            perms = perms.values_list('content_type__app_label', 'codename').order_by()
-            setattr(user_obj, perm_cache_name, set("%s.%s" % (ct, name) for ct, name in perms))
+                perms = getattr(
+                    self, '_get_%s_permissions' % from_name)(user_obj)
+
+            # 重要: value_list (アップラベル, コード名) を作っています
+            perms = perms.values_list(
+                'content_type__app_label', 'codename').order_by()
+
+            # set でかえします
+            setattr(user_obj, perm_cache_name,
+                    set("%s.%s" % (ct, name) for ct, name in perms))
         return getattr(user_obj, perm_cache_name)
 
     def get_user_permissions(self, user_obj, obj=None):
@@ -64,9 +79,17 @@ class ModelBackend(object):
         return self._get_permissions(user_obj, obj, 'group')
 
     def get_all_permissions(self, user_obj, obj=None):
+        '''ユーザーに対するパーミンションを一覧
+
+        以下のパーミッションをマージしてキャッシュして返す:
+
+        - ユーザーパーミッション
+        - ユーザーのグループパーミッション
+        '''
         if not user_obj.is_active or user_obj.is_anonymous() or obj is not None:
             return set()
         if not hasattr(user_obj, '_perm_cache'):
+            # _perm_cache は set です
             user_obj._perm_cache = self.get_user_permissions(user_obj)
             user_obj._perm_cache.update(self.get_group_permissions(user_obj))
         return user_obj._perm_cache
@@ -79,10 +102,15 @@ class ModelBackend(object):
     def has_module_perms(self, user_obj, app_label):
         """
         Returns True if user_obj has any permissions in the given app_label.
+
+        ユーザーのすべてのパーミッションをリストして、app_label
+        が一致していたらパーミッションがあるものとみなす。
+        １つでもあればよい。
         """
         if not user_obj.is_active:
             return False
         for perm in self.get_all_permissions(user_obj):
+            # アップラベル.パーミッションコード名
             if perm[:perm.index('.')] == app_label:
                 return True
         return False
