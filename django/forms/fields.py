@@ -43,8 +43,10 @@ __all__ = (
     'RegexField', 'EmailField', 'FileField', 'ImageField', 'URLField',
     'BooleanField', 'NullBooleanField', 'ChoiceField', 'MultipleChoiceField',
     'ComboField', 'MultiValueField', 'FloatField', 'DecimalField',
-    'SplitDateTimeField', 'IPAddressField', 'GenericIPAddressField', 'FilePathField',
-    'SlugField', 'TypedChoiceField', 'TypedMultipleChoiceField', 'UUIDField',
+    'SplitDateTimeField', 'IPAddressField',
+    'GenericIPAddressField', 'FilePathField',
+    'SlugField', 'TypedChoiceField',
+    'TypedMultipleChoiceField', 'UUIDField',
 )
 
 
@@ -55,14 +57,20 @@ class RenameFieldMethods(RenameMethodsBase):
 
 
 class Field(six.with_metaclass(RenameFieldMethods, object)):
-    widget = TextInput  # Default widget to use when rendering this type of Field.
-    hidden_widget = HiddenInput  # Default widget to use when rendering this as "hidden".
+    widget = TextInput
+    # Default widget to use when rendering this type of Field.
+
+    hidden_widget = HiddenInput
+    # Default widget to use when rendering this as "hidden".
+
     default_validators = []  # Default set of validators
     # Add an 'invalid' entry to default_error_message if you want a specific
     # field error message not raised by the field validators.
+
     default_error_messages = {
         'required': _('This field is required.'),
     }
+
     empty_values = list(validators.EMPTY_VALUES)
 
     # Tracks each time a Field instance is created. Used to retain order.
@@ -71,6 +79,7 @@ class Field(six.with_metaclass(RenameFieldMethods, object)):
     def __init__(self, required=True, widget=None, label=None, initial=None,
                  help_text='', error_messages=None, show_hidden_initial=False,
                  validators=[], localize=False, label_suffix=None):
+
         # required -- Boolean that specifies whether the field is required.
         #             True by default.
         # widget -- A Widget class, or instance of a Widget class, that should
@@ -86,12 +95,14 @@ class Field(six.with_metaclass(RenameFieldMethods, object)):
         # help_text -- An optional string to use as "help text" for this Field.
         # error_messages -- An optional dictionary to override the default
         #                   messages that the field will raise.
-        # show_hidden_initial -- Boolean that specifies if it is needed to render a
-        #                        hidden widget with initial value after widget.
+        # show_hidden_initial -- Boolean that specifies
+        #                        if it is needed to render a hidden widget
+        #                       with initial value after widget.
         # validators -- List of additional validators to use
         # localize -- Boolean that specifies if the field should be localized.
         # label_suffix -- Suffix to be added to the label. Overrides
         #                 form's label_suffix.
+
         self.required, self.label, self.initial = required, label, initial
         self.show_hidden_initial = show_hidden_initial
         self.help_text = help_text
@@ -136,7 +147,8 @@ class Field(six.with_metaclass(RenameFieldMethods, object)):
 
     def validate(self, value):
         if value in self.empty_values and self.required:
-            raise ValidationError(self.error_messages['required'], code='required')
+            raise ValidationError(
+                self.error_messages['required'], code='required')
 
     def run_validators(self, value):
         if value in self.empty_values:
@@ -213,9 +225,11 @@ class CharField(Field):
         self.max_length, self.min_length = max_length, min_length
         super(CharField, self).__init__(*args, **kwargs)
         if min_length is not None:
-            self.validators.append(validators.MinLengthValidator(int(min_length)))
+            self.validators.append(
+                validators.MinLengthValidator(int(min_length)))
         if max_length is not None:
-            self.validators.append(validators.MaxLengthValidator(int(max_length)))
+            self.validators.append(
+                validators.MaxLengthValidator(int(max_length)))
 
     def to_python(self, value):
         "Returns a Unicode object."
@@ -262,7 +276,8 @@ class IntegerField(Field):
         try:
             value = int(str(value))
         except (ValueError, TypeError):
-            raise ValidationError(self.error_messages['invalid'], code='invalid')
+            raise ValidationError(
+                self.error_messages['invalid'], code='invalid')
         return value
 
     def widget_attrs(self, widget):
@@ -293,15 +308,18 @@ class FloatField(IntegerField):
         try:
             value = float(value)
         except (ValueError, TypeError):
-            raise ValidationError(self.error_messages['invalid'], code='invalid')
+            raise ValidationError(
+                self.error_messages['invalid'], code='invalid')
         return value
 
     def validate(self, value):
         super(FloatField, self).validate(value)
 
-        # Check for NaN (which is the only thing not equal to itself) and +/- infinity
+        # Check for NaN (which is the only thing not equal to itself)
+        # and +/- infinity
         if value != value or value in (Decimal('Inf'), Decimal('-Inf')):
-            raise ValidationError(self.error_messages['invalid'], code='invalid')
+            raise ValidationError(
+                self.error_messages['invalid'], code='invalid')
 
         return value
 
@@ -324,14 +342,20 @@ class DecimalField(IntegerField):
             'Ensure that there are no more than %(max)s decimal places.',
             'max'),
         'max_whole_digits': ungettext_lazy(
-            'Ensure that there are no more than %(max)s digit before the decimal point.',
-            'Ensure that there are no more than %(max)s digits before the decimal point.',
+            'Ensure that there are no more than %(max)s digit '
+            'before the decimal point.',
+            'Ensure that there are no more than %(max)s digits '
+            'before the decimal point.',
             'max'),
     }
 
-    def __init__(self, max_value=None, min_value=None, max_digits=None, decimal_places=None, *args, **kwargs):
+    def __init__(
+        self, max_value=None, min_value=None, max_digits=None,
+        decimal_places=None, *args, **kwargs
+    ):
         self.max_digits, self.decimal_places = max_digits, decimal_places
-        super(DecimalField, self).__init__(max_value, min_value, *args, **kwargs)
+        super(DecimalField, self).__init__(
+            max_value, min_value, *args, **kwargs)
 
     def to_python(self, value):
         """
@@ -348,7 +372,8 @@ class DecimalField(IntegerField):
         try:
             value = Decimal(value)
         except DecimalException:
-            raise ValidationError(self.error_messages['invalid'], code='invalid')
+            raise ValidationError(
+                self.error_messages['invalid'], code='invalid')
         return value
 
     def validate(self, value):
@@ -588,14 +613,18 @@ class EmailField(CharField):
 class FileField(Field):
     widget = ClearableFileInput
     default_error_messages = {
-        'invalid': _("No file was submitted. Check the encoding type on the form."),
+        'invalid': _("No file was submitted. "
+                     "Check the encoding type on the form."),
         'missing': _("No file was submitted."),
         'empty': _("The submitted file is empty."),
         'max_length': ungettext_lazy(
-            'Ensure this filename has at most %(max)d character (it has %(length)d).',
-            'Ensure this filename has at most %(max)d characters (it has %(length)d).',
+            'Ensure this filename has at most %(max)d character '
+            '(it has %(length)d).',
+            'Ensure this filename has at most %(max)d characters '
+            '(it has %(length)d).',
             'max'),
-        'contradiction': _('Please either submit a file or check the clear checkbox, not both.')
+        'contradiction': _('Please either submit a file '
+                           'or check the clear checkbox, not both.')
     }
 
     def __init__(self, *args, **kwargs):
@@ -612,22 +641,28 @@ class FileField(Field):
             file_name = data.name
             file_size = data.size
         except AttributeError:
-            raise ValidationError(self.error_messages['invalid'], code='invalid')
+            raise ValidationError(
+                self.error_messages['invalid'], code='invalid')
 
         if self.max_length is not None and len(file_name) > self.max_length:
             params = {'max': self.max_length, 'length': len(file_name)}
-            raise ValidationError(self.error_messages['max_length'], code='max_length', params=params)
+            raise ValidationError(
+                self.error_messages['max_length'],
+                code='max_length', params=params)
         if not file_name:
-            raise ValidationError(self.error_messages['invalid'], code='invalid')
+            raise ValidationError(
+                self.error_messages['invalid'], code='invalid')
         if not self.allow_empty_file and not file_size:
-            raise ValidationError(self.error_messages['empty'], code='empty')
+            raise ValidationError(
+                self.error_messages['empty'], code='empty')
 
         return data
 
     def clean(self, data, initial=None):
         # If the widget got contradictory inputs, we raise a validation error
         if data is FILE_INPUT_CONTRADICTION:
-            raise ValidationError(self.error_messages['contradiction'], code='contradiction')
+            raise ValidationError(
+                self.error_messages['contradiction'], code='contradiction')
         # False means the field value should be cleared; further validation is
         # not needed.
         if data is False:
@@ -673,7 +708,8 @@ class ImageField(FileField):
 
         from PIL import Image
 
-        # We need to get a file object for Pillow. We might have a path or we might
+        # We need to get a file object for Pillow.
+        # We might have a path or we might
         # have to read the data into memory.
         if hasattr(data, 'temporary_file_path'):
             file = data.temporary_file_path()
@@ -758,7 +794,8 @@ class BooleanField(Field):
         # will submit for False. Also check for '0', since this is what
         # RadioSelect will provide. Because bool("True") == bool('1') == True,
         # we don't need to handle that explicitly.
-        if isinstance(value, six.string_types) and value.lower() in ('false', '0'):
+        if isinstance(value, six.string_types) and \
+                value.lower() in ('false', '0'):
             value = False
         else:
             value = bool(value)
@@ -766,7 +803,8 @@ class BooleanField(Field):
 
     def validate(self, value):
         if not value and self.required:
-            raise ValidationError(self.error_messages['required'], code='required')
+            raise ValidationError(
+                self.error_messages['required'], code='required')
 
     def has_changed(self, initial, data):
         # Sometimes data or initial could be None or '' which should be the
