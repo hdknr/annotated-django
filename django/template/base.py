@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 This is the Django template system.
 
@@ -1116,6 +1117,8 @@ class TagHelperNode(Node):
 
 
 class Library(object):
+    '''テンプレートライブラリ
+    '''
     def __init__(self):
         self.filters = {}
         self.tags = {}
@@ -1256,7 +1259,15 @@ class Library(object):
             raise TemplateSyntaxError("Invalid arguments provided to assignment_tag")
 
     def inclusion_tag(self, file_name, takes_context=False, name=None):
+        '''テンプレートインクルードデコレータ
+
+        - Templateオブジェクト
+        - template属性でTemplateオブジェクトを持つオブジェクト、
+        - テンプレート名
+        '''
         def dec(func):
+            '''デコレータ
+            '''
             params, varargs, varkw, defaults = getargspec(func)
 
             class InclusionNode(TagHelperNode):
@@ -1270,7 +1281,10 @@ class Library(object):
                     resolved_args, resolved_kwargs = self.get_resolved_arguments(context)
                     _dict = func(*resolved_args, **resolved_kwargs)
 
+                    # テンプレートオブジェクト取得
                     t = context.render_context.get(self)
+
+                    # 取得できなかったら
                     if t is None:
                         if isinstance(file_name, Template):
                             t = file_name
@@ -1281,7 +1295,10 @@ class Library(object):
                         else:
                             t = context.template.engine.get_template(file_name)
                         context.render_context[self] = t
+
+                    # 新しくコンテキストを起こす
                     new_context = context.new(_dict)
+
                     # Copy across the CSRF token, if present, because
                     # inclusion tags are often used for forms, and we need
                     # instructions for using CSRF protection to be as simple
@@ -1289,17 +1306,23 @@ class Library(object):
                     csrf_token = context.get('csrf_token', None)
                     if csrf_token is not None:
                         new_context['csrf_token'] = csrf_token
+
+                    # レンダーする
                     return t.render(new_context)
+            # end of class InclusionNode
 
             function_name = (name or
                 getattr(func, '_decorated_function', func).__name__)
+
             compile_func = partial(generic_tag_compiler,
                 params=params, varargs=varargs, varkw=varkw,
                 defaults=defaults, name=function_name,
                 takes_context=takes_context, node_class=InclusionNode)
+
             compile_func.__doc__ = func.__doc__
             self.tag(function_name, compile_func)
             return func
+
         return dec
 
 
