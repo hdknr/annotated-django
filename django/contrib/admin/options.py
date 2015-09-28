@@ -1520,6 +1520,9 @@ class ModelAdmin(BaseModelAdmin):
         return self.changeform_view(request, None, form_url, extra_context)
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
+        '''修正ビューのコンテキストデータをカスタマイズするには
+        `change_view`をオーバーライド
+        '''
         return self.changeform_view(request, object_id, form_url, extra_context)
 
     @csrf_protect_m
