@@ -1,4 +1,8 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+'''
+互換用: 1.9 でドロップされます
+'''
 
 import warnings
 
