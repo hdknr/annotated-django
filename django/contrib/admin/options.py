@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import copy
 import operator
 import warnings
@@ -303,6 +304,7 @@ class BaseModelAdmin(six.with_metaclass(forms.MediaDefiningClass)):
         if callable(self.view_on_site):
             return self.view_on_site(obj)
         elif self.view_on_site and hasattr(obj, 'get_absolute_url'):
+            # コンテキストに content_type_id と object_id が渡ります
             # use the ContentType lookup if view_on_site is True
             return reverse('admin:view_on_site', kwargs={
                 'content_type_id': get_content_type_for_model(obj).pk,
@@ -1102,6 +1104,7 @@ class ModelAdmin(BaseModelAdmin):
             self.save_formset(request, form, formset, change=change)
 
     def render_change_form(self, request, context, add=False, change=False, form_url='', obj=None):
+        #  ここでテンプレートコンテキストを更新します
         opts = self.model._meta
         app_label = opts.app_label
         preserved_filters = self.get_preserved_filters(request)
@@ -1494,6 +1497,7 @@ class ModelAdmin(BaseModelAdmin):
         for inline_formset in inline_formsets:
             media = media + inline_formset.media
 
+        # 修正元のモデルは `original` で渡される
         context = dict(self.admin_site.each_context(request),
             title=(_('Add %s') if add else _('Change %s')) % force_text(opts.verbose_name),
             adminform=adminForm,
