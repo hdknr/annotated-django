@@ -108,6 +108,8 @@ class EmailBackend(BaseEmailBackend):
 
         .. note::
             - このメソッドだとReturn-Path を設定できない
+            - 拡張ヘッダーにTo, From を指定して、送信元、先のアドレスを別途
+              指定すればいける
         """
         if not email_messages:
             return

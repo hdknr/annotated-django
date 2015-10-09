@@ -214,8 +214,16 @@ class EmailMessage(object):
     mixed_subtype = 'mixed'
     encoding = None     # None => use settings default
 
-    def __init__(self, subject='', body='', from_email=None, to=None, bcc=None,
-                 connection=None, attachments=None, headers=None, cc=None,
+    def __init__(self,
+                 subject='',
+                 body='',
+                 from_email=None,
+                 to=None,
+                 bcc=None,
+                 connection=None,
+                 attachments=None,
+                 headers=None,
+                 cc=None,
                  reply_to=None):
         """
         Initialize a single email message
@@ -257,8 +265,12 @@ class EmailMessage(object):
         self.connection = connection
 
     def get_connection(self, fail_silently=False):
+        '''
+        - インスタンス作成する際に、connectionを指定していればそれを使う
+        '''
         from django.core.mail import get_connection
         if not self.connection:
+            # connection指定がないならば、ここで生成する
             self.connection = get_connection(fail_silently=fail_silently)
         return self.connection
 
@@ -305,7 +317,10 @@ class EmailMessage(object):
         return self.to + self.cc + self.bcc
 
     def send(self, fail_silently=False):
-        """Sends the email message."""
+        """Sends the email message.
+        - get_connectionでBaseEmailBackendを取得
+        - backend.send_messages([メッセージ])
+        """
         if not self.recipients():
             # Don't bother creating the network connection if there's nobody to
             # send to.
@@ -344,7 +359,8 @@ class EmailMessage(object):
         if self.attachments:
             encoding = self.encoding or settings.DEFAULT_CHARSET
             body_msg = msg
-            msg = SafeMIMEMultipart(_subtype=self.mixed_subtype, encoding=encoding)
+            msg = SafeMIMEMultipart(_subtype=self.mixed_subtype,
+                                    encoding=encoding)
             if self.body:
                 msg.attach(body_msg)
             for attachment in self.attachments:

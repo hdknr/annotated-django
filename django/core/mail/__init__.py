@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Tools for sending email.
 """
@@ -33,6 +34,8 @@ def get_connection(backend=None, fail_silently=False, **kwds):
 
     Both fail_silently and other keyword arguments are used in the
     constructor of the backend.
+
+    - settingsに指定したEMAIL_BACKENDで接続オブジェクトを生成する
     """
     klass = import_string(backend or settings.EMAIL_BACKEND)
     return klass(fail_silently=fail_silently, **kwds)
