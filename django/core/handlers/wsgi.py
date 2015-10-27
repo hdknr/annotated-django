@@ -190,6 +190,7 @@ class WSGIHandler(base.BaseHandler):
                     self._request_middleware = None
                     raise
 
+        # ここで SCRIPT_NAME を(現在のスレッドに)設定している
         set_script_prefix(get_script_name(environ))
         signals.request_started.send(sender=self.__class__, environ=environ)
         try:

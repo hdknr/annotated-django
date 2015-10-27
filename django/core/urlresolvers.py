@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 This module converts requested URLs to callback view functions.
 
@@ -26,9 +27,10 @@ from django.utils.module_loading import module_has_submodule
 from django.utils.regex_helper import normalize
 from django.utils.translation import get_language
 
-# SCRIPT_NAME prefixes for each thread are stored here. If there's no entry for
-# the current thread (which is the only one we ever access), it is assumed to
-# be empty.
+# ここでスレッドごとのSCRIPT_NAMEを保持します
+# SCRIPT_NAME prefixes for each thread are stored here.
+# If there's no entry for # the current thread
+# (which is the only one we ever access), it is assumed to be empty.
 _prefixes = local()
 
 # Overridden URLconfs for each thread are stored here.
@@ -530,7 +532,7 @@ def reverse(viewname, urlconf=None, args=None, kwargs=None, prefix=None, current
     kwargs = kwargs or {}
 
     if prefix is None:
-        prefix = get_script_prefix()
+        prefix = get_script_prefix()        # SCRIPT_NAME
 
     if not isinstance(viewname, six.string_types):
         view = viewname
@@ -590,6 +592,7 @@ def clear_url_caches():
 def set_script_prefix(prefix):
     """
     Sets the script prefix for the current thread.
+    現在のスレッドのスクリプトプレフィックス(SCRIPT_NAME)を指定
     """
     if not prefix.endswith('/'):
         prefix += '/'
