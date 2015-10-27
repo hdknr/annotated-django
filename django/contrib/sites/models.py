@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import string
@@ -50,8 +51,11 @@ class SiteManager(models.Manager):
     def get_current(self, request=None):
         """
         Returns the current Site based on the SITE_ID in the project's settings.
+
         If SITE_ID isn't defined, it returns the site with domain matching
-        request.get_host(). The ``Site`` object is cached the first time it's
+        request.get_host().
+
+        The ``Site`` object is cached the first time it's
         retrieved from the database.
         """
         from django.conf import settings
@@ -77,7 +81,8 @@ class SiteManager(models.Manager):
 @python_2_unicode_compatible
 class Site(models.Model):
 
-    domain = models.CharField(_('domain name'), max_length=100,
+    domain = models.CharField(
+        _('domain name'), max_length=100,
         validators=[_simple_domain_name_validator])
     name = models.CharField(_('display name'), max_length=50)
     objects = SiteManager()
@@ -101,6 +106,8 @@ class RequestSite(RealRequestSite):
 
 
 def get_current_site(request):
+    '''現在のサイトを返す
+    '''
     warnings.warn(
         "Please import get_current_site from django.contrib.sites.shortcuts.",
         RemovedInDjango19Warning, stacklevel=2)

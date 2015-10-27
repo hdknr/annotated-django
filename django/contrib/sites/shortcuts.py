@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.apps import apps
@@ -5,8 +6,9 @@ from django.apps import apps
 
 def get_current_site(request):
     """
-    Checks if contrib.sites is installed and returns either the current
-    ``Site`` object or a ``RequestSite`` object based on the request.
+    Checks if contrib.sites is installed
+    and returns either the current ``Site`` object
+    or a ``RequestSite`` object based on the request.
     """
     # Imports are inside the function because its point is to avoid importing
     # the Site models when django.contrib.sites isn't installed.
