@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The main QuerySet implementation. This provides the public API for the ORM.
 """
@@ -404,6 +405,7 @@ class QuerySet(object):
         try:
             return self.get(**lookup), False
         except self.model.DoesNotExist:
+            # 存在しないと_create_object_from_paramsをコール
             return self._create_object_from_params(lookup, params)
 
     def update_or_create(self, defaults=None, **kwargs):
@@ -436,6 +438,7 @@ class QuerySet(object):
         """
         try:
             with transaction.atomic(using=self.db):
+                # create が呼ばれている
                 obj = self.create(**params)
             return obj, True
         except IntegrityError:
