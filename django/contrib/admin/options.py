@@ -668,8 +668,10 @@ class ModelAdmin(BaseModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         """
-        Returns a Form class for use in the admin add view. This is used by
-        add_view and change_view.
+        Returns a Form class for use in the admin add view.
+        This is used by `add_view` and `change_view`.
+
+        - これをオーバーライドしてカスタマイズ
         """
         if 'fields' in kwargs:
             fields = kwargs.pop('fields')

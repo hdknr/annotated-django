@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django import http
 from django.template import Context, Engine, TemplateDoesNotExist, loader
 from django.views.decorators.csrf import requires_csrf_token
