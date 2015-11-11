@@ -1669,7 +1669,7 @@ class ModelAdmin(BaseModelAdmin):
             cl=cl,
             media=media,
             has_add_permission=self.has_add_permission(request),
-            opts=cl.opts,
+            opts=cl.opts,           # モデルの_meta が渡ります
             action_form=action_form,
             actions_on_top=self.actions_on_top,
             actions_on_bottom=self.actions_on_bottom,
