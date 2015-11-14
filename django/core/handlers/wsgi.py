@@ -160,6 +160,7 @@ class WSGIRequest(http.HttpRequest):
     @cached_property
     def COOKIES(self):
         raw_cookie = get_str_from_wsgi(self.environ, 'HTTP_COOKIE', '')
+        # HTTP_COOKIEのパース
         return http.parse_cookie(raw_cookie)
 
     def _get_files(self):
