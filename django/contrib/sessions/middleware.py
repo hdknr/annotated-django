@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import time
 from importlib import import_module
 
@@ -8,11 +9,17 @@ from django.utils.http import cookie_date
 
 class SessionMiddleware(object):
     def __init__(self):
+        # セッションエンジン
         engine = import_module(settings.SESSION_ENGINE)
+
+        # セッションストア
         self.SessionStore = engine.SessionStore
 
     def process_request(self, request):
+        # クッキーよりセッションキー
         session_key = request.COOKIES.get(settings.SESSION_COOKIE_NAME, None)
+
+        # セッションオブジェクト
         request.session = self.SessionStore(session_key)
 
     def process_response(self, request, response):
