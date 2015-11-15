@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import inspect
 import re
 
@@ -56,6 +57,7 @@ def _clean_credentials(credentials):
 def _get_user_session_key(request):
     # This value in the session is always serialized to a string, so we need
     # to convert it back to Python whenever we access it.
+    # これでuser_id がわかります
     return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
 
 
