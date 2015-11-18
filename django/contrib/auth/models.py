@@ -396,6 +396,8 @@ class PermissionsMixin(models.Model):
 
 class AbstractUser(AbstractBaseUser, PermissionsMixin):
     """
+    - AbstractUser は PermissionsMixin によりパーミッション判定を実装する
+
     An abstract base class implementing a fully featured User model with
     admin-compliant permissions.
 
