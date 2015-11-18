@@ -74,6 +74,7 @@ class Permission(models.Model):
         unique_together = (('content_type', 'codename'),)
         ordering = ('content_type__app_label', 'content_type__model',
                     'codename')
+        # 'content_type' + 'codename' でパーミッション管理されています
 
     def __str__(self):
         return "%s | %s | %s" % (
