@@ -1095,6 +1095,10 @@ class ModelAdmin(BaseModelAdmin):
 
     def save_related(self, request, form, formsets, change):
         """
+        - ManyToManyField がある場合、本体モデルのsave_model の後に
+          save_related が呼ばれるので、これをオーバーライドして、
+          保存後の処理を行うこと
+
         Given the ``HttpRequest``, the parent ``ModelForm`` instance, the
         list of inline formsets and a boolean value based on whether the
         parent is being added or changed, save the related objects to the
@@ -1105,12 +1109,16 @@ class ModelAdmin(BaseModelAdmin):
         for formset in formsets:
             self.save_formset(request, form, formset, change=change)
 
-    def render_change_form(self, request, context, add=False, change=False, form_url='', obj=None):
+    def render_change_form(
+            self, request, context, add=False, change=False,
+            form_url='', obj=None):
         #  ここでテンプレートコンテキストを更新します
         opts = self.model._meta
         app_label = opts.app_label
         preserved_filters = self.get_preserved_filters(request)
-        form_url = add_preserved_filters({'preserved_filters': preserved_filters, 'opts': opts}, form_url)
+        form_url = add_preserved_filters(
+            {'preserved_filters': preserved_filters,
+             'opts': opts}, form_url)
         view_on_site_url = self.get_view_on_site_url(obj)
         context.update({
             'add': add,
