@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import logging
@@ -62,12 +63,16 @@ class View(object):
                                 "attributes of the class." % (cls.__name__, key))
 
         def view(request, *args, **kwargs):
-            self = cls(**initkwargs)
+            # 実際のビュー
+            self = cls(**initkwargs)        # クラスを作成する
+
             if hasattr(self, 'get') and not hasattr(self, 'head'):
                 self.head = self.get
             self.request = request
             self.args = args
             self.kwargs = kwargs
+
+            # 引数に応じて実際のメソッドをコールする
             return self.dispatch(request, *args, **kwargs)
 
         # take name and docstring from class
@@ -82,14 +87,19 @@ class View(object):
         # Try to dispatch to the right method; if a method doesn't exist,
         # defer to the error handler. Also defer to the error handler if the
         # request method isn't on the approved list.
+
+        # メソッド名を元にメソッドを判定する
         if request.method.lower() in self.http_method_names:
-            handler = getattr(self, request.method.lower(), self.http_method_not_allowed)
+            handler = getattr(self, request.method.lower(),
+                              self.http_method_not_allowed)
         else:
             handler = self.http_method_not_allowed
         return handler(request, *args, **kwargs)
 
     def http_method_not_allowed(self, request, *args, **kwargs):
-        logger.warning('Method Not Allowed (%s): %s', request.method, request.path,
+        logger.warning(
+            'Method Not Allowed (%s): %s',
+            request.method, request.path,
             extra={
                 'status_code': 405,
                 'request': request
