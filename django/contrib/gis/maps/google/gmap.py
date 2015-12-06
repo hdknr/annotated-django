@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.conf import settings
@@ -30,7 +31,7 @@ class GoogleMap(object):
     def __init__(self, key=None, api_url=None, version=None,
                  center=None, zoom=None, dom_id='map',
                  kml_urls=[], polylines=None, polygons=None, markers=None,
-                 template='gis/google/google-map.js',
+                 template='gis/google/google-map.js',   # GoogleMapテンプレート
                  js_module='geodjango',
                  extra_context={}):
 

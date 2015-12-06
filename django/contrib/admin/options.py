@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import copy
 import operator
 from collections import OrderedDict
@@ -1336,14 +1337,14 @@ class ModelAdmin(BaseModelAdmin):
     @csrf_protect_m
     @transaction.atomic
     def changeform_view(self, request, object_id=None, form_url='', extra_context=None):
-
+        """ add/change : object_id is None -> add """
         to_field = request.POST.get(TO_FIELD_VAR, request.GET.get(TO_FIELD_VAR))
         if to_field and not self.to_field_allowed(request, to_field):
             raise DisallowedModelAdminToField("The field %s cannot be referenced." % to_field)
 
         model = self.model
         opts = model._meta
-        add = object_id is None
+        add = object_id is None         # 追加判定
 
         if add:
             if not self.has_add_permission(request):
@@ -1432,9 +1433,11 @@ class ModelAdmin(BaseModelAdmin):
         return self.render_change_form(request, context, add=add, change=not add, obj=obj, form_url=form_url)
 
     def add_view(self, request, form_url='', extra_context=None):
+        '''新規'''
         return self.changeform_view(request, None, form_url, extra_context)
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
+        '''編集'''
         return self.changeform_view(request, object_id, form_url, extra_context)
 
     @csrf_protect_m
