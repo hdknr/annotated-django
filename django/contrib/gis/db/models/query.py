@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import warnings
 
 from django.contrib.gis.db.models import aggregates
@@ -21,7 +22,8 @@ from django.utils.deprecation import (
 
 
 class GeoQuerySet(QuerySet):
-    "The Geographic QuerySet."
+    "The Geographic QuerySet. (これをオーバーライドしてQuerySetを作る)
+    "
 
     # ### GeoQuerySet Methods ###
     def area(self, tolerance=0.05, **kwargs):
