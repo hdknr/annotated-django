@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import datetime
 import os
 import warnings
@@ -60,6 +61,7 @@ class FieldFile(File):
     file = property(_get_file, _set_file, _del_file)
 
     def _get_path(self):
+        '''パスの取得 '''
         self._require_file()
         return self.storage.path(self.name)
     path = property(_get_path)
