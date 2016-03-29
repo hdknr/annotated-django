@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.core.management.base import BaseCommand, CommandError
 from django.db import DEFAULT_DB_ALIAS, connections
 
@@ -14,8 +15,10 @@ class Command(BaseCommand):
             'open a shell. Defaults to the "default" database.')
 
     def handle(self, **options):
+        # 接続の取得
         connection = connections[options.get('database')]
         try:
+            # clinet runshell に丸投げ
             connection.client.runshell()
         except OSError:
             # Note that we're assuming OSError means that the client program
