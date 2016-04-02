@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-      
 from functools import update_wrapper
 
 from django.apps import apps
@@ -491,7 +492,7 @@ class AdminSite(object):
 
     @never_cache
     def index(self, request, extra_context=None):
-        """
+        """ 管理画面のトップページ
         Displays the main admin index page, which lists all of the installed
         apps that have been registered in this site.
         """
@@ -500,7 +501,7 @@ class AdminSite(object):
         context = dict(
             self.each_context(request),
             title=self.index_title,
-            app_list=app_list,
+            app_list=app_list,              # アプリケーション一覧
         )
         context.update(extra_context or {})
 
@@ -510,6 +511,8 @@ class AdminSite(object):
                                 'admin/index.html', context)
 
     def app_index(self, request, app_label, extra_context=None):
+        """ アプリケーションのトップページ
+        """
         app_dict = self._build_app_dict(request, app_label)
         if not app_dict:
             raise Http404('The requested admin page does not exist.')
@@ -518,7 +521,7 @@ class AdminSite(object):
         app_name = apps.get_app_config(app_label).verbose_name
         context = dict(self.each_context(request),
             title=_('%(app)s administration') % {'app': app_name},
-            app_list=[app_dict],
+            app_list=[app_dict],            # アプリケーション一覧
             app_label=app_label,
         )
         context.update(extra_context or {})
