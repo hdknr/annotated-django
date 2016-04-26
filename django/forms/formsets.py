@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.core.exceptions import ValidationError
@@ -126,7 +127,9 @@ class BaseFormSet(object):
         return total_forms
 
     def initial_form_count(self):
-        """Returns the number of forms that are required in this FormSet."""
+        """Returns the number of forms that are required in this FormSet.
+        - マネージメントフォームのform-INITIAL_FORMS の値を制御する
+        """
         if self.is_bound:
             return self.management_form.cleaned_data[INITIAL_FORM_COUNT]
         else:
