@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import copy
 import os
 import sys
@@ -7,9 +8,13 @@ from django.utils import six
 
 
 def import_string(dotted_path):
-    """
-    Import a dotted module path and return the attribute/class designated by the
-    last name in the path. Raise ImportError if the import failed.
+    """ 
+    ドットパスで import する。
+    
+    Import a dotted module path and return the attribute/class 
+    designated by the last name in the path. 
+    
+    Raise ImportError if the import failed.
     """
     try:
         module_path, class_name = dotted_path.rsplit('.', 1)
@@ -17,7 +22,7 @@ def import_string(dotted_path):
         msg = "%s doesn't look like a module path" % dotted_path
         six.reraise(ImportError, ImportError(msg), sys.exc_info()[2])
 
-    module = import_module(module_path)
+    module = import_module(module_path)     # importlib.import_module
 
     try:
         return getattr(module, class_name)
