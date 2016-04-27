@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import errno
 import os
 import warnings
@@ -325,6 +326,7 @@ class FileSystemStorage(Storage):
 
 
 def get_storage_class(import_path=None):
+    '''デフォルトストレージ '''
     return import_string(import_path or settings.DEFAULT_FILE_STORAGE)
 
 
