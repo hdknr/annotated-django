@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import logging
@@ -106,12 +107,15 @@ class BaseHandler(object):
     def get_response(self, request):
         "Returns an HttpResponse object for the given HttpRequest"
 
-        # Setup default url resolver for this thread, this code is outside
-        # the try/except so we don't get a spurious "unbound local
-        # variable" exception in the event an exception is raised before
-        # resolver is set
+        # Setup default url resolver for this thread, 
+        # this code is outside the try/except 
+        # so we don't get a spurious "unbound local variable" exception 
+        # in the event an exception is raised before resolver is set
         urlconf = settings.ROOT_URLCONF
+
+        # URLConfを決める
         urlresolvers.set_urlconf(urlconf)
+
         resolver = urlresolvers.get_resolver(urlconf)
         # Use a flag to check if the response was rendered to prevent
         # multiple renderings or to force rendering if necessary.
@@ -125,6 +129,8 @@ class BaseHandler(object):
                     break
 
             if response is None:
+                # リクエストオブジェクトに urlconf が設定されていると
+                # それをつかってリゾルバを取得しなおす
                 if hasattr(request, 'urlconf'):
                     # Reset url resolver with a custom URLconf.
                     urlconf = request.urlconf

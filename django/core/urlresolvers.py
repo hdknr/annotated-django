@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 This module converts requested URLs to callback view functions.
 
@@ -638,8 +639,12 @@ def clear_script_prefix():
 
 def set_urlconf(urlconf_name):
     """
-    Sets the URLconf for the current thread (overriding the default one in
-    settings). Set to None to revert back to the default.
+    Sets the URLconf for the current thread 
+    (overriding the default one in settings). 
+    
+    Set to None to revert back to the default.
+
+     _urlconfs : local() です
     """
     if urlconf_name:
         _urlconfs.value = urlconf_name
