@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import re
@@ -29,6 +30,8 @@ def _lazy_re_compile(regex, flags=0):
 
 @deconstructible
 class RegexValidator(object):
+    '''正規表現バリデータ
+    '''
     regex = ''
     message = _('Enter a valid value.')
     code = 'invalid'
@@ -53,6 +56,9 @@ class RegexValidator(object):
 
     def __call__(self, value):
         """
+        - __call__(self, 入力値) で検証する。
+        - エラーが発生したらValidationErrorを例外 
+
         Validates that the input matches the regular expression
         if inverse_match is False, otherwise raises ValidationError.
         """
@@ -219,7 +225,10 @@ class EmailValidator(object):
 
 validate_email = EmailValidator()
 
+# slugのバリデータは正規表現バリデータ
 slug_re = _lazy_re_compile(r'^[-a-zA-Z0-9_]+\Z')
+
+# validate_slug.__call__(value) で検証が実行される
 validate_slug = RegexValidator(
     slug_re,
     _("Enter a valid 'slug' consisting of letters, numbers, underscores or hyphens."),
