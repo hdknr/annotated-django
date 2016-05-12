@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import copy
@@ -466,6 +467,7 @@ class QueryDict(MultiValueDict):
 
     def urlencode(self, safe=None):
         """
+        QueryDictをクエリ文字列に変換
         Returns an encoded string of all query string arguments.
 
         :arg safe: Used to specify characters which do not require quoting, for
