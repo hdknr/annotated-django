@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 "This is the locale selecting middleware that will look at accept headers"
 
 from django.conf import settings
@@ -5,18 +6,18 @@ from django.core.urlresolvers import (
     LocaleRegexURLResolver, get_resolver, get_script_prefix, is_valid_path,
 )
 from django.http import HttpResponseRedirect
-from django.utils import translation
+from django.utils import translation            # i18n
 from django.utils.cache import patch_vary_headers
 from django.utils.functional import cached_property
 
 
 class LocaleMiddleware(object):
     """
-    This is a very simple middleware that parses a request
-    and decides what translation object to install in the current
-    thread context. This allows pages to be dynamically
-    translated to the language the user desires (if the language
-    is available, of course).
+    This is a very simple middleware that parses a request 
+    and decides what translation object to install in the current thread context. 
+    
+    This allows pages to be dynamically translated to the language 
+    the user desires (if the language is available, of course).
     """
     response_redirect_class = HttpResponseRedirect
 
@@ -24,7 +25,7 @@ class LocaleMiddleware(object):
         language = translation.get_language_from_request(
             request, check_path=self.is_language_prefix_patterns_used)
         translation.activate(language)
-        request.LANGUAGE_CODE = translation.get_language()
+        request.LANGUAGE_CODE = translation.get_language()  # 現在の言語コード
 
     def process_response(self, request, response):
         language = translation.get_language()

@@ -28,7 +28,7 @@ from django.utils.translation import (
 # Translations are cached in a dictionary for every language.
 # The active translations are stored by threadid to make them thread local.
 _translations = {}
-_active = local()
+_active = local()               # ローカル変数
 
 # The default translation is based on the settings file.
 _default = None
@@ -55,8 +55,10 @@ language_code_prefix_re = re.compile(r'^/([\w@-]+)(/|$)')
 @receiver(setting_changed)
 def reset_cache(**kwargs):
     """
-    Reset global state when LANGUAGES setting has been changed, as some
-    languages should no longer be accepted.
+    言語設定が変わった時のシグナルハンドラ
+    
+    Reset global state when LANGUAGES setting has been changed, 
+    as some languages should no longer be accepted.
     """
     if kwargs['setting'] in ('LANGUAGES', 'LANGUAGE_CODE'):
         check_for_language.cache_clear()
@@ -197,7 +199,7 @@ class DjangoTranslation(gettext_module.GNUTranslations):
 
 def translation(language):
     """
-    Returns a translation object.
+    Returns a translation object.   / DjangoTranslation(language)
     """
     global _translations
     if language not in _translations:
@@ -235,7 +237,10 @@ def deactivate_all():
 
 
 def get_language():
-    """Returns the currently selected language."""
+    """ 言語を文字列で取得する
+    ローカル変数の value.to_languate() で言語を所得.
+    Returns the currently selected language.
+    """
     t = getattr(_active, "value", None)
     if t is not None:
         try:
@@ -243,6 +248,7 @@ def get_language():
         except AttributeError:
             pass
     # If we don't have a real translation object, assume it's the default language.
+    # 例外発生時にはデフォルト
     return settings.LANGUAGE_CODE
 
 
@@ -474,6 +480,8 @@ def get_language_from_path(path, strict=False):
 
 def get_language_from_request(request, check_path=False):
     """
+    WSGIRequest から言語設定を取得する
+    
     Analyzes the request to find what language the user wants the system to
     show. Only languages listed in settings.LANGUAGES are taken into account.
     If the user requests a sublanguage where we have a main language, we send

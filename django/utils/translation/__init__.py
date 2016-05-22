@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """
+- trans_real, trans_null のラッパー
+
 Internationalization support.
 """
 from __future__ import unicode_literals
@@ -56,13 +58,16 @@ class Trans(object):
     def __getattr__(self, real_name):
         from django.conf import settings
         if settings.USE_I18N:
+            # i18n 利用の場合は trans_real
             from django.utils.translation import trans_real as trans
         else:
+            # i18n 不要の場合は trans_null 
             from django.utils.translation import trans_null as trans
+        # real_name を trans_real/tran_nullから取得する
         setattr(self, real_name, getattr(trans, real_name))
         return getattr(trans, real_name)
 
-_trans = Trans()
+_trans = Trans()                # 翻訳クラス
 
 # The Trans class is no more needed, so remove it from the namespace.
 del Trans
@@ -174,6 +179,7 @@ class override(ContextDecorator):
 
 
 def get_language():
+    ''' 現在の言語 '''
     return _trans.get_language()
 
 
