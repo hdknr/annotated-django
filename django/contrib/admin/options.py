@@ -73,7 +73,7 @@ class IncorrectLookupParameters(Exception):
 
 FORMFIELD_FOR_DBFIELD_DEFAULTS = {
     models.DateTimeField: {
-        'form_class': forms.SplitDateTimeField,
+        'form_class': forms.SplitDateTimeField,     # DateTime を Date + Time の２フィールドで
         'widget': widgets.AdminSplitDateTime
     },
     models.DateField: {'widget': widgets.AdminDateWidget},

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Field classes.
 """
@@ -983,6 +984,8 @@ class ComboField(Field):
 
 class MultiValueField(Field):
     """
+    マルチバリューフィールド：
+
     A Field that aggregates the logic of multiple Fields.
 
     Its clean() method takes a "decompressed" list of values, which are then
@@ -1071,15 +1074,16 @@ class MultiValueField(Field):
         if errors:
             raise ValidationError(errors)
 
-        out = self.compress(clean_data)
+        out = self.compress(clean_data)         # 入力をまとめて１つの値にする
         self.validate(out)
         self.run_validators(out)
         return out
 
     def compress(self, data_list):
-        """
-        Returns a single value for the given list of values. The values can be
-        assumed to be valid.
+        """ フィールドの入力データをまとめて一つの値にする。
+        
+        Returns a single value for the given list of values. 
+        The values can be assumed to be valid.
 
         For example, if this MultiValueField was instantiated with
         fields=(DateField(), TimeField()), this might return a datetime
@@ -1152,6 +1156,8 @@ class FilePathField(ChoiceField):
 
 
 class SplitDateTimeField(MultiValueField):
+    ''' DateTime を DateFieldと TimeFieldの２つで入力させる
+    '''
     widget = SplitDateTimeWidget
     hidden_widget = SplitHiddenDateTimeWidget
     default_error_messages = {
@@ -1175,6 +1181,8 @@ class SplitDateTimeField(MultiValueField):
         super(SplitDateTimeField, self).__init__(fields, *args, **kwargs)
 
     def compress(self, data_list):
+        ''' date + time で datetime をつくって返す
+        '''
         if data_list:
             # Raise a validation error if time or date is empty
             # (possible if SplitDateTimeField has required=False).
