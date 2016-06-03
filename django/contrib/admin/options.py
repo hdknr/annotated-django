@@ -980,10 +980,13 @@ class ModelAdmin(BaseModelAdmin):
 
     def save_form(self, request, form, change):
         """
-        Given a ModelForm return an unsaved instance. ``change`` is True if
-        the object is being changed, and False if it's being added.
+        - 保存処理
+        Given a ModelForm return an unsaved instance. 
+
+        ``change`` is True if the object is being changed, 
+        and False if it's being added.
         """
-        return form.save(commit=False)
+        return form.save(commit=False)          # ModelForm.save() を呼ぶ
 
     def save_model(self, request, obj, form, change):
         """
