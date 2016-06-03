@@ -607,7 +607,7 @@ class ModelAdmin(BaseModelAdmin):
         if self.exclude is None:
             exclude = []
         else:
-            exclude = list(self.exclude)
+            exclude = list(self.exclude)            # ModelAdmin.exclude で除外可能
         readonly_fields = self.get_readonly_fields(request, obj)
         exclude.extend(readonly_fields)
         if self.exclude is None and hasattr(self.form, '_meta') and self.form._meta.exclude:
