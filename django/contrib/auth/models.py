@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.contrib import auth
@@ -167,6 +168,7 @@ class UserManager(BaseUserManager):
 
 # A few helper functions for common logic between User and AnonymousUser.
 def _user_get_all_permissions(user, obj):
+    # すべてのバックエンドを一覧からパーミッションをすべて取得して返す
     permissions = set()
     for backend in auth.get_backends():
         if hasattr(backend, "get_all_permissions"):
@@ -178,6 +180,8 @@ def _user_has_perm(user, perm, obj):
     """
     A backend can raise `PermissionDenied` to short-circuit permission checking.
     """
+    # 認証バックエンドを１つづつ取り出して、has_perm() がTrueを返したら終了
+    # obj に指定されたオブジェクトに対して評価可能
     for backend in auth.get_backends():
         if not hasattr(backend, 'has_perm'):
             continue
@@ -193,6 +197,7 @@ def _user_has_module_perms(user, app_label):
     """
     A backend can raise `PermissionDenied` to short-circuit permission checking.
     """
+    # _user_has_perm と同様にモジュールパーミッションを評価する　
     for backend in auth.get_backends():
         if not hasattr(backend, 'has_module_perms'):
             continue

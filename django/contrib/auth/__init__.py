@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import inspect
 import re
 
@@ -22,7 +23,7 @@ def load_backend(path):
 
 
 def _get_backends(return_tuples=False):
-    backends = []
+    backends = []       # 認証バックエンド一覧を返す
     for backend_path in settings.AUTHENTICATION_BACKENDS:
         backend = load_backend(backend_path)
         backends.append((backend, backend_path) if return_tuples else backend)
@@ -63,6 +64,7 @@ def authenticate(**credentials):
     """
     If the given credentials are valid, return a User object.
     """
+    # すべてのバックエンドを順番に評価 
     for backend, backend_path in _get_backends(return_tuples=True):
         try:
             inspect.getcallargs(backend.authenticate, **credentials)
