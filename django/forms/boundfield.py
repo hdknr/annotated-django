@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import datetime
@@ -125,23 +126,31 @@ class BoundField(object):
 
     def value(self):
         """
-        Returns the value for this BoundField, using the initial value if
-        the form is not bound or the data otherwise.
+        BoundFiledの値を返します。 束縛されていない場合は `initila` 値を返します。
+        
+        Returns the value for this BoundField, 
+        using the initial value if the form is not bound or the data otherwise.
         """
-        if not self.form.is_bound:
+        if not self.form.is_bound:      
+            # 束縛されていないので `initial` を使う
             data = self.form.initial.get(self.name, self.field.initial)
             if callable(data):
+                # `callable` が 初期値の場合
                 if self._initial_value is not UNSET:
                     data = self._initial_value
                 else:
+                    # `callable` をコールスル
                     data = data()
                     # If this is an auto-generated default date, nix the
                     # microseconds for standardized handling. See #22502.
+                    # 日付の場合、ミリ秒の処理
                     if (isinstance(data, (datetime.datetime, datetime.time)) and
                             not self.field.widget.supports_microseconds):
+                        # ミリ秒を0にする
                         data = data.replace(microsecond=0)
                     self._initial_value = data
         else:
+            # 束縛されていたら `bound_data` を取得して返す
             data = self.field.bound_data(
                 self.data, self.form.initial.get(self.name, self.field.initial)
             )
