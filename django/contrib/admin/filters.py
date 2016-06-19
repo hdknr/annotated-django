@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 This encapsulates the logic for displaying filters in the Django admin.
 Filters are specified in models with the "list_filter" option.
@@ -160,6 +161,7 @@ class FieldListFilter(ListFilter):
 
 
 class RelatedFieldListFilter(FieldListFilter):
+    ''' リレーションフィールド '''
     def __init__(self, field, request, params, model, model_admin, field_path):
         other_model = get_model_from_relation(field)
         self.lookup_kwarg = '%s__%s__exact' % (field_path, field.target_field.name)
@@ -198,6 +200,9 @@ class RelatedFieldListFilter(FieldListFilter):
         return field.get_choices(include_blank=False)
 
     def choices(self, cl):
+        ''' 
+        :params cl: django.contrib.admin.views.main.ChangeList object
+        '''
         yield {
             'selected': self.lookup_val is None and not self.lookup_val_isnull,
             'query_string': cl.get_query_string({},

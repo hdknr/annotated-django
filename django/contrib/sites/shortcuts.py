@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.apps import apps
@@ -12,7 +13,9 @@ def get_current_site(request):
     # the Site models when django.contrib.sites isn't installed.
     if apps.is_installed('django.contrib.sites'):
         from .models import Site
+        # リクエストを元に現在のサイトをSiteから探すして返す
         return Site.objects.get_current(request)
     else:
         from .requests import RequestSite
+        # リクエストサイトを返す
         return RequestSite(request)
