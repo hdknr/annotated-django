@@ -1,3 +1,3 @@
 # annotated-django
 
-- Django for Study
+- [Django for Study](markdown/django/README.md)
