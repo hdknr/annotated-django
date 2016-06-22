@@ -131,6 +131,7 @@ Model Meta options:
 class Task(models.Model):
     ...
     class Meta:
+        default_permissions = ('add', 'change', 'delete')
         permissions = (
             ("view_task", "Can see available tasks"),
             ("change_task_status", "Can change the status of tasks"),

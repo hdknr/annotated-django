@@ -8,7 +8,8 @@
 - [admin](admin/README.md)
 - [templates](templates/README.md)
 - [settings](settings.md)
-- [sites][django.site.md]
+- [sites](django.site.md)
+- [i18n](django.i18n.md)
 
 ## management command
 
