@@ -191,6 +191,7 @@ def get_user(request):
 
 def get_permission_codename(action, opts):
     """
+    - action + '_ '+ Model._meta.model_name
     Returns the codename of the permission for the specified action.
     """
     return '%s_%s' % (action, opts.model_name)
