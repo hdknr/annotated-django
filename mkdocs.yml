@@ -1,0 +1,4 @@
+site_name: Annotated-Django
+theme: readthedocs
+site_dir: ../build
+docs_dir: .

@@ -1,0 +1,3 @@
+- [PYPI livereload](https://pypi.python.org/pypi/livereload)
+- [lepture/python-livereload](https://github.com/lepture/python-livereload)
+- [livereload ReadTheDocs](http://livereload.readthedocs.io/en/latest/)
