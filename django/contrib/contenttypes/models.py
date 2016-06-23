@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import warnings
@@ -18,6 +19,9 @@ class ContentTypeManager(models.Manager):
     _cache = {}
 
     def get_by_natural_key(self, app_label, model):
+        '''
+        >>> ct = ContentType.objects.get_by_natural_key(*app_model_string.split('.'))    
+        '''
         try:
             ct = self.__class__._cache[self.db][(app_label, model)]
         except KeyError:
