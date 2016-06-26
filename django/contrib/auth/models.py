@@ -278,6 +278,8 @@ class PermissionsMixin(models.Model):
 
     def has_perms(self, perm_list, obj=None):
         """
+        - perm_list の すべてのpermを満たしているかを確認する
+
         Returns True if the user has each of the specified permissions. If
         object is passed, it checks if the user has all required perms for this
         object.
