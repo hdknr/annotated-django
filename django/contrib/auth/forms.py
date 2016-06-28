@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-                                                          
 from __future__ import unicode_literals
 
 from django import forms
@@ -62,6 +63,7 @@ class ReadOnlyPasswordHashField(forms.Field):
 
 class UserCreationForm(forms.ModelForm):
     """
+    - ユーザー作成フォーム
     A form that creates a user, with no privileges, from the given username and
     password.
     """
