@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-   
 import copy
 import datetime
 
@@ -595,6 +596,8 @@ class DurationValue(Value):
 
 
 class RawSQL(Expression):
+    ''' RawSQL("select * from ...")
+    '''
     def __init__(self, sql, params, output_field=None):
         if output_field is None:
             output_field = fields.Field()
