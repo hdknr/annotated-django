@@ -1,6 +1,6 @@
 
 - [click](http://click.pocoo.org/6/) by Armin Ronacher ([github](https://github.com/pallets/click))
-- [django-click](https://github.com/GaretJax/django-click)
+- [django-click](https://github.com/GaretJax/django-click) ([sample](https://github.com/GaretJax/django-click/tree/master/djclick/test/testprj/testapp/management/commands))
 
 # Install
 
@@ -32,6 +32,8 @@ def cmd(name):
 ~~~
 
 ## オプション
+
+- [Options](http://click-docs-cn.readthedocs.io/zh_CN/latest/options.html)
 
 - 入力不足の時にプロンプトする
 - フラグ(論理/その他)
@@ -103,6 +105,22 @@ Options:
   -h, --help   Show this message and exit.
 
 ~~~
+
+## `--dryrun` オプション
+
+~~~py
+@main.command()
+@click.option('--dryrun', is_flag=True, help="dryrun if true")
+@click.pass_context
+def backup(ctx, dryrun):
+    sql = tasks.backup_deleting(dryrun=dryrun)   
+~~~    
+
+~~~bash
+$ python manayge.py cmd backup --dryrun
+$ python manayge.py cmd backup
+~~~
+
 
 # Articles
 
