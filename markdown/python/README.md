@@ -35,3 +35,13 @@
 ## Excel
 
 - [Excel](python.excel.md)
+
+
+## 文字列
+
+- [string](python.string.md)
+- [re](python.re.md)
+
+## メディアファイル
+
+- [PDF pgmagick](pgmagick.md)
