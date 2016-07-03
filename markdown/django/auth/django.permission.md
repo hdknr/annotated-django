@@ -1,7 +1,9 @@
 ## Reference
 
 - [Permissions and Authorization¶](https://docs.djangoproject.com/ja/1.9/topics/auth/default/#topic-authorization)
-
+- [ContentType.objects.get_by_natural_key('auth', 'user') ](https://github.com/hdknr/annotated-django/commit/81fa3dbdac38b5847625eac9b4a44284c80fe9b1)
+- [get_permission_codename でアクション名 + モデル名 でパーミッション名を作る
+](https://github.com/hdknr/annotated-django/commit/2f1bb40507ee2b7b875cf801a0f23764c8d42b50)
 
 ## パーミッションとグループの動的生成
 
