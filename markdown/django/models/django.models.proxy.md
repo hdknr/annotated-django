@@ -1,0 +1,1 @@
+- [How to use Django's Proxy Models](http://benlopatin.com/using-django-proxy-models/)
