@@ -671,6 +671,7 @@ class Field(RegisterLookupMixin):
         else:
             cls._meta.add_field(self)
         if self.choices:
+            # 選択肢があればget_フィールド名_display メソッドを追加している
             setattr(cls, 'get_%s_display' % self.name,
                     curry(cls._get_FIELD_display, field=self))
 

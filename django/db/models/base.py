@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-           
 from __future__ import unicode_literals
 
 import copy
@@ -864,6 +865,7 @@ class Model(six.with_metaclass(ModelBase)):
     delete.alters_data = True
 
     def _get_FIELD_display(self, field):
+        ''' get_フィールド名_display の処理'''
         value = getattr(self, field.attname)
         return force_text(dict(field.flatchoices).get(value, value), strings_only=True)
 
