@@ -775,6 +775,7 @@ def date(value, arg=None):
     if arg is None:
         arg = settings.DATE_FORMAT
     try:
+        # from django.utils import formats で書式化
         return formats.date_format(value, arg)
     except AttributeError:
         try:

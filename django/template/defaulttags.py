@@ -422,6 +422,7 @@ class NowNode(Node):
         self.asvar = asvar
 
     def render(self, context):
+        # 現在のタイムゾーンでnow() を作る
         tzinfo = timezone.get_current_timezone() if settings.USE_TZ else None
         formatted = date(datetime.now(tz=tzinfo), self.format_string)
 

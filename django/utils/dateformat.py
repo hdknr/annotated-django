@@ -30,6 +30,7 @@ re_escaped = re.compile(r'\\(.)')
 
 
 class Formatter(object):
+    '''ベースクラス　'''
     def format(self, formatstr):
         pieces = []
         for i, piece in enumerate(re_formatchars.split(force_text(formatstr))):
@@ -41,11 +42,12 @@ class Formatter(object):
 
 
 class TimeFormat(Formatter):
-
+    '''時刻の書式化'''
     def __init__(self, obj):
         self.data = obj
         self.timezone = None
 
+        # 日付にタイムゾーンが設定されていなければデフォルトのタイムゾーンを使います
         # We only support timezone when formatting datetime objects,
         # not date objects (timezone information not appropriate),
         # or time objects (against established django policy).
@@ -213,6 +215,7 @@ class TimeFormat(Formatter):
 
 
 class DateFormat(TimeFormat):
+    '''日付の書式化を行います '''
     year_days = [None, 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]
 
     def b(self):
@@ -362,7 +365,7 @@ class DateFormat(TimeFormat):
 
 
 def format(value, format_string):
-    "Convenience function"
+    "Convenience function: 日付フォーマット"
     df = DateFormat(value)
     return df.format(format_string)
 

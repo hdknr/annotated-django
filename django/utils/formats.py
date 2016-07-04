@@ -142,6 +142,8 @@ get_format_lazy = lazy(get_format, six.text_type, list, tuple)
 
 def date_format(value, format=None, use_l10n=None):
     """
+    日付フォーマット
+
     Formats a datetime.date or datetime.datetime object using a
     localizable format
 
