@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import re
@@ -73,14 +74,18 @@ def get_safe_settings():
 
 def technical_500_response(request, exc_type, exc_value, tb, status_code=500):
     """
+    500エラー画面
+
     Create a technical server error response. The last three arguments are
     the values returned from sys.exc_info() and friends.
     """
     reporter = ExceptionReporter(request, exc_type, exc_value, tb)
     if request.is_ajax():
+        # Ajaxだったらテキスト
         text = reporter.get_traceback_text()
         return HttpResponse(text, status=status_code, content_type='text/plain')
     else:
+        # 通常はHTML
         html = reporter.get_traceback_html()
         return HttpResponse(html, status=status_code, content_type='text/html')
 
@@ -233,6 +238,8 @@ class SafeExceptionReporterFilter(ExceptionReporterFilter):
 
 class ExceptionReporter(object):
     """
+    例外報告クラス：
+    
     A class to organize and coordinate reporting on exceptions.
     """
     def __init__(self, request, exc_type, exc_value, tb, is_email=False):
@@ -516,7 +523,7 @@ def default_urlconf(request):
 
     return HttpResponse(t.render(c), content_type='text/html')
 
-#
+# 500エラーのテンプレート内臓
 # Templates are embedded in the file so that we know the error handler will
 # always work even if the template loader is broken.
 #

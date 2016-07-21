@@ -222,6 +222,7 @@ class BaseHandler(object):
                     'request': request
                 })
             if settings.DEBUG:
+                # デバッグだったら500エラーを配信する
                 return debug.technical_500_response(request, *sys.exc_info(), status_code=400)
 
             response = self.get_exception_response(request, resolver, 400, exc)
@@ -292,6 +293,7 @@ class BaseHandler(object):
         )
 
         if settings.DEBUG:
+            # デバッグだったら500エラーを配信する
             return debug.technical_500_response(request, *exc_info)
 
         # If Http500 handler is not installed, re-raise last exception
