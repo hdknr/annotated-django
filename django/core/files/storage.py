@@ -39,6 +39,8 @@ class Storage(object):
 
     def save(self, name, content, max_length=None):
         """
+        cotnent: はストリーム
+
         Saves new content to the file specified by name. The content should be
         a proper File object or any python file-like object, ready to be read
         from the beginning.
@@ -174,7 +176,7 @@ class Storage(object):
 
 @deconstructible
 class FileSystemStorage(Storage):
-    """
+    """ファイルシステムストレージ
     Standard filesystem storage
     """
 
