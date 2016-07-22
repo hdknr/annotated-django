@@ -107,9 +107,9 @@ class BaseHandler(object):
     def get_response(self, request):
         "Returns an HttpResponse object for the given HttpRequest"
 
-        # Setup default url resolver for this thread, 
-        # this code is outside the try/except 
-        # so we don't get a spurious "unbound local variable" exception 
+        # Setup default url resolver for this thread,
+        # this code is outside the try/except
+        # so we don't get a spurious "unbound local variable" exception
         # in the event an exception is raised before resolver is set
         urlconf = settings.ROOT_URLCONF
 
@@ -231,7 +231,7 @@ class BaseHandler(object):
             # Allow sys.exit() to actually exit. See tickets #1023 and #4701
             raise
 
-        except:  # Handle everything else.
+        except:  # Handle everything else.  その他の例外
             # Get the exception info now, in case another exception is thrown later.
             signals.got_request_exception.send(sender=self.__class__, request=request)
             response = self.handle_uncaught_exception(request, resolver, sys.exc_info())
@@ -272,7 +272,7 @@ class BaseHandler(object):
         raise
 
     def handle_uncaught_exception(self, request, resolver, exc_info):
-        """
+        """処理されないエラーを記録:
         Processing for any otherwise uncaught exceptions (those that will
         generate HTTP 500 responses). Can be overridden by subclasses who want
         customised 500 handling.
@@ -284,12 +284,11 @@ class BaseHandler(object):
         if settings.DEBUG_PROPAGATE_EXCEPTIONS:
             raise
 
+        # `error` でログに書く
+        # LogRecordクラスに status_code, request がセットされる
         logger.error('Internal Server Error: %s', request.path,
             exc_info=exc_info,
-            extra={
-                'status_code': 500,
-                'request': request
-            }
+            extra={'status_code': 500, 'request': request }
         )
 
         if settings.DEBUG:

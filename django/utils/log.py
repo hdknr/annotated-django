@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import logging
@@ -72,18 +73,24 @@ def configure_logging(logging_config, logging_settings):
 
 
 class AdminEmailHandler(logging.Handler):
-    """An exception log handler that emails log entries to site admins.
+    """
+    サイト管理者に例外ログを送る.
+
+    An exception log handler that emails log entries to site admins.
 
     If the request is passed as the first argument to the log record,
-    request data will be provided in the email report.
-    """
+    request data will be provided in the email report.  """
 
     def __init__(self, include_html=False, email_backend=None):
         logging.Handler.__init__(self)
         self.include_html = include_html
-        self.email_backend = email_backend
+        self.email_backend = email_backend          # メール送信バックエンド
 
     def emit(self, record):
+        '''
+        - https://hg.python.org/cpython/file/2.7/Lib/logging/__init__.py#l225
+        - record.request : は django.core.handers.base.BaseHandler で `extra` でセットされる
+        '''
         try:
             request = record.request
             subject = '%s (%s IP): %s' % (
@@ -111,19 +118,28 @@ class AdminEmailHandler(logging.Handler):
         else:
             exc_info = (None, record.getMessage(), None)
 
+        # 例外報告
         reporter = ExceptionReporter(request, is_email=True, *exc_info)
-        message = "%s\n\n%s" % (self.format(no_exc_record), reporter.get_traceback_text())
+
+        message = "%s\n\n%s" % (
+            self.format(no_exc_record),                 # フォーマッターで書式化
+            reporter.get_traceback_text())              # プレーンテキスト
+
+        # HTML送信の場合
         html_message = reporter.get_traceback_html() if self.include_html else None
         self.send_mail(subject, message, fail_silently=True, html_message=html_message)
 
     def send_mail(self, subject, message, *args, **kwargs):
+        """メール送信"""
         mail.mail_admins(subject, message, *args, connection=self.connection(), **kwargs)
 
     def connection(self):
+        """メールサーバー接続　"""
         return get_connection(backend=self.email_backend, fail_silently=True)
 
     def format_subject(self, subject):
-        """
+        """メールのサブジェクト:
+
         Escape CR and LF characters, and limit length.
         RFC 2822's hard limit is 998 characters per line. So, minus "Subject: "
         the actual subject must be no longer than 989 characters.

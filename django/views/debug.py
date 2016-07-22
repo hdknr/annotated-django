@@ -108,12 +108,14 @@ class ExceptionReporterFilter(object):
     """
 
     def get_post_parameters(self, request):
+        ''' POSTパラメター'''
         if request is None:
             return {}
         else:
             return request.POST
 
     def get_traceback_frame_variables(self, request, tb_frame):
+        '''トレースバックフレーム'''
         return list(tb_frame.f_locals.items())
 
 
@@ -239,7 +241,7 @@ class SafeExceptionReporterFilter(ExceptionReporterFilter):
 class ExceptionReporter(object):
     """
     例外報告クラス：
-    
+
     A class to organize and coordinate reporting on exceptions.
     """
     def __init__(self, request, exc_type, exc_value, tb, is_email=False):
