@@ -344,6 +344,7 @@ msgstr "追加"
 msgid "History"
 msgstr "履歴"
 
+# Admin UI
 msgid "View on site"
 msgstr "サイト上で表示"
 
