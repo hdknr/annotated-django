@@ -407,6 +407,7 @@ class RegexURLResolver(LocaleRegexProvider):
 
     @cached_property
     def urlconf_module(self):
+        ''' urlconf_name で指定されたモジュールを `import_module` して返す '''
         if isinstance(self.urlconf_name, six.string_types):
             return import_module(self.urlconf_name)
         else:
@@ -428,6 +429,11 @@ class RegexURLResolver(LocaleRegexProvider):
         return patterns
 
     def resolve_error_handler(self, view_type):
+        '''エラーハンドラーを呼ぶ
+        `handlers500` とか
+        1) urlconf_module
+        2) django.conf.urls モジュール
+        '''
         callback = getattr(self.urlconf_module, 'handler%s' % view_type, None)
         if not callback:
             # No handler specified in file; use default
@@ -639,9 +645,9 @@ def clear_script_prefix():
 
 def set_urlconf(urlconf_name):
     """
-    Sets the URLconf for the current thread 
-    (overriding the default one in settings). 
-    
+    Sets the URLconf for the current thread
+    (overriding the default one in settings).
+
     Set to None to revert back to the default.
 
      _urlconfs : local() です

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django import http
 from django.template import Context, Engine, TemplateDoesNotExist, loader
 from django.utils import six
@@ -17,7 +18,7 @@ def page_not_found(request, exception, template_name='404.html'):
     Context:
         request_path
             The path of the requested URL (e.g., '/app/pages/bad_page/')
-        exception
+        exception (例外)
             The message from the exception which triggered the 404 (if one was
             supplied), or the exception class name
     """
@@ -51,7 +52,7 @@ def page_not_found(request, exception, template_name='404.html'):
 @requires_csrf_token
 def server_error(request, template_name='500.html'):
     """
-    500 error handler.
+    500 error handler. (コンテキストなしでレンダリング)
 
     Templates: :template:`500.html`
     Context: None
@@ -66,7 +67,7 @@ def server_error(request, template_name='500.html'):
 @requires_csrf_token
 def bad_request(request, exception, template_name='400.html'):
     """
-    400 error handler.
+    400 error handler. (コンテキストなしでレンダリング)
 
     Templates: :template:`400.html`
     Context: None
@@ -85,7 +86,7 @@ def bad_request(request, exception, template_name='400.html'):
 @requires_csrf_token
 def permission_denied(request, exception, template_name='403.html'):
     """
-    Permission denied (403) handler.
+    Permission denied (403) handler. (コンテキストなしでレンダリング)
 
     Templates: :template:`403.html`
     Context: None
