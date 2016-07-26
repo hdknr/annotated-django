@@ -228,9 +228,11 @@ class FileDescriptor(object):
 
 
 class FileField(Field):
+    # モデルのファイルフィールド
 
-    # The class to wrap instance attributes in. Accessing the file object off
-    # the instance will always return an instance of attr_class.
+    # The class to wrap instance attributes in. 
+    # Accessing the file object off the instance 
+    # will always return an instance of attr_class.
     attr_class = FieldFile
 
     # The descriptor to use for accessing the attribute off of the class.
@@ -389,6 +391,7 @@ class ImageFieldFile(ImageFile, FieldFile):
 
 
 class ImageField(FileField):
+    # モデルのイメージファイルフィールド
     attr_class = ImageFieldFile
     descriptor_class = ImageFileDescriptor
     description = _("Image")
