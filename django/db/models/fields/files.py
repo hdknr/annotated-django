@@ -242,6 +242,7 @@ class FileField(Field):
     description = _("File")
 
     def __init__(self, verbose_name=None, name=None, upload_to='', storage=None, **kwargs):
+        # upload_to を引数で設定可能
         self._primary_key_set_explicitly = 'primary_key' in kwargs
         self._unique_set_explicitly = 'unique' in kwargs
 
@@ -284,6 +285,7 @@ class FileField(Field):
             return []
 
     def deconstruct(self):
+        # upload_to を含めたコンストラクタパラメータリストを返す
         name, path, args, kwargs = super(FileField, self).deconstruct()
         if kwargs.get("max_length") == 100:
             del kwargs["max_length"]
@@ -321,6 +323,8 @@ class FileField(Field):
         setattr(cls, self.name, self.descriptor_class(self))
 
     def get_directory_name(self):
+        # upload_to(callableでない場合)文字列を使って フォルダー名を作成する
+        # 現在時刻を使うので、 upload_toに strftimeの書式を使うことができる
         return os.path.normpath(force_text(datetime.datetime.now().strftime(force_str(self.upload_to))))
 
     def get_filename(self, filename):
@@ -330,6 +334,8 @@ class FileField(Field):
         # If upload_to is a callable, make sure that the path it returns is
         # passed through get_valid_name() of the underlying storage.
         if callable(self.upload_to):
+            # upload_toがコーラブルの場合モデルインスタンスとパス名を指定してファイル名を生成可能
+            # upload_toをコーラブル指定した場合、マイグレーションで問題?
             directory_name, filename = os.path.split(self.upload_to(instance, filename))
             filename = self.storage.get_valid_name(filename)
             return os.path.normpath(os.path.join(directory_name, filename))
