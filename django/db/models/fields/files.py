@@ -156,8 +156,9 @@ class FieldFile(File):
 
 class FileDescriptor(object):
     """
-    The descriptor for the file attribute on the model instance. Returns a
-    FieldFile when accessed so you can do stuff like::
+    The descriptor for the file attribute on the model instance. 
+    
+    Returns a FieldFile when accessed so you can do stuff like::
 
         >>> from myapp.models import MyModel
         >>> instance = MyModel.objects.get(pk=1)
