@@ -1025,13 +1025,14 @@ class BooleanField(Field):
         return "BooleanField"
 
     def to_python(self, value):
+        '''BooleanField.to_python'''
         if value in (True, False):
             # if value is 1 or 0 than it's equal to True or False, but we want
             # to return a true bool for semantic reasons.
             return bool(value)
-        if value in ('t', 'True', '1'):
+        if value in ('t', 'True', '1'):         # 'TRUE'はダメです
             return True
-        if value in ('f', 'False', '0'):
+        if value in ('f', 'False', '0'):        # 'FALSE'はダメです
             return False
         raise exceptions.ValidationError(
             self.error_messages['invalid'],
