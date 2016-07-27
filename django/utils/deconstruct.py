@@ -1,3 +1,4 @@
+# coding: utf-8
 from importlib import import_module
 
 from django.utils.version import get_docs_version
@@ -5,8 +6,10 @@ from django.utils.version import get_docs_version
 
 def deconstructible(*args, **kwargs):
     """
-    Class decorator that allow the decorated class to be serialized
-    by the migrations subsystem.
+    クラスをマイグレーションの再にシリアライズ可能にするデコレータ
+
+    Class decorator that allow the decorated class 
+    to be serialized by the migrations subsystem.
 
     Accepts an optional kwarg `path` to specify the import path.
     """
