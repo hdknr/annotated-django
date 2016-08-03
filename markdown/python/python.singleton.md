@@ -1,0 +1,4 @@
+- [Singletonパターン (1)](http://doloopwhile.hatenablog.com/entry/20090711/1275175644)
+- [Singletonパターン (3) - モジュール](http://doloopwhile.hatenablog.com/entry/20090711/1275175609)
+- [Singletonパターン (4) - メタクラスを使った方法](http://doloopwhile.hatenablog.com/entry/20090711/1275175589)
+- [Singletonパターン (5) - Borgの方法](http://doloopwhile.hatenablog.com/entry/20090711/1275175599)

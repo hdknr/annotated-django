@@ -45,3 +45,8 @@
 ## メディアファイル
 
 - [PDF pgmagick](pgmagick.md)
+
+
+## エラー処理
+
+- [logging](python.logging.md)

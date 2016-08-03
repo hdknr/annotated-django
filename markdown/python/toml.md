@@ -2,6 +2,7 @@
 - [pytoml](https://github.com/avakar/pytoml)
 - [toml 0.7.0](https://pypi.python.org/pypi/toml/0.7.0) / https://github.com/uiri/toml
 - [【個人メモ】設定ファイルフォーマットにはTOMLがいいのかも](http://qiita.com/futoase/items/fd697a708fcbcee104de)
+- [設定ファイル記述言語 TOML](http://qiita.com/b4b4r07/items/77c327742fc2256d6cbe)
 
 ~~~bash
 $ cat .dein.toml

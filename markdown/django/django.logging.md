@@ -1,3 +1,9 @@
+## エラーページ
+
+
+- [How to test 500.html in (django) development env?](http://stackoverflow.com/questions/2740003/how-to-test-500-html-in-django-development-env)
+
+
 ## Python logging
 
 - [15.7. logging — Python 用ロギング機能](http://docs.python.jp/2/library/logging.html)

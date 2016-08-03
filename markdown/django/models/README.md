@@ -12,7 +12,8 @@ Django Model 関連
 
 # マイグレーション
 
-- [unique=True のフィールドを追加する](django.migrations.md)
+- [callableなどが指定されたマイグレーション](django.migrations.deconstruct.md)
+- [unique=True のフィールドを追加する](django.migrations.unique.md)
 
 # 応用
 

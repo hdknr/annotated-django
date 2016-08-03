@@ -10,3 +10,11 @@
 >>> pydoc.locate('emailqueue.models.Server')
 <class 'emailqueue.models.Server'>
 ~~~
+
+
+## import_module
+
+~~~py
+from importlib import import_module
+import_module('alumni.defs')
+~~~

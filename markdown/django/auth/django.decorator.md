@@ -7,5 +7,5 @@ def check_permanent_password(user):
 @login_required(login_url)
 @user_passes_test(check_temporary_password, login_url=settings.SET_PERMANENT_PASSWORD_URL)
 def view(request):
-    # your view
+      # your view
 ~~~    

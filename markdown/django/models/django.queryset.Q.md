@@ -31,3 +31,14 @@ Out[8]: <Q: (OR: ('id', 1), ('is_superuser', True))>
 In [9]: User.objects.filter(Q(id=1)|Q(is_superuser=True))
 Out[9]: [<User: admin>, <User: webmaster>, <User: vagrantuser>]
 ~~~
+
+
+- 同じフィールドでのAND
+
+~~~py
+In [1]: import operator
+In [2]: from django.db.models import Q
+In [3]: query = reduce(operator.and_, (Q(first_name__contains = item) for item in [u'鈴木', u'一朗']))
+In [4]: query
+Out[4]: <Q: (AND: ('first_name__contains', u'\u9234\u6728'), ('first_name__contains', u'\u4e00\u6717'))>
+~~~
