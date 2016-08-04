@@ -1,3 +1,4 @@
+# coding:utf8
 """
 HTTP server that implements the Python WSGI protocol (PEP 333, rev 1.21).
 
@@ -12,7 +13,7 @@ from __future__ import unicode_literals
 import logging
 import socket
 import sys
-from wsgiref import simple_server
+from wsgiref import simple_server           # wsgiref.simple_server
 
 from django.core.exceptions import ImproperlyConfigured
 from django.core.handlers.wsgi import ISO_8859_1, UTF_8
