@@ -40,3 +40,4 @@
 - [Kanban/Scrum | taiga](taiga.md)
 - [CMS | wagtail](wagtaiil.md)
 - [カレンダー/スケジューラ](calendar.md)
+- [EC | django-oscar](oscar/README.md)
