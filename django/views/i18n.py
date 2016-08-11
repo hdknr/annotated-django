@@ -1,3 +1,4 @@
+# coding: utf-8
 import importlib
 import itertools
 import json
@@ -26,7 +27,7 @@ LANGUAGE_QUERY_PARAMETER = 'language'
 
 
 def set_language(request):
-    """
+    """言語を設定する:
     Redirect to a given url while setting the chosen language in the
     session or cookie. The url and the language code need to be
     specified in the request parameters.
@@ -36,6 +37,7 @@ def set_language(request):
     redirect to the page in the request (the 'next' parameter) without changing
     any state.
     """
+    # クエリの next チェック
     next = request.POST.get('next', request.GET.get('next'))
     if (next or not request.is_ajax()) and not is_safe_url(url=next, host=request.get_host()):
         next = request.META.get('HTTP_REFERER')
@@ -43,17 +45,24 @@ def set_language(request):
             next = urlunquote(next)  # HTTP_REFERER may be encoded.
         if not is_safe_url(url=next, host=request.get_host()):
             next = '/'
+
+    # next がなかったら No Content(204)
     response = http.HttpResponseRedirect(next) if next else http.HttpResponse(status=204)
+
     if request.method == 'POST':
         lang_code = request.POST.get(LANGUAGE_QUERY_PARAMETER)
         if lang_code and check_for_language(lang_code):
+            # フォームに言語コードが入っていたら確認
             if next:
+                # URLを翻訳する
                 next_trans = translate_url(next, lang_code)
                 if next_trans != next:
                     response = http.HttpResponseRedirect(next_trans)
             if hasattr(request, 'session'):
+                # セッションがあったら言語コードをセットする
                 request.session[LANGUAGE_SESSION_KEY] = lang_code
             else:
+                # セッションがなかったらクッキーにセットする
                 response.set_cookie(
                     settings.LANGUAGE_COOKIE_NAME, lang_code,
                     max_age=settings.LANGUAGE_COOKIE_AGE,

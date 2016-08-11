@@ -1,3 +1,4 @@
+# coding:utf-8
 from __future__ import unicode_literals
 
 from threading import local
@@ -161,7 +162,7 @@ def is_valid_path(path, urlconf=None):
 
 
 def translate_url(url, lang_code):
-    """
+    """ URLを言語コードで翻訳
     Given a URL (absolute or relative), try to get its translated version in
     the `lang_code` language (either by i18n_patterns or by translated regex).
     Return the original URL if no translated version is found.
