@@ -7,53 +7,62 @@ Django :Yet Another Class-Based View
 - ビュークラスにはモデルをバインドさせて、nameを生成する
 
 
-## ビューデコレータ: handler
-
-~~~py
-from functools import wraps
-
-
-def handler(url='', order=0):
-    def _hander(func):
-
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            return func(*args, **kwargs)
-
-        wrapper.url = url         # url 正規表現
-        wrapper.order = order     # urlの並び
-        return classmethod(wrapper)
-
-    return _handler
-
-~~~
-
-
 ## ベースクラス :View
 
 ~~~py
 from django.conf import urls
 from operator import itemgetter
+from django.utils.decorators import method_decorator as _M
 
 
 class View(object):
 
     @classmethod
+    def handler(cls, url='', name='', order=0, decorators=None):
+        '''ビュー処理のでコレータを返します'''
+        # その他のデコレータ
+        decorators = decorators or [lambda x: x]
+
+        def _handler(func):
+
+            @wraps(func)
+            def wrapper(*args, **kwargs):
+                # 最初の引数はクラスオブジェクトのはず
+                response = func(*args, **kwargs)
+                return response
+
+            wrapper.url = url       # URLパターン
+            wrapper.name = name     # URL名
+            wrapper.order = order   # urlpatternでの順列
+
+            return classmethod(
+                reduce(lambda x, y: _M(y)(x), [wrapper] + decorators))
+
+        return _handler
+
+    @classmethod
     def urls(cls):
-        '''URLConf をつくる '''
-        base = "{}_{}".format(
-            cls.Meta.models._meta.app_label,
-            cls.Meta.models._meta.model_name, )
+        ''' urlpatterの配列を返す '''
+        def _viewname(func_name):
+            if not hasattr(cls, 'Meta'):
+                return "_".join([
+                    cls.__module__.split('.')[0],
+                    cls.__name__.lower(), func_name])
+            return "{}_{}_{}".format(
+                cls.Meta.models._meta.app_label,
+                cls.Meta.models._meta.model_name,
+                func_name)
 
         funcs = []
         for name in cls.__dict__:
             obj = getattr(cls, name)
             if hasattr(obj, 'url'):
-                funcs.append((name, obj.order, obj))
+                viewname = obj.name or _viewname(name)
+                funcs.append((viewname, obj.order, obj))
 
-        # メソッドに指定した order で並べ替え、それぞれに url を作成する
+        # obj.order でソートします
         return [
-            urls.url(func.url, func, name="{}_{}".format(base, name))
+            urls.url(func.url, func, name=name)
             for name, _, func in sorted(funcs, key=itemgetter(1))
         ]
 
@@ -63,12 +72,6 @@ class View(object):
 
 ~~~py
 from django.contrib.auth import decorators as authdeco
-from django.utils.decorators import method_decorator
-
-
-# パーミッション
-permission_required = method_decorator(
-    authdeco.permission_required('communities.list_community'))
 
 
 class CommunityView(View):
@@ -76,8 +79,11 @@ class CommunityView(View):
         # バインドするモデル
         models = models.Community
 
-    @handler(url=r'^community/(?P<id>.+)/edit(?:/(?P<command>.*))?', order=0)
-    @permission_required
+    @handler(
+      url=r'^community/(?P<id>.+)/edit(?:/(?P<command>.*))?',
+      name='communities_community_edit',
+      order=0,
+      decorators=[authdeco.permission_required('communities.list_community')])
     def edit(cls, request, id, command=''):
         # .....
         return TemplateResponse(
@@ -85,8 +91,11 @@ class CommunityView(View):
             'communities/community/edit{0}.html'.format(name),
             dict(request=request, form=form))
 
-    @handler(url=r'^community/(?P<id>.+)', order=1)
-    @permission_required
+    @handler(
+      url=r'^community/(?P<id>.+)',
+      name='communities_community_detail',
+      order=1,
+      decorators=[authdeco.permission_required('communities.list_community')])
     def detail(cls, request, id, *args, **kwargs):
         # .....
         return TemplateResponse(
@@ -94,7 +103,11 @@ class CommunityView(View):
             'communities/community/detail.html',
             dict(request=request, instance=instance, form=form))
 
-    @handler(url=r'^community', order=2)
+    @handler(
+      url=r'^community',
+      name='communities_community_index',
+      order=2,
+      decorators=[authdeco.permission_required('communities.list_community')])
     @permission_required
     def index(cls, request):
         # ...
