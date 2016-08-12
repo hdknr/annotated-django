@@ -119,3 +119,24 @@ Out[10]: datetime.datetime(2015, 12, 20, 14, 4, 47, 820535, tzinfo=<DstTzInfo 'A
 In [11]: datetime.now(honolulu)
 Out[11]: datetime.datetime(2015, 12, 19, 19, 4, 53, 709388, tzinfo=<DstTzInfo 'Pacific/Honolulu' HST-1 day, 14:00:00 STD>)
 ~~~
+
+## 中国
+
+- [CST – China Standard Time (Standard Time)](http://www.timeanddate.com/time/zones/cst-china)
+
+~~~py
+In [10]: import pytz
+
+In [11]: pytz.timezone('Asia/Shanghai')
+Out[11]: <DstTzInfo 'Asia/Shanghai' LMT+8:06:00 STD>
+~~~
+
+
+- [How to get system timezone setting and pass it to pytz.timezone?](http://stackoverflow.com/questions/13218506/how-to-get-system-timezone-setting-and-pass-it-to-pytz-timezone)
+- [datetime.replace の罠
+](http://matsui.goga.co.jp/article/396497913.html)
+
+~~~python
+>>> cst = pytz.timezone('Asia/Shanghai')
+>>> dt_in_cst = cst.localize(dt)
+~~~

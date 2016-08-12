@@ -41,3 +41,4 @@
 - [CMS | wagtail](wagtaiil.md)
 - [カレンダー/スケジューラ](calendar.md)
 - [EC | django-oscar](oscar/README.md)
+- [wger - fitness/workout and weight tracker](wger.md)

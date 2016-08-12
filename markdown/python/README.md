@@ -3,7 +3,11 @@
 
 ## コマンド
 
-- [argparse|click](python.argparse.md)
+- [argparse](python.argparse.md)
+- [click](click.md)
+- [paver - Easy Scripting](paver.md)
+- [invoke - task execution tool & library](invoke.md)
+- [Configuration and Build Tools](https://wiki.python.org/moin/ConfigurationAndBuildTools)
 
 
 ## Web

@@ -4,15 +4,39 @@
 
 ## Install
 
-- django 1.8
+django 1.8
+
+
+[django-compressor](https://django-compressor.readthedocs.io/en/latest/)
+-  [rjsmin - JS minifier](https://pypi.python.org/pypi/rjsmin)
+-  [django-appconf - A helper class for handling configuration defaults](https://pypi.python.org/pypi/django-appconf/1.0.2)
 
 ~~~bash
 $ pip install django_compressor
 ...
 Successfully installed
 django-appconf-1.0.2 django-compressor-2.1 rcssmin-1.0.6 rjsmin-1.0.12
-
 ~~~
+
+django-oscar:
+- [Django Extra View - class based views](https://django-extra-views.readthedocs.io/en/latest/)
+- [django-haystack - modular search](https://django-haystack.readthedocs.io/en/v2.5.0/)
+- [django-tables2 - HTML tables](https://django-tables2.readthedocs.io/en/latest/)
+- [django-treebeard - efficient tree](https://tabo.pe/projects/django-treebeard/docs/2.0/)
+- [django-widget-tweaks](https://github.com/kmike/django-widget-tweaks)
+- [factory-boy](https://factoryboy.readthedocs.io/en/latest/)
+- [fake-factory](https://github.com/joke2k/faker)
+- [funcsigs - PEP 362/inspect module](http://funcsigs.readthedocs.io/en/0.4/)
+- [ipaddress - Python 3.3+'s ipaddress for Python 2.6, 2.7, 3.2](https://github.com/phihag/ipaddress)
+- [pbr - setuptools](https://pypi.python.org/pypi/pbr9)
+- [phonenumbers - Google's libphonenumber library ](https://github.com/daviddrysdale/python-phonenumbers)
+- [pillow - PIL fork](https://github.com/python-pillow/Pillow)
+- [purl - URL manipulation](https://github.com/codeinthehole/purl)
+- [python-dateutil](https://dateutil.readthedocs.io/en/stable/)
+- [pytz](http://pythonhosted.org/pytz/)
+- [six](http://pythonhosted.org/six/)
+- [sorl-thumbnail](https://sorl-thumbnail.readthedocs.io/en/latest/)
+
 ~~~bash
 $ pip install django-oscar
 
@@ -25,6 +49,8 @@ factory-boy-2.6.1 fake-factory-0.6.0 funcsigs-1.0.2 ipaddress-1.0.16 mock-1.3.0
 pbr-1.10.0 phonenumbers-7.5.1 pillow-3.3.0 purl-1.3
 python-dateutil-2.5.3 pytz-2016.6.1 six-1.10.0 sorl-thumbnail-12.3
 ~~~
+
+[pysolr]
 
 ~~~bash
 $ pip install pysolr
@@ -126,7 +152,7 @@ from django.conf.urls import include, url
 from django.contrib import admin                                                    
 from oscar.app import application                                                   
 
-                                                                                    
+
 urlpatterns = [                                                                     
     url(r'^i18n/', include('django.conf.urls.i18n')),                               
     url(r'^admin/', include(admin.site.urls)),                                      
@@ -142,9 +168,71 @@ $ python manage.py createsuperuser
 $ python manage.py runserver 0.0.0.0:8000
 ~~~
 
+## 日本
 
+- pycountry
+
+~~~bash
+$ pip install pycountry
+$ python manage.py oscar_populate_countries
+Successfully added 249 countries.
+~~~
+
+- 日本のみシッピング
+
+~~~bash
+$ echo "UPDATE address_country SET is_shipping_country = 0 WHERE printable_name != 'Japan';" | python manage.py dbshell
+~~~
+
+### 翻訳
+
+[Translating Oscar within your project](https://django-oscar.readthedocs.io/en/releases-0.5/howto/how_do_i_translate_oscar.html#translating-oscar-within-your-project)
+
+## 拡張
+
+拡張:
+
+- モデル拡張
+- ビュー拡張
+
+- モデルフォーク
+
+~~~bash
+$ python manage.py oscar_fork_app catalogue oscar_fork
+
+Creating package oscar_fork/catalogue
+Creating admin.py
+Creating app config
+Creating models.py
+Creating migrations folder
+
+The final step is to add 'oscar_fork.catalogue' to INSTALLED_APPS
+(replacing the equivalent Oscar app). This can be achieved using
+Oscars get_core_apps function - e.g.:
+
+  # settings.py
+  ...
+  INSTALLED_APPS = [
+      'django.contrib.auth',
+      ...
+  ]
+  from oscar import get_core_apps
+  INSTALLED_APPS = INSTALLED_APPS + get_core_apps(
+      ['oscar_fork.catalogue'])
+~~~
+
+- app/oscars.py
+
+~~~py
+OSC_APPS = ['compressor', 'widget_tweaks', ] + get_core_apps(['oscar_fork.catalogue'])  # NOQA
+~~~
 
 ## 検索
 
 - Haystack インターフェース
 - Haystack 経由で elasticsearch も使えると思う
+
+
+## pytest
+
+- [pytest-django](https://pytest-django.readthedocs.io/en/latest/tutorial.html)

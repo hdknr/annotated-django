@@ -44,6 +44,9 @@ In [3]: translation.get_language()
 Out[3]: 'ja'
 ~~~
 
+## ロケールスイッチ
+
+- [Django translation in URLs and locale switching](http://machakux.appspot.com/blog/17010/django_using_i18n_patterns_and_locale_switcher)
 
 ## CommandError: Can't find msguniq. Make sure you have GNU gettext tools 0.15 or newer installed.
 

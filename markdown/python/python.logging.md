@@ -16,7 +16,7 @@
 - [Error reporting](https://docs.djangoproject.com/ja/1.9/howto/error-reporting/)
 - [Where in django is the default 500 traceback rendered so that I can use it to create my own logs?](http://stackoverflow.com/questions/12924746/where-in-django-is-the-default-500-traceback-rendered-so-that-i-can-use-it-to-cr)
 - [DEFAULT_LOGGING](https://github.com/django/django/blob/1.8/django%2Futils%2Flog.py#L23)
-- [django.utils.log.AdminEmailHandler](https://github.com/django/django/blob/1.8/django%2Futils%2Flog.py#L89)
+- [django.utils.log.AdminEmailHandler](https://github.com/django/django/blob/1.10/django%2Futils%2Flog.py#L78)
 
 - [BaseHandler で500エラーが起きた時に logger.errorで記録される](https://github.com/hdknr/annotated-django/commit/b8da3eb7d7acda42b945dc3b8f6ea37151bb7978)
 
@@ -42,7 +42,10 @@ LOGGING = {
 }
 ~~~
 
-- [SentryHandler](https://github.com/getsentry/raven-python/blob/master/raven/handlers/logging.py#L29)
+- [raven.handlers.logging.SentryHandler](https://github.com/getsentry/raven-python/blob/master/raven/handlers/logging.py#L29)
+
+# Python logging
+
 - python [logging.Handler](https://hg.python.org/cpython/file/2.7/Lib/logging/__init__.py#l656)
 - [python LogRecord](http://docs.python.jp/3/library/logging.html#logrecord-objects)
 
@@ -56,3 +59,19 @@ LOGGING = {
 
 - [slackpy.SlackLogger](https://github.com/iktakahiro/slackpy/blob/master/slackpy/slackpy.py)
 - [Send production errors to slack instead of email](http://stackoverflow.com/questions/29914390/send-production-errors-to-slack-instead-of-email)
+
+
+~~~py
+import requests
+
+payload = {
+    "text": "<{0}>".format(notify_url),
+}
+
+requests.post(
+    slack_webhook_url,
+    data=json.dumps(payload), timeout=3, allow_redirects=False)
+~~~    
+
+- [Basic message formatting](https://api.slack.com/docs/message-formatting)
+- [Message Formatting](https://api.slack.com/docs/messages/builder?msg=%7B%22text%22%3A%22This%20%26amp%3B%20that.%20%26lt%3B%20and%20%26gt%3B%22%7D)

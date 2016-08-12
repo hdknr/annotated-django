@@ -3,7 +3,7 @@
 - [Django の deconstruct と deconstructible について](http://qiita.com/tell-k/items/73bcfdf22badf1cfa04a)
 
 - [Field deconstruction](https://docs.djangoproject.com/ja/1.9/howto/custom-model-fields/#field-deconstruction) - Fieldでは `deconstruct` メソッドの実装が必要
-- Validator では deconstructible デコレータの付与と、 __eq__ メソッドの実装が必要
+- Validator では deconstructible デコレータの付与と、 `__eq__` メソッドの実装が必要
 
 ## deconstruct
 
