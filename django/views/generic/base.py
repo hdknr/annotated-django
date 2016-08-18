@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import logging
@@ -45,7 +46,7 @@ class View(object):
 
     @classonlymethod
     def as_view(cls, **initkwargs):
-        """
+        """ URLディスパッチャーを返す( urlpatterns へのエントリに使う)
         Main entry point for a request-response process.
         """
         for key in initkwargs:
@@ -61,11 +62,11 @@ class View(object):
         def view(request, *args, **kwargs):
             self = cls(**initkwargs)
             if hasattr(self, 'get') and not hasattr(self, 'head'):
-                self.head = self.get
-            self.request = request
-            self.args = args
+                self.head = self.get    # サブクラスでのheadメソッドをgetメソッドで
+            self.request = request      # リクエスト
+            self.args = args            # URLのパラメータ
             self.kwargs = kwargs
-            return self.dispatch(request, *args, **kwargs)
+            return self.dispatch(request, *args, **kwargs)  
         view.view_class = cls
         view.view_initkwargs = initkwargs
 
@@ -78,6 +79,9 @@ class View(object):
         return view
 
     def dispatch(self, request, *args, **kwargs):
+        ''' ディスパチャーとして、request.method 名のインスタンスメソッドを返す
+        - 定義されていないならば　405
+        '''
         # Try to dispatch to the right method; if a method doesn't exist,
         # defer to the error handler. Also defer to the error handler if the
         # request method isn't on the approved list.
