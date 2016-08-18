@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import re
@@ -167,6 +168,7 @@ def validate_integer(value):
 
 @deconstructible
 class EmailValidator(object):
+    ''' メールアドレス検証クラス '''
     message = _('Enter a valid email address.')
     code = 'invalid'
     user_regex = _lazy_re_compile(
@@ -235,7 +237,7 @@ class EmailValidator(object):
             (self.code == other.code)
         )
 
-validate_email = EmailValidator()
+validate_email = EmailValidator()           # EmailValidator.__call__ が呼ばれる
 
 slug_re = _lazy_re_compile(r'^[-a-zA-Z0-9_]+\Z')
 validate_slug = RegexValidator(
