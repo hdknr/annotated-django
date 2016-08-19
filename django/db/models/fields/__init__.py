@@ -983,6 +983,8 @@ class BooleanField(Field):
         return errors
 
     def _check_null(self, **kwargs):
+        # null=True のBooleanFieldはNullBooleanField を使うこと
+        # http://bit.ly/2bzOiHx
         if getattr(self, 'null', False):
             return [
                 checks.Error(
@@ -1980,6 +1982,7 @@ class GenericIPAddressField(Field):
 
 
 class NullBooleanField(Field):
+    '''nullを許容するBooleanField'''
     empty_strings_allowed = False
     default_error_messages = {
         'invalid': _("'%(value)s' value must be either None, True or False."),
