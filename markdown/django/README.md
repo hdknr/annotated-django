@@ -11,16 +11,12 @@
 - [settings](settings.md)
 - [sites](django.site.md)
 - [i18n](django.i18n.md)
+- [mail](django.mail.md)
+- [filters](filters/README.md)
 
 ## management command
 
 - [django-click](../python/click.md)
-
-## Filters
-
-- [django-filter](django.filter.md)
-- [２つ以上のフィールドに分割](django.filter.multiple.md)
-- [日付のレンジフィルター](django.filter.daterange.md)
 
 ## Running
 

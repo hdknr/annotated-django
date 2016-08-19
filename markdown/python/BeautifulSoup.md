@@ -1,3 +1,9 @@
+## インストールなど
+
+~~bash
+$ pip install beautifulsoup4
+~~~
+
 ## prettify
 
 ~~~py
@@ -10,4 +16,15 @@
 	 <input name="redirect" type="hidden"/>
 	 <input name="authenticity_token" type="hidden" value="4ae7df1ac2b69b61e5d260c1e4b7ccd29112fcdf"/>
 	</form>
-~~~	
+~~~
+
+## ページ取得スクリプト
+
+~~~py
+# coding:utf-8
+import sys
+import requests
+from bs4 import BeautifulSoup as Soup
+
+print Soup(requests.get(sys.argv[1])).prettify()
+~~~
