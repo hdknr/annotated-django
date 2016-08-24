@@ -1660,7 +1660,7 @@ class DurationField(Field):
 
 
 class EmailField(CharField):
-    default_validators = [validators.validate_email]
+    default_validators = [validators.validate_email]        # デフォルトバリデータ
     description = _("Email address")
 
     def __init__(self, *args, **kwargs):
