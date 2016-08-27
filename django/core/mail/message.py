@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import mimetypes
@@ -44,7 +45,10 @@ class BadHeaderError(ValueError):
 # TODO: replace with email.utils.make_msgid(.., domain=DNS_NAME) when dropping
 # Python 2 (Python 2's version doesn't have domain parameter) (#23905).
 def make_msgid(idstring=None, domain=None):
-    """Returns a string suitable for RFC 5322 compliant Message-ID, e.g:
+    """
+    メッセージID: <時刻.プロセスID.乱数.識別文字列@ドメイン名>
+
+    Returns a string suitable for RFC 5322 compliant Message-ID, e.g:
 
     <20020201195627.33539.96671@nightshade.la.mastaler.com>
 
