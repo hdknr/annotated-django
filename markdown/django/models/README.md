@@ -9,6 +9,9 @@ Django Model 関連
 
 - [datetimeフィールドの日付で件数を出す](django.queryset.aggregate.md)
 
+# リレーション
+
+- [generic](django.models.relation.generic.md)
 
 # マイグレーション
 

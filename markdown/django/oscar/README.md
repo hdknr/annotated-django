@@ -8,6 +8,7 @@ django 1.8
 
 
 [django-compressor](https://django-compressor.readthedocs.io/en/latest/)
+
 -  [rjsmin - JS minifier](https://pypi.python.org/pypi/rjsmin)
 -  [django-appconf - A helper class for handling configuration defaults](https://pypi.python.org/pypi/django-appconf/1.0.2)
 
@@ -19,6 +20,7 @@ django-appconf-1.0.2 django-compressor-2.1 rcssmin-1.0.6 rjsmin-1.0.12
 ~~~
 
 django-oscar:
+
 - [Django Extra View - class based views](https://django-extra-views.readthedocs.io/en/latest/)
 - [django-haystack - modular search](https://django-haystack.readthedocs.io/en/v2.5.0/)
 - [django-tables2 - HTML tables](https://django-tables2.readthedocs.io/en/latest/)

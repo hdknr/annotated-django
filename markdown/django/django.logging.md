@@ -55,3 +55,13 @@
 ## SNS
 
 - [dreipol/django-scarface:  Send push notifications to mobile devices using Amazon SNS](https://github.com/dreipol/django-scarface)
+
+## fluentd
+
+- [django logging fluentd](https://gist.github.com/ikeikeikeike/2028340)
+- [DjangoのログをFluentdに送る](https://www.honeycomb-lab.co.jp/lab/blog/?p=901)
+
+
+## その他
+
+- [ログ集計／時系列DB／可視化ツールの調査結果](http://qiita.com/toritori0318/items/1861baa79afb96d6f5ad)

@@ -47,3 +47,7 @@ mysql> select date(updated) as last from accounts_profile limit 1;
 2015-06-16 198
 2015-05-01 1
 ~~~
+
+## 記事
+
+- [Djangoの集計について](http://note.crohaco.net/2014/django-aggregate/)
