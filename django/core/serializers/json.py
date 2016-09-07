@@ -1,3 +1,4 @@
+# coding:utf-8
 """
 Serialize data to/from JSON
 """
@@ -92,8 +93,9 @@ class DjangoJSONEncoder(json.JSONEncoder):
     """
     def default(self, o):
         # See "Date Time String Format" in the ECMA-262 specification.
+	# 日付系は一旦 isoformat() で文字列化 / msedは無視
         if isinstance(o, datetime.datetime):
-            r = o.isoformat()
+            r = o.isoformat()			
             if o.microsecond:
                 r = r[:23] + r[26:]
             if r.endswith('+00:00'):
