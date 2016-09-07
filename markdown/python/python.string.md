@@ -1,3 +1,11 @@
+## 'cp932' codec can't encode character u'\u2014' in position 9: illegal multibyte sequence
+
+- [ダッシュ](https://ja.wikipedia.org/wiki/%E3%83%80%E3%83%83%E3%82%B7%E3%83%A5_(%E8%A8%98%E5%8F%B7)#.E7.94.A8.E6.B3.95)
+- [str.encode](http://docs.python.jp/2/library/stdtypes.html#str.encode)
+
+~~~py
+s.encode('cp932', errors='ignore')
+~~~
 ## format
 
 
