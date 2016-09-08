@@ -17,6 +17,8 @@ Django Model 関連
 
 - [callableなどが指定されたマイグレーション](django.migrations.deconstruct.md)
 - [unique=True のフィールドを追加する](django.migrations.unique.md)
+- [unique=True のフィールドを追加する(サンプル)](django.migrations.unique.steps.md)
+- [戻す](django.migrations.revert.md)
 
 # 応用
 
