@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 Cache middleware. If enabled, each Django-powered page will be cached based on
 URL. The canonical way to enable cache middleware is to set
@@ -129,8 +130,10 @@ class FetchFromCacheMiddleware(MiddlewareMixin):
             request._cache_update_cache = False
             return None  # Don't bother checking the cache.
 
-        # try and get the cached GET response
+        # try and get the cached GET response 
+	# キャッシュキーの作成: WSGI リクエストを使ってキャッシュキーを作成
         cache_key = get_cache_key(request, self.key_prefix, 'GET', cache=self.cache)
+
         if cache_key is None:
             request._cache_update_cache = True
             return None  # No cache information available, need to rebuild.
@@ -150,7 +153,7 @@ class FetchFromCacheMiddleware(MiddlewareMixin):
 
 
 class CacheMiddleware(UpdateCacheMiddleware, FetchFromCacheMiddleware):
-    """
+    """ キャッシュミドルウェア
     Cache middleware that provides basic behavior for many simple sites.
 
     Also used as the hook point for the cache decorator, which is generated

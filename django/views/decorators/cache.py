@@ -1,3 +1,4 @@
+# coding: utf-8
 from functools import wraps
 
 from django.middleware.cache import CacheMiddleware
@@ -9,6 +10,7 @@ from django.utils.decorators import (
 
 def cache_page(*args, **kwargs):
     """
+    ビューのキャッシュ:
     Decorator for views that tries getting the page from the cache and
     populates the cache if the page isn't in the cache yet.
 
