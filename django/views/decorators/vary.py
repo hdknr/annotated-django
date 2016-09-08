@@ -1,3 +1,4 @@
+# coding: utf-8
 from functools import wraps
 
 from django.utils.cache import patch_vary_headers
@@ -5,7 +6,8 @@ from django.utils.decorators import available_attrs
 
 
 def vary_on_headers(*headers):
-    """
+    """ 指定された複数のヘッダー名で内容が変わることを通知
+
     A view decorator that adds the specified headers to the Vary header of the
     response. Usage:
 
@@ -26,7 +28,8 @@ def vary_on_headers(*headers):
 
 
 def vary_on_cookie(func):
-    """
+    """ "Cookie"ヘッダーで内容が変わることを通知
+
     A view decorator that adds "Cookie" to the Vary header of a response. This
     indicates that a page's contents depends on cookies. Usage:
 

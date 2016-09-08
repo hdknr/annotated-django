@@ -1,3 +1,4 @@
+# coding:utf-8
 """
 This module contains helper functions for controlling caching. It does so by
 managing the "Vary" header of responses. It includes functions to patch the
@@ -264,11 +265,13 @@ def has_vary_header(response, header_query):
 
 def _i18n_cache_key_suffix(request, cache_key):
     """If necessary, adds the current locale or time zone to the cache key."""
+
     if settings.USE_I18N or settings.USE_L10N:
         # first check if LocaleMiddleware or another middleware added
         # LANGUAGE_CODE to request, then fall back to the active language
         # which in turn can also fall back to settings.LANGUAGE_CODE
         cache_key += '.%s' % getattr(request, 'LANGUAGE_CODE', get_language())
+
     if settings.USE_TZ:
         # The datetime module doesn't restrict the output of tzname().
         # Windows is known to use non-standard, locale-dependent names.
@@ -276,32 +279,45 @@ def _i18n_cache_key_suffix(request, cache_key):
         # Hence this paranoid conversion to create a valid cache key.
         tz_name = force_text(get_current_timezone_name(), errors='ignore')
         cache_key += '.%s' % tz_name.encode('ascii', 'ignore').decode('ascii').replace(' ', '_')
+
     return cache_key
 
 
 def _generate_cache_key(request, method, headerlist, key_prefix):
-    """Returns a cache key from the headers given in the header list."""
+    """ 実際のキャッシュキーの生成
+    Returns a cache key from the headers given in the header list."""
     ctx = hashlib.md5()
+
+    # 全リクエストヘッダーを md5 する
     for header in headerlist:
         value = request.META.get(header)
         if value is not None:
             ctx.update(force_bytes(value))
+
+    # リクエストURLをmd5 する
     url = hashlib.md5(force_bytes(iri_to_uri(request.build_absolute_uri())))
+
     cache_key = 'views.decorators.cache.cache_page.%s.%s.%s.%s' % (
         key_prefix, method, url.hexdigest(), ctx.hexdigest())
+
     return _i18n_cache_key_suffix(request, cache_key)
 
 
 def _generate_cache_header_key(key_prefix, request):
-    """Returns a cache key for the header cache."""
+    """WSGIリクエストベースでヘッダーのキーを返す
+    Returns a cache key for the header cache."""
+
     url = hashlib.md5(force_bytes(iri_to_uri(request.build_absolute_uri())))
     cache_key = 'views.decorators.cache.cache_header.%s.%s' % (
         key_prefix, url.hexdigest())
+
     return _i18n_cache_key_suffix(request, cache_key)
 
 
 def get_cache_key(request, key_prefix=None, method='GET', cache=None):
     """
+    キャッシュキーの生成:
+
     Returns a cache key based on the request URL and query. It can be used
     in the request phase because it pulls the list of headers to take into
     account from the global URL registry and uses those to build a cache key
@@ -324,6 +340,10 @@ def get_cache_key(request, key_prefix=None, method='GET', cache=None):
 
 def learn_cache_key(request, response, cache_timeout=None, key_prefix=None, cache=None):
     """
+    キャッシュヘッダーを決定して保存する:
+    @vary_on_headers('User-Agent', 'Cookie')とか、
+    @vary_on_cookie とかで、Vary応答ヘッダーを返す。
+
     Learns what headers to take into account for some request URL from the
     response object. It stores those headers in a global URL registry so that
     later access to that URL will know what headers to take into account
