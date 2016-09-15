@@ -188,7 +188,7 @@ $ curl -X GET 'http://localhost:9200/_nodes/plugins' | jq ".nodes[].plugins[]"
 }
 ~~~
 
-~~~bash 
+~~~bash
 $ sudo vi /etc/elasticsearch/elasticsearch.yml
 
 $ sudo tail  /etc/elasticsearch/elasticsearch.yml
@@ -214,7 +214,7 @@ $ curl -X POST http://localhost:9200/wine/sample/_bulk --data-binary @wine.json
 - クエリ
 
 ~~~bash
-$ curl -X GET http://localhost:9200/wine/sample/_search -d '{"query":{"match":{"description":"渋め"}}}' 
+$ curl -X GET http://localhost:9200/wine/sample/_search -d '{"query":{"match":{"description":"渋め"}}}'
 ~~~
 
 ## python / Django
@@ -225,6 +225,7 @@ $ curl -X GET http://localhost:9200/wine/sample/_search -d '{"query":{"match":{"
 
 ### PYPI elasticsearch :Python Elasticsearch Client
 
+- https://www.elastic.co/guide/en/elasticsearch/client/python-api/current/index.html
 - https://pypi.python.org/pypi/elasticsearch/2.3.0
 - http://elasticsearch-py.readthedocs.io/en/master/
 

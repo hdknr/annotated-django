@@ -2,6 +2,7 @@
 - [django-haystack/django-haystack](https://github.com/django-haystack/django-haystack)
 - [Django製サイトにSphinx製ドキュメントを導入する方法](http://d.hatena.ne.jp/hirokiky/20120707/1341645096)
 - [Implementing Search In Django Site Using HayStack And Xapian / Whoosh](http://www.nitinh.com/2009/10/implementing-search-in-django-site-using-haystack-and-xapian-whoosh/)
+- [Django から Elasticsearch を使う](http://qiita.com/Fq4X/items/81ba2f234e9611546025)
 
 
 # Whoosh
