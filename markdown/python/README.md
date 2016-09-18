@@ -54,3 +54,8 @@
 ## エラー処理
 
 - [logging](python.logging.md)
+
+
+## 言語
+
+- [メタクラス](python.metaclass.md)
