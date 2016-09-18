@@ -252,3 +252,13 @@ In [8]: for hit in res['hits']['hits']:
 - [Amazon Elasticsearch Serviceでkuromojiを使って日本語全文検索する](http://dev.classmethod.jp/cloud/aws/using-kuromoji-on-amazon-es/)
 
 - Amazon ESとしてはプラグインの追加機能が提供されていないため、最初からKuromojiが含まれているのは、日本においてはすごく重要です。
+
+
+## その他
+
+- [Elastic Searchで全てのデータ(index)を削除する](http://qiita.com/shouta-dev/items/c2d2eb6cf61bb1fa8e1b)
+
+~~~bash
+$ curl -XDELETE 'http://localhost:9200/*'
+{"acknowledged":true}
+~~~
