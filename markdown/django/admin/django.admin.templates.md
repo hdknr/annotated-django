@@ -235,6 +235,12 @@ class MyModelAdmin(admin.ModelAdmin):
         return media
 ~~~        
 
+## 「サイトで表示」
+
+~~~html
+<a href="{%url 'yourapp_yourmodel_index' %}">{% trans 'View on site' %} </a>
+~~~
+
 ## レスポンシブ
 
 - [django-admin-bootstrap/django-admin-bootstrap](https://github.com/django-admin-bootstrap/django-admin-bootstrap)

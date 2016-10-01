@@ -96,31 +96,37 @@ bar 45 BMW
 
 
 ~~~py
-class Mammalian:
-    raised_by_milk = True
+class Mammalian:                                                                    
+    raised_by_milk = True                                                           
 
 
-class Human(type):
-    def __new__(cls, classname, baseclasses, attrs):
-        attrs['minimum_sleeping_hours'] = 8
-        baseclasses += (Mammalian, )
-        # return super(Human, cls).__new__(cls, classname, baseclasses, attrs)
-        return type.__new__(cls, classname, baseclasses, attrs)
+class Human(type):                                                                  
+    def __new__(cls, classname, baseclasses, attrs):                                
+        assert cls == Human                                                         
+        attrs['minimum_sleeping_hours'] = 8                                         
+        baseclasses += (Mammalian, )                                                
+        attrs['classname'] = classname                                              
+        # return super(Human, cls).__new__(cls, classname, baseclasses, attrs)   
+        return type.__new__(cls, classname, baseclasses, attrs)                     
+
+    def __init__(cls, classname, baseclasses, attrs):                               
+        assert cls.__name__ == 'Employee'                                           
+        super(Human, cls).__init__(classname, baseclasses, attrs)                   
 
 
-class Employee(object):
-    __metaclass__ = Human
+class Employee(object):                                                             
+    __metaclass__ = Human                                                           
 
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+    def __init__(self, name, age):                                                  
+        self.name = name                                                            
+        self.age = age                                                              
 
 
-e = Employee('Foo', 29)
+e = Employee('Foo', 29)                                                             
 
-print e.name, e.age, e.minimum_sleeping_hours, e.raised_by_milk
+print e.name, e.age, e.minimum_sleeping_hours, e.raised_by_milk, e.classname  
 ~~~
 
 ~~~bash
-Foo 29 8 True
+Foo 29 8 True Employee
 ~~~
