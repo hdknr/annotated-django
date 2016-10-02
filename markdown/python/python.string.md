@@ -28,3 +28,8 @@ Out[38]: 1
 ~~~
 
 - [django.db.models.fields.BooleanField では "TRUE" / "FALSE"はエラー](https://github.com/hdknr/annotated-django/commit/69d84147fad6719a61502102bd7f8a69d132232d)
+
+
+## 中国語
+
+- [hanziconv](https://pypi.python.org/pypi/hanziconv/)
