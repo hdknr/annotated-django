@@ -12,7 +12,7 @@ class PasswordResetTokenGenerator(object):
     Strategy object used to generate and check tokens for the password
     reset mechanism.
     """
-    key_salt = "django.contrib.auth.tokens.PasswordResetTokenGenerator"
+    key_salt = "django.contrib.auth.tokens.PasswordResetTokenGenerator"		# 塩
 
     def make_token(self, user):
         """
@@ -60,13 +60,15 @@ class PasswordResetTokenGenerator(object):
         # invalid as soon as it is used.
         # We limit the hash to 20 chars to keep URL short
 
-        hash = salted_hmac(
+        hash = salted_hmac(			# 塩HMACでハッシュ
             self.key_salt,
             self._make_hash_value(user, timestamp),
         ).hexdigest()[::2]
+
         return "%s-%s" % (ts_b36, hash)
 
     def _make_hash_value(self, user, timestamp):
+        # ハッシュの計算: User.id + パスワード + ログインタイムスタンプ + タイムスタンプ
         # Ensure results are consistent across DB backends
         login_timestamp = '' if user.last_login is None else user.last_login.replace(microsecond=0, tzinfo=None)
         return (
