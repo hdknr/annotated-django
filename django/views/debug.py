@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import re
@@ -253,7 +254,7 @@ class ExceptionReporter(object):
             self.exc_type = type(self.exc_value)
 
     def get_traceback_data(self):
-        """Return a dictionary containing traceback information."""
+        """例外レポートデータ：Return a dictionary containing traceback information."""
         if self.exc_type and issubclass(self.exc_type, TemplateDoesNotExist):
             self.template_does_not_exist = True
             self.postmortem = self.exc_value.chain or [self.exc_value]
@@ -305,6 +306,7 @@ class ExceptionReporter(object):
         if self.exc_type:
             c['exception_type'] = self.exc_type.__name__
         if self.exc_value:
+            # 例外のメッセージ
             c['exception_value'] = smart_text(self.exc_value, errors='replace')
         if frames:
             c['lastframe'] = frames[-1]

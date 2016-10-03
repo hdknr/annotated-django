@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 Tools for sending email.
 """
@@ -90,7 +91,7 @@ def send_mass_mail(datatuple, fail_silently=False, auth_user=None,
 
 def mail_admins(subject, message, fail_silently=False, connection=None,
                 html_message=None):
-    """Sends a message to the admins, as defined by the ADMINS setting."""
+    """管理者にメール:Sends a message to the admins, as defined by the ADMINS setting."""
     if not settings.ADMINS:
         return
     mail = EmailMultiAlternatives(

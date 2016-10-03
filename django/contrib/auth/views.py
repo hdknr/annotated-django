@@ -1,3 +1,4 @@
+# coding: utf-8
 import functools
 import warnings
 
@@ -152,6 +153,8 @@ def logout_then_login(request, login_url=None, extra_context=None):
 def redirect_to_login(next, login_url=None,
                       redirect_field_name=REDIRECT_FIELD_NAME):
     """
+    ログイン画面にリダイレクト
+
     Redirects the user to the login page, passing the given 'next' page
     """
     resolved_url = resolve_url(login_url or settings.LOGIN_URL)

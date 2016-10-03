@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import logging
@@ -88,6 +89,8 @@ class AdminEmailHandler(logging.Handler):
         self.email_backend = email_backend
 
     def emit(self, record):
+        # 例外のemit
+        # 例外のサブジェクト生成
         try:
             request = record.request
             subject = '%s (%s IP): %s' % (
@@ -102,6 +105,7 @@ class AdminEmailHandler(logging.Handler):
                 record.getMessage()
             )
             request = None
+        # サブジェクトを書式化
         subject = self.format_subject(subject)
 
         # Since we add a nicely formatted traceback on our own, create a copy
@@ -121,6 +125,7 @@ class AdminEmailHandler(logging.Handler):
         self.send_mail(subject, message, fail_silently=True, html_message=html_message)
 
     def send_mail(self, subject, message, *args, **kwargs):
+        # 例外発生時にメールを送る
         mail.mail_admins(subject, message, *args, connection=self.connection(), **kwargs)
 
     def connection(self):
