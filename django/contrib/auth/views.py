@@ -254,12 +254,13 @@ def password_reset_confirm(request, uidb64=None, token=None,
         post_reset_redirect = resolve_url(post_reset_redirect)
     try:
         # urlsafe_base64_decode() decodes to bytestring on Python 3
-        uid = force_text(urlsafe_base64_decode(uidb64))
+        uid = force_text(urlsafe_base64_decode(uidb64))  # uidをデコード
         user = UserModel._default_manager.get(pk=uid)
     except (TypeError, ValueError, OverflowError, UserModel.DoesNotExist):
         user = None
 
     if user is not None and token_generator.check_token(user, token):
+        # トークンを確認してOKだったら
         validlink = True
         title = _('Enter new password')
         if request.method == 'POST':
@@ -271,7 +272,7 @@ def password_reset_confirm(request, uidb64=None, token=None,
             form = set_password_form(user)
     else:
         validlink = False
-        form = None
+        form = None   # URL が不正だとformがNoneになります
         title = _('Password reset unsuccessful')
     context = {
         'form': form,

@@ -1,3 +1,4 @@
+# coding: utf-8
 from datetime import date
 
 from django.conf import settings
@@ -21,7 +22,7 @@ class PasswordResetTokenGenerator(object):
         return self._make_token_with_timestamp(user, self._num_days(self._today()))
 
     def check_token(self, user, token):
-        """
+        """パスワードリセットURLのトークン検証( {{ base36 }}-{{ 時刻情報 }} )   
         Check that a password reset token is correct for a given user.
         """
         # Parse the token
@@ -36,10 +37,12 @@ class PasswordResetTokenGenerator(object):
             return False
 
         # Check that the timestamp/uid has not been tampered with
+        # User.id とタイムスタンプの組み合わせを確認
         if not constant_time_compare(self._make_token_with_timestamp(user, ts), token):
             return False
 
         # Check the timestamp is within limit
+        # デフォルト３日過ぎていると無効
         if (self._num_days(self._today()) - ts) > settings.PASSWORD_RESET_TIMEOUT_DAYS:
             return False
 
