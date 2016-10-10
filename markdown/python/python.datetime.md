@@ -7,6 +7,14 @@ Out[2]: datetime.time(10, 0)
 ~~~
 
 
+## 曜日は 月曜日 = 0
+
+- js とか csharp に合わせる
+
+~~~py
+(now.weekday() + 1) % 7
+~~~
+
 ## 現地時間
 
 ~~~bash
