@@ -1,3 +1,4 @@
+# encoding: utf-8
 from __future__ import unicode_literals
 
 import unicodedata
@@ -231,6 +232,7 @@ class PasswordResetForm(forms.Form):
     def send_mail(self, subject_template_name, email_template_name,
                   context, from_email, to_email, html_email_template_name=None):
         """
+        パスワードリセットメール
         Sends a django.core.mail.EmailMultiAlternatives to `to_email`.
         """
         subject = loader.render_to_string(subject_template_name, context)
