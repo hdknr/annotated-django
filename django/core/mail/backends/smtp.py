@@ -1,3 +1,4 @@
+# coding: utf-8
 """SMTP email backend class."""
 import smtplib
 import ssl
@@ -112,15 +113,33 @@ class EmailBackend(BaseEmailBackend):
         return num_sent
 
     def _send(self, email_message):
-        """A helper method that does the actual sending."""
+        """
+        実際の送信: EmailMessageオブジェクトを送信する
+
+        A helper method that does the actual sending."""
+
         if not email_message.recipients():
             return False
+	
+        # エンコーディング
         encoding = email_message.encoding or settings.DEFAULT_CHARSET
+	
+        # 送信アドレス
         from_email = sanitize_address(email_message.from_email, encoding)
+        # 受信者アドレス
         recipients = [sanitize_address(addr, encoding) for addr in email_message.recipients()]
+
+        # オブジェクトをSafeMIMETextオブジェクトに変換
+        # http://docs.python.jp/2/library/email.message.html#email.message.Message
         message = email_message.message()
+
         try:
-            self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+            # http://docs.python.jp/3/library/email.message.html#email.message.Message
+            # http://docs.python.jp/3/library/email.message.html#email.message.Message.as_bytes
+            self.connection.sendmail(
+                from_email, 
+                recipients, 
+                message.as_bytes(linesep='\r\n'))    # シリアライズ
         except smtplib.SMTPException:
             if not self.fail_silently:
                 raise

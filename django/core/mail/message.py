@@ -170,6 +170,7 @@ def sanitize_address(addr, encoding):
 
 
 class MIMEMixin():
+    '''シリアライザ (as_string, as_bytes)'''
     def as_string(self, unixfrom=False, linesep='\n'):
         """Return the entire formatted message as a string.
         Optional `unixfrom' when True, means include the Unix From_ envelope
@@ -204,6 +205,8 @@ class MIMEMixin():
 
 
 class SafeMIMEMessage(MIMEMixin, MIMEMessage):
+    ''' http://docs.python.jp/3/library/email.mime.html?highlight=mimetext#email.mime.message.MIMEMessage
+    '''
 
     def __setitem__(self, name, val):
         # message/rfc822 attachments must be ASCII
@@ -212,7 +215,8 @@ class SafeMIMEMessage(MIMEMixin, MIMEMessage):
 
 
 class SafeMIMEText(MIMEMixin, MIMEText):
-
+    ''' http://docs.python.jp/3/library/email.mime.html?highlight=mimetext#email.mime.text.MIMEText
+    '''
     def __init__(self, _text, _subtype='plain', _charset=None):
         self.encoding = _charset
         if _charset == 'utf-8':
@@ -305,6 +309,7 @@ class EmailMessage(object):
         return self.connection
 
     def message(self):
+	'''SafeMIMETextクラスに変換'''
         encoding = self.encoding or settings.DEFAULT_CHARSET
         msg = SafeMIMEText(self.body, self.content_subtype, encoding)
         msg = self._create_message(msg)
@@ -395,9 +400,11 @@ class EmailMessage(object):
         self.attach(filename, content, mimetype)
 
     def _create_message(self, msg):
+        # メッセージ自体もSafeMIMEMultipartです
         return self._create_attachments(msg)
 
     def _create_attachments(self, msg):
+	''' SafeMIMEMultipart を作成'''
         if self.attachments:
             encoding = self.encoding or settings.DEFAULT_CHARSET
             body_msg = msg
@@ -413,6 +420,7 @@ class EmailMessage(object):
 
     def _create_mime_attachment(self, content, mimetype):
         """
+        MIMEで添付:
         Converts the content, mimetype pair into a MIME attachment object.
 
         If the mimetype is message/rfc822, content may be an
