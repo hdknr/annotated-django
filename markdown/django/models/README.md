@@ -9,6 +9,10 @@ Django Model 関連
 
 - [datetimeフィールドの日付で件数を出す](django.queryset.aggregate.md)
 
+# JOIN
+
+- [LEFT OUTER JOIN](django.queryset.join.md)
+
 # リレーション
 
 - [generic](django.models.relation.generic.md)

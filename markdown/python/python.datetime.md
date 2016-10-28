@@ -10,10 +10,12 @@ Out[2]: datetime.time(10, 0)
 ## 曜日は 月曜日 = 0
 
 - js とか csharp に合わせる
-
 ~~~py
 (now.weekday() + 1) % 7
 ~~~
+
+- http://qiita.com/61503891/items/13a49b2e26b2b4a47b55
+- [SQL は 月曜日開始(=1)](http://bayashita.com/p/entry/show/64)
 
 ## 現地時間
 
