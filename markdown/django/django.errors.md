@@ -8,14 +8,15 @@ from . import forms, models
 import json
 
 def add_member(rowdata):
+  # rowdata : dict, keyはモデルのフィールド名とする
 
   # 読み取りデータを使って既存のメンバーを探し、いなかったら新規作成
-  member = community.member_set.find(**row) or models.Member(                  
+  member = community.member_set.find(**rowdata) or models.Member(                  
     community=community)       
 
   # QueryDict 化する
   data = QueryDict(mutable=True)                                               
-  data.update(row)  
+  data.update(rowdata)  
 
   # フォーム設定
   form = forms.MemberImportForm(data, instance=member)    
@@ -24,7 +25,7 @@ def add_member(rowdata):
   else:
       err = from_errordict(form.errors)
       record_error(json.dumps(
-        {'data': row, 'errors': err}, ensure_ascii=False, indent=2))
+        {'data': rowdata, 'errors': err}, ensure_ascii=False, indent=2))
 ~~~
 
 ~~~py
