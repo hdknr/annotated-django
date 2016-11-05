@@ -143,7 +143,7 @@ accounts/pipline.py:
 ~~~py
 from social.pipeline.user import create_user as psa_create_user
 
-def provice_user(user):
+def provide_user(user):
   # グループ追加とかパーミッション追加とか
   pass
 
@@ -169,3 +169,9 @@ SOCIAL_AUTH_PIPELINE = [
     ...
 ]
 ~~~
+
+
+# ログイン後のリダイレクト
+
+- [settings.LOGIN_REDIRECT_URL](https://docs.djangoproject.com/ja/1.10/ref/settings/#login-redirect-url): 標準ログイン後URL
+- [settings.NEW_USER_REDIRECT_URL](https://github.com/omab/python-social-auth/blob/master/social/actions.py#L74) : 新規作成された場合
