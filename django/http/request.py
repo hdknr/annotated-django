@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import copy
@@ -178,9 +179,10 @@ class HttpRequest(object):
             location = '//%s' % self.get_full_path()
         bits = urlsplit(location)
         if not (bits.scheme and bits.netloc):
-            current_uri = '{scheme}://{host}{path}'.format(scheme=self.scheme,
-                                                           host=self.get_host(),
-                                                           path=self.path)
+            current_uri = '{scheme}://{host}{path}'.format(
+                scheme=self.scheme,             # 
+                host=self.get_host(),           # ホスト名は get_host
+                path=self.path)                 #
             # Join the constructed URL with the provided location, which will
             # allow the provided ``location`` to apply query strings to the
             # base path as well as override the host, if it begins with //
