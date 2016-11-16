@@ -338,7 +338,7 @@ class SetPasswordForm(forms.Form):
 
 
 class PasswordChangeForm(SetPasswordForm):
-    """
+    """パスワード変更:
     A form that lets a user change their password by entering their old
     password.
     """
