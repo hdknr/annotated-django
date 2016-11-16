@@ -51,6 +51,7 @@ class PasswordResetForm(forms.Form):
 ~~~
 
 - save() がオーバーライドされていて、一連の処理が行われます
+- token を含む[URL の有効日数はデフォルトで3日です](https://github.com/hdknr/annotated-django/commit/8a033fed004a993330175d0627647c1762a0802c)
 
 ~~~py
     def save(self, domain_override=None,                                         
