@@ -1,3 +1,4 @@
+# encoding: utf-8
 from django.core.exceptions import ImproperlyConfigured
 from django.utils import lru_cache, six
 from django.utils.functional import cached_property
@@ -11,9 +12,9 @@ from .library import import_library
 
 class Engine(object):
     default_builtins = [
-        'django.template.defaulttags',
-        'django.template.defaultfilters',
-        'django.template.loader_tags',
+        'django.template.defaulttags',              # Django デフォルトタグ
+        'django.template.defaultfilters',           # Django デフォルトフィルター
+        'django.template.loader_tags',              # `load` タグ
     ]
 
     def __init__(self, dirs=None, app_dirs=False, context_processors=None,
@@ -24,9 +25,9 @@ class Engine(object):
         if context_processors is None:
             context_processors = []
         if loaders is None:
-            loaders = ['django.template.loaders.filesystem.Loader']
+            loaders = ['django.template.loaders.filesystem.Loader']             # ファイルシステムローダが追加される
             if app_dirs:
-                loaders += ['django.template.loaders.app_directories.Loader']
+                loaders += ['django.template.loaders.app_directories.Loader']   # アプリケーションディレクトリローダ
         else:
             if app_dirs:
                 raise ImproperlyConfigured(

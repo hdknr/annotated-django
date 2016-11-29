@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 from django.contrib import auth
@@ -345,7 +346,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
         abstract = True
 
     def get_full_name(self):
-        """
+        """ フルネーム(first_name, スペース, last_name) の順番
         Returns the first_name plus the last_name, with a space in between.
         """
         full_name = '%s %s' % (self.first_name, self.last_name)

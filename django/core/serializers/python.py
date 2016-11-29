@@ -1,3 +1,4 @@
+# encoding: utf-8
 """
 A Python "serializer". Doesn't do much serializing per se -- just converts to
 and from basic Python data types (lists, dicts, strings, etc.). Useful as a basis for
@@ -10,7 +11,7 @@ from collections import OrderedDict
 from django.apps import apps
 from django.conf import settings
 from django.core.serializers import base
-from django.db import DEFAULT_DB_ALIAS, models
+from django.db import DEFAULT_DB_ALIAS, models      # デフォルトのデータベース
 from django.utils import six
 from django.utils.encoding import force_text, is_protected_type
 
@@ -89,14 +90,14 @@ def Deserializer(object_list, **options):
     It's expected that you pass the Python objects themselves (instead of a
     stream or a string) to the constructor
     """
-    db = options.pop('using', DEFAULT_DB_ALIAS)
+    db = options.pop('using', DEFAULT_DB_ALIAS)         # データベース
     ignore = options.pop('ignorenonexistent', False)
     field_names_cache = {}  # Model: <list of field_names>
 
     for d in object_list:
         # Look up the model and starting build a dict of data for it.
         try:
-            Model = _get_model(d["model"])
+            Model = _get_model(d["model"])          # モデルの判定
         except base.DeserializationError:
             if ignore:
                 continue
@@ -104,6 +105,7 @@ def Deserializer(object_list, **options):
                 raise
         data = {}
         if 'pk' in d:
+            # pk があるとインスタンスが確定する
             try:
                 data[Model._meta.pk.attname] = Model._meta.pk.to_python(d.get('pk'))
             except Exception as e:
@@ -114,21 +116,22 @@ def Deserializer(object_list, **options):
             field_names_cache[Model] = {f.name for f in Model._meta.get_fields()}
         field_names = field_names_cache[Model]
 
-        # Handle each field
+        # Handle each field `fields` に入っている key, value からデータを起こす
         for (field_name, field_value) in six.iteritems(d["fields"]):
 
             if ignore and field_name not in field_names:
-                # skip fields no longer on model
+                # skip fields no longer on model # モデルに定義されいていないフィールドは無視
                 continue
 
             if isinstance(field_value, str):
+                # 文字列データの処理
                 field_value = force_text(
                     field_value, options.get("encoding", settings.DEFAULT_CHARSET), strings_only=True
                 )
 
-            field = Model._meta.get_field(field_name)
+            field = Model._meta.get_field(field_name)   # フィールドクラス
 
-            # Handle M2M relations
+            # Handle M2M relations  #1:m2m フィールドの処理
             if field.remote_field and isinstance(field.remote_field, models.ManyToManyRel):
                 model = field.remote_field.model
                 if hasattr(model._default_manager, 'get_by_natural_key'):
@@ -148,7 +151,7 @@ def Deserializer(object_list, **options):
                 except Exception as e:
                     raise base.DeserializationError.WithData(e, d['model'], d.get('pk'), pk)
 
-            # Handle FK fields
+            # Handle FK fields      #2: FKの場合の処理
             elif field.remote_field and isinstance(field.remote_field, models.ManyToOneRel):
                 model = field.remote_field.model
                 if field_value is not None:
@@ -173,15 +176,15 @@ def Deserializer(object_list, **options):
                 else:
                     data[field.attname] = None
 
-            # Handle all other fields
+            # Handle all other fields   #3: その他のフィールド
             else:
                 try:
                     data[field.name] = field.to_python(field_value)
                 except Exception as e:
                     raise base.DeserializationError.WithData(e, d['model'], d.get('pk'), field_value)
 
-        obj = base.build_instance(Model, data, db)
-        yield base.DeserializedObject(obj, m2m_data)
+        obj = base.build_instance(Model, data, db)          # インスタンスデータを作成
+        yield base.DeserializedObject(obj, m2m_data)        # インスタンスを復元
 
 
 def _get_model(model_identifier):

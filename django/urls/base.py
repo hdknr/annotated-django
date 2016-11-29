@@ -23,8 +23,10 @@ _urlconfs = local()
 
 
 def resolve(path, urlconf=None):
+    '''request.path でリゾルブする '''
     if urlconf is None:
         urlconf = get_urlconf()
+    # urlconf のリゾルバでリゾルブする
     return get_resolver(urlconf).resolve(path)
 
 

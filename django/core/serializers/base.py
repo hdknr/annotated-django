@@ -1,3 +1,4 @@
+# encoding: utf-8
 """
 Module for abstract serializer/unserializer base classes.
 """
@@ -209,8 +210,8 @@ class DeserializedObject(object):
 
 
 def build_instance(Model, data, db):
-    """
-    Build a model instance.
+    """モデルインスタンスを作成
+    Build a model instance.  
 
     If the model instance doesn't have a primary key and the model supports
     natural keys, try to retrieve it from the database.
