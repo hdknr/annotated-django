@@ -628,7 +628,7 @@ class BaseModelFormSet(BaseFormSet):
         return form.save(commit=commit)
 
     def delete_existing(self, obj, commit=True):
-        """Deletes an existing model instance."""
+        """インスタンスを削除します: Deletes an existing model instance."""
         if commit:
             obj.delete()
 
@@ -654,7 +654,7 @@ class BaseModelFormSet(BaseFormSet):
         # Collect unique_checks and date_checks to run from all the forms.
         all_unique_checks = set()
         all_date_checks = set()
-        forms_to_delete = self.deleted_forms
+        forms_to_delete = self.deleted_forms		# 削除されるフォーム一覧
         valid_forms = [form for form in self.forms if form.is_valid() and form not in forms_to_delete]
         for form in valid_forms:
             exclude = form._get_validation_exclusions()
@@ -743,6 +743,7 @@ class BaseModelFormSet(BaseFormSet):
         return ugettext("Please correct the duplicate values below.")
 
     def save_existing_objects(self, commit=True):
+	''' 既存のオブジェクトを保存します '''
         self.changed_objects = []
         self.deleted_objects = []
         if not self.initial_forms:
@@ -753,13 +754,14 @@ class BaseModelFormSet(BaseFormSet):
         for form in self.initial_forms:
             obj = form.instance
             if form in forms_to_delete:
+		# 削除フォームの中にあったら....
                 # If the pk is None, it means that the object can't be
                 # deleted again. Possible reason for this is that the
                 # object was already deleted from the DB. Refs #14877.
                 if obj.pk is None:
                     continue
                 self.deleted_objects.append(obj)
-                self.delete_existing(obj, commit=commit)
+                self.delete_existing(obj, commit=commit)	# 個別の削除
             elif form.has_changed():
                 self.changed_objects.append((obj, form.changed_data))
                 saved_instances.append(self.save_existing(form, obj, commit=commit))

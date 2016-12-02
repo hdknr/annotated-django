@@ -216,7 +216,7 @@ class BaseFormSet(object):
 
     @property
     def deleted_forms(self):
-        """
+        """削除マークされているフォームの一覧
         Returns a list of forms that have been marked for deletion.
         """
         if not self.is_valid() or not self.can_delete:
