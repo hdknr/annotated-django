@@ -1,3 +1,4 @@
+# coding: utf-8
 import warnings
 from importlib import import_module
 
@@ -9,6 +10,7 @@ from django.utils import six
 from django.utils.deprecation import RemovedInDjango20Warning
 
 __all__ = ['handler400', 'handler403', 'handler404', 'handler500', 'include', 'url']
+# 400, 403, 404, 500 ハンドラー
 
 handler400 = 'django.views.defaults.bad_request'
 handler403 = 'django.views.defaults.permission_denied'
