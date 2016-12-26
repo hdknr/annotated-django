@@ -77,6 +77,7 @@ class RegexValidator(object):
 
 @deconstructible
 class URLValidator(RegexValidator):
+    '''URLのバリデーション'''
     ul = '\u00a1-\uffff'  # unicode letters range (must be a unicode string, not a raw string)
 
     # IP patterns

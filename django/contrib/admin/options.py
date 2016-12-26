@@ -884,26 +884,34 @@ class ModelAdmin(BaseModelAdmin):
         Returns a tuple containing a queryset to implement the search,
         and a boolean indicating if the results may contain duplicates.
         """
-        # Apply keyword searches.
+        # Apply keyword searches. :キーワード検索
         def construct_search(field_name):
-            if field_name.startswith('^'):
+            if field_name.startswith('^'):	# 前方一致
                 return "%s__istartswith" % field_name[1:]
-            elif field_name.startswith('='):
+            elif field_name.startswith('='):	# 完全１
                 return "%s__iexact" % field_name[1:]
-            elif field_name.startswith('@'):
+            elif field_name.startswith('@'):	# 後方一致
                 return "%s__search" % field_name[1:]
-            else:
+            else:				# 部分一致
                 return "%s__icontains" % field_name
 
         use_distinct = False
-        search_fields = self.get_search_fields(request)
+        search_fields = self.get_search_fields(request)	 # 検索フィールド
+
         if search_fields and search_term:
+	    # 検索フィールド指定されて検索文字列があれば検索
+
+ 	    # フィールドのルックアップ一覧を作る
             orm_lookups = [construct_search(str(search_field))
                            for search_field in search_fields]
-            for bit in search_term.split():
+
+	    # 文字列を分割し、
+            for bit in search_term.split(): 
+		# 文字に対して フィールドのandクエリの一覧をorで連結
                 or_queries = [models.Q(**{orm_lookup: bit})
                               for orm_lookup in orm_lookups]
                 queryset = queryset.filter(reduce(operator.or_, or_queries))
+
             if not use_distinct:
                 for search_spec in orm_lookups:
                     if lookup_needs_distinct(self.opts, search_spec):

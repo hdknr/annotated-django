@@ -2278,7 +2278,7 @@ class TimeField(DateTimeCheckMixin, Field):
 
 
 class URLField(CharField):
-    default_validators = [validators.URLValidator()]
+    default_validators = [validators.URLValidator()]	# URLのバリデーション
     description = _("URL")
 
     def __init__(self, verbose_name=None, name=None, **kwargs):
