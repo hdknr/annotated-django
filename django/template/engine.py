@@ -128,9 +128,10 @@ class Engine(object):
 
     def find_template(self, name, dirs=None, skip=None):
         tried = []
-        for loader in self.template_loaders:
+        for loader in self.template_loaders:		# ローダーが複数定義されているはず
             if loader.supports_recursion:
                 try:
+                    # ローダーをつかってテンプレート名でロードする		
                     template = loader.get_template(
                         name, template_dirs=dirs, skip=skip,
                     )
@@ -158,7 +159,9 @@ class Engine(object):
         Returns a compiled Template object for the given template name,
         handling template inheritance recursively.
         """
+        # テンプレート名で検索
         template, origin = self.find_template(template_name)
+
         if not hasattr(template, 'render'):
             # template needs to be compiled
             template = Template(template, origin, template_name, engine=self)

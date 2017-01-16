@@ -16,7 +16,7 @@ def get_template(template_name, using=None):
     Raises TemplateDoesNotExist if no such template exists.
     """
     chain = []
-    engines = _engine_list(using)
+    engines = _engine_list(using)	 # django.template.backends.django.DjangoTemplates などのBACKEND一覧
     for engine in engines:
         try:
             return engine.get_template(template_name)

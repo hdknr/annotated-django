@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 Wrapper for loading templates from the filesystem.
 """
