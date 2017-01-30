@@ -1,3 +1,4 @@
+# coding: utf8
 from __future__ import unicode_literals
 
 import json
@@ -12,6 +13,7 @@ from django.utils.encoding import python_2_unicode_compatible, smart_text
 from django.utils.text import get_text_list
 from django.utils.translation import ugettext, ugettext_lazy as _
 
+# action_flag 
 ADDITION = 1
 CHANGE = 2
 DELETION = 3
