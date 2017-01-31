@@ -713,6 +713,7 @@ class ModelAdmin(BaseModelAdmin):
         The default implementation creates an admin LogEntry object.
         """
         from django.contrib.admin.models import LogEntry, ADDITION
+        # 追加した時の記録
         LogEntry.objects.log_action(
             user_id=request.user.pk,
             content_type_id=get_content_type_for_model(object).pk,
@@ -729,6 +730,7 @@ class ModelAdmin(BaseModelAdmin):
         The default implementation creates an admin LogEntry object.
         """
         from django.contrib.admin.models import LogEntry, CHANGE
+        # 変更した時の記録
         LogEntry.objects.log_action(
             user_id=request.user.pk,
             content_type_id=get_content_type_for_model(object).pk,
@@ -746,6 +748,7 @@ class ModelAdmin(BaseModelAdmin):
         The default implementation creates an admin LogEntry object.
         """
         from django.contrib.admin.models import LogEntry, DELETION
+       # 削除した時の記録
         LogEntry.objects.log_action(
             user_id=request.user.pk,
             content_type_id=get_content_type_for_model(object).pk,
@@ -1459,10 +1462,10 @@ class ModelAdmin(BaseModelAdmin):
                 self.save_related(request, form, formsets, not add)
                 change_message = self.construct_change_message(request, form, formsets, add)
                 if add:
-                    self.log_addition(request, new_object, change_message)
+                    self.log_addition(request, new_object, change_message)		# 追加記録
                     return self.response_add(request, new_object)
                 else:
-                    self.log_change(request, new_object, change_message)
+                    self.log_change(request, new_object, change_message)		# 更新記録
                     return self.response_change(request, new_object)
             else:
                 form_validated = False
@@ -1723,7 +1726,7 @@ class ModelAdmin(BaseModelAdmin):
             obj_display = force_text(obj)
             attr = str(to_field) if to_field else opts.pk.attname
             obj_id = obj.serializable_value(attr)
-            self.log_deletion(request, obj, obj_display)
+            self.log_deletion(request, obj, obj_display)	# 削除記録
             self.delete_model(request, obj)
 
             return self.response_delete(request, obj_display, obj_id)
