@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 Creates permissions for all installed apps that need permissions.
 """
@@ -38,6 +39,8 @@ def _get_builtin_permissions(opts):
 
 
 def create_permissions(app_config, verbosity=2, interactive=True, using=DEFAULT_DB_ALIAS, apps=global_apps, **kwargs):
+    ''' パーミッションを作成する
+    '''
     if not app_config.models_module:
         return
 

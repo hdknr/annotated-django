@@ -105,6 +105,9 @@ class LogEntry(models.Model):
                 return self.change_message
             messages = []
             for sub_message in change_message:
+                # メッセージはsub_message のlist になっています
+                # サブメッセージに "added", "changed", "deleted" があれば変更メッセージを組み立ててくれる
+                # なので、"fixture", とかでデータを突っ込むことも可能ではないかな
                 if 'added' in sub_message:
                     if sub_message['added']:
                         sub_message['added']['name'] = ugettext(sub_message['added']['name'])
