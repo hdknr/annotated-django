@@ -1,4 +1,4 @@
-Trumbowyg widget:
+Trumbowyg: WYSIWYG widget
 
 - https://alex-d.github.io/Trumbowyg/
 
@@ -9,6 +9,10 @@ Trumbowyg widget:
 bambu-bootstrap
 django-bootstrap3
 django-bower
+~~~
+
+~~~bash
+$ pip install requirements.txt
 ~~~
 
 ## settings.py
@@ -145,4 +149,4 @@ INSTALLED_APPS += [
 ]
 ~~~
 
-![](django-trumbowyg.png)
+![](https://github.com/hdknr/annotated-django/raw/master/markdown/django/wysiwyg/django-trumbowyg.png)

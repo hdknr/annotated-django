@@ -42,3 +42,46 @@ Out[2]:
 Loader:
 
 - [dbtemplates.loader.Loader](https://github.com/jazzband/django-dbtemplates/blob/master/dbtemplates/loader.py)
+
+### dbtemplate を優先にする
+
+settings.py: `loaders` のリストの先頭にする
+
+~~~py
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'debug': True,
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                ......
+            ],
+            'loaders': [
+                'dbtemplates.loader.Loader',                
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ],
+        },
+    },
+]
+~~~
+
+#### リロード
+
+- `content` をブランクにして保存するとリロードする
+
+~~~py
+class Template(models.Model):                                                    
+
+    def save(self, *args, **kwargs):                                                
+        self.last_changed = now()                                                   
+        # If content is empty look for a template with the given name and           
+        # populate the template instance with its content.                          
+        if settings.DBTEMPLATES_AUTO_POPULATE_CONTENT and not self.content:         
+            self.populate()                                                         
+        super(Template, self).save(*args, **kwargs)   
+~~~
