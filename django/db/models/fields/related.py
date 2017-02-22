@@ -437,12 +437,12 @@ class ForeignObject(RelatedField):
 
     requires_unique_target = True
     related_accessor_class = ReverseManyToOneDescriptor
-    rel_class = ForeignObjectRel
+    rel_class = ForeignObjectRel		# リレーションクラス
 
     def __init__(self, to, on_delete, from_fields, to_fields, rel=None, related_name=None,
                  related_query_name=None, limit_choices_to=None, parent_link=False,
                  swappable=True, **kwargs):
-
+	# ここでのrelated_name は?
         if rel is None:
             rel = self.rel_class(
                 self, to,

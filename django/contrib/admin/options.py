@@ -1016,6 +1016,7 @@ class ModelAdmin(BaseModelAdmin):
         """
         Given a model instance save it to the database.
         """
+        # インスタンスを保存する
         obj.save()
 
     def delete_model(self, request, obj):
@@ -1038,7 +1039,7 @@ class ModelAdmin(BaseModelAdmin):
         database. Note that at this point save_form() and save_model() have
         already been called.
         """
-        form.save_m2m()
+        form.save_m2m()         # ManyToManyField を保存
         for formset in formsets:
             self.save_formset(request, form, formset, change=change)
 

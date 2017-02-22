@@ -200,6 +200,7 @@ class ManyToOneRel(ForeignObjectRel):
 
     def __init__(self, field, to, field_name, related_name=None, related_query_name=None,
                  limit_choices_to=None, parent_link=False, on_delete=None):
+	# ここでの related_name とは？
         super(ManyToOneRel, self).__init__(
             field, to,
             related_name=related_name,
