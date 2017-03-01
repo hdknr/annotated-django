@@ -1,7 +1,8 @@
+# coding: utf-8
 """
-Interfaces for serializing Django objects.
+Interfaces for serializing Django objects.(シリアライザ インターフェース)
 
-Usage::
+Usage(シリアライザ 使い方)::
 
     from django.core import serializers
     json = serializers.serialize("json", some_queryset)
@@ -122,8 +123,10 @@ def get_deserializer(format):
 
 def serialize(format, queryset, **options):
     """
-    Serialize a queryset (or any iterator that returns database objects) using
-    a certain serializer.
+    Serialize a queryset (or any iterator that returns database objects) 
+    using a certain serializer.
+    
+    - queryset: クエリセット、イテレータ
     """
     s = get_serializer(format)()
     s.serialize(queryset, **options)
