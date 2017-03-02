@@ -46,7 +46,7 @@ class View(object):
 
     @classonlymethod
     def as_view(cls, **initkwargs):
-        """ URLディスパッチャーを返す( urlpatterns へのエントリに使う)
+        """ ビュー(URLディスパッチャー)を返す( urlpatterns へのエントリに使う)
         Main entry point for a request-response process.
         """
         for key in initkwargs:
@@ -66,7 +66,7 @@ class View(object):
             self.request = request      # リクエスト
             self.args = args            # URLのパラメータ
             self.kwargs = kwargs
-            return self.dispatch(request, *args, **kwargs)  
+            return self.dispatch(request, *args, **kwargs)  	# 処理をメソッドに振り分ける # NOQA
         view.view_class = cls
         view.view_initkwargs = initkwargs
 

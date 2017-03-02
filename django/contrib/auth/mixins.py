@@ -1,3 +1,4 @@
+# coding: utf-8
 from django.conf import settings
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.contrib.auth.views import redirect_to_login
@@ -42,7 +43,9 @@ class AccessMixin(object):
 
     def handle_no_permission(self):
         if self.raise_exception:
+  	    # PermissionDenied 例外をあげる 
             raise PermissionDenied(self.get_permission_denied_message())
+        # もしくはログインページにリダイレクトする 
         return redirect_to_login(self.request.get_full_path(), self.get_login_url(), self.get_redirect_field_name())
 
 
@@ -59,7 +62,7 @@ class LoginRequiredMixin(AccessMixin):
 class PermissionRequiredMixin(AccessMixin):
     """
     CBV mixin which verifies that the current user has all specified
-    permissions.
+    permissions. (CBVでパーミッションの確認をする)
     """
     permission_required = None
 
@@ -80,15 +83,15 @@ class PermissionRequiredMixin(AccessMixin):
         return perms
 
     def has_permission(self):
-        """
+        """ request.userがパーミッションを持っているか確認する
         Override this method to customize the way permissions are checked.
         """
         perms = self.get_permission_required()
         return self.request.user.has_perms(perms)
 
     def dispatch(self, request, *args, **kwargs):
-        if not self.has_permission():
-            return self.handle_no_permission()
+        if not self.has_permission():		# dispatch の中でパーミッションの有無を確認する
+            return self.handle_no_permission() 	# パーミッションが無いエラー
         return super(PermissionRequiredMixin, self).dispatch(request, *args, **kwargs)
 
 
