@@ -1,3 +1,4 @@
+# coding: utf-8
 """Default tags used by the template system, available to all templates."""
 from __future__ import unicode_literals
 
@@ -419,6 +420,7 @@ class TemplateTagNode(Node):
 
 
 class URLNode(Node):
+    ''' url タグ '''
     def __init__(self, view_name, args, kwargs, asvar):
         self.view_name = view_name
         self.args = args
@@ -426,7 +428,7 @@ class URLNode(Node):
         self.asvar = asvar
 
     def render(self, context):
-        from django.urls import reverse, NoReverseMatch
+        from django.urls import reverse, NoReverseMatch	  
         args = [arg.resolve(context) for arg in self.args]
         kwargs = {
             smart_text(k, 'ascii'): v.resolve(context)
@@ -1286,7 +1288,7 @@ def templatetag(parser, token):
 
 @register.tag
 def url(parser, token):
-    """
+    """ urlタグ
     Return an absolute URL matching the given view with its parameters.
 
     This is a way to define links that aren't tied to a particular URL
