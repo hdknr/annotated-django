@@ -48,6 +48,16 @@ mysql> select date(updated) as last from accounts_profile limit 1;
 2015-05-01 1
 ~~~
 
+## Status を別テーブルで持っている
+
+~~~py
+In [1]: from wares.models import *
+In [2]: from django.db.models import Count
+
+In [5]: WareOrder.objects.all().values('status', 'status__name').annotate(total=Count('status')).order_by('total')
+Out[5]: <QuerySet [{'status': None, 'total': 0, 'status__name': None}, {'status': 6L, 'total': 13, 'status__name': u'\u767a\u9001\u6e96\u5099\u4e2d'}]>
+~~~
+
 ## 記事
 
 - [Djangoの集計について](http://note.crohaco.net/2014/django-aggregate/)
