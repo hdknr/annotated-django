@@ -73,7 +73,7 @@ class ExportQuerySet(models.QuerySet):
             value = names[col - 1][1]
             cl = get_column_letter(col)
             ws.cell('%s%d' % (cl, row)).value = value
-            
+
         # Records
         for obj in self.filter():
             row = row + 1
@@ -123,7 +123,7 @@ class ExportQuerySet(models.QuerySet):
 class Order(models.Model):
 	ticket = models.ForeignKey(Ticket, verbose_name=_('Ticket'))
 	user = models.ForeignKey(User, verbose_name=_('User'))
-	
+
     # Managers
     objects = OrderManager()
     exports = ExportQuerySet.as_manager()
@@ -138,15 +138,15 @@ class Order(models.Model):
 @staff_member_required
 def order_download(request, id, status=None):
     ticket = Ticket.objects.get(id=id)
-    
+
     q = {}    
     df = request.GET.get('df', None)
     dt = request.GET.get('dt', None)
     _tz = get_default_timezone()
-    if df: 
+    if df:
         q['created_at__gte'] = make_aware(
             datetime.strptime(df, '%Y-%m-%d'), _tz)
-    if dt: 
+    if dt:
         q['created_at__lte'] = make_aware(
             datetime.strptime(dt, '%Y-%m-%d'), _tz)
 
@@ -156,5 +156,15 @@ def order_download(request, id, status=None):
         HttpResponse,
         excludes=['signature'],
         relations=['user.profile'],
-    ) 
+    )
 ~~~    
+
+
+## ストリームを開く
+
+- `filename` (ファイル名)にストリームを当てると読んでくれる
+
+~~~py
+file = open('path/to/file.xlsx', 'rb')
+wb = openpyxl.load_workbook(filename=file)
+~~~

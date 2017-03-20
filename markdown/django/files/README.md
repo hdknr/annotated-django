@@ -1,6 +1,8 @@
-Django Files
 
-- [The File object](https://docs.djangoproject.com/ja/1.9/ref/files/file/)
+
+## [django.core.files](django.core.files)
+
+- 文字列をファイルに保存する
 
 ## 指定したディレクトリの以下にある画像ファイルをモデルデータに格納する
 
