@@ -57,6 +57,7 @@ class CsrfTokenNode(Node):
             if csrf_token == 'NOTPROVIDED':
                 return format_html("")
             else:
+                # CSRF トークン input タグ
                 return format_html("<input type='hidden' name='csrfmiddlewaretoken' value='{}' />", csrf_token)
         else:
             # It's very probable that the token is missing because of

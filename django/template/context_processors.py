@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 A set of request processors that return dictionaries to be merged into a
 template context. Each function takes the request object as its only parameter
@@ -12,7 +13,7 @@ from __future__ import unicode_literals
 import itertools
 
 from django.conf import settings
-from django.middleware.csrf import get_token
+from django.middleware.csrf import get_token			# CSRF トークン
 from django.utils.encoding import smart_text
 from django.utils.functional import SimpleLazyObject, lazy
 
