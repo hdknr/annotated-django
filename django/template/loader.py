@@ -11,7 +11,7 @@ from .exceptions import TemplateDoesNotExist
 
 def get_template(template_name, using=None):
     """
-    Loads and returns a template for the given name.
+    テンプレートをロード:Loads and returns a template for the given name.
 
     Raises TemplateDoesNotExist if no such template exists.
     """

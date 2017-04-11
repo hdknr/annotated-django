@@ -1,3 +1,4 @@
+# coding: utf-8
 from django import template
 from django.apps import apps
 from django.utils.encoding import iri_to_uri
@@ -113,6 +114,7 @@ class StaticNode(template.Node):
             from django.contrib.staticfiles.storage import staticfiles_storage
             return staticfiles_storage.url(path)
         else:
+            # settings.STATIC_URL
             return urljoin(PrefixNode.handle_simple("STATIC_URL"), path)
 
     @classmethod
