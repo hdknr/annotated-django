@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import base64
@@ -322,6 +323,7 @@ def _is_safe_url(url, host):
 def limited_parse_qsl(qs, keep_blank_values=False, encoding='utf-8',
                       errors='replace', fields_limit=None):
     """
+    クエリ文字列から kye/valueのタプルを返す
     Return a list of key/value tuples parsed from query string.
 
     Copied from urlparse with an additional "fields_limit" argument.

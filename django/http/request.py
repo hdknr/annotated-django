@@ -19,7 +19,7 @@ from django.utils.datastructures import ImmutableList, MultiValueDict
 from django.utils.encoding import (
     escape_uri_path, force_bytes, force_str, force_text, iri_to_uri,
 )
-from django.utils.http import is_same_domain, limited_parse_qsl
+from django.utils.http import is_same_domain, limited_parse_qsl		# クエリの辞書化
 from django.utils.six.moves.urllib.parse import (
     quote, urlencode, urljoin, urlsplit,
 )
@@ -42,7 +42,7 @@ class RawPostDataException(Exception):
 
 
 class HttpRequest(object):
-    """A basic HTTP request."""
+    """A basic HTTP request. HTTPリクエスト"""
 
     # The encoding used in GET/POST dicts. None means use default setting.
     _encoding = None
@@ -53,8 +53,8 @@ class HttpRequest(object):
         # Any variable assignment made here should also happen in
         # `WSGIRequest.__init__()`.
 
-        self.GET = QueryDict(mutable=True)
-        self.POST = QueryDict(mutable=True)
+        self.GET = QueryDict(mutable=True)		# GET クエリ辞書
+        self.POST = QueryDict(mutable=True)		# POST クエリ辞書
         self.COOKIES = {}
         self.META = {}
         self.FILES = MultiValueDict()
@@ -355,6 +355,8 @@ class HttpRequest(object):
 
 class QueryDict(MultiValueDict):
     """
+    クエリ辞書の生成
+
     A specialized MultiValueDict which represents a query string.
 
     A QueryDict can be used to represent GET or POST data. It subclasses
@@ -392,9 +394,11 @@ class QueryDict(MultiValueDict):
                 except UnicodeDecodeError:
                     # ... but some user agents are misbehaving :-(
                     query_string = query_string.decode('iso-8859-1')
+            # クエリを key, valueにする
             for key, value in limited_parse_qsl(query_string, **parse_qsl_kwargs):
                 self.appendlist(key, value)
         else:
+            # クエリを key, valueにする
             for key, value in limited_parse_qsl(query_string, **parse_qsl_kwargs):
                 try:
                     value = value.decode(encoding)

@@ -1,3 +1,4 @@
+# coding: utf-8
 import copy
 from collections import OrderedDict
 
@@ -47,6 +48,7 @@ class MultiValueDictKeyError(KeyError):
 
 class MultiValueDict(dict):
     """
+    value をリストで持つ辞書
     A subclass of dictionary customized to handle multiple values for the
     same key.
 

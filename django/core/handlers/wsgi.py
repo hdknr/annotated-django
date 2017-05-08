@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import cgi
@@ -119,6 +120,7 @@ class WSGIRequest(http.HttpRequest):
 
     @cached_property
     def GET(self):
+        '''クエリ文字列からQueyrDict を作って返す'''
         # The WSGI spec says 'QUERY_STRING' may be absent.
         raw_query_string = get_bytes_from_wsgi(self.environ, 'QUERY_STRING', '')
         return http.QueryDict(raw_query_string, encoding=self._encoding)
