@@ -209,7 +209,7 @@ class Widget(six.with_metaclass(RenameWidgetMethods)):
             'name': name,
             'is_hidden': self.is_hidden,
             'required': self.is_required,
-            'value': self.format_value(value),
+            'value': self.format_value(value),		# 値
             'attrs': self.build_attrs(self.attrs, attrs),
             'template_name': self.template_name,	# テンプレート名
         }
