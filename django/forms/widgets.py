@@ -1,3 +1,4 @@
+# coding:utf-8
 """
 HTML Widget classes
 """
@@ -26,7 +27,7 @@ from django.utils.safestring import mark_safe
 from django.utils.six.moves import range
 from django.utils.translation import ugettext_lazy
 
-from .renderers import get_default_renderer
+from .renderers import get_default_renderer	# デフォルトレンダラ
 
 __all__ = (
     'Media', 'MediaDefiningClass', 'Widget', 'TextInput', 'NumberInput',
@@ -202,6 +203,7 @@ class Widget(six.with_metaclass(RenameWidgetMethods)):
         return force_text(value)
 
     def get_context(self, name, value, attrs):
+        ''' ウィジェットのレンダリングコンテキスト'''
         context = {}
         context['widget'] = {
             'name': name,
@@ -209,7 +211,7 @@ class Widget(six.with_metaclass(RenameWidgetMethods)):
             'required': self.is_required,
             'value': self.format_value(value),
             'attrs': self.build_attrs(self.attrs, attrs),
-            'template_name': self.template_name,
+            'template_name': self.template_name,	# テンプレート名
         }
         return context
 
@@ -222,7 +224,10 @@ class Widget(six.with_metaclass(RenameWidgetMethods)):
 
     def _render(self, template_name, context, renderer=None):
         if renderer is None:
+	    # レンダラが指定されないとデフォルトレンダラが使われる
             renderer = get_default_renderer()
+        # ウィジェットごとにテンプレートが異なる(template_name)
+        # 各クラスに template_name が定義されています
         return mark_safe(renderer.render(template_name, context))
 
     def build_attrs(self, base_attrs, extra_attrs=None):
@@ -735,9 +740,10 @@ class SelectMultiple(Select):
 
 
 class RadioSelect(ChoiceWidget):
+    '''ラジオセレクト'''
     input_type = 'radio'
-    template_name = 'django/forms/widgets/radio.html'
-    option_template_name = 'django/forms/widgets/radio_option.html'
+    template_name = 'django/forms/widgets/radio.html'				# メインテンプレート
+    option_template_name = 'django/forms/widgets/radio_option.html'		# 選択肢テンプレート
 
 
 class CheckboxSelectMultiple(ChoiceWidget):

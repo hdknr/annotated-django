@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 Form classes
 """
@@ -21,7 +22,7 @@ from django.utils.html import conditional_escape, html_safe
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 
-from .renderers import get_default_renderer
+from .renderers import get_default_renderer		# デフォルトレンダラ
 
 __all__ = ('BaseForm', 'Form')
 
@@ -67,7 +68,7 @@ class BaseForm(object):
     # class is different than Form. See the comments by the Form class for more
     # information. Any improvements to the form API should be made to *this*
     # class, not to the Form class.
-    default_renderer = None
+    default_renderer = None		# フォームのデフォルトレンダラ
     field_order = None
     prefix = None
     use_required_attribute = True
@@ -75,6 +76,7 @@ class BaseForm(object):
     def __init__(self, data=None, files=None, auto_id='id_%s', prefix=None,
                  initial=None, error_class=ErrorList, label_suffix=None,
                  empty_permitted=False, field_order=None, use_required_attribute=None, renderer=None):
+        # renderer でレンダラを指定
         self.is_bound = data is not None or files is not None
         self.data = data or {}
         self.files = files or {}
@@ -103,6 +105,7 @@ class BaseForm(object):
         # Initialize form renderer. Use a global default if not specified
         # either as an argument or as self.default_renderer.
         if renderer is None:
+            # レンダラが指定されないときに判定する
             if self.default_renderer is None:
                 renderer = get_default_renderer()
             else:

@@ -1,3 +1,4 @@
+# coding: utf-8
 import os
 
 from django.conf import settings
@@ -19,6 +20,7 @@ ROOT = upath(os.path.dirname(__file__))
 
 @lru_cache.lru_cache()
 def get_default_renderer():
+    '''デフォルトレンダラを取得する'''
     renderer_class = import_string(settings.FORM_RENDERER)
     return renderer_class()
 
