@@ -1,3 +1,4 @@
+# coding: utf-8
 import errno
 import os
 import warnings
@@ -50,6 +51,7 @@ class Storage(object):
         if not hasattr(content, 'chunks'):
             content = File(content, name)
 
+	# 保存時に名前を決める
         name = self.get_available_name(name, max_length=max_length)
         return self._save(name, content)
 
@@ -64,6 +66,7 @@ class Storage(object):
 
     def get_available_name(self, name, max_length=None):
         """
+        保存時の名前を返す。
         Returns a filename that's free on the target storage system, and
         available for new content to be written to.
         """
