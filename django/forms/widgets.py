@@ -695,11 +695,12 @@ class Select(ChoiceWidget):
 
 class NullBooleanSelect(Select):
     """
+    nullがあり得るBooleanの選択
     A Select Widget intended to be used with NullBooleanField.
     """
     def __init__(self, attrs=None):
         choices = (
-            ('1', ugettext_lazy('Unknown')),
+            ('1', ugettext_lazy('Unknown')),	# 不明
             ('2', ugettext_lazy('Yes')),
             ('3', ugettext_lazy('No')),
         )
