@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import absolute_import
 
 import inspect
@@ -129,15 +130,18 @@ CallableTrue = CallableBool(True)
 
 class MiddlewareMixin(object):
     def __init__(self, get_response=None):
+        ''' レスポンスを取得する関数オブジェクト''' 
         self.get_response = get_response
         super(MiddlewareMixin, self).__init__()
 
     def __call__(self, request):
         response = None
         if hasattr(self, 'process_request'):
+            ''' process_request: 古いメソッド '''
             response = self.process_request(request)
         if not response:
             response = self.get_response(request)
         if hasattr(self, 'process_response'):
+            ''' 古いメソッド'''
             response = self.process_response(request, response)
         return response
