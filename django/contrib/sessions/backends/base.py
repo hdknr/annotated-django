@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import base64
@@ -36,7 +37,7 @@ class UpdateError(Exception):
 
 
 class SessionBase(object):
-    """
+    """ セッションのベースクラス
     Base class for all Session classes.
     """
     TEST_COOKIE_NAME = 'testcookie'
@@ -48,6 +49,7 @@ class SessionBase(object):
         self._session_key = session_key
         self.accessed = False
         self.modified = False
+        # シリアライザ(default: django.contrib.sessions.serializers.JSONSerializer)
         self.serializer = import_string(settings.SESSION_SERIALIZER)
 
     def __contains__(self, key):
@@ -94,12 +96,14 @@ class SessionBase(object):
         return salted_hmac(key_salt, value).hexdigest()
 
     def encode(self, session_dict):
-        "Returns the given session dictionary serialized and encoded as a string."
+        '''ハッシュ + ":" + JSON をBase64する
+        Returns the given session dictionary serialized and encoded as a string.'''
         serialized = self.serializer().dumps(session_dict)
         hash = self._hash(serialized)
         return base64.b64encode(hash.encode() + b":" + serialized).decode('ascii')
 
     def decode(self, session_data):
+        ''' デコード: Base64 でシリアリズして、 ':' で分割した後半'''
         encoded_data = base64.b64decode(force_bytes(session_data))
         try:
             # could produce ValueError if there is no ':'

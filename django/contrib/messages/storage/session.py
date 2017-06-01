@@ -1,3 +1,4 @@
+# coding: utf-8
 import json
 
 from django.conf import settings
@@ -40,10 +41,12 @@ class SessionStorage(BaseStorage):
         return []
 
     def serialize_messages(self, messages):
+        '''シリアライズ'''
         encoder = MessageEncoder(separators=(',', ':'))
         return encoder.encode(messages)
 
     def deserialize_messages(self, data):
+        '''デシリアライズ'''
         if data and isinstance(data, six.string_types):
             return json.loads(data, cls=MessageDecoder)
         return data

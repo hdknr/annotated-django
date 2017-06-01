@@ -1,3 +1,4 @@
+# coding: utf-8
 import json
 
 from django.conf import settings
@@ -9,7 +10,7 @@ from django.utils.safestring import SafeData, mark_safe
 
 
 class MessageEncoder(json.JSONEncoder):
-    """
+    """ JSON エンコーダーのサブクラス
     Compactly serializes instances of the ``Message`` class as JSON.
     """
     message_key = '__json_message'
@@ -31,6 +32,7 @@ class MessageDecoder(json.JSONDecoder):
     """
 
     def process_messages(self, obj):
+	''' メッセージ処理'''
         if isinstance(obj, list) and obj:
             if obj[0] == MessageEncoder.message_key:
                 if len(obj) == 3:
@@ -46,6 +48,7 @@ class MessageDecoder(json.JSONDecoder):
         return obj
 
     def decode(self, s, **kwargs):
+	'''デコード'''
         decoded = super(MessageDecoder, self).decode(s, **kwargs)
         return self.process_messages(decoded)
 

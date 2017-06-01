@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 from django.contrib.sessions.base_session import (
@@ -10,7 +11,7 @@ class SessionManager(BaseSessionManager):
 
 
 class Session(AbstractBaseSession):
-    """
+    """セッションモデル
     Django provides full support for anonymous sessions. The session
     framework lets you store and retrieve arbitrary data on a
     per-site-visitor basis. It stores data on the server side and

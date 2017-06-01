@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 This module allows importing AbstractBaseSession even
 when django.contrib.sessions is not in INSTALLED_APPS.
@@ -10,10 +11,13 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class BaseSessionManager(models.Manager):
+    '''マネージャ'''
+
     def encode(self, session_dict):
         """
         Return the given session dictionary serialized and encoded as a string.
         """
+        # セッションストアクラスを取得して、encode(データ辞書) する
         session_store_class = self.model.get_session_store_class()
         return session_store_class().encode(session_dict)
 
@@ -28,6 +32,7 @@ class BaseSessionManager(models.Manager):
 
 @python_2_unicode_compatible
 class AbstractBaseSession(models.Model):
+    '''抽象セッションモデル'''
     session_key = models.CharField(_('session key'), max_length=40, primary_key=True)
     session_data = models.TextField(_('session data'))
     expire_date = models.DateTimeField(_('expire date'), db_index=True)
@@ -35,7 +40,7 @@ class AbstractBaseSession(models.Model):
     objects = BaseSessionManager()
 
     class Meta:
-        abstract = True
+        abstract = True				# 抽象モデル
         verbose_name = _('session')
         verbose_name_plural = _('sessions')
 
@@ -47,5 +52,7 @@ class AbstractBaseSession(models.Model):
         raise NotImplementedError
 
     def get_decoded(self):
+        '''デコードして辞書を返す'''
+        # デフォルトで django.contrib.sessions.backends.db.SessionStore
         session_store_class = self.get_session_store_class()
         return session_store_class().decode(self.session_data)

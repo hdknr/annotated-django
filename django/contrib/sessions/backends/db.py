@@ -1,3 +1,4 @@
+# coding: utf-8
 import logging
 
 from django.contrib.sessions.backends.base import (
@@ -106,4 +107,5 @@ class SessionStore(SessionBase):
 
     @classmethod
     def clear_expired(cls):
+        '''期限切れをクリア'''
         cls.get_model_class().objects.filter(expire_date__lt=timezone.now()).delete()
