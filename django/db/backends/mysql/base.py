@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 MySQL database backend for Django.
 
@@ -140,6 +141,7 @@ class DatabaseWrapper(BaseDatabaseWrapper):
     # types, as strings. Column-type strings can contain format strings; they'll
     # be interpolated against the values of Field.__dict__ before being output.
     # If a column type is set to None, it won't be included in the output.
+    # データタイプの定義
     _data_types = {
         'AutoField': 'integer AUTO_INCREMENT',
         'BigAutoField': 'bigint AUTO_INCREMENT',
@@ -171,6 +173,7 @@ class DatabaseWrapper(BaseDatabaseWrapper):
 
     @cached_property
     def data_types(self):
+        '''データタイプを返す '''
         if self.features.supports_microsecond_precision:
             return dict(self._data_types, DateTimeField='datetime(6)', TimeField='time(6)')
         else:
@@ -231,7 +234,7 @@ class DatabaseWrapper(BaseDatabaseWrapper):
     def get_connection_params(self):
         kwargs = {
             'conv': django_conversions,
-            'charset': 'utf8',
+            'charset': 'utf8',			# 接続パラメータはデフォルトUTF-8
         }
         if six.PY2:
             kwargs['use_unicode'] = True

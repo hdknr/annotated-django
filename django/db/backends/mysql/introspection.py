@@ -1,3 +1,4 @@
+# coding: utf-8
 import warnings
 from collections import namedtuple
 
@@ -16,6 +17,7 @@ InfoLine = namedtuple('InfoLine', 'col_name data_type max_len num_prec num_scale
 
 
 class DatabaseIntrospection(BaseDatabaseIntrospection):
+    # Djangoフィールド -> MySQL タイプ
     data_types_reverse = {
         FIELD_TYPE.BLOB: 'TextField',
         FIELD_TYPE.CHAR: 'CharField',
