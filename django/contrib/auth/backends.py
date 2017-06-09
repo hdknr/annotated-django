@@ -33,9 +33,11 @@ class ModelBackend(object):
         return is_active or is_active is None
 
     def _get_user_permissions(self, user_obj):
+        # ユーザーのパーミッション一覧
         return user_obj.user_permissions.all()
 
     def _get_group_permissions(self, user_obj):
+        # ユーザーの所属しているグループのパーミッション一覧
         user_groups_field = get_user_model()._meta.get_field('groups')
         user_groups_query = 'group__%s' % user_groups_field.related_query_name()
         return Permission.objects.filter(**{user_groups_query: user_obj})
@@ -74,14 +76,16 @@ class ModelBackend(object):
         return self._get_permissions(user_obj, obj, 'group')
 
     def get_all_permissions(self, user_obj, obj=None):
+        # ユーザーのパーミッションの一覧
         if not user_obj.is_active or user_obj.is_anonymous or obj is not None:
             return set()
         if not hasattr(user_obj, '_perm_cache'):
-            user_obj._perm_cache = self.get_user_permissions(user_obj)
-            user_obj._perm_cache.update(self.get_group_permissions(user_obj))
+            user_obj._perm_cache = self.get_user_permissions(user_obj)		# ユーザーのパーミッション
+            user_obj._perm_cache.update(self.get_group_permissions(user_obj)	# グループのパーミッションll_permissions
         return user_obj._perm_cache
 
     def has_perm(self, user_obj, perm, obj=None):
+        # ユーザーはパーミッションを持っているか？
         if not user_obj.is_active:
             return False
         return perm in self.get_all_permissions(user_obj, obj)
