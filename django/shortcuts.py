@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 This module collects helper functions and classes that "span" multiple levels
 of MVC. In other words, these functions/classes introduce controlled coupling
@@ -116,7 +117,7 @@ def get_list_or_404(klass, *args, **kwargs):
 
 
 def resolve_url(to, *args, **kwargs):
-    """
+    """URLを解決する(to: 1.モデルインスタンス, 2.ビュー名, 3. URL)
     Return a URL appropriate for the arguments passed.
 
     The arguments could be:
@@ -130,6 +131,7 @@ def resolve_url(to, *args, **kwargs):
     """
     # If it's a model, use get_absolute_url()
     if hasattr(to, 'get_absolute_url'):
+        # 1. モデルの場合
         return to.get_absolute_url()
 
     if isinstance(to, Promise):
@@ -138,12 +140,13 @@ def resolve_url(to, *args, **kwargs):
         to = force_text(to)
 
     if isinstance(to, six.string_types):
-        # Handle relative URLs
+        # Handle relative URLs  (3.相対URLパス)
         if to.startswith(('./', '../')):
             return to
 
     # Next try a reverse URL resolution.
     try:
+        # 2. URL名リバース
         return reverse(to, args=args, kwargs=kwargs)
     except NoReverseMatch:
         # If this is a callable, re-raise.
@@ -153,5 +156,5 @@ def resolve_url(to, *args, **kwargs):
         if '/' not in to and '.' not in to:
             raise
 
-    # Finally, fall back and assume it's a URL
+    # Finally, fall back and assume it's a URL (3. URL)
     return to
