@@ -1,3 +1,4 @@
+# coding: utf-8
 import time
 from importlib import import_module
 
@@ -12,12 +13,12 @@ from django.utils.http import cookie_date
 class SessionMiddleware(MiddlewareMixin):
     def __init__(self, get_response=None):
         self.get_response = get_response
-        engine = import_module(settings.SESSION_ENGINE)
-        self.SessionStore = engine.SessionStore
+        engine = import_module(settings.SESSION_ENGINE) # エンジン: django.contrib.sessions.backends.db
+        self.SessionStore = engine.SessionStore		# セッションストア
 
     def process_request(self, request):
         session_key = request.COOKIES.get(settings.SESSION_COOKIE_NAME)
-        request.session = self.SessionStore(session_key)
+        request.session = self.SessionStore(session_key)   # セッションキーでストアオブジェクトを初期化
 
     def process_response(self, request, response):
         """

@@ -1,3 +1,4 @@
+# coding: utf-8
 import inspect
 import re
 import warnings
@@ -157,7 +158,7 @@ def login(request, user, backend=None):
 
 
 def logout(request):
-    """
+    """ ログアウト
     Removes the authenticated user's ID from the request and flushes their
     session data.
     """
@@ -166,19 +167,19 @@ def logout(request):
     user = getattr(request, 'user', None)
     if hasattr(user, 'is_authenticated') and not user.is_authenticated:
         user = None
-    user_logged_out.send(sender=user.__class__, request=request, user=user)
+    user_logged_out.send(sender=user.__class__, request=request, user=user)	# シグナル発火
 
     # remember language choice saved to session
-    language = request.session.get(LANGUAGE_SESSION_KEY)
+    language = request.session.get(LANGUAGE_SESSION_KEY)		# 現在の言語をセッションから取得
 
-    request.session.flush()
+    request.session.flush()	# セッションをフラッシュ
 
     if language is not None:
-        request.session[LANGUAGE_SESSION_KEY] = language
+        request.session[LANGUAGE_SESSION_KEY] = language	# フラッシュしたあとで言語をセット
 
     if hasattr(request, 'user'):
         from django.contrib.auth.models import AnonymousUser
-        request.user = AnonymousUser()
+        request.user = AnonymousUser()				# 匿名ユーザーをセット
 
 
 def get_user_model():

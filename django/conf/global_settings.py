@@ -461,7 +461,7 @@ MIDDLEWARE = None
 # Cache to store session data if using the cache session backend.
 SESSION_CACHE_ALIAS = 'default'
 # Cookie name. This can be whatever you want.
-SESSION_COOKIE_NAME = 'sessionid'
+SESSION_COOKIE_NAME = 'sessionid'			# セッションクッキー名
 # Age of cookie, in seconds (default: 2 weeks).
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 7 * 2
 # A string like ".example.com", or None for standard domain cookie.
