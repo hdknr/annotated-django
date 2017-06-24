@@ -1,3 +1,4 @@
+# coding: utf-8
 import importlib
 import itertools
 import json
@@ -27,6 +28,8 @@ LANGUAGE_QUERY_PARAMETER = 'language'
 
 def set_language(request):
     """
+    LANGUAGE_QUERY_PARAMETERでPOSTされた言語を設定する
+
     Redirect to a given url while setting the chosen language in the
     session or cookie. The url and the language code need to be
     specified in the request parameters.
@@ -46,6 +49,7 @@ def set_language(request):
             next = '/'
     response = http.HttpResponseRedirect(next) if next else http.HttpResponse(status=204)
     if request.method == 'POST':
+        # POST に language で言語コードを投げる
         lang_code = request.POST.get(LANGUAGE_QUERY_PARAMETER)
         if lang_code and check_for_language(lang_code):
             if next:
@@ -53,10 +57,14 @@ def set_language(request):
                 if next_trans != next:
                     response = http.HttpResponseRedirect(next_trans)
             if hasattr(request, 'session'):
+                # セッションがあったら LANGUAGE_SESSION_KEY に lang_codeをセットする
+                # LANGUAGE_SESSION_KEY のデフォルト: _language 
                 request.session[LANGUAGE_SESSION_KEY] = lang_code
             else:
+                # セッションがなかったら言語Cookie名で言語コードクッキーに設定
+  		# settings.LANGUAGE_COOKIE_NAME のデフォルトは u'django_language'
                 response.set_cookie(
-                    settings.LANGUAGE_COOKIE_NAME, lang_code,
+                    settings.LANGUAGE_COOKIE_NAME, lang_code,	
                     max_age=settings.LANGUAGE_COOKIE_AGE,
                     path=settings.LANGUAGE_COOKIE_PATH,
                     domain=settings.LANGUAGE_COOKIE_DOMAIN,

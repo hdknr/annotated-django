@@ -32,6 +32,7 @@ def is_language_prefix_patterns_used(urlconf):
     return False, False
 
 
+# 言語設定リクエスト
 urlpatterns = [
     url(r'^setlang/$', set_language, name='set_language'),
 ]

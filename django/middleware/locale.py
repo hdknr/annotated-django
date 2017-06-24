@@ -1,3 +1,4 @@
+# coding: utf-8
 "This is the locale selecting middleware that will look at accept headers"
 
 from django.conf import settings
@@ -12,10 +13,10 @@ from django.utils.deprecation import MiddlewareMixin
 class LocaleMiddleware(MiddlewareMixin):
     """
     This is a very simple middleware that parses a request
-    and decides what translation object to install in the current
-    thread context. This allows pages to be dynamically
-    translated to the language the user desires (if the language
-    is available, of course).
+    and decides what translation object to install in the current thread context. 
+
+    This allows pages to be dynamically translated to the language the user desires 
+    (if the language is available, of course).
     """
     response_redirect_class = HttpResponseRedirect
 
