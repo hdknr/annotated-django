@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import base64
@@ -383,6 +384,8 @@ def _urlsplit(url, scheme='', allow_fragments=True):
 
 
 def _is_safe_url(url, allowed_hosts, require_https=False):
+    # URLの判定...
+
     # Chrome considers any URL with more than two slashes to be absolute, but
     # urlparse is not so flexible. Treat any url with three slashes as unsafe.
     if url.startswith('///'):
@@ -391,18 +394,21 @@ def _is_safe_url(url, allowed_hosts, require_https=False):
         url_info = _urlparse(url)
     except ValueError:  # e.g. invalid IPv6 addresses
         return False
+
     # Forbid URLs like http:///example.com - with a scheme, but without a hostname.
     # In that URL, example.com is not the hostname but, a path component. However,
     # Chrome will still consider example.com to be the hostname, so we must not
     # allow this syntax.
     if not url_info.netloc and url_info.scheme:
         return False
+
     # Forbid URLs that start with control characters. Some browsers (like
     # Chrome) ignore quite a few control characters at the start of a
     # URL and might consider the URL as scheme relative.
     if unicodedata.category(url[0])[0] == 'C':
         return False
     scheme = url_info.scheme
+
     # Consider URLs without a scheme (e.g. //example.com/p) to be http.
     if not url_info.scheme and url_info.netloc:
         scheme = 'http'

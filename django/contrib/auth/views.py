@@ -1,3 +1,4 @@
+# coding: utf8
 import functools
 import warnings
 
@@ -70,7 +71,7 @@ class LoginView(SuccessURLAllowedHostsMixin, FormView):
     """
     form_class = AuthenticationForm
     authentication_form = None
-    redirect_field_name = REDIRECT_FIELD_NAME
+    redirect_field_name = REDIRECT_FIELD_NAME	 # リダイレクトフィールド名(default: 'next')
     template_name = 'registration/login.html'
     redirect_authenticated_user = False
     extra_context = None
@@ -91,6 +92,7 @@ class LoginView(SuccessURLAllowedHostsMixin, FormView):
 
     def get_success_url(self):
         """Ensure the user-originating redirection URL is safe."""
+        # ?next={{ url }} を判定
         redirect_to = self.request.POST.get(
             self.redirect_field_name,
             self.request.GET.get(self.redirect_field_name, '')
