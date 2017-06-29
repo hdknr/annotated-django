@@ -50,8 +50,10 @@ def redirect(to, *args, **kwargs):
     permanent redirect
     """
     if kwargs.pop('permanent', False):
+	# パーマネントリダイレクト(301)
         redirect_class = HttpResponsePermanentRedirect
     else:
+        # 302
         redirect_class = HttpResponseRedirect
 
     return redirect_class(resolve_url(to, *args, **kwargs))

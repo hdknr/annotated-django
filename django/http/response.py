@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import datetime
@@ -428,6 +429,7 @@ class HttpResponseRedirectBase(HttpResponse):
         self['Location'] = iri_to_uri(redirect_to)
         parsed = urlparse(force_text(redirect_to))
         if parsed.scheme and parsed.scheme not in self.allowed_schemes:
+            # allowed_schemes にない場合はエラー
             raise DisallowedRedirect("Unsafe redirect to URL with protocol '%s'" % parsed.scheme)
 
     url = property(lambda self: self['Location'])
