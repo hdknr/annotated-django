@@ -61,6 +61,7 @@ class Template(object):
         return self.template.origin
 
     def render(self, context=None, request=None):
+        # Django のテンプレートバックエンド (context, request)
         context = make_context(context, request, autoescape=self.backend.engine.autoescape)
         try:
             return self.template.render(context)

@@ -1,3 +1,4 @@
+# coding: utf-8
 import warnings
 from contextlib import contextmanager
 from copy import copy
@@ -149,6 +150,8 @@ class BaseContext(object):
 
 class Context(BaseContext):
     "A stack container for variable context"
+    # コンテキストクラス
+
     def __init__(self, dict_=None, autoescape=True, use_l10n=None, use_tz=None):
         self.autoescape = autoescape
         self.use_l10n = use_l10n
@@ -230,6 +233,7 @@ class RenderContext(BaseContext):
 
 class RequestContext(Context):
     """
+    リクエストコンテキスト
     This subclass of template.Context automatically populates itself using
     the processors defined in the engine's configuration.
     Additional processors can be specified as a list of callables
@@ -238,7 +242,7 @@ class RequestContext(Context):
     def __init__(self, request, dict_=None, processors=None, use_l10n=None, use_tz=None, autoescape=True):
         super(RequestContext, self).__init__(
             dict_, use_l10n=use_l10n, use_tz=use_tz, autoescape=autoescape)
-        self.request = request
+        self.request = request		# リクエスト
         self._processors = () if processors is None else tuple(processors)
         self._processors_index = len(self.dicts)
 
@@ -280,18 +284,18 @@ class RequestContext(Context):
 
 
 def make_context(context, request=None, **kwargs):
-    """
+    """ コンテキストの作成(context, requets, kwargs)
     Create a suitable Context from a plain dict and optionally an HttpRequest.
     """
     if context is not None and not isinstance(context, dict):
         raise TypeError('context must be a dict rather than %s.' % context.__class__.__name__)
     if request is None:
-        context = Context(context, **kwargs)
+        context = Context(context, **kwargs)	# コンテキストの生成
     else:
         # The following pattern is required to ensure values from
         # context override those from template context processors.
         original_context = context
-        context = RequestContext(request, **kwargs)
+        context = RequestContext(request, **kwargs)	# リクエストコンテキストの生成
         if original_context:
             context.push(original_context)
     return context

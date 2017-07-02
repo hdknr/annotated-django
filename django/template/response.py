@@ -1,3 +1,4 @@
+# coding: utf-8
 from django.http import HttpResponse
 from django.utils import six
 
@@ -81,7 +82,7 @@ class SimpleTemplateResponse(HttpResponse):
         """
         template = self.resolve_template(self.template_name)
         context = self.resolve_context(self.context_data)
-        content = template.render(context, self._request)
+        content = template.render(context, self._request)	# render(ctx, WSGIRequst)
         return content
 
     def add_post_render_callback(self, callback):
