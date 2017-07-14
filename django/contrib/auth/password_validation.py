@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import gzip
@@ -21,10 +22,12 @@ from django.utils.translation import ugettext as _, ungettext
 
 @lru_cache.lru_cache(maxsize=None)
 def get_default_password_validators():
+    # デフォルトのパスワード検証がsettingsに定義されている
     return get_password_validators(settings.AUTH_PASSWORD_VALIDATORS)
 
 
 def get_password_validators(validator_config):
+    # validator_config := {NAME: 検証クラス}
     validators = []
     for validator in validator_config:
         try:
