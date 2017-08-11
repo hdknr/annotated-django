@@ -1,3 +1,4 @@
+# coding: utf-8
 import os
 from collections import OrderedDict
 
@@ -119,7 +120,7 @@ class AppDirectoriesFinder(BaseFinder):
     specified in the source_dir attribute.
     """
     storage_class = FileSystemStorage
-    source_dir = 'static'
+    source_dir = 'static'		# static/ を探す
 
     def __init__(self, app_names=None, *args, **kwargs):
         # The list of apps that are handled
@@ -140,7 +141,7 @@ class AppDirectoriesFinder(BaseFinder):
         super(AppDirectoriesFinder, self).__init__(*args, **kwargs)
 
     def list(self, ignore_patterns):
-        """
+        """ ファイル一覧 (パス, ストレージインスタンス)
         List all files in all app storages.
         """
         for storage in six.itervalues(self.storages):
