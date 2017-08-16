@@ -9,7 +9,7 @@
 ~~~
 
 
-~~~~html
+~~~html
 <form ....>
 {% bootstrap_form form layout="horizontal"  %}
 {% buttons submit=_('Update') reset=_('Cancel')  %}
