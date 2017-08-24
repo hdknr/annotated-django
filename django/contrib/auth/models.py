@@ -233,7 +233,7 @@ class PermissionsMixin(models.Model):
         related_name="user_set",
         related_query_name="user",
     )
-    user_permissions = models.ManyToManyField(
+    user_permissions = models.ManyToManyField(      # ユーザーのパーミッションをM2Mで持つ
         Permission,
         verbose_name=_('user permissions'),
         blank=True,
