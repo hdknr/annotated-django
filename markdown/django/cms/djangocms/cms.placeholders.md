@@ -26,6 +26,7 @@
 ## static placeholder テンプレートタグ
 
 - 一箇所変更すると全ページに反映される
+- レイアウトファイルには、 `static_placeholder` を[使うこと](http://docs.django-cms.org/en/release-3.4.x/how_to/templates.html#static-placeholder)
 
 base.html とかに置く:
 
