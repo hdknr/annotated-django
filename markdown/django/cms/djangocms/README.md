@@ -8,5 +8,5 @@
 
 
 - [インストール](cms.install.md)
-- [テンプレート](cmd.templates.cd) と [プレースホルダー](cmd.placeholders.md). [メニュー](cmd.show_menu.html)
+- [テンプレート](cms.templates.cd) と [プレースホルダー](cms.placeholders.md). [メニュー](cms.show_menu.html)
 - [アプリケーション統合](cms.integration.md)

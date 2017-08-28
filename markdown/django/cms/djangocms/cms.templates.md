@@ -121,3 +121,20 @@ Out[3]:
     </div>
 {% endblock content %}
 ~~~
+
+## CMS_TEMPLATE 変数
+
+- [CMS_TEMPLATE](http://docs.django-cms.org/en/release-3.4.x/how_to/templates.html#cms-template)
+- ページに設置されているテンプレート
+- `extends` の切り替えに使える
+
+~~~html
+{% extends CMS_TEMPLATE %}
+{% load cms_tags %}
+{% block main %}
+{% for item in object_list %}
+    {{ item }}
+{% endfor %}
+{% static_placeholder "sidebar" %}
+{% endblock main %}
+~~~
