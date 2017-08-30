@@ -1,6 +1,9 @@
+
 - http://docs.django-cms.org/en/release-3.4.x/introduction/install.html
 
+## djangocms-installer
 
+- https://djangocms-installer.readthedocs.io/en/latest/
 
 ~~~bash
 $ pip install djangocms-installer
@@ -22,6 +25,8 @@ Installing collected packages: dj-database-url, argparse, tzlocal, djangocms-ins
 Successfully installed argparse-1.4.0 dj-database-url-0.4.2 djangocms-installer-0.9.7 tzlocal-1.4
 ~~~
 
+
+## site 作成
 
 ~~~bash
 $ djangocms mysite
@@ -151,6 +156,9 @@ Get into "/vagrant/projects/hdknr/mysite" directory and type "python manage.py r
 
 ~~~
 
+
+## 管理者作成
+
 ~~~bash
 $ tree mysite/
 mysite/
@@ -194,4 +202,26 @@ Superuser created successfully.
 
 ~~~bash
 $ djangocms mysite2 --bootstrap yes
+~~~
+
+
+## Upgarde to Django 1.10
+
+
+requirements.txt:
+
+~~~
+django-cms>=3.4.2,<3.5
+djangocms-admin-style>=1.2,<1.3
+django-treebeard>=4.0.1,<5.0
+django-formtools>=1.0
+Django>=1.10,<1.11
+django-classy-tags>=0.7.2
+django-sekizai>=0.9
+django-select2==5.8.10
+~~~
+
+~~~bash
+$ pip install --upgrade -r requirements.txt
+$ python manage.py migrate
 ~~~
