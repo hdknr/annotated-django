@@ -10,3 +10,8 @@
 - [インストール](cms.install.md)
 - [テンプレート](cms.templates.cd) と [プレースホルダー](cms.placeholders.md). [メニュー](cms.show_menu.html)
 - [アプリケーション統合](cms.integration.md)
+- [プラグイン](cms.plugin.md)
+- [ツールバー](cms.toolbar.md)
+- [ナビゲーションメニュー](cms.navigation.md)
+- [作成ウィザード](cms.wizard.md)
+- [サードパーティアプリ](cms.3rdparty.md)
