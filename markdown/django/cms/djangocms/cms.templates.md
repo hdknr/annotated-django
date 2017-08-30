@@ -1,7 +1,56 @@
 テンプレート
 
 - [templates](http://docs.django-cms.org/en/release-3.4.x/introduction/templates_placeholders.html#templates)
+- [インストール](http://docs.django-cms.org/en/release-3.4.x/how_to/install.html#templates)
 
+
+## レイアウトHTML: CMS_TEMPLATES
+
+レイアウトテンプレートの置き場を `settings.TEMPLATES` の `DIRS` に記載:
+
+~~~py
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'mysite', 'templates'),],
+        ...
+    },
+]
+
+レイアウトファイルの宣言:
+
+~~~py
+CMS_TEMPLATES = [
+    ('home.html', 'Home page template'),    # `templdates/home.html` を設置する
+]
+~~~
+
+
+レイアウトの定義(templates/home.html):
+
+~~~html
+{% load cms_tags %}
+{% load sekizai_tags %}
+
+<html>
+    <head>
+        <title>
+            {% page_attribute "page_title" %}   {# ページのオブジェクトから　`page_title` 属性を抜いてレンダリング #}
+        </title>   
+        {% render_block "css" %}                {# Sekizai: 'css' ブロックの定義 #}
+    </head>
+
+    <body>
+        {% cms_toolbar %}                       {# django CMS ツールバーのレンダリング #}
+        {% placeholder "content" %}             {# ページの部品をレンダリングするプレースホルダー #}
+        {% render_block "js" %}                 {# Sekizai: 'js' ブロックの定義 #}
+    </body>
+</html>
+
+~~~
+
+
+## インストール後の構造: templatesディレクトリ
 
 ~~~bash
 $ tree mysite/templates/

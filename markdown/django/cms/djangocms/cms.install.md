@@ -1,5 +1,6 @@
 
 - http://docs.django-cms.org/en/release-3.4.x/introduction/install.html
+- [settings 関連](cms.settings.md)
 
 ## djangocms-installer
 
