@@ -1,5 +1,6 @@
 Django Model 関連
 
+- [#23](https://github.com/hdknr/annotated-django/issues/23)
 
 # クエリセット
 

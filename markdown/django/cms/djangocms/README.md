@@ -15,3 +15,10 @@
 - [ナビゲーションメニュー](cms.navigation.md)
 - [作成ウィザード](cms.wizard.md)
 - [サードパーティアプリ](cms.3rdparty.md)
+
+
+## How To
+
+- [手動インストール](cms.install.md)
+- カスタムプラグイン
+- [カスタムメニューを作る](cms.menus.md)
