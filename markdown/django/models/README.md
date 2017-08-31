@@ -24,6 +24,10 @@ Django Model 関連
 - [unique=True のフィールドを追加する(サンプル)](django.migrations.unique.steps.md)
 - [戻す](django.migrations.revert.md)
 
+# バックエンド
+
+- [カーソル](django.db.md)
+
 # 応用
 
 - [Django: モデルフィールドのプライバシー制御を設定する](django.models.privacy.md)
