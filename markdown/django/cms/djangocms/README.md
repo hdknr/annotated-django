@@ -1,5 +1,6 @@
 - https://www.django-cms.org/en/
 - http://docs.django-cms.org/en/release-3.4.x/
+- [#22](https://github.com/hdknr/annotated-django/issues/22)
 
 
 ## Tutorial
