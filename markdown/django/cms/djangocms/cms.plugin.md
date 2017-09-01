@@ -18,6 +18,7 @@
 
 djangocms-installer でデフォルトで入ります:
 
+- [django-filer](cms.filer.md)
 - https://github.com/divio/djangocms-link
 - https://github.com/divio/djangocms-file
 - https://github.com/divio/djangocms-picture

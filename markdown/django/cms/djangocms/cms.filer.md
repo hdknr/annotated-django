@@ -48,3 +48,10 @@ THUMBNAIL_PROCESSORS = (
 $ python manage.py migrate filer
 $ python manage.py migrate easy_thumbnails
 ~~~
+
+
+
+## S3
+
+- おそらく [django-stroages](https://django-storages.readthedocs.io/en/latest/) とかでストレージクラスを定義
+- [FILER_STORAGES](http://django-filer.readthedocs.io/en/latest/settings.html#filer-storages) 設定で、ストレージクラスを `ENGINE` に指定する
