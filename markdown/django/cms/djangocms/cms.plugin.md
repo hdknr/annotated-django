@@ -22,7 +22,7 @@ djangocms-installer でデフォルトで入ります:
 - https://github.com/divio/djangocms-file
 - https://github.com/divio/djangocms-picture
 - https://github.com/divio/djangocms-video
-- https://github.com/divio/djangocms-googlemap
+- [djangocms-googlemap](cms.googlemap.md)
 - https://github.com/divio/djangocms-snippet
 - https://github.com/divio/djangocms-style
 - https://github.com/divio/djangocms-column

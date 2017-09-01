@@ -139,3 +139,9 @@ menu_pool.register_menu(TestMenu)
 
 
 - cms/toolbar/items/menu.html が管理者メニューテンプレートです
+
+
+## メニューシステムの動作
+
+
+- [How the menu system works](http://docs.django-cms.org/en/release-3.4.x/topics/menu_system.html)
