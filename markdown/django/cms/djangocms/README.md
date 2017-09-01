@@ -9,7 +9,7 @@
 
 
 - [インストール](cms.install.md)
-- [テンプレート](cms.templates.cd) と [プレースホルダー](cms.placeholders.md). [メニュー](cms.show_menu.html)
+- [テンプレート](cms.templates.cd) と [プレースホルダー](cms.placeholders.md). [メニュー](cms.show_menu.md)
 - [アプリケーション統合](cms.integration.md)
 - [プラグイン](cms.plugin.md)
 - [ツールバー](cms.toolbar.md)

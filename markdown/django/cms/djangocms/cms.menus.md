@@ -3,7 +3,7 @@
 
 ## デフォルト
 
-レイアウトに `show_menu` させる
+レイアウトに [show_menu](cms.show_menu.md) させる
 
 ~~~html
 {% load cms_tags menu_tags sekizai_tags %}
@@ -145,3 +145,13 @@ menu_pool.register_menu(TestMenu)
 
 
 - [How the menu system works](http://docs.django-cms.org/en/release-3.4.x/topics/menu_system.html)
+
+
+
+### [ソフトルート](http://docs.django-cms.org/en/release-3.4.x/topics/menu_system.html#soft-root)
+
+- メニューツリーのルートとして振る舞うノード
+- メニューツリーが深くなりすぎると、全てのノードのルート(ハードルート?) から表示するとトピックに集中できないので、現在のトピックにふさわしいルートをソフトルートとして定義することでツリーを小さく見やすくさせる。
+
+
+![](cms.menus.softroot.png)
