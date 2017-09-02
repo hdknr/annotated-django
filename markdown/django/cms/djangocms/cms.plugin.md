@@ -133,6 +133,10 @@ Running migrations:
 ![](cms.integration.polls.5.result.png)
 
 
+## アプリケーションフック
+
+- [apphook](cms.apphook.md)
+
 ## 基本プラグイン
 
 - [Some commonly-used plugins](http://docs.django-cms.org/en/release-3.4.x/topics/commonly_used_plugins.html#commonly-used-plugins)
