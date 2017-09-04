@@ -4,7 +4,7 @@
 ## placeholder テンプレートタグ
 
 
-~~~~html
+~~~html
 {% block content %}
 	{% placeholder "content" %}
 {% endblock content %}
