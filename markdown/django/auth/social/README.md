@@ -5,6 +5,8 @@
 
 ## facebook
 
+- [FacebookログインとAccount Kit](https://developers.facebook.com/products/account-creation)
+
 - [Facebook Backends](https://python-social-auth.readthedocs.io/en/latest/backends/facebook.html)
 - [how to get user email with python social auth with facebook and save it](http://stackoverflow.com/questions/21968004/how-to-get-user-email-with-python-social-auth-with-facebook-and-save-it)
 
