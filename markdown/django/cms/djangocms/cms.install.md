@@ -206,6 +206,10 @@ $ djangocms mysite2 --bootstrap yes
 ~~~
 
 
+~~~bash
+$ djangocms app -p web  --bootstrap yes
+~~~
+
 ## Upgarde to Django 1.10
 
 

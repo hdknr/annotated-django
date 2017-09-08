@@ -17,6 +17,9 @@
 - [作成ウィザード](cms.wizard.md)
 - [サードパーティアプリ](cms.3rdparty.md)
 
+## Key topics
+
+- [パーミッション](cms.permissions.md)
 
 ## How To
 
