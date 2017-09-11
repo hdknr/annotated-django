@@ -1,0 +1,2 @@
+- http://nose.readthedocs.io/en/latest/
+- https://github.com/django-nose/django-nose
