@@ -381,13 +381,14 @@ class FileSystemStorage(Storage):
         return force_text(name.replace('\\', '/'))
 
     def delete(self, name):
+	'''削除する'''
         assert name, "The name argument is not allowed to be empty."
         name = self.path(name)
         # If the file exists, delete it from the filesystem.
         # If os.remove() fails with ENOENT, the file may have been removed
         # concurrently, and it's safe to continue normally.
         try:
-            os.remove(name)
+            os.remove(name)	# ファイルシステムから削除
         except OSError as e:
             if e.errno != errno.ENOENT:
                 raise

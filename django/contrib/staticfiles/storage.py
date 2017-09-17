@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import hashlib
@@ -25,7 +26,7 @@ from django.utils.six.moves.urllib.parse import (
 
 
 class StaticFilesStorage(FileSystemStorage):
-    """
+    """  スタティクファイル: FileSystemStorage の拡張
     Standard file system storage for static files.
 
     The defaults for ``location`` and ``base_url`` are
