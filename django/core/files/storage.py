@@ -256,7 +256,7 @@ class FileSystemStorage(Storage):
 
     def __init__(self, location=None, base_url=None, file_permissions_mode=None,
                  directory_permissions_mode=None):
-        self._location = location
+        self._location = location	# ローケーションの指定
         self._base_url = base_url
         self._file_permissions_mode = file_permissions_mode
         self._directory_permissions_mode = directory_permissions_mode
@@ -279,6 +279,7 @@ class FileSystemStorage(Storage):
 
     @cached_property
     def base_location(self):
+	# self._location がなければ MEDIA_ROOT が使われる 
         return self._value_or_setting(self._location, settings.MEDIA_ROOT)
 
     @cached_property
@@ -467,11 +468,13 @@ class FileSystemStorage(Storage):
 
 
 def get_storage_class(import_path=None):
+    # ストレージクラスの取得
     return import_string(import_path or settings.DEFAULT_FILE_STORAGE)
 
 
 class DefaultStorage(LazyObject):
     def _setup(self):
+	# ストレージクラスのインスタンス
         self._wrapped = get_storage_class()()
 
 
