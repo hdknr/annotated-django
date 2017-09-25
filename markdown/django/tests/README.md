@@ -4,6 +4,9 @@
 - [nose](nose.md)
 - [pytest](pytest.md)
 
+Coverage:
+
+- [coverage](coverage.md)
 
 ## BBD
 
@@ -12,6 +15,10 @@
 ## Django
 
 - [django.tests](django.tests.md)
+
+Helper:
+
+- [factory_boy](factory_boy.md)
 
 ## Web
 

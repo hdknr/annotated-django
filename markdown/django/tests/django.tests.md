@@ -4,6 +4,9 @@
 - [Testing tools](https://docs.djangoproject.com/en/1.8/topics/testing/tools/)
 - [Advanced testing topics](https://docs.djangoproject.com/en/1.8/topics/testing/advanced/)
 - [Python Test cases](https://docs.python.org/3/library/unittest.html#test-cases)
+- [Django Testing Docs](http://django-testing-docs.readthedocs.io/en/latest/index.html)
+- [Djangoでテストコードを書く](https://codelab.website/django-testcode/) (`django-nose` + `coverage`)
+
 
 ### 実行
 
@@ -13,13 +16,16 @@
 $ ./manage.py test
 ~~~
 
+## モジュールテスト
 
-### `--keepdb` :データベースを削除させない
+- [Using the Django test runner to test reusable applications](https://docs.djangoproject.com/en/1.11/topics/testing/advanced/#using-the-django-test-runner-to-test-reusable-applications)
+
+## `--keepdb` :データベースを削除させない
 
 - 事前に test_{{ 実際のデータベース名 }} を作成する
 
 ~~~bash
-$ python manage.py yourapp --keepdb
+$ python manage.py test yourapp --keepdb
 ~~~
 
 
