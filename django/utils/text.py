@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 import re
@@ -417,7 +418,7 @@ def unescape_string_literal(s):
 
 @keep_lazy(six.text_type, SafeText)
 def slugify(value, allow_unicode=False):
-    """
+    """ スラグを作る
     Convert to ASCII if 'allow_unicode' is False. Convert spaces to hyphens.
     Remove characters that aren't alphanumerics, underscores, or hyphens.
     Convert to lowercase. Also strip leading and trailing whitespace.

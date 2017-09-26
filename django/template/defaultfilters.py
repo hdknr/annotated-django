@@ -1,3 +1,4 @@
+# coding: utf-8
 """Default variable filters."""
 from __future__ import unicode_literals
 
@@ -230,7 +231,7 @@ def make_list(value):
 @register.filter(is_safe=True)
 @stringfilter
 def slugify(value):
-    """
+    """ スラグを作る(django.utils.text.slugify を呼んでるだけ)
     Converts to ASCII. Converts spaces to hyphens. Removes characters that
     aren't alphanumerics, underscores, or hyphens. Converts to lowercase.
     Also strips leading and trailing whitespace.
