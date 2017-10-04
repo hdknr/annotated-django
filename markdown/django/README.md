@@ -14,6 +14,8 @@
 - [mail](django.mail.md)
 - [filters](filters/README.md)
 - [エラー処理](django.errors.md)
+- [timezone](utils/timezone.md)
+- [サイトマップ](django.sitemap.md)
 
 ## management command
 
