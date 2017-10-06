@@ -50,6 +50,7 @@ class SessionBase(object):
         self.accessed = False
         self.modified = False
         # シリアライザ(default: django.contrib.sessions.serializers.JSONSerializer)
+	# デフォルトはJSON
         self.serializer = import_string(settings.SESSION_SERIALIZER)
 
     def __contains__(self, key):
@@ -92,6 +93,7 @@ class SessionBase(object):
         del self[self.TEST_COOKIE_NAME]
 
     def _hash(self, value):
+	# SALT HMAC でハッシュ
         key_salt = "django.contrib.sessions" + self.__class__.__name__
         return salted_hmac(key_salt, value).hexdigest()
 
@@ -103,15 +105,19 @@ class SessionBase(object):
         return base64.b64encode(hash.encode() + b":" + serialized).decode('ascii')
 
     def decode(self, session_data):
-        ''' デコード: Base64 でシリアリズして、 ':' で分割した後半'''
+        ''' デコード: Base64 でデシリアリズして2、 ':' で分割
+           前半: ハッシュ
+           後半: シリアライズデータ
+        '''
         encoded_data = base64.b64decode(force_bytes(session_data))
         try:
             # could produce ValueError if there is no ':'
             hash, serialized = encoded_data.split(b':', 1)
-            expected_hash = self._hash(serialized)
+            expected_hash = self._hash(serialized)	# ハッシュの確認
             if not constant_time_compare(hash.decode(), expected_hash):
                 raise SuspiciousSession("Session data corrupted")
             else:
+		# シリアライザーでデシリアライズ
                 return self.serializer().loads(serialized)
         except Exception as e:
             # ValueError, SuspiciousOperation, unpickling exceptions. If any of

@@ -16,6 +16,7 @@ class SessionStore(SessionBase):
     Implements database session store.
     """
     def __init__(self, session_key=None):
+	# セッションキーで初期化
         super(SessionStore, self).__init__(session_key)
 
     @classmethod
@@ -32,8 +33,8 @@ class SessionStore(SessionBase):
     def load(self):
         try:
             s = self.model.objects.get(
-                session_key=self.session_key,
-                expire_date__gt=timezone.now()
+                session_key=self.session_key,	# セッションキーが一致
+                expire_date__gt=timezone.now()	# 有効期限内?
             )
             return self.decode(s.session_data)
         except (self.model.DoesNotExist, SuspiciousOperation) as e:
@@ -80,7 +81,7 @@ class SessionStore(SessionBase):
         """
         if self.session_key is None:
             return self.create()
-        data = self._get_session(no_load=must_create)
+        data = self._get_session(no_load=must_create)	# セッションデータ
         obj = self.create_model_instance(data)
         using = router.db_for_write(self.model, instance=obj)
         try:

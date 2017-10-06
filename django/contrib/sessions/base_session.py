@@ -34,8 +34,11 @@ class BaseSessionManager(models.Manager):
 class AbstractBaseSession(models.Model):
     '''抽象セッションモデル'''
     session_key = models.CharField(_('session key'), max_length=40, primary_key=True)
+    '''セッションキー'''
     session_data = models.TextField(_('session data'))
+    '''セッションキーデータ'''
     expire_date = models.DateTimeField(_('expire date'), db_index=True)
+    '''有効期限'''
 
     objects = BaseSessionManager()
 
