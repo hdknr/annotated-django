@@ -30,10 +30,23 @@ page/index.html:
 
 ### builtin:  `{% load %}` しなくてもタグ/フィルタを使う
 
+- [BlockNode](https://github.com/django/django/blob/master/django/template/loader_tags.py#L41)
 - [built-in backend](https://docs.djangoproject.com/en/1.9/topics/templates/#module-django.template.backends.django)
 
 ~~~py
 OPTIONS={
     'builtins': ['myapp.builtins'],
 }
+~~~
+
+### BlockNode
+
+`{% block title %}` など
+
+~~~py
+In [1]: from django.template.loader import get_template
+In [2]: from django.template.loader_tags import BlockNode
+In [3]: blocks = [n for n in get_template('base.html').template if isinstance(n, BlockNode)]
+In [4]: [i.name for i in blocks]
+Out[4]: ['title', 'meta', 'style', 'favicon', 'content', 'local_template', 'bottom']
 ~~~
