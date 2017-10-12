@@ -5,7 +5,7 @@ from collections import OrderedDict
 
 from django.apps import apps
 from django.contrib.staticfiles.finders import get_finders
-from django.contrib.staticfiles.storage import staticfiles_storage
+from django.contrib.staticfiles.storage import staticfiles_storage	# staticfile_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.management.base import BaseCommand, CommandError
 from django.core.management.color import no_style
@@ -28,7 +28,7 @@ class Command(BaseCommand):
         self.symlinked_files = []
         self.unmodified_files = []
         self.post_processed_files = []
-        self.storage = staticfiles_storage
+        self.storage = staticfiles_storage	# ストレージクラス
         self.style = no_style()
 
     @cached_property
@@ -224,6 +224,7 @@ class Command(BaseCommand):
             self.stdout.write(msg)
 
     def is_local_storage(self):
+	# ローカルストレージ(FileSystemStorage)か？
         return isinstance(self.storage, FileSystemStorage)
 
     def clear_dir(self, path):
@@ -344,7 +345,7 @@ class Command(BaseCommand):
             self.symlinked_files.append(prefixed_path)
 
     def copy_file(self, path, prefixed_path, source_storage):
-        """
+        """ STATIC_DIR にコピーする
         Attempt to copy ``path`` with storage
         """
         # Skip this file if it was already copied earlier
@@ -355,11 +356,12 @@ class Command(BaseCommand):
             return
         # The full path of the source file
         source_path = source_storage.path(path)
-        # Finally start copying
+
+        # Finally start copying (コピー)
         if self.dry_run:
             self.log("Pretending to copy '%s'" % source_path, level=1)
         else:
             self.log("Copying '%s'" % source_path, level=1)
-            with source_storage.open(path) as source_file:
-                self.storage.save(prefixed_path, source_file)
+            with source_storage.open(path) as source_file:	# 元ファイル読み込み
+                self.storage.save(prefixed_path, source_file)	# 保存
         self.copied_files.append(prefixed_path)
