@@ -136,7 +136,11 @@ class ExtendsNode(Node):
 
     def get_parent(self, context):
         '''親のテンプレートを取得'''
-        parent = self.parent_name.resolve(context)
+
+ 	# 親のテンプレート名はテンプレート変数で指定されることがあり得るので、
+        # コンテキストオブジェクトからリゾルブする必要がある
+        parent = self.parent_name.resolve(context)	# 親のテンプレート名
+        # self.parent_name: django.template.base.FilterExpression
 
         if not parent:
             error_msg = "Invalid template name in 'extends' tag: %r." % parent
@@ -154,6 +158,7 @@ class ExtendsNode(Node):
             # parent is a django.template.backends.django.Template
             return parent.template
 
+	# テンプレートオブジェクトを取得する
         return self.find_template(parent, context)
 
     def render(self, context):
