@@ -88,6 +88,7 @@ class BlockNode(Node):
 
 
 class ExtendsNode(Node):
+    ''' {% extends 'base.html' %}'''
     must_be_first = True
     context_key = 'extends_context'
 
@@ -134,7 +135,9 @@ class ExtendsNode(Node):
         return template
 
     def get_parent(self, context):
+        '''親のテンプレートを取得'''
         parent = self.parent_name.resolve(context)
+
         if not parent:
             error_msg = "Invalid template name in 'extends' tag: %r." % parent
             if self.parent_name.filters or\
@@ -142,16 +145,25 @@ class ExtendsNode(Node):
                 error_msg += " Got this from the '%s' variable." %\
                     self.parent_name.token
             raise TemplateSyntaxError(error_msg)
+
         if isinstance(parent, Template):
             # parent is a django.template.Template
             return parent
+
         if isinstance(getattr(parent, 'template', None), Template):
             # parent is a django.template.backends.django.Template
             return parent.template
+
         return self.find_template(parent, context)
 
     def render(self, context):
-        compiled_parent = self.get_parent(context)
+        ''' 
+        extendsで、親のレンプレートを取得して、そのブロックリストに現在の
+        ブロックリストで上書きする。
+        extends は最初のブロックノードで、親テンプレートさらに 
+        extends があったら再帰的に繰り返す
+        '''
+        compiled_parent = self.get_parent(context)		# 親
 
         if BLOCK_CONTEXT_KEY not in context.render_context:
             context.render_context[BLOCK_CONTEXT_KEY] = BlockContext()
