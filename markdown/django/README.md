@@ -16,6 +16,7 @@
 - [エラー処理](django.errors.md)
 - [timezone](utils/timezone.md)
 - [サイトマップ](django.sitemap.md)
+- [elastic](elastic/README.md)
 
 ## management command
 
