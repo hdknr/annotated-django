@@ -53,6 +53,39 @@ $ curl -XGET http://taberu.local:9200/my-index/test-type/42?pretty=true
 }
 ~~~
 
+検索:
+~~~bash
+$ curl -XGET 'http://taberu.local:9200/my-index/_search?q=any:data&pretty=true'
+~~~
+~~~js
+{
+  "took" : 3,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 0.2876821,
+    "hits" : [
+      {
+        "_index" : "my-index",
+        "_type" : "test-type",
+        "_id" : "42",
+        "_score" : 0.2876821,
+        "_source" : {
+          "any" : "data",
+          "timestamp" : "2017-11-22T22:00:30.466155"
+        }
+      }
+    ]
+  }
+}
+~~~
+
 ## elasticsearch-dsl
 
 ~~~bash
