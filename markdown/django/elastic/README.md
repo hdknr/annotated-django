@@ -5,9 +5,12 @@
 - [elasticsearch](elasticsearch.md)
 - [elasticsearch-head](elasticsearch.head.md)
 - [elasticsearch-py](elasticsearch.py.md)
-- [elasticsearch-dsl](elasticsearch.dsl.md)
 - [elasticsearch-kuromoji](elasticsearch.kuromoji.md)
 
+### DSL
+
+- [基本](elasticsearch.dsl.md)
+- [DocType](elasticsearch.dsl.doctype.md)
 
 ## Article
 
