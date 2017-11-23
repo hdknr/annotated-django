@@ -86,19 +86,34 @@ $ curl -XGET 'http://taberu.local:9200/my-index/_search?q=any:data&pretty=true'
 }
 ~~~
 
-## elasticsearch-dsl
+## マッピングの確認
+
+- [Get Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html)
 
 ~~~bash
-$ pip install elasticsearch-dsl
+$ curl -XGET http://taberu.local:9200/django/_mapping/contents.content?pretty
 ~~~
-
-- [Elasticsearch DSL](http://elasticsearch-dsl.readthedocs.io/en/latest/)
-- [Python elasticsearch-dsl django pagination](http://stackoverflow.com/questions/35880868/python-elasticsearch-dsl-django-pagination)
-- [PythonからElasticsearchを扱うelasticsearch-dsl-pyがなかなか良かった](http://bit.ly/2dazJOy)
-
-## django
-
-- [liberation/django-elasticsearch](https://github.com/liberation/django-elasticsearch)
-- [ytyng/django-elasticindex](https://github.com/ytyng/django-elasticindex)
--  [rangertaha/django-elastic](https://github.com/rangertaha/django-elastic )
-- [asyncee/django-el](https://github.com/asyncee/django-el)
+~~~js
+{
+  "django" : {
+    "mappings" : {
+      "contents.content" : {
+        "properties" : {
+          "html" : {
+            "type" : "text",
+            "fields" : {
+              "raw" : {
+                "type" : "keyword"
+              }
+            },
+            "analyzer" : "html_strip"
+          },
+          "title" : {
+            "type" : "text"
+          }
+        }
+      }
+    }
+  }
+}
+~~~
