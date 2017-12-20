@@ -64,6 +64,7 @@ Out[14]: '2017-11-22T22:00:30.466155'
 $ pip install elasticsearch-dsl
 ~~~
 
+- [myarik/django-rest-elasticsearch](https://github.com/myarik/django-rest-elasticsearch)
 - [Elasticsearch DSL](http://elasticsearch-dsl.readthedocs.io/en/latest/)
 - [Python elasticsearch-dsl django pagination](http://stackoverflow.com/questions/35880868/python-elasticsearch-dsl-django-pagination)
 - [PythonからElasticsearchを扱うelasticsearch-dsl-pyがなかなか良かった](http://bit.ly/2dazJOy)

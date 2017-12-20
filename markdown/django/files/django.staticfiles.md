@@ -32,6 +32,25 @@ Out[7]:
  <django.core.files.storage.FileSystemStorage at 0x7fbf0ea5a470>)
 ~~~
 
+### アプリケーションのディレクトリを見つける
+
+~~~py
+In [1]: from django.apps import apps
+
+In [2]: configs = apps.get_app_configs()
+In [3]: type(configs)
+Out[3]: odict_values
+
+In [4]: list(iter(configs))[0]
+Out[4]: <AdminConfig: admin>
+In [5]: conf = _
+
+In [6]: import os
+In [7]: path = os.path.join(conf.path, 'static')
+In [8]: path
+Out[8]: '/home/vagrant/.anyenv/envs/pyenv/versions/cms/lib/python3.6/site-packages/django/contrib/admin/static'
+~~~
+
 
 ## staticfiles_storage
 
