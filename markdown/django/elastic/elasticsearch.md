@@ -37,7 +37,7 @@ $ sudo apt-get install elasticsearch
 $ sudo apt-get install openjdk-8-jre-headless -y
 ~~~
 
-#### SysVInit
+#### 起動:SysVInit
 
 ~~~bash
 $ sudo update-rc.d elasticsearch defaults 95 10
