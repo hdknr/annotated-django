@@ -57,3 +57,43 @@ class GadgetSerializer(serializers.ModelSerializer):
         if obj:
             self.initial_data['object_id'] = obj.id
 ~~~
+
+## 外部キーで参照する複合インスタンスを(idではなく)キーで指定する
+
+- Selectionモデルが Usageモデル を　外部キーで参照
+- Usage は `slug` がユニークキー
+
+JSON:
+
+~~~js
+{
+  ....
+  usage: {slug: 'catch'}
+}
+~~~
+
+~~~py
+
+class SelectionSerializer(serializers.ModelSerializer, OrderableMixin):
+    usage = UsageSerializer(required=False)
+
+    class Meta:
+        model = models.Selection
+        fields = '__all__'
+~~~        
+
+~~~py
+class UsageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Usage
+        fields = '__all__'
+
+    def run_validation(self, data=fields.empty):
+        # slug が指定されていたら検索検索する
+        usage = ('slug' in data) \
+            and models.Usage.objects.filter(slug=data['slug']).first()
+        # みつからなかったら、スーパークラスに処理させる(新規でUsageが作られる)
+        return usage \
+            or super(UsageSerializer, self).run_validation(data=data)
+~~~
