@@ -1,0 +1,3 @@
+- [#38](https://github.com/hdknr/annotated-django/issues/38)
+- [API](amazonpay.api.md)
+- [インテグレーション](amazonpay.integration.md)
