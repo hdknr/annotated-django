@@ -43,18 +43,9 @@ TLS/SSL認証:
 - Amazon Marketplace Web Service (MWS)アカウント情報のアクセスキーIDとシークレットアクセスキー
 - Amazonログインアカウント情報のクライアントID
 
-### 2.2 [STEP2 SDK設定](https://pay.amazon.com/jp/developer/documentation/lpwa/201951870)
+### 2.2 [STEP2 SDK設定](amazonpay.sdk.md)
 
-- セラーセントラルのAmazonログインより、JavaScriptの種類とリダイレクトURLを設定します。
-- SANDBOX MWS エンドポイントとその他のURLをセットします。
-
-  - Amazon MWS エンドポイント
-  - Widgets.js URL
-  - Profile API エンドポイント
-
-- https://github.com/amzn/amazon-pay-sdk-python
-
-### 2.3 [STEP3 ボタン](https://pay.amazon.com/jp/developer/documentation/lpwa/201952050)
+### 2.3 [STEP3 ボタンウィジェットの追加](amazonpay.widgets.md)
 
 ### 2.4 [STEP4 アドレス帳/支払い方法](https://pay.amazon.com/jp/developer/documentation/lpwa/201952070)
 
