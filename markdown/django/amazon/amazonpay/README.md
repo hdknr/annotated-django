@@ -2,3 +2,4 @@
 - [API](amazonpay.api.md)
 - [インテグレーション](amazonpay.integration.md)
 - [Login with Amazon SDK for JavaScript Reference Guide](amazonpay.javascript.md)
+- [例:アディダス](amazonpay.addidas.md)
