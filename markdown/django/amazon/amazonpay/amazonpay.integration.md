@@ -84,11 +84,7 @@ TLS/SSL認証:
 ## 4. SANDBOX環境でのインテグレーションテスト
 
 ### 4.1 [SANDBOX環境でのインテグレーションテスト](https://pay.amazon.com/jp/developer/documentation/lpwa/201956350)
-### 4.2 [Amazon Pay SANDBOXのテストアカウント設定](https://pay.amazon.com/jp/developer/documentation/lpwa/201956330)
-
-- セラーセントラル
-- マーケットプレイススイッチャー
-
+### 4.2 [Amazon Pay SANDBOXのテストアカウント設定](amazonpay.sandbox.accounts.md)
 ### 4.3 [サンプルの住所と支払方法](https://pay.amazon.com/jp/developer/documentation/lpwa/201956410)
 
 ### 4.4 [SANDBOXと本番環境の相違点](https://pay.amazon.com/jp/developer/documentation/lpwa/201956460)
