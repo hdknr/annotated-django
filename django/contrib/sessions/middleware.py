@@ -28,7 +28,7 @@ class SessionMiddleware(MiddlewareMixin):
         """
         try:
             accessed = request.session.accessed
-            modified = request.session.modified
+            modified = request.session.modified	    	# セッションデータに変更があったか？
             empty = request.session.is_empty()
         except AttributeError:
             pass
@@ -45,6 +45,8 @@ class SessionMiddleware(MiddlewareMixin):
                 if accessed:
                     patch_vary_headers(response, ('Cookie',))
                 if (modified or settings.SESSION_SAVE_EVERY_REQUEST) and not empty:
+                    # セッションデータに変更があったか、設定で都度セットするようになっている場合、
+                    # sessionデータに何かあったらsessionid をクッキーに返す
                     if request.session.get_expire_at_browser_close():
                         max_age = None
                         expires = None
