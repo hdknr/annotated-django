@@ -1,6 +1,7 @@
 
 - [Session](https://docs.djangoproject.com/en/1.9/topics/http/sessions/)
 - [How to expire Django session in 5minutes?](http://stackoverflow.com/questions/14830669/how-to-expire-django-session-in-5minutes)
+- [#32](https://github.com/hdknr/annotated-django/issues/32)
 
 ## 設定
 
@@ -158,7 +159,6 @@ Out[30]: True
 False
 ~~~
 
-## セッションキーの生成
+## トピック
 
-- [request.session にデータがない場合、sessionidクッキーを返さない](https://github.com/hdknr/annotated-django/commit/a7c60d43e241a043527f7f0aa74c91dd05134b9f)
-- [Django: How to set sessionid cookie for AnonymousUser without using SESSION_SAVE_EVERY_REQUEST](https://stackoverflow.com/questions/14949783/django-how-to-set-sessionid-cookie-for-anonymoususer-without-using-session-save)
+- [セッション初期化](django.session.init.md)
