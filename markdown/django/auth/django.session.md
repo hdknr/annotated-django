@@ -2,9 +2,9 @@
 - [Session](https://docs.djangoproject.com/en/1.9/topics/http/sessions/)
 - [How to expire Django session in 5minutes?](http://stackoverflow.com/questions/14830669/how-to-expire-django-session-in-5minutes)
 
-# 設定
+## 設定
 
-## SESSION_COOKIE_AGE
+### SESSION_COOKIE_AGE
 
 - セッション保持秒数
 - [Settings](https://docs.djangoproject.com/en/1.9/ref/settings/#std:setting-SESSION_COOKIE_AGE)
@@ -14,7 +14,7 @@ In [4]: settings.SESSION_COOKIE_AGE
 Out[4]: 1209600
 ~~~
 
-## SESSION_EXPIRE_AT_BROWSER_CLOSE
+### SESSION_EXPIRE_AT_BROWSER_CLOSE
 
 - [django 1.8 SESSION_EXPIRE_AT_BROWSER_CLOSE not working](http://stackoverflow.com/questions/30093624/django-1-8-session-expire-at-browser-close-not-working)
 - [Browser-length sessions vs. persistent sessions](https://docs.djangoproject.com/en/1.9/topics/http/sessions/#browser-length-sessions-vs-persistent-sessions)
@@ -29,8 +29,7 @@ Out[3]: False
 ~~~
 
 
-
-# セッションエンジン
+## セッションエンジン
 
 ~~~
 >>> from django.conf import settings
@@ -41,7 +40,7 @@ Out[3]: False
 ['__builtins__', 'engine', 'settings']
 ~~~
 
-## エンジンからセッションのロード
+### エンジンからセッションのロード
 
 ```
 >>> engine.SessionStore(u'qzoehydb7vsxp7s3ipc5b92y95ah0rhs')
@@ -62,7 +61,7 @@ Out[3]: False
 >>> sobj.save()
 ```
 
-# セッションストア
+## セッションストア
 
 ~~~py
 In [1]: from django.contrib.sessions.models import Session
@@ -89,7 +88,7 @@ Out[8]:
 <type 'dict'>
 ~~~
 
-## セッションハッシュの検証
+### セッションハッシュの検証
 
 
 ~~~py
@@ -147,15 +146,19 @@ Out[29]: '12e0e291048d5a9282cd914424a890fe786b6bb8'
 In [30]: _ == hash.decode()
 Out[30]: True
 
-
 ~~~
 
 
-## セッションオブジェクトでデータを修正して保存
+### セッションオブジェクトでデータを修正して保存
 
-~~~
+~~~py
 >>> sobj['password_expired'] = False
 >>> sobj.save()
 >>> Session.objects.all()[0].get_decoded()['password_expired']
 False
 ~~~
+
+## セッションキーの生成
+
+- [request.session にデータがない場合、sessionidクッキーを返さない](https://github.com/hdknr/annotated-django/commit/a7c60d43e241a043527f7f0aa74c91dd05134b9f)
+- [Django: How to set sessionid cookie for AnonymousUser without using SESSION_SAVE_EVERY_REQUEST](https://stackoverflow.com/questions/14949783/django-how-to-set-sessionid-cookie-for-anonymoususer-without-using-session-save)
