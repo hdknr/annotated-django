@@ -67,3 +67,71 @@ class LineStationAdminInlineForm(forms.ModelForm):
         super(LineStationAdminInlineForm,
               self).__init__(*args, **kwargs)
 ~~~
+
+## 複数ある場合
+
+
+~~~py
+
+class PackageForm(forms.ModelForm):
+    class Meta:
+        model = Package
+        exclude = []
+
+    def __init__(self, *args, **kwargs):
+        super(PackageForm, self).__init__(*args, **kwargs)
+
+        # (4) 既存インスタンスの対応
+        tariff = ('instance' in kwargs) and getattr(
+            kwargs['instance'], 'tariff', None) or None
+        if tariff:
+            self.patch_tariff(self, tariff)
+
+    @classmethod
+    def patch_tariff(cls, form, tariff):
+        # (0) フォームのリレーション条件を絞る処理 の実装
+        qs = form.fields['mixes'].queryset.filter(tariff=tariff)
+        form.fields['mixes'].queryset = qs
+
+        qs = form.fields['delegate_to'].queryset.filter(tariff=tariff)
+        form.fields['delegate_to'].queryset = qs
+        return form
+
+
+class PackageInlineFormSet(forms.models.BaseInlineFormSet):
+    model = Package
+
+    def __init__(self, *args, **kwargs):
+        # (3) リクエストからインスタンスを取得する
+        self.current_shipping = hasattr(self, 'request') \
+            and getattr(self.request, '_current_shipping', None) or None
+        super(PackageInlineFormSet, self).__init__(*args, **kwargs)
+
+    @property
+    def empty_form(self):
+        # (4) 新規追加初期フォームの対応
+        form = super(PackageInlineFormSet, self).empty_form
+        return self.current_shipping and \
+            form.patch_tariff(form, self.current_shipping) or form
+
+
+class PackageInline(admin.TabularInline, app_admin.Mixin):
+    model = Package
+    form = PackageForm
+    formset = PackageInlineFormSet
+
+    def get_formset(self, request, obj=None, **kwargs):
+        formset = super(PackageInline, self).get_formset(request, obj, **kwargs)
+        formset.request = request # (2) request をフォームセットに渡す
+        return formset
+
+
+@admin.register(models.Tariff)
+class TariffAdmin(admin.ModelAdmin):
+    inlines = [PackageInline]
+
+    def _create_formsets(self, request, obj, change):
+        setattr(request, '_current_shipping', obj)  # (1) 値をリクエストに設定する
+        return super(TariffAdmin, self)._create_formsets(
+            request, obj, change        
+~~~
