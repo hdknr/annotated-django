@@ -427,18 +427,21 @@ class AdminSite:
                 continue
 
             info = (app_label, model._meta.model_name)
+            # アプリケーションリストに入っている modelsは model_dict
             model_dict = {
-                'name': capfirst(model._meta.verbose_name_plural),
-                'object_name': model._meta.object_name,
-                'perms': perms,
+                'name': capfirst(model._meta.verbose_name_plural),	# モデル名
+                'object_name': model._meta.object_name,			# オブジェクト名
+                'perms': perms,						# パーミッション
             }
             if perms.get('change'):
                 try:
+                    # モデルのadmin URL
                     model_dict['admin_url'] = reverse('admin:%s_%s_changelist' % info, current_app=self.name)
                 except NoReverseMatch:
                     pass
             if perms.get('add'):
                 try:
+                    # モデルの追加URL
                     model_dict['add_url'] = reverse('admin:%s_%s_add' % info, current_app=self.name)
                 except NoReverseMatch:
                     pass
