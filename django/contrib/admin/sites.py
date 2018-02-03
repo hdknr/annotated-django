@@ -464,6 +464,7 @@ class AdminSite:
 
     def get_app_list(self, request):
         """
+        アプリケーションリスト
         Return a sorted list of all the installed apps that have been
         registered in this site.
         """
@@ -484,7 +485,7 @@ class AdminSite:
         Display the main admin index page, which lists all of the installed
         apps that have been registered in this site.
         """
-        app_list = self.get_app_list(request)
+        app_list = self.get_app_list(request)	# アプリケーションリスト
 
         context = dict(
             self.each_context(request),
@@ -498,6 +499,7 @@ class AdminSite:
         return TemplateResponse(request, self.index_template or 'admin/index.html', context)
 
     def app_index(self, request, app_label, extra_context=None):
+	'''アプリケーションインデックス'''
         app_dict = self._build_app_dict(request, app_label)
         if not app_dict:
             raise Http404('The requested admin page does not exist.')
@@ -507,7 +509,7 @@ class AdminSite:
         context = dict(
             self.each_context(request),
             title=_('%(app)s administration') % {'app': app_name},
-            app_list=[app_dict],
+            app_list=[app_dict],		# アプリケーションリスト
             app_label=app_label,
         )
         context.update(extra_context or {})
@@ -515,8 +517,8 @@ class AdminSite:
         request.current_app = self.name
 
         return TemplateResponse(request, self.app_index_template or [
-            'admin/%s/app_index.html' % app_label,
-            'admin/app_index.html'
+            'admin/%s/app_index.html' % app_label	# アプリケーションラベルの app_index.html,
+            'admin/app_index.html'			# app_index.html
         ], context)
 
 
