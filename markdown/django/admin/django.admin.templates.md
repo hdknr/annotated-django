@@ -14,13 +14,43 @@
 
 ### カスタマイズ可能
 
-- [Templates which may be overridden per app or model](https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#templates-which-may-be-overridden-per-app-or-model)
+[Templates which may be overridden per app or model](https://docs.djangoproject.com/en/2.0/ref/contrib/admin/#templates-which-may-be-overridden-per-app-or-model):
 
-- app_index.html
-- change_form.html
-- change_list.html
-- delete_confirmation.html
-- object_history.html
+#### 1) app_index.html
+
+- [app_index.html](https://github.com/django/django/blob/master/django/contrib/admin/templates/admin/app_index.html)
+- extends -> [index.html](https://github.com/django/django/blob/master/django/contrib/admin/templates/admin/index.html)
+
+[admin/{{ アプリケーションラベル }}/index.html でアプリごとにカスタマイズ可能](https://github.com/hdknr/annotated-django/commit/f547b0f4ac8fe5331535d0c109f73f3f106611b8):
+
+~~~bash
+$ tree shop -P *.html
+shop
+└── templates
+    └── admin
+        └── shop
+            └── app_index.html
+~~~
+
+~~~html
+{% extends 'admin/app_index.html' %}
+
+{% block content %}
+{# 何かする #}
+{{ block.super }}
+{% endblock %}
+~~~
+
+
+#### 2) change_form.html
+
+#### 3) change_list.html
+
+#### 4) delete_confirmation.html
+
+#### 5) object_history.html
+
+#### 6) popup_response.html ( >= 1.11)
 
 
 ## モデルレベル
