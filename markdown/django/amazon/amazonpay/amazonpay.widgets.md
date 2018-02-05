@@ -48,10 +48,11 @@ URL:
         };
         </script>
         <script async="async"
-        src='https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js'>
+        src='https://static-fe.payments-amazon.com/OffAmazonPayments/jp/sandbox/lpa/js/Widgets.js'>
     </script>
 </head>
 ~~~
+
 
 ## 3. ボタン
 
