@@ -3,6 +3,7 @@
 - [サンプル](python-social-auth.sample.md)
 - [認証リクエストの流れ](psa.authreq.md)
 - [認証応答のランディングの流れ](psa.authres.md)
+- [Implicit Flowでのトークン受け渡し(DRF)](psa.implicit.md)
 
 ## facebook
 
