@@ -43,6 +43,7 @@ class SessionBase:
     __not_given = object()
 
     def __init__(self, session_key=None):
+	# セッションキーは指定できる
         self._session_key = session_key
         self.accessed = False
         self.modified = False
@@ -284,8 +285,7 @@ class SessionBase:
 
     def flush(self):
         """
-        Remove the current session data from the database and regenerate the
-        key.
+        Remove the current session data from the database and regenerate the key.
         """
         self.clear()
         self.delete()
@@ -293,7 +293,7 @@ class SessionBase:
 
     def cycle_key(self):
         """
-        Create a new session key, while retaining the current session data.
+        新しいキーを作る:Create a new session key, while retaining the current session data.
         """
         data = self._session
         key = self.session_key
