@@ -1,7 +1,8 @@
-
+- [#24](https://github.com/hdknr/annotated-django/issues/24)
 - [Python Social Auth](https://python-social-auth.readthedocs.io/en/latest/#)
 - [サンプル](python-social-auth.sample.md)
 - [認証リクエストの流れ](psa.authreq.md)
+- [認証応答のランディングの流れ](psa.authres.md)
 
 ## facebook
 

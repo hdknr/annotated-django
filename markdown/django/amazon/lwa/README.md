@@ -17,6 +17,7 @@
 ## Python Social Auth(PSA)
 
 -  [Amazon](http://python-social-auth-docs.readthedocs.io/en/latest/backends/amazon.html)
+- [source](https://github.com/python-social-auth/social-core/blob/master/social_core/backends/amazon.py)
 
 Codeフローでのトークンレスポンス([scope=profile](https://developer.amazon.com/ja/docs/login-with-amazon/customer-profile.html#profile)):
 
