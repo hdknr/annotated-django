@@ -6,4 +6,5 @@
 
 ## 例
 
+- [パイプライン](amazonpay.pipeline.md)
 - [例:アディダス](amazonpay.addidas.md)
