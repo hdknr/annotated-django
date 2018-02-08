@@ -51,7 +51,7 @@ TLS/SSL認証:
 
 ### 2.5 [STEP5 注文詳細](https://pay.amazon.com/jp/developer/documentation/lpwa/201952090)
 
-### 2.6 [STEP6 オーソリ](https://pay.amazon.com/jp/developer/documentation/lpwa/201952140)
+### 2.6 [STEP6 オーソリ](amazonpay.authorization.md)
 
 - [オーソリ失敗](https://pay.amazon.com/jp/developer/documentation/lpwa/201953810)
 
