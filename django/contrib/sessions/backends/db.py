@@ -93,11 +93,14 @@ class SessionStore(SessionBase):
             raise
 
     def delete(self, session_key=None):
+	# 削除
         if session_key is None:
             if self.session_key is None:
+		# セッションキーがないと削除できない
                 return
             session_key = self.session_key
         try:
+	    # データベースより削除する
             self.model.objects.get(session_key=session_key).delete()
         except self.model.DoesNotExist:
             pass

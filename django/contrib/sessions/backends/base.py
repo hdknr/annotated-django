@@ -136,9 +136,10 @@ class SessionBase:
         # To avoid unnecessary persistent storage accesses, we set up the
         # internals directly (loading data wastes time, since we are going to
         # set it to an empty dict anyway).
-        self._session_cache = {}
-        self.accessed = True
-        self.modified = True
+        self._session_cache = {}	# キャッシュを空にする
+        self.accessed = True		# アクセスフラグON
+        self.modified = True		# 変更フラグON
+        # ともにTrueなので、ミドルウエアがセッションデータを更新する
 
     def is_empty(self):
         "Return True when there is no session_key and the session is empty."
@@ -285,11 +286,12 @@ class SessionBase:
 
     def flush(self):
         """
+        現在のセッションデータを削除してキーを再生成する
         Remove the current session data from the database and regenerate the key.
         """
-        self.clear()
-        self.delete()
-        self._session_key = None
+        self.clear()				# クリア
+        self.delete()				# 永続データを削除
+        self._session_key = None		# セッションキーを取り消す
 
     def cycle_key(self):
         """
@@ -327,7 +329,7 @@ class SessionBase:
         raise NotImplementedError('subclasses of SessionBase must provide a save() method')
 
     def delete(self, session_key=None):
-        """
+        """ 
         Delete the session data under this key. If the key is None, use the
         current session key value.
         """
