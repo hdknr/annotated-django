@@ -1,6 +1,7 @@
 ## 公式
 
 - [STEP3 ボタン](https://pay.amazon.com/jp/developer/documentation/lpwa/201952050)
+- [Payment widgets](https://pay.amazon.com/us/developer/documentation/lpwa/201954000)
 
 Amazon Pay:
 

@@ -45,9 +45,9 @@ TLS/SSL認証:
 
 ### 2.2 [STEP2 SDK設定](amazonpay.sdk.md)
 
-### 2.3 [STEP3 ボタンウィジェットの追加](amazonpay.widgets.md)
+### 2.3 [STEP3 ボタンウィジェットの追加](amazonpay.authn_button.md)
 
-### 2.4 [STEP4 アドレス帳/支払い方法](https://pay.amazon.com/jp/developer/documentation/lpwa/201952070)
+### 2.4 [STEP4 アドレス帳/支払い方法](amazonpay.payment_widget.md)
 
 ### 2.5 [STEP5 注文詳細](https://pay.amazon.com/jp/developer/documentation/lpwa/201952090)
 
