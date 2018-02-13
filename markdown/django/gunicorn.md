@@ -79,3 +79,12 @@ gunicorn 883 user    7u  unix 0xffff8803fe09d240      0t0   819232 /home/user/pr
 - [Can't see errors in log #708](https://github.com/benoitc/gunicorn/issues/708)
 
 - Django のLOGGINGの設定を、`'disable_existing_loggers': False ` にして supervisorctrl relead したら記録されたっぽい
+
+
+## ワーカープロセス数
+
+５プロセス:
+
+~~~
+command=/vagrant/.anyenv/envs/pyenv/shims/gunicorn --workers 5 -c /vagrant//routeserver/gunicorn.py app.wsgi:application
+~~~
