@@ -14,7 +14,7 @@
 - TransactionTimeout には最小値5から最大値1440（デフォルト値）分までの値を5の倍数でセットします。
 - オーソリがこのタイムリミット内で処理できなかった場合に理由コードを TransactionTimedOutとして失敗します。
 - 非同期フローを利用する場合は、AuthorizationStatus レスポンス要素は常にPending がセットされます。
-- Amazonによって処理されると、オーソリリクエストの最終ステータスをIPN経由で受け取ります。 （例えば、 `Open` や `Declined` です。）
+- Amazonによって処理されると、オーソリリクエストの最終ステータスを [IPN](amazonpay.ipn.md)経由で受け取ります。 （例えば、 `Open` や `Declined` です。）
 
 ### 非同期の例
 
