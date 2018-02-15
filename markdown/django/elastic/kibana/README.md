@@ -4,4 +4,4 @@
 
 ## Tips
 
-- [Elastic/Kibana/elaasticsearch-dsl.py で LTSV形式のnginxログを可視化する](elastic.kibana.install.ubuntu.md)
+- [Elastic/Kibana/elaasticsearch-dsl.py で LTSV形式のnginxログを可視化する](elastic.kibana.dsl-python.md)
