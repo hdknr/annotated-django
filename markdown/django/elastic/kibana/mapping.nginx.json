@@ -1,0 +1,64 @@
+{
+  "access_log" : {
+    "mappings" : {
+      "nginx" : {
+        "properties" : {
+          "body_bytes_sent" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "bytes_sent" : {
+            "type" : "integer"
+          },
+          "forwardedfor" : {
+            "type" : "text"
+          },
+          "https" : {
+            "type" : "text"
+          },
+          "query_string" : {
+            "type" : "text"
+          },
+          "referer" : {
+            "type" : "text"
+          },
+          "remote_addr" : {
+            "type" : "text"
+          },
+          "request_length" : {
+            "type" : "integer"
+          },
+          "request_method" : {
+            "type" : "text"
+          },
+          "request_time" : {
+            "type" : "double"
+          },
+          "request_uri" : {
+            "type" : "text"
+          },
+          "status" : {
+            "type" : "text"
+          },
+          "time" : {
+            "type" : "date"
+          },
+          "upstream_response_time" : {
+            "type" : "double"
+          },
+          "uri" : {
+            "type" : "text"
+          },
+          "useragent" : {
+            "type" : "text"
+          }
+        }
+      }
+    }
+  }
+}
