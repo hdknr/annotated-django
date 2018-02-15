@@ -19,3 +19,22 @@ Running "connect:server" (connect) task
 Waiting forever...
 Started connect web server on http://localhost:9100
 ~~~
+
+
+## `cluster health: not connected`
+
+
+~~~bash
+$ sudo vim /etc/elasticsearch/elasticsearch.yml
+~~~
+
+~~~yaml
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+~~~
+
+~~~bash
+$ sudo /etc/init.d/elasticsearch restart
+
+[ ok ] Restarting elasticsearch (via systemctl): elasticsearch.service.
+~~~
