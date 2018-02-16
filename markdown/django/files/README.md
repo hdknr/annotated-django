@@ -1,5 +1,5 @@
 
-- [staticファイル](django.staticfiles.md)
+- [staticファイル](./static/)
 
 ## [django.core.files](django.core.files)
 
