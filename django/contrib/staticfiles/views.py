@@ -13,7 +13,7 @@ from django.views import static
 
 
 def serve(request, path, insecure=False, **kwargs):
-    """
+    """ デバッグ(settings.DEBUG = True)用
     Serve static files below a given point in the directory structure or
     from locations inferred from the staticfiles finders.
 
@@ -30,7 +30,7 @@ def serve(request, path, insecure=False, **kwargs):
     if not settings.DEBUG and not insecure:
         raise Http404
     normalized_path = posixpath.normpath(path).lstrip('/')
-    absolute_path = finders.find(normalized_path)
+    absolute_path = finders.find(normalized_path)       # スタディックファイルのありかを見つける
     if not absolute_path:
         if path.endswith('/') or path == '':
             raise Http404("Directory indexes are not allowed here.")

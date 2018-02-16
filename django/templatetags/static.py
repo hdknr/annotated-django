@@ -17,8 +17,8 @@ class PrefixNode(template.Node):
         if name is None:
             raise template.TemplateSyntaxError(
                 "Prefix nodes must be given a name to return.")
-        self.varname = varname
-        self.name = name
+        self.varname = varname          # プレフィックス名
+        self.name = name                # スタティックファイルパス名
 
     @classmethod
     def handle_token(cls, parser, token, name):
@@ -38,6 +38,7 @@ class PrefixNode(template.Node):
 
     @classmethod
     def handle_simple(cls, name):
+        #スタティックファイルのプレフィックスを判定
         try:
             from django.conf import settings
         except ImportError:
@@ -114,6 +115,7 @@ class StaticNode(template.Node):
     @classmethod
     def handle_simple(cls, path):
         if apps.is_installed('django.contrib.staticfiles'):
+            # URLを取得
             from django.contrib.staticfiles.storage import staticfiles_storage
             return staticfiles_storage.url(path)
         else:

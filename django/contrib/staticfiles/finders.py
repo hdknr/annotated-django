@@ -88,7 +88,7 @@ class FileSystemFinder(BaseFinder):
         return errors
 
     def find(self, path, all=False):
-        """
+        """ スタティックファイルを見つける
         Look for files in the extra locations as defined in STATICFILES_DIRS.
         """
         matches = []
@@ -162,7 +162,7 @@ class AppDirectoriesFinder(BaseFinder):
                     yield path, storage
 
     def find(self, path, all=False):
-        """
+        """ スタティックファイルを見つける
         Look for files in the app directories.
         """
         matches = []
