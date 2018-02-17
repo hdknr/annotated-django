@@ -3,6 +3,7 @@
 - [インテグレーション](amazonpay.integration.md)
 - [Login with Amazon SDK for JavaScript Reference Guide](amazonpay.javascript.md)
 - [Seller Forums:Amazon Pay](https://sellercentral.amazon.com/forums/category.jspa?categoryID=7)
+- [状態と理由コード](amazonpay.status.md)
 
 ## 例
 
