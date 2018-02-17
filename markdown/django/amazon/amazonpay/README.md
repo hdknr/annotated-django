@@ -9,3 +9,4 @@
 
 - [パイプライン](amazonpay.pipeline.md)
 - [例:アディダス](amazonpay.addidas.md)
+- [呼びだし例](amazonpay.calls.md)
