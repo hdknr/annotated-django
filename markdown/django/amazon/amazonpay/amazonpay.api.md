@@ -60,7 +60,35 @@ Transaction
 - 本番環境 ：https://mws-fe.amazonservice.com/OffAmazonPayments/2013-01-01/
 - SANDBOX ：https://mws-fe.amazonservice.com/OffAmazonPayments_Sandbox/2013-01-01/
 
+### メソッド
 
+Order:
+
+  - GetOrderReferenceDetails
+  - SetOrderReferenceDetails
+  - ConfirmOrderReference
+  - CloseOrderReference
+  - CancelOrderReference
+
+Auth:
+
+  - Authorize
+  - GetAuthorizationDetails
+  - CloseAuthorization
+
+Capture:
+
+  - Capture
+  - GetCaptureDetails
+
+Refund:
+
+  - Refund
+  - GetRefundDetails
+
+Service:
+
+  - GetServiceStatus
 
 ## 資料
 
