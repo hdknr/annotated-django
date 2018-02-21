@@ -1,0 +1,3 @@
+- http://factoryboy.readthedocs.io/en/latest/
+- [Djangoでfactory_boyを使ってテストをする１](http://qiita.com/hys/items/90a9f1af90e10a8cd4e1)
+- [Djangoでfactory_boyを使ってテストをする２](http://qiita.com/hys/items/19a03aaac87a93e0d539#_reference-be99e3cd41cce0185805)
