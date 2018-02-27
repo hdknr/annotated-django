@@ -21,3 +21,26 @@ class AssociateTopicViewSet(viewsets.ModelViewSet):
 
         return serializer_class(*args, **kwargs)
 ~~~        
+
+
+## データがSHIFT_JISで送られてくる
+
+- `request.encoding` が設定されていれば、すでにSHIFT_JIS -> UTF-8変換が終わっている
+- `request.encoding` == 'None' であれば、QueryDictで再度 `request.body` を `encoding` 指定で変換する
+
+~~~py
+from django.http import HttpResponse, QueryDict
+from rest_framework import viewsets
+
+
+class MessageViewSet(viewsets.ViewSet):
+
+    def create(self, request):
+
+        # Shift_JIS(cp932,....)
+        data = request.data if request.encoding else \
+            QueryDict(request.body, encoding='shift_jis')
+
+        serializer = serializers.MessageSerializer(data=data)
+        return serializer.is_valid() and serializer.save()
+~~~        
