@@ -25,3 +25,8 @@
 
 - [pinax/django-mailer](https://github.com/pinax/django-mailer)
 - [hdknr/flier](https://github.com/hdknr/flier)
+
+
+## AWS SES
+
+- [通知(SNS)メッセージJSONの検証](ses.veify-notification.md)

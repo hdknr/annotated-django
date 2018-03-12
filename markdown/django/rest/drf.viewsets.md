@@ -44,3 +44,14 @@ class MessageViewSet(viewsets.ViewSet):
         serializer = serializers.MessageSerializer(data=data)
         return serializer.is_valid() and serializer.save()
 ~~~        
+
+## クエリセットをカスタマイズする(`get_queryset()`)
+
+~~~py
+class ApplicationViewSet(BaseSerializer):
+    queryset = models.Application.objects.order_by('-created_at')
+
+    def get_queryset(self):
+        qs = super(ApplicationViewSet, self).get_queryset()
+        return self.request.user.is_superuser and qs or qs.exclude(status__isnull=True) # NOQA
+~~~
