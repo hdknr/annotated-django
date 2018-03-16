@@ -6,6 +6,10 @@ Django Model 関連
 
 - [Qオブジェクト](django.queryset.Q.md)
 
+# 継承
+
+- [複数の多重継承元でフィールドが被っていると、モデルの初期化した時に値が飛んでしまう問題](inheritance.multi.md)
+
 # 集約
 
 - [datetimeフィールドの日付で件数を出す](django.queryset.aggregate.md)
