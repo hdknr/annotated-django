@@ -8,6 +8,9 @@
 - [ネストしたシリアライザ](drf.serializers.nested.md)
 - [抽象モデル](drf.serializers.abstract.md)
 
+## requests
+
+- [SHIFT_JISでPOSTする](requests.md)
 
 ## curl
 
