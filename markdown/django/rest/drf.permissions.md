@@ -38,7 +38,7 @@ class APIView(View):
 ~~~    
 
 
-rest_framework.views.APIView:
+rest_framework.generics.GenericAPIView:
 
 ~~~py
 class GenericAPIView(views.APIView):
@@ -95,11 +95,23 @@ from . import models, serializers, filters
 from app.perms import perm_name
 
 
-class ShopPermission(permissions.IsAuthenticatedOrReadOnly):
+class ShopPermission(permissions.IsAuthenticated):
 
     def has_object_permission(self, request, view, obj):
         has_perm = getattr(obj, 'has_perm', lambda user, perm: False)
         return has_perm(request.user, perm_name('change', obj))
+
+
+class OrderViewSet(viewsets.ModelViewSet):
+    queryset = models.Order.objects.all()
+    serializer_class = serializers.OrderSerializer
+    filter_class = filters.OrderFilter
+    permission_classes = (ShopPermission, )
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs if self.request.user.is_staff \
+            else qs.filter(user=self.request.user)
 
 
 class OrderItemViewSet(viewsets.ModelViewSet):
@@ -107,6 +119,11 @@ class OrderItemViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.OrderItemSerializer
     filter_class = filters.OrderItemFilter
     permission_classes = (ShopPermission, )
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs if self.request.user.is_staff \
+            else qs.filter(order__user=self.request.user)
 ~~~
 
 
