@@ -22,3 +22,7 @@
 - [リセット](passwordreset/django.password.reset.md)
 - [リセットトークン](passwordreset/django.password.token.md)
 - [リセットサンプル](passwordreset/django.password.reset.sample.md)
+
+## デコレータ
+
+- [認証デコレータ](django.decorator.md)
