@@ -1,6 +1,6 @@
 ## pydoc.locate()
 
-- [pydoc.py](https://github.com/python/cpython/blob/master/Lib/pydoc.py)
+- [pydoc.py](https://github.com/python/cpython/blob/3.6/Lib/pydoc.py#L1576)
 
 ~~~py
 >>> import  pydoc
@@ -13,6 +13,8 @@
 
 
 ## import_module
+
+- [importlib.import_module](https://github.com/python/cpython/blob/3.6/Lib/importlib/__init__.py#L108)
 
 ~~~py
 from importlib import import_module
