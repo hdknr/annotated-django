@@ -33,11 +33,17 @@ shop
 ~~~
 
 ~~~html
-{% extends 'admin/app_index.html' %}
+{% extends "admin/app_index.html" %}
+{% load i18n donations_tags %}
 
-{% block content %}
-{# 何かする #}
+{% block sidebar %}
+<!-- カスタマイズ -->
+{{ block.super}}
+{% endblock %}
+
+{% block content %} 
 {{ block.super }}
+<!-- カスタマイズ-->
 {% endblock %}
 ~~~
 
