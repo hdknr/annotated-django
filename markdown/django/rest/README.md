@@ -2,11 +2,15 @@
 
 - [ビューセット](drf.viewsets.md)
 
-## シリアリアザ
+## シリアライザ
 
 - [シリアライザ](drf.serializers.md)
 - [ネストしたシリアライザ](drf.serializers.nested.md)
 - [抽象モデル](drf.serializers.abstract.md)
+
+## パジネーション
+
+- [指定されたページが範囲外の例外対応](drf.pagination.md)
 
 ## requests
 
