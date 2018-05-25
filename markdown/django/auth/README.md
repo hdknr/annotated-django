@@ -1,8 +1,11 @@
 認証
 
+- [#24](https://github.com/hdknr/annotated-django/issues/24)
+
 ## ユーザー
 
 - [user](django.user.md)
+- [パスワードログイン](django.user.md)
 
 ## グループ
 
