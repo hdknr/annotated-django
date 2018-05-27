@@ -19,6 +19,7 @@ def setup(set_prefix=True):
     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
     # 関数： settings.LOGGING_CONFIG: logging.config.dictConfig
     # https://docs.python.jp/3/library/logging.config.html#logging.config.dictConfig
+    # LOGGING設定情報がLOGGING_CONFIGの関数で初期化される、ということ
 
     if set_prefix:
         set_script_prefix(
@@ -27,7 +28,15 @@ def setup(set_prefix=True):
     apps.populate(settings.INSTALLED_APPS)
 ~~~
 
+### extra
 
+- [debug](https://docs.python.jp/3/library/logging.html#logging.debug)
+- [LogRecord](https://docs.python.jp/3/library/logging.html#logrecord-objects) オブジェクトに属性が追加される:
+
+~~~py 
+from logging import getLogger
+getLogger().info('message...', extra={'a': 'hoge', 'b': Exception('OMG!')})
+~~~
 
 ## フォーマット
 
