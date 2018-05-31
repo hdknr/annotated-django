@@ -75,22 +75,29 @@ emailqueue/templates/
 ~~~
 
 - `./django/contrib/admin/templates/admin/change_form.html` をコピーしてカスタマイズする。
-- あるいは extends する。以下のようにすると "Mailを変更" の下にリストをだす。
+- あるいは extends する。
 
-~~~
+~~~html
 {% extends "admin/change_form.html" %}
 
+{% block extrahead %} {{ block.super }}
+{# スタイルの変更 #}
+<style type="text/css">
+    #id_sender { width: 700px; }
+</style>
+{% endblock %}
+
 {% block content %}
+{# 以下のようにすると "Mailを変更" の下にリストをだす。#}
 <div>
   <ul>
     <li> aaaa
     <li> bbbb
-    <li> ccc
+    <li> cccc
   </ul>
 </div>
 {{ block.super }}
 {% endblock %}
-~               
 ~~~
 
 ### メニュー追加
