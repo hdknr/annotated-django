@@ -8,6 +8,11 @@
 - [ネストしたシリアライザ](drf.serializers.nested.md)
 - [抽象モデル](drf.serializers.abstract.md)
 
+## パーミッション
+
+- [パーミッションクラス](drf.permissions.md)
+- オブジェクトレベル
+
 ## パジネーション
 
 - [指定されたページが範囲外の例外対応](drf.pagination.md)

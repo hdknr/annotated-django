@@ -1,3 +1,8 @@
+## パーミッション
+
+- [Docs](http://www.django-rest-framework.org/api-guide/permissions/)
+- [permissions.py](https://github.com/encode/django-rest-framework/blob/master/rest_framework/permissions.py)
+
 ## オブジェクトレベル
 
 - [Object level permissions](http://www.django-rest-framework.org/api-guide/permissions/#object-level-permissions)
