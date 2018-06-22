@@ -1,3 +1,5 @@
+[#27](https://github.com/hdknr/annotated-django/issues/27)
+
 ## Hours & Minutes : datetime.time
 
 ~~~py
@@ -149,4 +151,37 @@ Out[11]: <DstTzInfo 'Asia/Shanghai' LMT+8:06:00 STD>
 ~~~python
 >>> cst = pytz.timezone('Asia/Shanghai')
 >>> dt_in_cst = cst.localize(dt)
+~~~
+
+
+## 本日の真夜中
+
+~~~py 
+from django.utils import translation ,timezone
+datetime.combine(datetime.now().date(), time(0, 0, 0))
+~~~
+
+Django タイムゾーン
+
+~~~py
+from django.utils import timezone
+timezone.make_aware(datetime.combine(timezone.now().date(), time(0, 0, 0)))
+~~~
+
+[python-dateutils](http://dateutil.readthedocs.io/en/stable/index.html):
+
+~~~py
+from dateutil import utils
+utils.today()
+~~~
+
+~~~py
+from dateutil.zoneinfo import *
+utils.today(gettz('Asia/Tokyo'))
+~~~
+
+~~~py
+utils.today(gettz('Asia/Tokyo')) == timezone.make_aware(datetime.combine(timezone.now().date(), time(0, 0, 0)))
+
+True
 ~~~
