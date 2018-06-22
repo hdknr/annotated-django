@@ -5,7 +5,7 @@
 
 - [django.utils.log](https://docs.djangoproject.com/ja/2.0/_modules/django/utils/log/): デフォルトロギング
 
-`django/__init__.py` [setup()](https://github.com/hdknr/annotated-django/commit/e59cdf3ac8a6113e517b51c8c01fcb8a33826842): 
+`django/__init__.py` [setup()](https://github.com/hdknr/annotated-django/blob/2.0.x/django/__init__.py#L8): 
 
 ~~~py
 def setup(set_prefix=True):
