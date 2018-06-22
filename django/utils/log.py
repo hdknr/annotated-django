@@ -64,14 +64,18 @@ DEFAULT_LOGGING = {
 
 def configure_logging(logging_config, logging_settings):
     ''' ログ設定からロギングを初期化'''
+    # logging_config : デフォルトでlogging.config.dictConfig
+    # logging_settings: デフォルトで settings.LOGGING
     if logging_config:
         # First find the logging configuration function ...
         logging_config_func = import_string(logging_config)
 
         logging.config.dictConfig(DEFAULT_LOGGING)
+        # デフォルトの設定
 
         # ... then invoke it with the logging settings
         if logging_settings:
+            # カスタム設定(もしもsettings.LOGGING があれば)
             logging_config_func(logging_settings)
 
 
