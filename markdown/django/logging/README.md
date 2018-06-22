@@ -1,9 +1,12 @@
 [#46](https://github.com/hdknr/annotated-django/issues/46)
 
 
+## Django での LOGGING の扱い
+
 - [django.utils.log](https://docs.djangoproject.com/ja/2.0/_modules/django/utils/log/): デフォルトロギング
 
-django/__init__.py:
+`django/__init__.py` [setup()](https://github.com/hdknr/annotated-django/commit/e59cdf3ac8a6113e517b51c8c01fcb8a33826842): 
+
 ~~~py
 def setup(set_prefix=True):
     """
@@ -27,6 +30,8 @@ def setup(set_prefix=True):
         )
     apps.populate(settings.INSTALLED_APPS)
 ~~~
+
+- [ロギングデフォルトの設定をおこなってから必要であればカスタム設定](https://github.com/hdknr/annotated-django/commit/5d7692a7e9a70c49a94c3382ef43ad4cdc31d31b)
 
 ### extra
 
