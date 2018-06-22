@@ -33,6 +33,12 @@ def setup(set_prefix=True):
 
 - [ロギングデフォルトの設定をおこなってから必要であればカスタム設定](https://github.com/hdknr/annotated-django/commit/5d7692a7e9a70c49a94c3382ef43ad4cdc31d31b)
 
+### `logging.config.dictConfig`
+
+- [16.7.2.1. 辞書スキーマの詳細](https://docs.python.jp/3/library/logging.config.html#dictionary-schema-details)
+
+
+
 ### extra
 
 - [debug](https://docs.python.jp/3/library/logging.html#logging.debug)
@@ -42,6 +48,28 @@ def setup(set_prefix=True):
 from logging import getLogger
 getLogger().info('message...', extra={'a': 'hoge', 'b': Exception('OMG!')})
 ~~~
+
+## Djangoでの例外報告
+
+
+- [Djangoの http 処理での例外報告の仕組み](https://github.com/hdknr/annotated-django/commit/6c8f83cf1e15e5372c4a189c6a9d3d162feea36f)
+
+httpの処理(実際はミドルウェアでデコレータチェーンを通したビューのハンドラ処理)で、最終的に `handle_uncaught_exception` のなかで `logger.error` されて報告される
+
+~~~py
+import logging
+logger = logging.getLogger('django.request')
+
+logger.errror(
+    '例外メセージ', 
+    exc_info=sys.exc_info,          # 例外の exc_info
+    extra={'status_code': 500, 'request': request}
+)
+~~~
+
+`exec_info`, `extra` は ロギングハンドラの `handler.emmit(record)` の `record` に渡され、
+`record.exc_info`, `record.status_code`, `record.request` という属性として参照される。
+
 
 ## フォーマット
 
