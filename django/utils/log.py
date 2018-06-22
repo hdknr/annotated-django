@@ -13,6 +13,7 @@ from django.views.debug import ExceptionReporter
 # HTTP 500 error. Depending on DEBUG, all other log records are either sent to
 # the console (DEBUG=True) or discarded (DEBUG=False) by means of the
 # require_debug_true filter.
+# デフォルトのロギング設定
 DEFAULT_LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -62,6 +63,7 @@ DEFAULT_LOGGING = {
 
 
 def configure_logging(logging_config, logging_settings):
+    ''' ログ設定からロギングを初期化'''
     if logging_config:
         # First find the logging configuration function ...
         logging_config_func = import_string(logging_config)
