@@ -18,6 +18,11 @@ logger = logging.getLogger('django.request')
 
 def convert_exception_to_response(get_response):
     """
+    django.core.handlers.baseげget_responseを例外処理する
+    正常時には get_response() の戻りをそのまま返す.
+    例外が発生したらエラー応答に変えて返答する。
+
+
     Wrap the given get_response callable in exception-to-response conversion.
 
     All exceptions will be converted. All known 4xx exceptions (Http404,
@@ -40,10 +45,12 @@ def convert_exception_to_response(get_response):
 
 
 def response_for_exception(request, exc):
+    # エラー発生時の応答
     if isinstance(exc, Http404):
         if settings.DEBUG:
             response = debug.technical_404_response(request, exc)
         else:
+            # 404 の記録と例外応答
             response = get_exception_response(request, get_resolver(get_urlconf()), 404, exc)
 
     elif isinstance(exc, PermissionDenied):
@@ -51,6 +58,7 @@ def response_for_exception(request, exc):
             'Forbidden (Permission denied): %s', request.path,
             extra={'status_code': 403, 'request': request},
         )
+        # 403 の記録と例外応答
         response = get_exception_response(request, get_resolver(get_urlconf()), 403, exc)
 
     elif isinstance(exc, MultiPartParserError):
@@ -58,6 +66,7 @@ def response_for_exception(request, exc):
             'Bad request (Unable to parse request body): %s', request.path,
             extra={'status_code': 400, 'request': request},
         )
+        # 404 の記録と例外応答
         response = get_exception_response(request, get_resolver(get_urlconf()), 400, exc)
 
     elif isinstance(exc, SuspiciousOperation):
@@ -76,6 +85,7 @@ def response_for_exception(request, exc):
         if settings.DEBUG:
             response = debug.technical_500_response(request, *sys.exc_info(), status_code=400)
         else:
+            # 400 の記録と応答
             response = get_exception_response(request, get_resolver(get_urlconf()), 400, exc)
 
     elif isinstance(exc, SystemExit):
@@ -84,6 +94,7 @@ def response_for_exception(request, exc):
 
     else:
         signals.got_request_exception.send(sender=None, request=request)
+        # 500 の記録と応答 
         response = handle_uncaught_exception(request, get_resolver(get_urlconf()), sys.exc_info())
 
     # Force a TemplateResponse to be rendered.
@@ -94,11 +105,14 @@ def response_for_exception(request, exc):
 
 
 def get_exception_response(request, resolver, status_code, exception, sender=None):
+    # エラーコードに対する例外応答を生成して返す
+    # handle_uncaught_exceptionで loggingする 
     try:
         callback, param_dict = resolver.resolve_error_handler(status_code)
         response = callback(request, **dict(param_dict, exception=exception))
     except Exception:
         signals.got_request_exception.send(sender=sender, request=request)
+        # 500エラーの記録と応答
         response = handle_uncaught_exception(request, resolver, sys.exc_info())
 
     return response
@@ -106,6 +120,14 @@ def get_exception_response(request, resolver, status_code, exception, sender=Non
 
 def handle_uncaught_exception(request, resolver, exc_info):
     """
+    500エラー: 例外の報告: 
+    logger.errror(
+        'message...', 
+        exc_info=sys.exc_info,
+        extra={'status_code': 500, 'request': request}
+    )
+    # https://docs.python.org/3.6/library/sys.html#sys.exc_info
+
     Processing for any otherwise uncaught exceptions (those that will
     generate HTTP 500 responses).
     """

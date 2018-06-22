@@ -32,7 +32,12 @@ class BaseHandler:
         self._response_middleware = []
         self._exception_middleware = []
 
+        # convert_exception_to_response は例外トラップのデコレータ
+        # 正常時には HttpResponseなど self._get_responseの結果を返す 
+        # 異常時には例外応答が作られて返される
         handler = convert_exception_to_response(self._get_response)
+
+        # ミドルウェアでデコレータチェーンを作る => ミドルウェアチェーン
         for middleware_path in reversed(settings.MIDDLEWARE):
             middleware = import_string(middleware_path)
             try:
@@ -61,7 +66,7 @@ class BaseHandler:
 
         # We only assign to this when initialization is complete as it is used
         # as a flag for initialization being complete.
-        self._middleware_chain = handler
+        self._middleware_chain = handler        # ミドルウェアチェーンの完成
 
     def make_view_atomic(self, view):
         non_atomic_requests = getattr(view, '_non_atomic_requests', set())
