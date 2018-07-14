@@ -62,7 +62,7 @@ class UsernameField(forms.CharField):
 
 
 class UserCreationForm(forms.ModelForm):
-    """
+    """ 新規ユーザー
     A form that creates a user, with no privileges, from the given username and
     password.
     """
@@ -93,6 +93,7 @@ class UserCreationForm(forms.ModelForm):
             self.fields[self._meta.model.USERNAME_FIELD].widget.attrs.update({'autofocus': True})
 
     def clean_password2(self):
+        # パスワード不一致エラーの確認
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
@@ -109,6 +110,7 @@ class UserCreationForm(forms.ModelForm):
         password = self.cleaned_data.get('password2')
         if password:
             try:
+		# パスワードルールの不整合
                 password_validation.validate_password(password, self.instance)
             except forms.ValidationError as error:
                 self.add_error('password2', error)

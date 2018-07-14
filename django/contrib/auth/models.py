@@ -136,6 +136,7 @@ class UserManager(BaseUserManager):
         Create and save a user with the given username, email, and password.
         """
         if not username:
+	    # ユーザー名が必要
             raise ValueError('The given username must be set')
         email = self.normalize_email(email)
         username = self.model.normalize_username(username)
@@ -301,7 +302,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
         help_text=_('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
         validators=[username_validator],
         error_messages={
-            'unique': _("A user with that username already exists."),
+            'unique': _("A user with that username already exists."),	# ユーザーがすでに存在する
         },
     )
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
