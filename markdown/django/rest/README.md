@@ -17,6 +17,10 @@
 
 - [指定されたページが範囲外の例外対応](drf.pagination.md)
 
+## HOWTO
+
+- [サインアップ](howto/drf.signup.md)
+
 ## requests
 
 - [SHIFT_JISでPOSTする](requests.md)

@@ -19,3 +19,8 @@ if user:
 ## 氏名
 
 - `user.get_full_name()`
+
+
+## 新規登録
+
+- [エラーメッセージなど](https://github.com/hdknr/annotated-django/commit/0f4dad8ad61bc549aa7fa010961d36b5d11a9700)

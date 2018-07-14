@@ -28,6 +28,8 @@ class AlumnusCsvAdmin(BaseModelAdmin):
 
 ## フィードに値を設定(save_model)
   
+[save_model()](https://docs.djangoproject.com/en/2.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.save_model)
+
 ~~~py
 class AlumnusCsvAdmin(BaseModelAdmin):                                              
     def save_model(self, request, obj, form, change):                               
