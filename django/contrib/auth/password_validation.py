@@ -16,6 +16,12 @@ from django.utils.translation import gettext as _, ngettext
 
 @functools.lru_cache(maxsize=None)
 def get_default_password_validators():
+    ''' デフォルトのパスワード検証:
+	django.contrib.auth.password_validation.UserAttributeSimilarityValidator
+	django.contrib.auth.password_validation.MinimumLengthValidator
+	django.contrib.auth.password_validation.CommonPasswordValidator
+	django.contrib.auth.password_validation.NumericPasswordValidator
+    '''
     return get_password_validators(settings.AUTH_PASSWORD_VALIDATORS)
 
 
@@ -41,7 +47,7 @@ def validate_password(password, user=None, password_validators=None):
     """
     errors = []
     if password_validators is None:
-        password_validators = get_default_password_validators()
+        password_validators = get_default_password_validators()	# デフォルトパスワード検証
     for validator in password_validators:
         try:
             validator.validate(password, user)
@@ -90,6 +96,7 @@ password_validators_help_text_html = lazy(_password_validators_help_text_html, s
 
 class MinimumLengthValidator:
     """
+    パスワードが短すぎ
     Validate whether the password is of a minimum length.
     """
     def __init__(self, min_length=8):
@@ -117,6 +124,7 @@ class MinimumLengthValidator:
 
 class UserAttributeSimilarityValidator:
     """
+    パスワードがユーザー属性に似すぎる
     Validate whether the password is sufficiently different from the user's
     attributes.
 
@@ -159,6 +167,7 @@ class UserAttributeSimilarityValidator:
 
 class CommonPasswordValidator:
     """
+    パスワードが一般的すぎる(Djangoが持っている辞書に当てててています)
     Validate whether the password is a common password.
 
     The password is rejected if it occurs in a provided list, which may be gzipped.
@@ -192,6 +201,7 @@ class CommonPasswordValidator:
 
 class NumericPasswordValidator:
     """
+    パスワードが数字だけ
     Validate whether the password is alphanumeric.
     """
     def validate(self, password, user=None):

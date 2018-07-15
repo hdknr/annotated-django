@@ -102,6 +102,7 @@ class HttpRequest:
                 msg += " You may need to add %r to ALLOWED_HOSTS." % domain
             else:
                 msg += " The domain name provided is not valid according to RFC 1034/1035."
+            # 許可されていないホストにリクエストが来た時の例外
             raise DisallowedHost(msg)
 
     def get_port(self):
