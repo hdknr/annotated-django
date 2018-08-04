@@ -4,7 +4,7 @@
 - [nose](nose.md)
 - [pytest](pytest.md)
 
-Coverage:
+## Coverage
 
 - [coverage](coverage.md)
 
@@ -16,8 +16,9 @@ Coverage:
 
 - [django.tests](django.tests.md)
 
-Helper:
+## Fixtures
 
+- [Faker](facker.md)
 - [factory_boy](factory_boy.md)
 
 ## Web
