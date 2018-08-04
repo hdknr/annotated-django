@@ -1,3 +1,5 @@
+[#25](https://github.com/hdknr/annotated-django/issues/25)
+
 ## Framework
 
 - [tox](tox.md)
