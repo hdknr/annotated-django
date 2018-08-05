@@ -2,6 +2,7 @@
 
 - [annotated-django/tree/1.10.x](https://github.com/hdknr/annotated-django/tree/1.10.x)
 - [annotated-django/tree/1.9.x](https://github.com/hdknr/annotated-django/tree/1.9.x)
+- [リリース](release)
 
 ## Topics
 
