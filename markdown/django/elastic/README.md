@@ -12,6 +12,7 @@
 - [elasticsearch-py](elasticsearch.py.md)
 - [elasticsearch-kuromoji](elasticsearch.kuromoji.md)
 - [AWS Elasticsearch Service](elasticsearch.aws.md)
+- [nginx](elastic.nginx.md)
 
 ### DSL
 
