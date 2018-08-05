@@ -1,0 +1,3 @@
+[submodule "samples/django-history"]
+	path = samples/django-history
+	url = https://github.com/hdknr/django-history.git
