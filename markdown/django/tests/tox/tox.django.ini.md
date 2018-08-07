@@ -1,8 +1,4 @@
-# tox
-
-- http://tox.readthedocs.io/en/latest/index.html
-
-## django 2.1 の tox.ini
+# django 2.1 の tox.ini
 
 ~~~ini
 # Tox (https://tox.readthedocs.io/) 複数の virtualenvでテストを実行するツール。
