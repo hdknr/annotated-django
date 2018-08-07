@@ -39,6 +39,7 @@ class ChangeList:
     def __init__(self, request, model, list_display, list_display_links,
                  list_filter, date_hierarchy, search_fields, list_select_related,
                  list_per_page, list_max_show_all, list_editable, model_admin, sortable_by):
+        # sortable_by が追加されている
         self.model = model
         self.opts = model._meta
         self.lookup_opts = self.opts
