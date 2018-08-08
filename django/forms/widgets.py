@@ -205,6 +205,8 @@ class Widget(metaclass=MediaDefiningClass):
     def format_value(self, value):
         """
         Return a value as it should appear when rendered in a template.
+
+        https://github.com/alex/django-taggit/commit/7ada5bc94526da9475c1e5300c3c41bf2d971c4c
         """
         if value == '' or value is None:
             return None
