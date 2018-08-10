@@ -1,0 +1,2 @@
+- [wolever/parameterized](https://github.com/wolever/parameterized)
+- [Pythonのテストのパラメータ化にはparameterizedを使うと楽（unittest/pytest/nose/nose2対応）](http://h-miyako.hatenablog.com/entry/2017/08/16/173000)

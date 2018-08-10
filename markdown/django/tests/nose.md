@@ -1,2 +1,4 @@
 - http://nose.readthedocs.io/en/latest/
-- https://github.com/django-nose/django-nose
+- [nose2](https://github.com/nose-devs/nose2)
+- [pytest](https://docs.pytest.org/en/latest/)
+- [django-nose](https://github.com/django-nose/django-nose)

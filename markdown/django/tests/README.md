@@ -2,8 +2,8 @@
 
 ## Framework
 
-- [tox](tox.md)
-- [nose](nose.md)
+- [tox](tox.md)   - 複数のPythonインタプリタ(virtualenv)でテストを管理する
+- [nose](nose.md) - 
 - [pytest](pytest.md)
 
 ## Coverage
@@ -22,6 +22,10 @@
 
 - [Faker](facker.md)
 - [factory_boy](factory_boy.md)
+
+## Parameter
+
+- [parameterized](parameterized.md)
 
 ## Web
 

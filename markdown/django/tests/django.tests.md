@@ -48,3 +48,9 @@ $ ./manage.py dumpdata --exclude contenttypes
 ~~~
 $ ./manage.py dumpdata --natural --exclude auth.permission --exclude contenttypes --indent 4  
 ~~~
+
+
+
+## 無駄なテストを実行しない
+
+- [cyberj/django-ignoretests](https://github.com/cyberj/django-ignoretests)
