@@ -115,3 +115,8 @@ $ python manage.py ping_google [/sitemap.xml]
 
 - sitemmap.xml の受け取りサイズに注意
 - Google にURLが登録されていないと `django.contrib.sitemaps.SitemapNotFound` 例外がおきます
+
+
+## サイトマップ配信ビュー
+
+- [サイトマップビュー · hdknr/annotated-django@85c096d](https://github.com/hdknr/annotated-django/commit/85c096d288392af693a1af5d4437c291570dfa4d)
