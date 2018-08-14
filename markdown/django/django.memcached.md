@@ -50,10 +50,72 @@ END
 
 - [get all keys set in memcached](http://stackoverflow.com/questions/19560150/get-all-keys-set-in-memcached)
 
-
 # Django キャッシュ
 
-- [Django’s cache framework](https://docs.djangoproject.com/en/dev/topics/cache/)
+- [Django’s cache framework](https://docs.djangoproject.com/ja/2.1/topics/cache/#django-s-cache-framework)
+
+どちらか:
+
+~~~bash
+$ pip install python-memcached
+$ pip install pylibmc
+~~~
+
+python-memcached:
+
+~~~py
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
+~~~
+
+pylibmc:
+
+~~~py
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
+~~~
+
+## 基本操作
+
+30秒間キャッシュさせる:
+
+~~~py
+In [1]: from django.core.cache import cache
+
+In [2]: cache.set('my_key', 'hello, world!', 30)
+
+In [3]: cache.get('my_key')
+Out[3]: 'hello, world!'
+
+In [4]: cache.get('my_key')
+None
+~~~
+
+インクリメント:
+
+~~~py
+In [4]: cache.set('num', 1)
+
+In [5]: cache.incr('num')
+Out[5]: 2
+
+In [6]: cache.decr('num')
+Out[6]: 1
+~~~
+
+削除:
+
+~~~py
+In [7]: cache.delete('num')
+~~~
 
 ## バックエンド
 
