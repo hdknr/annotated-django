@@ -3,6 +3,7 @@
 - [19.1.2. email.parser: 電子メールメッセージのパース — Python 3.6.6 ドキュメント](https://docs.python.org/ja/3/library/email.parser.html) 
 - 複数エンコードが含まれる可能性が高いので `バイナリ` で読み込む
 - 格納は `TextField`(`longtext`) ではなく `BinaryField`(`longblob`)
+- [smart_str](https://docs.djangoproject.com/ja/2.1/ref/utils/#django.utils.encoding.smart_str) で `str` に変換して `message_from_string` で復元する
 
 ~~~py
 from django.db import models
