@@ -1,3 +1,6 @@
 [submodule "samples/django-history"]
 	path = samples/django-history
 	url = https://github.com/hdknr/django-history.git
+[submodule "samples/vue-ts-hello"]
+	path = samples/vue-ts-hello
+	url = https://github.com/hdknr/vue-ts-hello.git

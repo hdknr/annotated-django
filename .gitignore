@@ -19,3 +19,7 @@ tests/report/
 #
 markdown/private
 markdown/scriptogram
+
+#
+.vscode
+_build
