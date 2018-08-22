@@ -1,5 +1,19 @@
 [#44](https://github.com/hdknr/annotated-django/issues/44)
 
+# Python
+
+## メッセージ
+
+- [19.1.1. email.message: 電子メールメッセージの表現 — Python 3.6.6 ドキュメント](https://docs.python.org/ja/3/library/email.message.html)
+- [19.1.2. email.parser: 電子メールメッセージのパース — Python 3.6.6 ドキュメント](https://docs.python.org/ja/3/library/email.parser.html)
+
+
+## ヘッダー
+
+- [19.1.11. email.header: 国際化されたヘッダ — Python 3.6.5 ドキュメント](https://docs.python.jp/3/library/email.header.html)
+- [ヘッダー](django.mails.headers.md)
+
+
 # Django
 
 - [Sending email](https://docs.djangoproject.com/en/2.0/topics/email//)
