@@ -1,8 +1,11 @@
+[#44](https://github.com/hdknr/annotated-django/issues/44)
+
 # Django
 
 - [Sending email](https://docs.djangoproject.com/en/2.0/topics/email//)
 
 ## ショートカット
+
 - [send_mail()](https://docs.djangoproject.com/en/2.0/topics/email/#send-mail)
 - [send_mass_mail()](https://docs.djangoproject.com/en/2.0/topics/email/#send-mass-mail)
 - [mail_admins()](https://docs.djangoproject.com/en/2.0/topics/email/#mail-admins)  : 管理者へメールする
@@ -60,12 +63,11 @@ con.close()
 ## その他
 
 - [パスワードリセットメール]((django.mails.password_reset.md)
+- [メールメッセージをlongblobに保存する](django.mails.messageobject.md)
 
 # Projects
 
 - [pinax/django-mailer](https://github.com/pinax/django-mailer)
-- [hdknr/flier](https://github.com/hdknr/flier)
-
 
 ## AWS SES
 

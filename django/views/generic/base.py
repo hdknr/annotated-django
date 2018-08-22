@@ -10,6 +10,7 @@ from django.template.response import TemplateResponse
 from django.urls import reverse
 from django.utils.decorators import classonlymethod
 
+
 logger = logging.getLogger('django.request')
 
 
