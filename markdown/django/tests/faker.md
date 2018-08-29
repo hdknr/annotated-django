@@ -26,8 +26,7 @@ $ faker -l ja_JP address
 - [ja_JP](https://faker.readthedocs.io/en/latest/locales/ja_JP.html)
 - [Change default faker locale in factory_boy](https://stackoverflow.com/questions/45773954/change-default-faker-locale-in-factory-boy)
 
-
-~~~py 
+~~~py
 name = factory.Faker('first_name', locale='es_ES')
 ~~~
 
