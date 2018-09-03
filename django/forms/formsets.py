@@ -55,7 +55,7 @@ class BaseFormSet:
         self.data = data or {}
         self.files = files or {}
         self.initial = initial
-        self.form_kwargs = form_kwargs or {}
+        self.form_kwargs = form_kwargs or {}	# form_kwargs が作られる
         self.error_class = error_class
         self._errors = None
         self._non_form_errors = None
