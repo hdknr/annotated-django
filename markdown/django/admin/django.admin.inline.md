@@ -4,7 +4,6 @@
 
 - 複数の路線の乗り換え駅になっている駅が地域に存在する
 
-
 ~~~py
 
 class Region(BaseModel):
@@ -70,7 +69,6 @@ class LineStationAdminInlineForm(forms.ModelForm):
 
 ## 複数ある場合
 
-
 ~~~py
 
 class PackageForm(forms.ModelForm):
@@ -134,4 +132,57 @@ class TariffAdmin(admin.ModelAdmin):
         setattr(request, '_current_shipping', obj)  # (1) 値をリクエストに設定する
         return super(TariffAdmin, self)._create_formsets(
             request, obj, change        
+~~~
+
+## 親の属性を引き継ぐ
+
+親モデルインスタンスの `plan` 属性をインラインのインスタンスに自動的に引き継ぐ
+
+~~~py
+from . import forms
+
+class PlanPackageInline(admin.TabularInline):
+    model = models.PlanPackage
+    # readonly_fields = ['plan']             # NG: readonlyにしてしまうと、値がセットされない
+    readonly_fields = ['plan_info']          # OK: 表示用のメソッドを使う
+    exclude = []
+    extra = 0
+    formset = forms.PlanPackageFormSet       # フォームセット
+    form = forms.PlanPackageForm             # フォーム
+
+    def plan_info(self, obj):
+        return obj.plan
+~~~
+
+- フォームセットが[新規フォームを作成](https://github.com/hdknr/annotated-django/commit/552d3ff203dc6f2852729d1823ebab2be8487b449)
+- この時に、[get_form_kwargs で返される値](https://github.com/hdknr/annotated-django/commit/d1593ecdcded5c87b1acfbe3f235c802a6ba9ed7) がフォームの初期化に使われる
+- 実際は `__init__` で作られる [form_kwargs](https://github.com/hdknr/annotated-django/commit/a2926851b7b666601e3a5ea9fa95661b567e180f) が複製される
+
+~~~py
+class PlanPackageFormSet(forms.models.BaseInlineFormSet):
+
+    def patch_initial(self):
+        ''' form_kwargs['initial'] を変更する '''
+
+        initial = self.form_kwargs.get('initial', {})
+
+        if hasattr(self.instance, 'plan'):
+            # 初期値として plan を設定する
+            initial['plan'] = self.instance.plan
+
+        self.form_kwargs['initial'] = initial
+
+    def __init__(self, *args, **kwargs):
+        super(PlanPackageFormSet, self).__init__(*args, **kwargs)
+        self.patch_initial()
+
+
+class PlanPackageForm(forms.ModelForm):
+
+    class Meta:
+        model = models.PlanPackage
+        exclude = []
+        # plan は編集させない
+        widgets = {
+            'plan': forms.HiddenInput(), }
 ~~~
