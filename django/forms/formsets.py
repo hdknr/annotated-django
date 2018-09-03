@@ -137,12 +137,13 @@ class BaseFormSet:
         return forms
 
     def get_form_kwargs(self, index):
-        """
+        """ フォームに渡す値を作る
         Return additional keyword arguments for each individual formset form.
 
         index will be None if the form being constructed is a new empty
         form.
         """
+        # 実際は form_kwargs を複製
         return self.form_kwargs.copy()
 
     def _construct_form(self, i, **kwargs):
