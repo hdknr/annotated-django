@@ -185,12 +185,13 @@ class BaseFormSet:
 
     @property
     def empty_form(self):
+        # 新規フォームの生成
         form = self.form(
             auto_id=self.auto_id,
             prefix=self.add_prefix('__prefix__'),
             empty_permitted=True,
             use_required_attribute=False,
-            **self.get_form_kwargs(None)
+            **self.get_form_kwargs(None)   # フォームに値をセット
         )
         self.add_fields(form, None)
         return form
