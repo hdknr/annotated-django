@@ -9,6 +9,7 @@ Django Model 関連
 # 継承
 
 - [複数の多重継承元でフィールドが被っていると、モデルの初期化した時に値が飛んでしまう問題](inheritance.multi.md)
+- [プロキシモデル](django.models.proxy.md)
 
 # 集約
 
