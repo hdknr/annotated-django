@@ -1,5 +1,9 @@
 # Python
 
+## 環境
+
+- [Anaconda](anaconda)
+- [pyenv](pyenv.md)
 
 ## コマンド
 
@@ -9,7 +13,6 @@
 - [invoke - task execution tool & library](invoke.md)
 - [Configuration and Build Tools](https://wiki.python.org/moin/ConfigurationAndBuildTools)
 
-
 ## Web
 
 - [icalendar](icalendar.md)
@@ -18,7 +21,6 @@
 
 - [Selenium](selenium.md)
 - [ページロードを待つ](selenium.wait.md)
-
 
 ### クローリング
 
@@ -40,7 +42,6 @@
 
 - [Excel](python.excel.md)
 
-
 ## 文字列
 
 - [string](python.string.md)
@@ -50,11 +51,9 @@
 
 - [PDF pgmagick](pgmagick.md)
 
-
 ## エラー処理
 
 - [logging](python.logging.md)
-
 
 ## 言語
 
