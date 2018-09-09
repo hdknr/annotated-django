@@ -1,6 +1,7 @@
 # Jupyter Lab
 
 - [Jupyter Labの便利な新機能まとめ -機械学習エンジニアが愛する開発環境（IDE）の決定版](https://www.codexa.net/jupyter-lab-beta-review-ml-ide/)
+- [jupyter](http://jupyter.org/)
 
 ## インストール
 

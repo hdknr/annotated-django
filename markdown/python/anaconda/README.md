@@ -36,16 +36,20 @@ $ pyenv install anaconda3-5.2.0
 
 - [Jupyter, Ipythonの設定　~起動、グラフの日本語表示、エイリアス、インライン表示、スタートアップモジュールインポート~ - Qiita](https://qiita.com/u1and0/items/a926a7be5d182932a929)
 
-
 ## ライブラリ
 
+- [Pandas](pandas.md)
 - [NumPy](https://ja.wikipedia.org/wiki/NumPy)
 - [SccPy](https://ja.wikipedia.org/wiki/SciPy)
-- [Pandas](https://ja.wikipedia.org/wiki/Pandas)
+
+
+## グラフ
+
 - [matplotlib](https://ja.wikipedia.org/wiki/Matplotlib)
-- [jupyter](http://jupyter.org/)
-- [D3.js - Data-Driven Documents](https://d3js.org/) / [ResidentMario/py_d3: D3 block magic for Jupyter notebook.](https://github.com/ResidentMario/py_d3)
 - [Python Graphing Library, Plotly](https://plot.ly/python/)
+- [pythonで美しいグラフ描画 -seabornを使えばデータ分析と可視化が捗る その1 - Qiita](https://qiita.com/hik0107/items/3dc541158fceb3156ee0)
+- [Overview of Python Visualization Tools - Practical Business Python](http://pbpython.com/visualization-tools-1.html)
+- [D3.js - Data-Driven Documents](https://d3js.org/) / [ResidentMario/py_d3: D3 block magic for Jupyter notebook.](https://github.com/ResidentMario/py_d3)
 
 ## その他
 
