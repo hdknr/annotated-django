@@ -59,7 +59,7 @@ def subclass_exception(name, bases, module, attached_to):
 
 
 class ModelBase(type):
-    """Metaclass for all models."""
+    """Metaclass for all models. (モデルのメタクラス)"""
     def __new__(cls, name, bases, attrs, **kwargs):
         super_new = super().__new__
 
@@ -379,7 +379,7 @@ class ModelState:
     fields_cache = ModelStateFieldsCacheDescriptor()
 
 
-class Model(metaclass=ModelBase):
+class Model(metaclass=ModelBase):           # メタクラスの指定
 
     def __init__(self, *args, **kwargs):
         # Alias some things as locals to avoid repeat global lookups
