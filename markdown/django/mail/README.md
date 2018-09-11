@@ -4,9 +4,7 @@
 
 ## メッセージ
 
-- [19.1.1. email.message: 電子メールメッセージの表現 — Python 3.6.6 ドキュメント](https://docs.python.org/ja/3/library/email.message.html)
-- [19.1.2. email.parser: 電子メールメッセージのパース — Python 3.6.6 ドキュメント](https://docs.python.org/ja/3/library/email.parser.html)
-
+- [email.message.Message](email.message.Message.md)
 
 ## ヘッダー
 
