@@ -50,6 +50,8 @@ $ pyenv install anaconda3-5.2.0
 - [pythonで美しいグラフ描画 -seabornを使えばデータ分析と可視化が捗る その1 - Qiita](https://qiita.com/hik0107/items/3dc541158fceb3156ee0)
 - [Overview of Python Visualization Tools - Practical Business Python](http://pbpython.com/visualization-tools-1.html)
 - [D3.js - Data-Driven Documents](https://d3js.org/) / [ResidentMario/py_d3: D3 block magic for Jupyter notebook.](https://github.com/ResidentMario/py_d3)
+- [Jupyter/Pythonでデータ分析する人にお勧めしたい！便利なライブラリー「PixieDust」をザクッと紹介します - Qiita](https://qiita.com/ishida330/items/53f1b0df2247fab5c6dd)
+
 
 ## その他
 
