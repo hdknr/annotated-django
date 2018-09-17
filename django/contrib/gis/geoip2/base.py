@@ -92,6 +92,7 @@ class GeoIP2:
             city_db = path / (city or GEOIP_SETTINGS['GEOIP_CITY'])
             if city_db.is_file():
                 self._city = geoip2.database.Reader(str(city_db), mode=cache)
+                # self._city = geoip2.database.Reader(str(city_db), ['ja'], mode=cache)
                 self._city_file = city_db
             if not self._reader:
                 raise GeoIP2Exception('Could not load a database from %s.' % path)
