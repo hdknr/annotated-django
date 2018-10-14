@@ -9,6 +9,7 @@ Django Model 関連
 # 継承
 
 - [メタクラス](django.models.metaclass.md)
+- [サブクラス](django.models.sublcass.md)
 - [複数の多重継承元でフィールドが被っていると、モデルの初期化した時に値が飛んでしまう問題](inheritance.multi.md)
 - [プロキシモデル](django.models.proxy.md)
 

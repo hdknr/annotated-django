@@ -1,8 +1,6 @@
 ## 言語比較
 
-
 - [http://hyperpolyglot.org/scripting](http://hyperpolyglot.org/scripting)
-
 
 ## One Liner
 

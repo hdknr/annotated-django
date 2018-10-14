@@ -243,3 +243,8 @@ Child html-webpack-plugin for "index.html":
     [vxCX] ./~/html-webpack-plugin/lib/loader.js!./templates/template.html 1.41 kB {0} [built]
 ✨  Done in 77.12s.
 ~~~
+
+
+## 問題
+
+- [【20180301更新有り】JupyterLabだとtqdm_notebookはもちろんだが、tqdmも使えず解決できなかった話。 - EnsekiTT Blog](http://ensekitt.hatenablog.com/entry/2017/11/13/200000)

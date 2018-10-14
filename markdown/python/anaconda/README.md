@@ -19,6 +19,7 @@
 - [Tableau](tableau.md)
 - [Hydrogen](hydrogen.md)
 - [VS Code](vscode.md)
+- [AWS Cloud9](clound9.md)
 
 ## 導入
 
@@ -32,15 +33,19 @@ pyenv:
 $ pyenv install anaconda3-5.2.0
 ~~~
 
+- [拡張:jupyter_contrib_nbextensions](nbextentions)
+
 ## 設定
 
 - [Jupyter, Ipythonの設定　~起動、グラフの日本語表示、エイリアス、インライン表示、スタートアップモジュールインポート~ - Qiita](https://qiita.com/u1and0/items/a926a7be5d182932a929)
+- [dunovank/jupyter-themes: Custom Jupyter Notebook Themes](https://github.com/dunovank/jupyter-themes)
 
 ## ライブラリ
 
 - [Pandas](pandas.md)
 - [NumPy](https://ja.wikipedia.org/wiki/NumPy)
 - [SccPy](https://ja.wikipedia.org/wiki/SciPy)
+- [MathJax](mathjax.md)
 
 
 ## グラフ
@@ -51,6 +56,7 @@ $ pyenv install anaconda3-5.2.0
 - [Overview of Python Visualization Tools - Practical Business Python](http://pbpython.com/visualization-tools-1.html)
 - [D3.js - Data-Driven Documents](https://d3js.org/) / [ResidentMario/py_d3: D3 block magic for Jupyter notebook.](https://github.com/ResidentMario/py_d3)
 - [Jupyter/Pythonでデータ分析する人にお勧めしたい！便利なライブラリー「PixieDust」をザクッと紹介します - Qiita](https://qiita.com/ishida330/items/53f1b0df2247fab5c6dd)
+- [Python Jupyter notebookでpandasを使いCSVを読み込みグラフを描画してpdfなどで保存する方法 - 生活を良くします-怠惰なプログラミング](https://www.what-a-day.net/entry/python-graph-making)
 
 
 ## その他
