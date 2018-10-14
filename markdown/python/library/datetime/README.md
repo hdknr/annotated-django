@@ -1,5 +1,7 @@
 [#27](https://github.com/hdknr/annotated-django/issues/27)
 
+- [time - OS](../time)
+
 ## Hours & Minutes : datetime.time
 
 ~~~py
@@ -7,7 +9,6 @@ In [1]: from datetime import time
 In [2]: time(10, 0, 0)
 Out[2]: datetime.time(10, 0)
 ~~~
-
 
 ## 曜日は 月曜日 = 0
 
@@ -152,7 +153,6 @@ Out[11]: <DstTzInfo 'Asia/Shanghai' LMT+8:06:00 STD>
 >>> cst = pytz.timezone('Asia/Shanghai')
 >>> dt_in_cst = cst.localize(dt)
 ~~~
-
 
 ## 本日の真夜中
 
