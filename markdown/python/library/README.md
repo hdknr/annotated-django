@@ -1,4 +1,7 @@
-# ライブラリ
+# [Python 標準ライブラリ](https://docs.python.org/ja/3/library/index.html)
+
+- Python とともに配付されている標準ライブラリ
+- 標準以外は [PYPI](https://pypi.org/) などを利用する
 
 ## [データタイプ](https://docs.python.org/ja/3/library/datatypes.html)
 

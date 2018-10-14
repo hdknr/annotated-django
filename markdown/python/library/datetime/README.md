@@ -2,6 +2,16 @@
 
 - [time - OS](../time)
 
+## 年だけとstrptime(`%Y`とか)で変換すると 1月1日 00:00:00 になる
+
+~~~py
+>>> datetime.strptime('1990', '%Y')
+datetime.datetime(1990, 1, 1, 0, 0)
+
+>> datetime.strptime('1990/31', '%Y/%d')
+datetime.datetime(1990, 1, 31, 0, 0)
+~~~
+
 ## Hours & Minutes : datetime.time
 
 ~~~py
