@@ -19,7 +19,7 @@
 
 ### selenium
 
-- [Selenium](selenium.md)
+- [Selenium](selenium)
 - [ページロードを待つ](selenium.wait.md)
 
 ### クローリング
