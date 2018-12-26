@@ -1,7 +1,9 @@
-# Selenium
+# Selenium ([#25](https://github.com/hdknr/annotated-django/issues/25))
 
+- [SeleniumHQ/selenium/](https://github.com/SeleniumHQ/selenium/tree/master/py)
 - [Selenium Client Driver](http://seleniumhq.github.io/selenium/docs/api/py/)
 - [How to install Selenium WebDriver on Mac OS](http://stackoverflow.com/questions/18868743/how-to-install-selenium-webdriver-on-mac-os)
+- [selenium](https://selenium-python.readthedocs.io/installation.html)
 
 ## ドライバー一覧
 

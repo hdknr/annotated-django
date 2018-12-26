@@ -2,6 +2,13 @@
 
 - [chromedriver-binary](https://pypi.org/project/chromedriver-binary/)
 
+Ubuntu:
+
+~~~bash
+$ dpkg -l | grep chrome
+ii  google-chrome-stable                  71.0.3578.98-1                    amd64        The web browser from Google
+~~~
+
 ~~~bash
 $ pip install chromedriver-binary
 
