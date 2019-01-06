@@ -13,3 +13,4 @@
 ## 記事
 
 - [pytestでdjangoのcoverageを測る(2018-05-08)](https://blog.mtb-production.info/entry/2018/05/08/224112#django%E3%81%A7pytest%E3%81%A7%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%E3%82%92%E5%9B%B3%E3%82%8B)
+- [PyBites – How to Test Your Django App with Selenium and pytest](https://pybit.es/selenium-pytest-and-django.html)
