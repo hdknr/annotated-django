@@ -1,3 +1,5 @@
+# Kibana: Ubuntu
+
 ## Install on Ubuntu 17.10
 
 - [Install Kibana with Debian Package](https://www.elastic.co/guide/en/kibana/current/deb.html)
