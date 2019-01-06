@@ -1,4 +1,7 @@
+# Aggregate
+
 ## datetimeフィールドの日付で件数を出す
+
 - [extra](https://docs.djangoproject.com/en/1.8/ref/models/querysets/#django.db.models.query.QuerySet.extra) で `last` (date) を追加する
 
 ~~~py
@@ -61,3 +64,4 @@ Out[5]: <QuerySet [{'status': None, 'total': 0, 'status__name': None}, {'status'
 ## 記事
 
 - [Djangoの集計について](http://note.crohaco.net/2014/django-aggregate/)
+- [django - Annotating a Sum results in None rather than zero - Stack Overflow](https://stackoverflow.com/questions/6160648/annotating-a-sum-results-in-none-rather-than-zero)
