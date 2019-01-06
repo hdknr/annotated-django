@@ -24,6 +24,24 @@ class IssueSerializer(serializers.ModelSerializer):
         return instance
 ~~~
 
+## 自己参照モデルのネスト
+
+- [Django rest framework nested self-referential objects - Stack Overflow](https://stackoverflow.com/questions/13376894/django-rest-framework-nested-self-referential-objects)
+
+~~~py
+class PackageProductSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.PackageProduct
+        fields = '__all__'
+
+    def get_fields(self):
+        fields = super().get_fields()
+        fields['alternatives'] = PackageProductSerializer(many=True)
+        return fields
+~~~
+
+
 ## "この項目はnullにできません。"
 
 - `allow_null=True` を設定する
