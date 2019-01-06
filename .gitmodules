@@ -4,3 +4,6 @@
 [submodule "samples/vue-ts-hello"]
 	path = samples/vue-ts-hello
 	url = https://github.com/hdknr/vue-ts-hello.git
+[submodule "samples/django-contacts"]
+	path = samples/django-contacts
+	url = https://github.com/hdknr/django-contacts.git
