@@ -2,7 +2,6 @@
 
 - [Google Colabの知っておくべき使い方 – Google Colaboratoryのメリット・デメリットや基本操作のまとめ](https://www.codexa.net/how-to-use-google-colaboratory/)
 
-
 ## Google Drive
 
 - [Welcome to PyDrive’s documentation! — PyDrive 1.2.1 documentation](https://pythonhosted.org/PyDrive/)
