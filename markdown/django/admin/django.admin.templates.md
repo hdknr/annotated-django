@@ -47,8 +47,10 @@ shop
 {% endblock %}
 ~~~
 
-
 #### 2) change_form.html
+
+- [change_form.html]( https://github.com/hdknr/annotated-django/blob/2.1.x/django/contrib/admin/templates/admin/change_form.html)
+- [change_form_object_tools.html](https://github.com/hdknr/annotated-django/blob/2.1.x/django/contrib/admin/templates/admin/change_form_object_tools.html)
 
 #### 3) change_list.html
 
@@ -57,7 +59,6 @@ shop
 #### 5) object_history.html
 
 #### 6) popup_response.html ( >= 1.11)
-
 
 ## モデルレベル
 
@@ -118,7 +119,7 @@ emailqueue/templates/
 
 - [github master](https://github.com/django/django/blob/master/django/contrib/admin/options.py)
 
-~~~
+~~~py
     def render_change_form(self, request, context, add=False, change=False, form_url='', obj=None):
         opts = self.model._meta                                                      
         app_label = opts.app_label                                                   
@@ -157,7 +158,7 @@ emailqueue/templates/
         ], context)                                                                  
 ~~~
 
-~~~
+~~~py
     def changeform_view(self, request, object_id=None, form_url='', extra_context=None):
     	...
         adminForm = helpers.AdminForm(                                               
@@ -200,11 +201,12 @@ emailqueue/templates/
 
 - テンプレートに渡るメディア : `modelAdmin.media +  adminForm.media + [fs.media for ms in inline_formsets]`
 
-~~~
+~~~py
 from django.contrib.admin.templatetags.admin_static import static
 from django import forms  
 ~~~
-~~~
+
+~~~py
 class ModelAdmin(BaseModelAdmin):  
 	...                                              
     @property                                                                        
@@ -226,7 +228,7 @@ class ModelAdmin(BaseModelAdmin):
         	js=[static('admin/js/%s' % url) for url in js])           
 ~~~
 
-~~~
+~~~py
 >>> from bs4 import BeautifulSoup as Soup
 >>> from django import forms
 >>> print Soup(forms.Media(js=['hoge.js',]).render()).prettify()
@@ -240,7 +242,7 @@ class ModelAdmin(BaseModelAdmin):
 
 - テンプレート
 
-~~~
+~~~html
 {{ form.media }}
 {{ form.media.js }}
 {{ form.media.css }}
@@ -250,9 +252,7 @@ class ModelAdmin(BaseModelAdmin):
 
 - [How can I override the “media” property of Django's ModelAdmin and make it dynamic?](https://stackoverflow.com/questions/23302175/how-can-i-override-the-media-property-of-djangos-modeladmin-and-make-it-dynam)
 
-
-~~~
-
+~~~py
 from django.contrib import admin
 class MyModelAdmin(admin.ModelAdmin):
     model = MyModel
@@ -276,7 +276,7 @@ class MyModelAdmin(admin.ModelAdmin):
         media.add_css(css)
         media.add_js(js)
         return media
-~~~        
+~~~
 
 ## 「サイトで表示」
 
@@ -288,8 +288,9 @@ class MyModelAdmin(admin.ModelAdmin):
 
 - [django-admin-bootstrap/django-admin-bootstrap](https://github.com/django-admin-bootstrap/django-admin-bootstrap)
 
-~~~
+~~~bash
 $ pip install bootstrap-admin
+.
 ~~~
 
 ### CSS, JSなどを追加
