@@ -22,6 +22,14 @@ class IssueSerializer(serializers.ModelSerializer):
         instance.status_id = status.id
         # その他の処理
         return instance
+
+    def create(self, validated_data):
+        '''新規の場合'''
+        status = validated_data.pop('status')
+        instance = super().create(validated_data)
+        instance.status = status
+        instance.save()
+        return instance
 ~~~
 
 ## 自己参照モデルのネスト
@@ -40,7 +48,6 @@ class PackageProductSerializer(serializers.ModelSerializer):
         fields['alternatives'] = PackageProductSerializer(many=True)
         return fields
 ~~~
-
 
 ## "この項目はnullにできません。"
 

@@ -1,4 +1,8 @@
-[#36](https://github.com/hdknr/annotated-django/issues/36)
+# Django REST Framework [#36](https://github.com/hdknr/annotated-django/issues/36)
+
+- https://github.com/encode/django-rest-framework
+
+## ViewSet
 
 - [ビューセット](drf.viewsets.md)
 

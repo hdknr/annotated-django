@@ -1,3 +1,5 @@
+# 抽象モデル
+
 ## 抽象モデルのシリアライザーを生成する
 
 指定したモデルクラスのシリアライザクラスを動的に作成する:
@@ -33,9 +35,7 @@ class BaseSerializer(Serializer):
 MessageSerializer = factory(Message, base=BaseSerializer)
 ~~~
 
-
 ## メタクラスで同様に
-
 
 ~~~py
 from rest_framework.serializers import (
@@ -63,7 +63,7 @@ class AbstractModelMetaclass(SerializerMetaclass):
             return field_class and field_class(**kwargs)
 
         return OrderedDict(
-            [(field.name, _map(field)) for field in model_class._meta.fields], **others)        
+            [(field.name, _map(field)) for field in model_class._meta.fields], **others)
 ~~~
 
 ~~~py

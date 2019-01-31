@@ -1,6 +1,8 @@
 Elasticsearch DSL Examples
 ==========================
 
+- https://github.com/elastic/elasticsearch-dsl-py/tree/master/examples
+
 In this directory you can see several complete examples demonstrating key
 concepts and patterns exposed by ``elasticsearch-dsl``.
 

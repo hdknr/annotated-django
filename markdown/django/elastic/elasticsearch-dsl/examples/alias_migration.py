@@ -57,13 +57,13 @@ def setup():
     settings to be used. This can be run at any time, ideally at every new code
     deploy.
     """
-    # create an index template
+    # インデックステンプレートを作る
     index_template = BlogPost._index.as_template(ALIAS, PATTERN)
-    # upload the template into elasticsearch
-    # potentially overriding the one already there
+
+    # インデックステンプレートを更新(追加)
     index_template.save()
 
-    # create the first index if it doesn't exist
+    # 存在しなければ最初のインデックスを構築
     if not BlogPost._index.exists():
         migrate(move_data=False)
 
@@ -78,7 +78,7 @@ def migrate(move_data=True, update_alias=True):
     any and all searches without any loss of functionality. It should, however,
     not perform any writes at this time as those might be lost.
     """
-    # construct a new index name by appending current timestamp
+    # 現在のタイムスタンプをつけて新しいインデックスを作成する
     next_index = PATTERN.replace('*', datetime.now().strftime('%Y%m%d%H%M%S%f'))
 
     # get the low level connection
@@ -109,17 +109,17 @@ if __name__ == '__main__':
     # initiate the default connection to elasticsearch
     connections.create_connection()
 
-    # create the empty index
+    # 空っぽのインスタンスを作る
     setup()
 
-    # create a new document
+    # BlogPost を作成
     bp = BlogPost(
         _id=0,
         title='Hello World!',
         tags = ['testing', 'dummy'],
-        content=open(__file__).read()
+        content=open(__file__).read()           # この .py スクリプトをブログと本文として読み込む
     )
     bp.save(refresh=True)
 
-    # create new index
+    # 新しくインデックスを作る
     migrate()
