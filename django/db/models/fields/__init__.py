@@ -809,24 +809,32 @@ class Field(RegisterLookupMixin):
         return str  # return empty string
 
     def get_choices(self, include_blank=True, blank_choice=BLANK_CHOICE_DASH, limit_choices_to=None):
-        """
-        Return choices with a default blank choices included, for use
-        as <select> choices for this field.
+        """ フィールドの選択肢を返す
+        引数に設定された limit_choices_to が優先される
+        j
+        Return choices with a default blank choices included, for use as <select> choices for this field.
         """
         if self.choices:
+            # 選択肢が設定されていたら返す
             choices = list(self.choices)
             if include_blank:
                 blank_defined = any(choice in ('', None) for choice, _ in self.flatchoices)
                 if not blank_defined:
                     choices = blank_choice + choices
             return choices
-        rel_model = self.remote_field.model
+
+        # 参照データ検索条件    
+        rel_model = self.remote_field.model     # 参照先のモデル
         limit_choices_to = limit_choices_to or self.get_limit_choices_to()
+
+        # 参照データ: 通常は `pk`
         choice_func = operator.attrgetter(
             self.remote_field.get_related_field().attname
             if hasattr(self.remote_field, 'get_related_field')
             else 'pk'
         )
+
+        # 参照先モデルから limit_choices_to で検索して結果を [(参照データ, テキスト表示)]で返す
         return (blank_choice if include_blank else []) + [
             (choice_func(x), smart_text(x))
             for x in rel_model._default_manager.complex_filter(limit_choices_to)

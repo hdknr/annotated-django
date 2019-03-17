@@ -387,14 +387,17 @@ class RelatedField(FieldCacheMixin, Field):
         self.contribute_to_related_class(other, self.remote_field)
 
     def get_limit_choices_to(self):
-        """
+        """ limit_choices_to を返す
+        
         Return ``limit_choices_to`` for this model field.
 
         If it is a callable, it will be invoked and the result will be
         returned.
         """
         if callable(self.remote_field.limit_choices_to):
+            # 関数であれば呼び出してリゾルブする
             return self.remote_field.limit_choices_to()
+
         return self.remote_field.limit_choices_to
 
     def formfield(self, **kwargs):
