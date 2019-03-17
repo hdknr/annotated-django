@@ -7,7 +7,7 @@ from django.views.static import serve
 
 
 def static(prefix, view=serve, **kwargs):
-    """
+    """ スタティックURLパターン
     Return a URL pattern for serving files in debug mode.
 
     from django.conf import settings
