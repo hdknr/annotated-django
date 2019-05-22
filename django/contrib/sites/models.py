@@ -34,6 +34,8 @@ class SiteManager(models.Manager):
         return SITE_CACHE[site_id]
 
     def _get_site_by_request(self, request):
+        ''' WSGIRequestの host ベースでSiteを検索して返す
+        '''
         host = request.get_host()
         try:
             # First attempt to look up the site by host with or without port.
@@ -48,7 +50,7 @@ class SiteManager(models.Manager):
             return SITE_CACHE[domain]
 
     def get_current(self, request=None):
-        """
+        """ 現在のサイトを返す
         Return the current Site based on the SITE_ID in the project's settings.
         If SITE_ID isn't defined, return the site with domain matching
         request.get_host(). The ``Site`` object is cached the first time it's
@@ -56,6 +58,7 @@ class SiteManager(models.Manager):
         """
         from django.conf import settings
         if getattr(settings, 'SITE_ID', ''):
+            # リクエストがなかったら settingsのサイト
             site_id = settings.SITE_ID
             return self._get_site_by_id(site_id)
         elif request:

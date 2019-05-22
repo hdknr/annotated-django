@@ -82,6 +82,7 @@ class TranslateNode(Node):
             self.filter_expression.var.message_context = (
                 self.message_context.resolve(context))
         output = self.filter_expression.resolve(context)
+        # 変数をレンダリング
         value = render_value_in_context(output, context)
         # Restore percent signs. Percent signs in template text are doubled
         # so they are not interpreted as string format flags.
@@ -156,6 +157,7 @@ class BlockTranslateNode(Node):
                 val = context[key]
             else:
                 val = default_value % key if '%s' in default_value else default_value
+            # 変数をレンダリング
             return render_value_in_context(val, context)
 
         data = {v: render_value(v) for v in vars}

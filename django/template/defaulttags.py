@@ -83,6 +83,7 @@ class CycleNode(Node):
             context.set_upward(self.variable_name, value)
         if self.silent:
             return ''
+        # 変数をレンダリング
         return render_value_in_context(value, context)
 
     def reset(self, context):
@@ -122,6 +123,7 @@ class FirstOfNode(Node):
         for var in self.vars:
             value = var.resolve(context, ignore_failures=True)
             if value:
+                # 変数をレンダリング
                 first = render_value_in_context(value, context)
                 break
         if self.asvar:

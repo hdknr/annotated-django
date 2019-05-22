@@ -440,13 +440,14 @@ class Parser:
             # Use the raw values here for TokenType.* for a tiny performance boost.
             if token.token_type.value == 0:  # TokenType.TEXT
                 self.extend_nodelist(nodelist, TextNode(token.contents), token)
-            elif token.token_type.value == 1:  # TokenType.VAR
+            elif token.token_type.value == 1:  # TokenType.VAR   変数トークン
                 if not token.contents:
                     raise self.error(token, 'Empty variable tag on line %d' % token.lineno)
                 try:
                     filter_expression = self.compile_filter(token.contents)
                 except TemplateSyntaxError as e:
                     raise self.error(token, e)
+                # 変数トークンオブジェクトを生成して、リストに追加
                 var_node = VariableNode(filter_expression)
                 self.extend_nodelist(nodelist, var_node, token)
             elif token.token_type.value == 2:  # TokenType.BLOCK
@@ -965,8 +966,9 @@ def render_value_in_context(value, context):
     means escaping, if required, and conversion to a string. If value is a
     string, it's expected to already be translated.
     """
-    value = template_localtime(value, use_tz=context.use_tz)
-    value = localize(value, use_l10n=context.use_l10n)
+    value = template_localtime(value, use_tz=context.use_tz)    # 日時はコンテキストのタイムゾーンに変換
+    value = localize(value, use_l10n=context.use_l10n)          # エンコーディングはコンテキストのロケールに
+
     if context.autoescape:
         if not issubclass(type(value), str):
             value = str(value)
@@ -990,6 +992,7 @@ class VariableNode(Node):
             # control (e.g. exception rendering). In that case, we fail
             # quietly.
             return ''
+        # レンダリング
         return render_value_in_context(output, context)
 
 

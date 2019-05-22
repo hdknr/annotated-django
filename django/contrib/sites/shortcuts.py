@@ -2,7 +2,8 @@ from django.apps import apps
 
 
 def get_current_site(request):
-    """
+    """ 現在のサイトを取得する
+
     Check if contrib.sites is installed and return either the current
     ``Site`` object or a ``RequestSite`` object based on the request.
     """
