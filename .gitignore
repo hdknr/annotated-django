@@ -27,5 +27,5 @@ _build
 # jupyter
 .ipynb_checkpoints
 
-# 
-annotated-js
+# sample
+samples/*

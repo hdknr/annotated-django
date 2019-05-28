@@ -5,11 +5,10 @@
 - [django/channels: Developer-friendly asynchrony for Django](https://github.com/django/channels)
 - [django/daphne: Django Channels HTTP/WebSocket server](https://github.com/django/daphne)
 
-## uvicorn 
+## uvicorn
 
 - [encode/uvicorn: The lightning-fast ASGI server. 🦄](https://github.com/encode/uvicorn)
 - [Uvicorn](https://www.uvicorn.org/)
-   
 
 ## 記事
 
