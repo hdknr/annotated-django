@@ -41,3 +41,12 @@ settings.py:
 ~~~py
 MIDDLEWARE += ['app.middlwares.AppMiddleware']
 ~~~
+
+## ビューで都度確認
+
+- [python - Sometimes request.session.session_key is None - Stack Overflow](https://stackoverflow.com/questions/39181655/sometimes-request-session-session-key-is-none)
+
+~~~py
+if not request.session.session_key:
+    request.session.save()
+~~~
