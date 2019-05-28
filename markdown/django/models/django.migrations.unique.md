@@ -1,4 +1,4 @@
-## unique=True のフィールドを追加する
+# unique=True のフィールドを追加する
 
 - code を追加
 
@@ -29,7 +29,7 @@ def key():
     res = ''.join([
         random.choice("abcdefghijklmnopqrstuvwxyz0123456789")
         for i in xrange(20)])
-    return res      
+    return res
 
 class Migration(migrations.Migration):
     # ...
