@@ -135,6 +135,7 @@ class Command(BaseCommand):
 
         try:
             handler = self.get_handler(*args, **options)
+            #  django.core.servers.basehttp.run を呼ぶ
             run(self.addr, int(self.port), handler,
                 ipv6=self.use_ipv6, threading=threading, server_cls=self.server_cls)
         except socket.error as e:
