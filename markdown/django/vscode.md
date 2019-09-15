@@ -62,7 +62,7 @@ launch.json:
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Django: Vagrant",
             "type": "python",
             "request": "attach",
             "port": 3000,
@@ -70,13 +70,15 @@ launch.json:
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}/reform/web",
-                    "remoteRoot": "/home/vagrant/projects/sites/reform/web"
+                    "remoteRoot": "."
                 }
             ]
         }
     ]
 }
 ~~~
+
+- `remoteRoot` は `manage.py` のディレクトリで `runserver` しているので、 `.` でよい。
 
 ~~~bash
 $ lsof -i:3000
