@@ -61,7 +61,7 @@ class UserAdmin(admin.ModelAdmin):
     list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups')
     search_fields = ('username', 'first_name', 'last_name', 'email')
     ordering = ('username',)
-    filter_horizontal = ('groups', 'user_permissions',)
+    filter_horizontal = ('groups', 'user_permissions',) # 水平方向フィルター
 
     def get_fieldsets(self, request, obj=None):
         if not obj:

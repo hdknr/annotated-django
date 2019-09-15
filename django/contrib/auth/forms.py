@@ -122,6 +122,7 @@ class UserCreationForm(forms.ModelForm):
 
 
 class UserChangeForm(forms.ModelForm):
+    # ユーザー変更(パスワードは変更しない)
     password = ReadOnlyPasswordHashField(
         label=_("Password"),
         help_text=_(
