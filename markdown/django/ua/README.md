@@ -2,7 +2,6 @@
 
 - [UserAgentからOS/ブラウザなどの調べかたのまとめ](http://qiita.com/nightyknite/items/b2590a69f2e0135756dc)
 
-
 ## Python
 
 ua-parserを使う:
@@ -14,6 +13,8 @@ ua-parserを使う:
 
 - [woothee/woothee-python: Woothee python implementation](https://github.com/woothee/woothee-python)
 - [selwin/python-user-agents: A Python library that provides an easy way to identify devices like mobile phones, tablets and their capabilities by parsing (browser) user agent strings.](https://github.com/selwin/python-user-agents)
+- [selwin/django-user_agents: A django package that allows easy identification of visitor's browser, OS and device information, including whether the visitor uses a mobile phone, tablet or a touch capable device.](https://github.com/selwin/django-user_agents)
+
 
 ## Edge
 
