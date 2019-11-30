@@ -30,6 +30,21 @@ Out[2]: datetime.time(10, 0)
 - http://qiita.com/61503891/items/13a49b2e26b2b4a47b55
 - [SQL は 月曜日開始(=1)](http://bayashita.com/p/entry/show/64)
 
+## タイムスタンプ(UTC) のローカル(Tokyo)時刻変換
+
+~~~py
+In [1]: ts = '1573177495882'
+In [2]: ts = int(ts) / 1000
+In [3]: dt = datetime.utcfromtimestamp(ts)
+In [4]: dt
+Out[4]: datetime.datetime(2019, 11, 8, 1, 44, 55, 882000)
+In [5]: import pytz
+In [6]: dt.replace(tzinfo=pytz.utc).astimezone(pytz.timezone('Asia/Tokyo'))
+Out[6]: datetime.datetime(2019, 11, 8, 10, 44, 55, 882000, tzinfo=<DstTzInfo 'Asia/Tokyo' JST+9:00:00 STD>)
+In [7]: _.strftime('%Y-%m-%D %H:%M:%S')
+Out[7]: '2019-11-11/08/19 10:44:55'
+~~~
+
 ## 現地時間
 
 ~~~bash
@@ -54,6 +69,7 @@ Out[3]: datetime.datetime(2016, 2, 1, 0, 0)
 ~~~
 
 - ホノルル
+
 ~~~py
 In [4]: import pytz
 In [5]: honolulu = pytz.timezone('Pacific/Honolulu')
@@ -73,7 +89,6 @@ In [8]: _.astimezone(pytz.UTC)
 Out[7]: datetime.datetime(2016, 2, 1, 10, 0, tzinfo=<UTC>)
 ~~~
 
-
 ## combine:日付(date)と時刻(time) から日時(datetime)
 
 ~~~
@@ -85,7 +100,6 @@ datetime.datetime(2015, 3, 28, 9, 55, 26, 953264)
 >>> datetime.combine(n.date(), n.time())
 datetime.datetime(2015, 3, 28, 9, 55, 26, 953264)
 ~~~
-
 
 
 ## TZ
