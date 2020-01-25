@@ -7,7 +7,6 @@ class RequestSite:
     The save() and delete() methods raise NotImplementedError.
     """
     def __init__(self, request):
-        # WSGIRequestがNoneだとエラー
         self.domain = self.name = request.get_host()
 
     def __str__(self):

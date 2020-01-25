@@ -99,7 +99,7 @@ class Command(BaseCommand):
         use_reloader = options['use_reloader']
 
         if use_reloader:
-            autoreload.main(self.inner_run, None, options)
+            autoreload.run_with_reloader(self.inner_run, **options)
         else:
             self.inner_run(None, **options)
 
@@ -135,10 +135,9 @@ class Command(BaseCommand):
 
         try:
             handler = self.get_handler(*args, **options)
-            #  django.core.servers.basehttp.run を呼ぶ
             run(self.addr, int(self.port), handler,
                 ipv6=self.use_ipv6, threading=threading, server_cls=self.server_cls)
-        except socket.error as e:
+        except OSError as e:
             # Use helpful error messages instead of ugly tracebacks.
             ERRORS = {
                 errno.EACCES: "You don't have permission to access that port.",

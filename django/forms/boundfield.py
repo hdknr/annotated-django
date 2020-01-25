@@ -63,7 +63,10 @@ class BoundField:
         # Prevent unnecessary reevaluation when accessing BoundField's attrs
         # from templates.
         if not isinstance(idx, (int, slice)):
-            raise TypeError
+            raise TypeError(
+                'BoundField indices must be integers or slices, not %s.'
+                % type(idx).__name__
+            )
         return self.subwidgets[idx]
 
     @property
@@ -86,8 +89,6 @@ class BoundField:
         attrs = self.build_widget_attrs(attrs, widget)
         if self.auto_id and 'id' not in widget.attrs:
             attrs.setdefault('id', self.html_initial_id if only_initial else self.auto_id)
-        # 最後のrenderer フィールドで django-taggit がエラーになっている
-        # 実際の対策は format_value()のオーバーライド https://github.com/alex/django-taggit/commit/7ada5bc94526da9475c1e5300c3c41bf2d971c4c
         return widget.render(
             name=self.html_initial_name if only_initial else self.html_name,
             value=self.value(),

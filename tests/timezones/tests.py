@@ -33,9 +33,16 @@ from .models import (
     AllDayEvent, Event, MaybeEvent, Session, SessionEvent, Timestamp,
 )
 
+try:
+    import yaml
+    HAS_YAML = True
+except ImportError:
+    HAS_YAML = False
+
 # These tests use the EAT (Eastern Africa Time) and ICT (Indochina Time)
 # who don't have Daylight Saving Time, so we can represent them easily
-# with FixedOffset, and use them directly as tzinfo in the constructors.
+# with fixed offset timezones and use them directly as tzinfo in the
+# constructors.
 
 # settings.TIME_ZONE is forced to EAT. Most tests use a variant of
 # datetime.datetime(2011, 9, 1, 13, 20, 30), which translates to
@@ -44,6 +51,26 @@ from .models import (
 UTC = timezone.utc
 EAT = timezone.get_fixed_timezone(180)      # Africa/Nairobi
 ICT = timezone.get_fixed_timezone(420)      # Asia/Bangkok
+
+
+@contextmanager
+def override_database_connection_timezone(timezone):
+    try:
+        orig_timezone = connection.settings_dict['TIME_ZONE']
+        connection.settings_dict['TIME_ZONE'] = timezone
+        # Clear cached properties, after first accessing them to ensure they exist.
+        connection.timezone
+        del connection.timezone
+        connection.timezone_name
+        del connection.timezone_name
+        yield
+    finally:
+        connection.settings_dict['TIME_ZONE'] = orig_timezone
+        # Clear cached properties, after first accessing them to ensure they exist.
+        connection.timezone
+        del connection.timezone
+        connection.timezone_name
+        del connection.timezone_name
 
 
 @override_settings(TIME_ZONE='Africa/Nairobi', USE_TZ=False)
@@ -310,6 +337,20 @@ class NewDatabaseTests(TestCase):
         self.assertEqual(Event.objects.filter(dt__in=(prev, dt, next)).count(), 1)
         self.assertEqual(Event.objects.filter(dt__range=(prev, next)).count(), 1)
 
+    def test_query_convert_timezones(self):
+        # Connection timezone is equal to the current timezone, datetime
+        # shouldn't be converted.
+        with override_database_connection_timezone('Africa/Nairobi'):
+            event_datetime = datetime.datetime(2016, 1, 2, 23, 10, 11, 123, tzinfo=EAT)
+            event = Event.objects.create(dt=event_datetime)
+            self.assertEqual(Event.objects.filter(dt__date=event_datetime.date()).first(), event)
+        # Connection timezone is not equal to the current timezone, datetime
+        # should be converted (-4h).
+        with override_database_connection_timezone('Asia/Bangkok'):
+            event_datetime = datetime.datetime(2016, 1, 2, 3, 10, 11, tzinfo=ICT)
+            event = Event.objects.create(dt=event_datetime)
+            self.assertEqual(Event.objects.filter(dt__date=datetime.date(2016, 1, 1)).first(), event)
+
     @requires_tz_support
     def test_query_filter_with_naive_datetime(self):
         dt = datetime.datetime(2011, 9, 1, 12, 20, 30, tzinfo=EAT)
@@ -538,39 +579,18 @@ class ForcedTimeZoneDatabaseTests(TransactionTestCase):
 
         super().setUpClass()
 
-    @contextmanager
-    def override_database_connection_timezone(self, timezone):
-        try:
-            orig_timezone = connection.settings_dict['TIME_ZONE']
-            connection.settings_dict['TIME_ZONE'] = timezone
-            # Clear cached properties, after first accessing them to ensure they exist.
-            connection.timezone
-            del connection.timezone
-            connection.timezone_name
-            del connection.timezone_name
-
-            yield
-
-        finally:
-            connection.settings_dict['TIME_ZONE'] = orig_timezone
-            # Clear cached properties, after first accessing them to ensure they exist.
-            connection.timezone
-            del connection.timezone
-            connection.timezone_name
-            del connection.timezone_name
-
     def test_read_datetime(self):
         fake_dt = datetime.datetime(2011, 9, 1, 17, 20, 30, tzinfo=UTC)
         Event.objects.create(dt=fake_dt)
 
-        with self.override_database_connection_timezone('Asia/Bangkok'):
+        with override_database_connection_timezone('Asia/Bangkok'):
             event = Event.objects.get()
             dt = datetime.datetime(2011, 9, 1, 10, 20, 30, tzinfo=UTC)
         self.assertEqual(event.dt, dt)
 
     def test_write_datetime(self):
         dt = datetime.datetime(2011, 9, 1, 10, 20, 30, tzinfo=UTC)
-        with self.override_database_connection_timezone('Asia/Bangkok'):
+        with override_database_connection_timezone('Asia/Bangkok'):
             Event.objects.create(dt=dt)
 
         event = Event.objects.get()
@@ -604,9 +624,10 @@ class SerializationTests(SimpleTestCase):
 
     # Backend-specific notes:
     # - JSON supports only milliseconds, microseconds will be truncated.
-    # - PyYAML dumps the UTC offset correctly for timezone-aware datetimes,
-    #   but when it loads this representation, it subtracts the offset and
-    #   returns a naive datetime object in UTC (http://pyyaml.org/ticket/202).
+    # - PyYAML dumps the UTC offset correctly for timezone-aware datetimes.
+    #   When PyYAML < 5.3 loads this representation, it subtracts the offset
+    #   and returns a naive datetime object in UTC. PyYAML 5.3+ loads timezones
+    #   correctly.
     # Tests are adapted to take these quirks into account.
 
     def assert_python_contains_datetime(self, objects, dt):
@@ -642,7 +663,7 @@ class SerializationTests(SimpleTestCase):
         self.assertEqual(obj.dt, dt)
 
         if not isinstance(serializers.get_serializer('yaml'), serializers.BadSerializer):
-            data = serializers.serialize('yaml', [Event(dt=dt)])
+            data = serializers.serialize('yaml', [Event(dt=dt)], default_flow_style=None)
             self.assert_yaml_contains_datetime(data, "2011-09-01 13:20:30")
             obj = next(serializers.deserialize('yaml', data)).object
             self.assertEqual(obj.dt, dt)
@@ -666,7 +687,7 @@ class SerializationTests(SimpleTestCase):
         self.assertEqual(obj.dt, dt)
 
         if not isinstance(serializers.get_serializer('yaml'), serializers.BadSerializer):
-            data = serializers.serialize('yaml', [Event(dt=dt)])
+            data = serializers.serialize('yaml', [Event(dt=dt)], default_flow_style=None)
             self.assert_yaml_contains_datetime(data, "2011-09-01 13:20:30.405060")
             obj = next(serializers.deserialize('yaml', data)).object
             self.assertEqual(obj.dt, dt)
@@ -690,10 +711,13 @@ class SerializationTests(SimpleTestCase):
         self.assertEqual(obj.dt, dt)
 
         if not isinstance(serializers.get_serializer('yaml'), serializers.BadSerializer):
-            data = serializers.serialize('yaml', [Event(dt=dt)])
+            data = serializers.serialize('yaml', [Event(dt=dt)], default_flow_style=None)
             self.assert_yaml_contains_datetime(data, "2011-09-01 17:20:30.405060+07:00")
             obj = next(serializers.deserialize('yaml', data)).object
-            self.assertEqual(obj.dt.replace(tzinfo=UTC), dt)
+            if HAS_YAML and yaml.__version__ < '5.3':
+                self.assertEqual(obj.dt.replace(tzinfo=UTC), dt)
+            else:
+                self.assertEqual(obj.dt, dt)
 
     def test_aware_datetime_in_utc(self):
         dt = datetime.datetime(2011, 9, 1, 10, 20, 30, tzinfo=UTC)
@@ -714,7 +738,7 @@ class SerializationTests(SimpleTestCase):
         self.assertEqual(obj.dt, dt)
 
         if not isinstance(serializers.get_serializer('yaml'), serializers.BadSerializer):
-            data = serializers.serialize('yaml', [Event(dt=dt)])
+            data = serializers.serialize('yaml', [Event(dt=dt)], default_flow_style=None)
             self.assert_yaml_contains_datetime(data, "2011-09-01 10:20:30+00:00")
             obj = next(serializers.deserialize('yaml', data)).object
             self.assertEqual(obj.dt.replace(tzinfo=UTC), dt)
@@ -738,10 +762,13 @@ class SerializationTests(SimpleTestCase):
         self.assertEqual(obj.dt, dt)
 
         if not isinstance(serializers.get_serializer('yaml'), serializers.BadSerializer):
-            data = serializers.serialize('yaml', [Event(dt=dt)])
+            data = serializers.serialize('yaml', [Event(dt=dt)], default_flow_style=None)
             self.assert_yaml_contains_datetime(data, "2011-09-01 13:20:30+03:00")
             obj = next(serializers.deserialize('yaml', data)).object
-            self.assertEqual(obj.dt.replace(tzinfo=UTC), dt)
+            if HAS_YAML and yaml.__version__ < '5.3':
+                self.assertEqual(obj.dt.replace(tzinfo=UTC), dt)
+            else:
+                self.assertEqual(obj.dt, dt)
 
     def test_aware_datetime_in_other_timezone(self):
         dt = datetime.datetime(2011, 9, 1, 17, 20, 30, tzinfo=ICT)
@@ -762,10 +789,13 @@ class SerializationTests(SimpleTestCase):
         self.assertEqual(obj.dt, dt)
 
         if not isinstance(serializers.get_serializer('yaml'), serializers.BadSerializer):
-            data = serializers.serialize('yaml', [Event(dt=dt)])
+            data = serializers.serialize('yaml', [Event(dt=dt)], default_flow_style=None)
             self.assert_yaml_contains_datetime(data, "2011-09-01 17:20:30+07:00")
             obj = next(serializers.deserialize('yaml', data)).object
-            self.assertEqual(obj.dt.replace(tzinfo=UTC), dt)
+            if HAS_YAML and yaml.__version__ < '5.3':
+                self.assertEqual(obj.dt.replace(tzinfo=UTC), dt)
+            else:
+                self.assertEqual(obj.dt, dt)
 
 
 @override_settings(DATETIME_FORMAT='c', TIME_ZONE='Africa/Nairobi', USE_L10N=False, USE_TZ=True)
@@ -865,14 +895,18 @@ class TemplateTests(SimpleTestCase):
 
         # Use a pytz timezone as argument
         tpl = Template("{% load tz %}{{ dt|timezone:tz }}")
-        ctx = Context({'dt': datetime.datetime(2011, 9, 1, 13, 20, 30),
-                       'tz': pytz.timezone('Europe/Paris')})
+        ctx = Context({
+            'dt': datetime.datetime(2011, 9, 1, 13, 20, 30),
+            'tz': pytz.timezone('Europe/Paris'),
+        })
         self.assertEqual(tpl.render(ctx), "2011-09-01T12:20:30+02:00")
 
         # Use a pytz timezone name as argument
         tpl = Template("{% load tz %}{{ dt|timezone:'Europe/Paris' }}")
-        ctx = Context({'dt': datetime.datetime(2011, 9, 1, 13, 20, 30),
-                       'tz': pytz.timezone('Europe/Paris')})
+        ctx = Context({
+            'dt': datetime.datetime(2011, 9, 1, 13, 20, 30),
+            'tz': pytz.timezone('Europe/Paris'),
+        })
         self.assertEqual(tpl.render(ctx), "2011-09-01T12:20:30+02:00")
 
     def test_localtime_templatetag_invalid_argument(self):
@@ -912,8 +946,11 @@ class TemplateTests(SimpleTestCase):
             "{% endtimezone %}"
             "{% endtimezone %}"
         )
-        ctx = Context({'dt': datetime.datetime(2011, 9, 1, 10, 20, 30, tzinfo=UTC),
-                       'tz1': ICT, 'tz2': None})
+        ctx = Context({
+            'dt': datetime.datetime(2011, 9, 1, 10, 20, 30, tzinfo=UTC),
+            'tz1': ICT,
+            'tz2': None,
+        })
         self.assertEqual(
             tpl.render(ctx),
             "2011-09-01T13:20:30+03:00|2011-09-01T17:20:30+07:00|2011-09-01T13:20:30+03:00"
@@ -926,13 +963,17 @@ class TemplateTests(SimpleTestCase):
         tpl = Template("{% load tz %}{% timezone tz %}{{ dt }}{% endtimezone %}")
 
         # Use a pytz timezone as argument
-        ctx = Context({'dt': datetime.datetime(2011, 9, 1, 13, 20, 30, tzinfo=EAT),
-                       'tz': pytz.timezone('Europe/Paris')})
+        ctx = Context({
+            'dt': datetime.datetime(2011, 9, 1, 13, 20, 30, tzinfo=EAT),
+            'tz': pytz.timezone('Europe/Paris'),
+        })
         self.assertEqual(tpl.render(ctx), "2011-09-01T12:20:30+02:00")
 
         # Use a pytz timezone name as argument
-        ctx = Context({'dt': datetime.datetime(2011, 9, 1, 13, 20, 30, tzinfo=EAT),
-                       'tz': 'Europe/Paris'})
+        ctx = Context({
+            'dt': datetime.datetime(2011, 9, 1, 13, 20, 30, tzinfo=EAT),
+            'tz': 'Europe/Paris',
+        })
         self.assertEqual(tpl.render(ctx), "2011-09-01T12:20:30+02:00")
 
     def test_timezone_templatetag_invalid_argument(self):
@@ -1078,8 +1119,8 @@ class NewFormsTests(TestCase):
             self.assertFalse(form.is_valid())
             self.assertEqual(
                 form.errors['dt'], [
-                    "2011-03-27 02:30:00 couldn't be interpreted in time zone "
-                    "Europe/Paris; it may be ambiguous or it may not exist."
+                    '2011-03-27 02:30:00 couldn’t be interpreted in time zone '
+                    'Europe/Paris; it may be ambiguous or it may not exist.'
                 ]
             )
 
@@ -1089,8 +1130,8 @@ class NewFormsTests(TestCase):
             self.assertFalse(form.is_valid())
             self.assertEqual(
                 form.errors['dt'], [
-                    "2011-10-30 02:30:00 couldn't be interpreted in time zone "
-                    "Europe/Paris; it may be ambiguous or it may not exist."
+                    '2011-10-30 02:30:00 couldn’t be interpreted in time zone '
+                    'Europe/Paris; it may be ambiguous or it may not exist.'
                 ]
             )
 

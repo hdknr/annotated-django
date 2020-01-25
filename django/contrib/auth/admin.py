@@ -44,8 +44,9 @@ class UserAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name', 'email')}),
-        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
-                                       'groups', 'user_permissions')}),
+        (_('Permissions'), {
+            'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'),
+        }),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
     add_fieldsets = (
@@ -55,13 +56,13 @@ class UserAdmin(admin.ModelAdmin):
         }),
     )
     form = UserChangeForm
-    add_form = UserCreationForm # ユーザー作成フォーム
+    add_form = UserCreationForm
     change_password_form = AdminPasswordChangeForm
     list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff')
     list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups')
     search_fields = ('username', 'first_name', 'last_name', 'email')
     ordering = ('username',)
-    filter_horizontal = ('groups', 'user_permissions',) # 水平方向フィルター
+    filter_horizontal = ('groups', 'user_permissions',)
 
     def get_fieldsets(self, request, obj=None):
         if not obj:
@@ -94,19 +95,17 @@ class UserAdmin(admin.ModelAdmin):
     @sensitive_post_parameters_m
     @csrf_protect_m
     def add_view(self, request, form_url='', extra_context=None):
-        # 追加ビュー
         with transaction.atomic(using=router.db_for_write(self.model)):
             return self._add_view(request, form_url, extra_context)
 
     def _add_view(self, request, form_url='', extra_context=None):
-        # 実際の追加ビュー
         # It's an error for a user to have add permission but NOT change
         # permission for users. If we allowed such users to add users, they
         # could create superusers, which would mean they would essentially have
         # the permission to change users. To avoid the problem entirely, we
         # disallow users from adding users if they don't have change
         # permission.
-        if not self.has_change_permission(request):         # パーミッション変更があった場合
+        if not self.has_change_permission(request):
             if self.has_add_permission(request) and settings.DEBUG:
                 # Raise Http404 in debug mode so that the user gets a helpful
                 # error message.
@@ -128,9 +127,9 @@ class UserAdmin(admin.ModelAdmin):
 
     @sensitive_post_parameters_m
     def user_change_password(self, request, id, form_url=''):
-        if not self.has_change_permission(request):
-            raise PermissionDenied
         user = self.get_object(request, unquote(id))
+        if not self.has_change_permission(request, user):
+            raise PermissionDenied
         if user is None:
             raise Http404(_('%(name)s object with primary key %(key)r does not exist.') % {
                 'name': self.model._meta.verbose_name,

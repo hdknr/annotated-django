@@ -499,6 +499,84 @@ class GenericRelationsTests(TestCase):
         tag = TaggedItem(content_object=spinach)
         self.assertEqual(tag.content_object, spinach)
 
+    def test_create_after_prefetch(self):
+        platypus = Animal.objects.prefetch_related('tags').get(pk=self.platypus.pk)
+        self.assertSequenceEqual(platypus.tags.all(), [])
+        weird_tag = platypus.tags.create(tag='weird')
+        self.assertSequenceEqual(platypus.tags.all(), [weird_tag])
+
+    def test_add_after_prefetch(self):
+        platypus = Animal.objects.prefetch_related('tags').get(pk=self.platypus.pk)
+        self.assertSequenceEqual(platypus.tags.all(), [])
+        weird_tag = TaggedItem.objects.create(tag='weird', content_object=platypus)
+        platypus.tags.add(weird_tag)
+        self.assertSequenceEqual(platypus.tags.all(), [weird_tag])
+
+    def test_remove_after_prefetch(self):
+        weird_tag = self.platypus.tags.create(tag='weird')
+        platypus = Animal.objects.prefetch_related('tags').get(pk=self.platypus.pk)
+        self.assertSequenceEqual(platypus.tags.all(), [weird_tag])
+        platypus.tags.remove(weird_tag)
+        self.assertSequenceEqual(platypus.tags.all(), [])
+
+    def test_clear_after_prefetch(self):
+        weird_tag = self.platypus.tags.create(tag='weird')
+        platypus = Animal.objects.prefetch_related('tags').get(pk=self.platypus.pk)
+        self.assertSequenceEqual(platypus.tags.all(), [weird_tag])
+        platypus.tags.clear()
+        self.assertSequenceEqual(platypus.tags.all(), [])
+
+    def test_set_after_prefetch(self):
+        platypus = Animal.objects.prefetch_related('tags').get(pk=self.platypus.pk)
+        self.assertSequenceEqual(platypus.tags.all(), [])
+        furry_tag = TaggedItem.objects.create(tag='furry', content_object=platypus)
+        platypus.tags.set([furry_tag])
+        self.assertSequenceEqual(platypus.tags.all(), [furry_tag])
+        weird_tag = TaggedItem.objects.create(tag='weird', content_object=platypus)
+        platypus.tags.set([weird_tag])
+        self.assertSequenceEqual(platypus.tags.all(), [weird_tag])
+
+    def test_add_then_remove_after_prefetch(self):
+        furry_tag = self.platypus.tags.create(tag='furry')
+        platypus = Animal.objects.prefetch_related('tags').get(pk=self.platypus.pk)
+        self.assertSequenceEqual(platypus.tags.all(), [furry_tag])
+        weird_tag = self.platypus.tags.create(tag='weird')
+        platypus.tags.add(weird_tag)
+        self.assertSequenceEqual(platypus.tags.all(), [furry_tag, weird_tag])
+        platypus.tags.remove(weird_tag)
+        self.assertSequenceEqual(platypus.tags.all(), [furry_tag])
+
+    def test_prefetch_related_different_content_types(self):
+        TaggedItem.objects.create(content_object=self.platypus, tag='prefetch_tag_1')
+        TaggedItem.objects.create(
+            content_object=Vegetable.objects.create(name='Broccoli'),
+            tag='prefetch_tag_2',
+        )
+        TaggedItem.objects.create(
+            content_object=Animal.objects.create(common_name='Bear'),
+            tag='prefetch_tag_3',
+        )
+        qs = TaggedItem.objects.filter(
+            tag__startswith='prefetch_tag_',
+        ).prefetch_related('content_object', 'content_object__tags')
+        with self.assertNumQueries(4):
+            tags = list(qs)
+        for tag in tags:
+            self.assertSequenceEqual(tag.content_object.tags.all(), [tag])
+
+    def test_prefetch_related_custom_object_id(self):
+        tiger = Animal.objects.create(common_name='tiger')
+        cheetah = Animal.objects.create(common_name='cheetah')
+        Comparison.objects.create(
+            first_obj=cheetah, other_obj=tiger, comparative='faster',
+        )
+        Comparison.objects.create(
+            first_obj=tiger, other_obj=cheetah, comparative='cooler',
+        )
+        qs = Comparison.objects.prefetch_related('first_obj__comparisons')
+        for comparison in qs:
+            self.assertSequenceEqual(comparison.first_obj.comparisons.all(), [comparison])
+
 
 class ProxyRelatedModelTest(TestCase):
     def test_default_behavior(self):

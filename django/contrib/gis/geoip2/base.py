@@ -1,11 +1,11 @@
 import socket
-from pathlib import Path
 
 import geoip2.database
 
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_ipv46_address
+from django.utils._os import to_path
 
 from .resources import City, Country
 
@@ -76,10 +76,8 @@ class GeoIP2:
         path = path or GEOIP_SETTINGS['GEOIP_PATH']
         if not path:
             raise GeoIP2Exception('GeoIP path must be provided via parameter or the GEOIP_PATH setting.')
-        if not isinstance(path, str):
-            raise TypeError('Invalid path type: %s' % type(path).__name__)
 
-        path = Path(path)
+        path = to_path(path)
         if path.is_dir():
             # Constructing the GeoIP database filenames using the settings
             # dictionary. If the database files for the GeoLite country
@@ -92,7 +90,6 @@ class GeoIP2:
             city_db = path / (city or GEOIP_SETTINGS['GEOIP_CITY'])
             if city_db.is_file():
                 self._city = geoip2.database.Reader(str(city_db), mode=cache)
-                # self._city = geoip2.database.Reader(str(city_db), ['ja'], mode=cache)
                 self._city_file = city_db
             if not self._reader:
                 raise GeoIP2Exception('Could not load a database from %s.' % path)

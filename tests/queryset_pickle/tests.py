@@ -9,7 +9,8 @@ from .models import Container, Event, Group, Happening, M2MModel
 
 
 class PickleabilityTestCase(TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         Happening.objects.create()  # make sure the defaults are working (#20158)
 
     def assert_pickles(self, qs):
@@ -170,6 +171,41 @@ class PickleabilityTestCase(TestCase):
         m2ms = M2MModel.objects.prefetch_related('groups')
         m2ms = pickle.loads(pickle.dumps(m2ms))
         self.assertSequenceEqual(m2ms, [m2m])
+
+    def test_pickle_exists_queryset_still_usable(self):
+        group = Group.objects.create(name='group')
+        Event.objects.create(title='event', group=group)
+        groups = Group.objects.annotate(
+            has_event=models.Exists(
+                Event.objects.filter(group_id=models.OuterRef('id')),
+            ),
+        )
+        groups2 = pickle.loads(pickle.dumps(groups))
+        self.assertSequenceEqual(groups2.filter(has_event=True), [group])
+
+    def test_pickle_exists_queryset_not_evaluated(self):
+        group = Group.objects.create(name='group')
+        Event.objects.create(title='event', group=group)
+        groups = Group.objects.annotate(
+            has_event=models.Exists(
+                Event.objects.filter(group_id=models.OuterRef('id')),
+            ),
+        )
+        list(groups)  # evaluate QuerySet.
+        with self.assertNumQueries(0):
+            self.assert_pickles(groups)
+
+    def test_pickle_subquery_queryset_not_evaluated(self):
+        group = Group.objects.create(name='group')
+        Event.objects.create(title='event', group=group)
+        groups = Group.objects.annotate(
+            event_title=models.Subquery(
+                Event.objects.filter(group_id=models.OuterRef('id')).values('title'),
+            ),
+        )
+        list(groups)  # evaluate QuerySet.
+        with self.assertNumQueries(0):
+            self.assert_pickles(groups)
 
     def test_annotation_with_callable_default(self):
         # Happening.when has a callable default of datetime.datetime.now.

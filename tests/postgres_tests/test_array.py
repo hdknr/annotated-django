@@ -1,4 +1,5 @@
 import decimal
+import enum
 import json
 import unittest
 import uuid
@@ -8,22 +9,29 @@ from django.core import checks, exceptions, serializers, validators
 from django.core.exceptions import FieldError
 from django.core.management import call_command
 from django.db import IntegrityError, connection, models
+from django.db.models.expressions import RawSQL
+from django.db.models.functions import Cast
 from django.test import TransactionTestCase, modify_settings, override_settings
 from django.test.utils import isolate_apps
 from django.utils import timezone
 
-from . import PostgreSQLTestCase, PostgreSQLWidgetTestCase
+from . import (
+    PostgreSQLSimpleTestCase, PostgreSQLTestCase, PostgreSQLWidgetTestCase,
+)
 from .models import (
-    ArrayFieldSubclass, CharArrayModel, DateTimeArrayModel, IntegerArrayModel,
-    NestedIntegerArrayModel, NullableIntegerArrayModel, OtherTypesArrayModel,
-    PostgreSQLModel, Tag,
+    ArrayEnumModel, ArrayFieldSubclass, CharArrayModel, DateTimeArrayModel,
+    IntegerArrayModel, NestedIntegerArrayModel, NullableIntegerArrayModel,
+    OtherTypesArrayModel, PostgreSQLModel, Tag,
 )
 
 try:
+    from django.contrib.postgres.aggregates import ArrayAgg
     from django.contrib.postgres.fields import ArrayField
+    from django.contrib.postgres.fields.array import IndexTransform, SliceTransform
     from django.contrib.postgres.forms import (
         SimpleArrayField, SplitArrayField, SplitArrayWidget,
     )
+    from psycopg2.extras import NumericRange
 except ImportError:
     pass
 
@@ -96,6 +104,12 @@ class TestSaveLoad(PostgreSQLTestCase):
             uuids=[uuid.uuid4()],
             decimals=[decimal.Decimal(1.25), 1.75],
             tags=[Tag(1), Tag(2), Tag(3)],
+            json=[{'a': 1}, {'b': 2}],
+            int_ranges=[NumericRange(10, 20), NumericRange(30, 40)],
+            bigint_ranges=[
+                NumericRange(7000000000, 10000000000),
+                NumericRange(50000000000, 70000000000),
+            ]
         )
         instance.save()
         loaded = OtherTypesArrayModel.objects.get()
@@ -103,6 +117,9 @@ class TestSaveLoad(PostgreSQLTestCase):
         self.assertEqual(instance.uuids, loaded.uuids)
         self.assertEqual(instance.decimals, loaded.decimals)
         self.assertEqual(instance.tags, loaded.tags)
+        self.assertEqual(instance.json, loaded.json)
+        self.assertEqual(instance.int_ranges, loaded.int_ranges)
+        self.assertEqual(instance.bigint_ranges, loaded.bigint_ranges)
 
     def test_null_from_db_value_handling(self):
         instance = OtherTypesArrayModel.objects.create(
@@ -113,6 +130,9 @@ class TestSaveLoad(PostgreSQLTestCase):
         )
         instance.refresh_from_db()
         self.assertIsNone(instance.tags)
+        self.assertEqual(instance.json, [])
+        self.assertIsNone(instance.int_ranges)
+        self.assertIsNone(instance.bigint_ranges)
 
     def test_model_set_on_base_field(self):
         instance = IntegerArrayModel()
@@ -123,14 +143,23 @@ class TestSaveLoad(PostgreSQLTestCase):
 
 class TestQuerying(PostgreSQLTestCase):
 
-    def setUp(self):
-        self.objs = [
-            NullableIntegerArrayModel.objects.create(field=[1]),
-            NullableIntegerArrayModel.objects.create(field=[2]),
-            NullableIntegerArrayModel.objects.create(field=[2, 3]),
-            NullableIntegerArrayModel.objects.create(field=[20, 30, 40]),
-            NullableIntegerArrayModel.objects.create(field=None),
-        ]
+    @classmethod
+    def setUpTestData(cls):
+        cls.objs = NullableIntegerArrayModel.objects.bulk_create([
+            NullableIntegerArrayModel(field=[1]),
+            NullableIntegerArrayModel(field=[2]),
+            NullableIntegerArrayModel(field=[2, 3]),
+            NullableIntegerArrayModel(field=[20, 30, 40]),
+            NullableIntegerArrayModel(field=None),
+        ])
+
+    def test_empty_list(self):
+        NullableIntegerArrayModel.objects.create(field=[])
+        obj = NullableIntegerArrayModel.objects.annotate(
+            empty_array=models.Value([], output_field=ArrayField(models.IntegerField())),
+        ).filter(field=models.F('empty_array')).get()
+        self.assertEqual(obj.field, [])
+        self.assertEqual(obj.empty_array, [])
 
     def test_exact(self):
         self.assertSequenceEqual(
@@ -252,6 +281,27 @@ class TestQuerying(PostgreSQLTestCase):
             []
         )
 
+    def test_lookups_autofield_array(self):
+        qs = NullableIntegerArrayModel.objects.filter(
+            field__0__isnull=False,
+        ).values('field__0').annotate(
+            arrayagg=ArrayAgg('id'),
+        ).order_by('field__0')
+        tests = (
+            ('contained_by', [self.objs[1].pk, self.objs[2].pk, 0], [2]),
+            ('contains', [self.objs[2].pk], [2]),
+            ('exact', [self.objs[3].pk], [20]),
+            ('overlap', [self.objs[1].pk, self.objs[3].pk], [2, 20]),
+        )
+        for lookup, value, expected in tests:
+            with self.subTest(lookup=lookup):
+                self.assertSequenceEqual(
+                    qs.filter(
+                        **{'arrayagg__' + lookup: value},
+                    ).values_list('field__0', flat=True),
+                    expected,
+                )
+
     def test_index(self):
         self.assertSequenceEqual(
             NullableIntegerArrayModel.objects.filter(field__0=2),
@@ -277,6 +327,18 @@ class TestQuerying(PostgreSQLTestCase):
         self.assertSequenceEqual(
             NestedIntegerArrayModel.objects.filter(field__0=[1, 2]),
             [instance]
+        )
+
+    def test_index_transform_expression(self):
+        expr = RawSQL("string_to_array(%s, ';')", ['1;2'])
+        self.assertSequenceEqual(
+            NullableIntegerArrayModel.objects.filter(
+                field__0=Cast(
+                    IndexTransform(1, models.IntegerField, expr),
+                    output_field=models.IntegerField(),
+                ),
+            ),
+            self.objs[:1],
         )
 
     def test_overlap(self):
@@ -333,12 +395,29 @@ class TestQuerying(PostgreSQLTestCase):
             [instance]
         )
 
+    def test_slice_transform_expression(self):
+        expr = RawSQL("string_to_array(%s, ';')", ['9;2;3'])
+        self.assertSequenceEqual(
+            NullableIntegerArrayModel.objects.filter(field__0_2=SliceTransform(2, 3, expr)),
+            self.objs[2:3],
+        )
+
     def test_usage_in_subquery(self):
         self.assertSequenceEqual(
             NullableIntegerArrayModel.objects.filter(
                 id__in=NullableIntegerArrayModel.objects.filter(field__len=3)
             ),
             [self.objs[3]]
+        )
+
+    def test_enum_lookup(self):
+        class TestEnum(enum.Enum):
+            VALUE_1 = 'value_1'
+
+        instance = ArrayEnumModel.objects.create(array_of_enums=[TestEnum.VALUE_1])
+        self.assertSequenceEqual(
+            ArrayEnumModel.objects.filter(array_of_enums__contains=[TestEnum.VALUE_1]),
+            [instance]
         )
 
     def test_unsupported_lookup(self):
@@ -350,20 +429,28 @@ class TestQuerying(PostgreSQLTestCase):
         with self.assertRaisesMessage(FieldError, msg):
             list(NullableIntegerArrayModel.objects.filter(field__0bar=[2]))
 
+    def test_grouping_by_annotations_with_array_field_param(self):
+        value = models.Value([1], output_field=ArrayField(models.IntegerField()))
+        self.assertEqual(
+            NullableIntegerArrayModel.objects.annotate(
+                array_length=models.Func(value, 1, function='ARRAY_LENGTH'),
+            ).values('array_length').annotate(
+                count=models.Count('pk'),
+            ).get()['array_length'],
+            1,
+        )
+
 
 class TestDateTimeExactQuerying(PostgreSQLTestCase):
 
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         now = timezone.now()
-        self.datetimes = [now]
-        self.dates = [now.date()]
-        self.times = [now.time()]
-        self.objs = [
-            DateTimeArrayModel.objects.create(
-                datetimes=self.datetimes,
-                dates=self.dates,
-                times=self.times,
-            )
+        cls.datetimes = [now]
+        cls.dates = [now.date()]
+        cls.times = [now.time()]
+        cls.objs = [
+            DateTimeArrayModel.objects.create(datetimes=cls.datetimes, dates=cls.dates, times=cls.times),
         ]
 
     def test_exact_datetimes(self):
@@ -387,17 +474,18 @@ class TestDateTimeExactQuerying(PostgreSQLTestCase):
 
 class TestOtherTypesExactQuerying(PostgreSQLTestCase):
 
-    def setUp(self):
-        self.ips = ['192.168.0.1', '::1']
-        self.uuids = [uuid.uuid4()]
-        self.decimals = [decimal.Decimal(1.25), 1.75]
-        self.tags = [Tag(1), Tag(2), Tag(3)]
-        self.objs = [
+    @classmethod
+    def setUpTestData(cls):
+        cls.ips = ['192.168.0.1', '::1']
+        cls.uuids = [uuid.uuid4()]
+        cls.decimals = [decimal.Decimal(1.25), 1.75]
+        cls.tags = [Tag(1), Tag(2), Tag(3)]
+        cls.objs = [
             OtherTypesArrayModel.objects.create(
-                ips=self.ips,
-                uuids=self.uuids,
-                decimals=self.decimals,
-                tags=self.tags,
+                ips=cls.ips,
+                uuids=cls.uuids,
+                decimals=cls.decimals,
+                tags=cls.tags,
             )
         ]
 
@@ -427,7 +515,7 @@ class TestOtherTypesExactQuerying(PostgreSQLTestCase):
 
 
 @isolate_apps('postgres_tests')
-class TestChecks(PostgreSQLTestCase):
+class TestChecks(PostgreSQLSimpleTestCase):
 
     def test_field_checks(self):
         class MyModel(PostgreSQLModel):
@@ -576,7 +664,7 @@ class TestMigrations(TransactionTestCase):
             self.assertNotIn(table_name, connection.introspection.table_names(cursor))
 
 
-class TestSerialization(PostgreSQLTestCase):
+class TestSerialization(PostgreSQLSimpleTestCase):
     test_data = (
         '[{"fields": {"field": "[\\"1\\", \\"2\\", null]"}, "model": "postgres_tests.integerarraymodel", "pk": null}]'
     )
@@ -591,7 +679,7 @@ class TestSerialization(PostgreSQLTestCase):
         self.assertEqual(instance.field, [1, 2, None])
 
 
-class TestValidation(PostgreSQLTestCase):
+class TestValidation(PostgreSQLSimpleTestCase):
 
     def test_unbounded(self):
         field = ArrayField(models.IntegerField())
@@ -651,7 +739,7 @@ class TestValidation(PostgreSQLTestCase):
         self.assertEqual(exception.params, {'nth': 1, 'value': 0, 'limit_value': 1, 'show_value': 0})
 
 
-class TestSimpleFormField(PostgreSQLTestCase):
+class TestSimpleFormField(PostgreSQLSimpleTestCase):
 
     def test_valid(self):
         field = SimpleArrayField(forms.CharField())
@@ -769,7 +857,7 @@ class TestSimpleFormField(PostgreSQLTestCase):
         self.assertIs(field.has_changed([], ''), False)
 
 
-class TestSplitFormField(PostgreSQLTestCase):
+class TestSplitFormField(PostgreSQLSimpleTestCase):
 
     def test_valid(self):
         class SplitForm(forms.Form):
@@ -865,6 +953,18 @@ class TestSplitFormField(PostgreSQLTestCase):
         obj = form.save(commit=False)
         self.assertEqual(obj.field, [1, 2])
 
+    def test_splitarrayfield_has_changed(self):
+        class Form(forms.ModelForm):
+            field = SplitArrayField(forms.IntegerField(), required=False, size=2)
+
+            class Meta:
+                model = IntegerArrayModel
+                fields = ('field',)
+
+        obj = IntegerArrayModel(field=[1, 2])
+        form = Form({'field_0': '1', 'field_1': '2'}, instance=obj)
+        self.assertFalse(form.has_changed())
+
 
 class TestSplitFormWidget(PostgreSQLWidgetTestCase):
 
@@ -901,6 +1001,17 @@ class TestSplitFormWidget(PostgreSQLWidgetTestCase):
                     ]
                 }
             }
+        )
+
+    def test_checkbox_get_context_attrs(self):
+        context = SplitArrayWidget(
+            forms.CheckboxInput(),
+            size=2,
+        ).get_context('name', [True, False])
+        self.assertEqual(context['widget']['value'], '[True, False]')
+        self.assertEqual(
+            [subwidget['attrs'] for subwidget in context['widget']['subwidgets']],
+            [{'checked': True}, {}]
         )
 
     def test_render(self):

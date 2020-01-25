@@ -12,8 +12,6 @@
 
 .. function:: path(route, view, kwargs=None, name=None)
 
-.. versionadded:: 2.0
-
 Returns an element for inclusion in ``urlpatterns``. For example::
 
     from django.urls import include, path
@@ -52,8 +50,6 @@ argument is useful.
 =============
 
 .. function:: re_path(route, view, kwargs=None, name=None)
-
-.. versionadded:: 2.0
 
 Returns an element for inclusion in ``urlpatterns``. For example::
 
@@ -108,17 +104,10 @@ The ``view``, ``kwargs`` and ``name`` arguments are the same as for
 
 See :ref:`including-other-urlconfs` and :ref:`namespaces-and-include`.
 
-.. versionchanged:: 2.0
-
-    In older versions, this function is located in ``django.conf.urls``. The
-    old location still works for backwards compatibility.
-
 ``register_converter()``
 ========================
 
 .. function:: register_converter(converter, type_name)
-
-.. versionadded:: 2.0
 
 The function for registering a converter for use in :func:`~django.urls.path()`
 ``route``\s.
@@ -203,5 +192,5 @@ that should be called in case of server errors. Server errors happen when you
 have runtime errors in view code.
 
 By default, this is :func:`django.views.defaults.server_error`. If you
-implement a custom view, be sure it returns an
-:class:`~django.http.HttpResponseServerError`.
+implement a custom view, be sure it accepts a ``request`` argument and returns
+an :class:`~django.http.HttpResponseServerError`.

@@ -2,7 +2,7 @@ from django.core.exceptions import ValidationError
 from django.forms import Form
 from django.forms.fields import BooleanField, IntegerField
 from django.forms.utils import ErrorList
-from django.forms.widgets import HiddenInput
+from django.forms.widgets import HiddenInput, NumberInput
 from django.utils.functional import cached_property
 from django.utils.html import html_safe
 from django.utils.safestring import mark_safe
@@ -47,6 +47,8 @@ class BaseFormSet:
     """
     A collection of instances of the same Form class.
     """
+    ordering_widget = NumberInput
+
     def __init__(self, data=None, files=None, auto_id='id_%s', prefix=None,
                  initial=None, error_class=ErrorList, form_kwargs=None):
         self.is_bound = data is not None or files is not None
@@ -55,7 +57,7 @@ class BaseFormSet:
         self.data = data or {}
         self.files = files or {}
         self.initial = initial
-        self.form_kwargs = form_kwargs or {}	# form_kwargs が作られる
+        self.form_kwargs = form_kwargs or {}
         self.error_class = error_class
         self._errors = None
         self._non_form_errors = None
@@ -132,18 +134,18 @@ class BaseFormSet:
     def forms(self):
         """Instantiate forms at first property access."""
         # DoS protection is included in total_form_count()
-        forms = [self._construct_form(i, **self.get_form_kwargs(i))
-                 for i in range(self.total_form_count())]
-        return forms
+        return [
+            self._construct_form(i, **self.get_form_kwargs(i))
+            for i in range(self.total_form_count())
+        ]
 
     def get_form_kwargs(self, index):
-        """ フォームに渡す値を作る
+        """
         Return additional keyword arguments for each individual formset form.
 
         index will be None if the form being constructed is a new empty
         form.
         """
-        # 実際は form_kwargs を複製
         return self.form_kwargs.copy()
 
     def _construct_form(self, i, **kwargs):
@@ -186,13 +188,12 @@ class BaseFormSet:
 
     @property
     def empty_form(self):
-        # 新規フォームの生成
         form = self.form(
             auto_id=self.auto_id,
             prefix=self.add_prefix('__prefix__'),
             empty_permitted=True,
             use_required_attribute=False,
-            **self.get_form_kwargs(None)   # フォームに値をセット
+            **self.get_form_kwargs(None)
         )
         self.add_fields(form, None)
         return form
@@ -265,6 +266,10 @@ class BaseFormSet:
     @classmethod
     def get_default_prefix(cls):
         return 'form'
+
+    @classmethod
+    def get_ordering_widget(cls):
+        return cls.ordering_widget
 
     def non_form_errors(self):
         """
@@ -370,9 +375,18 @@ class BaseFormSet:
         if self.can_order:
             # Only pre-fill the ordering field for initial forms.
             if index is not None and index < self.initial_form_count():
-                form.fields[ORDERING_FIELD_NAME] = IntegerField(label=_('Order'), initial=index + 1, required=False)
+                form.fields[ORDERING_FIELD_NAME] = IntegerField(
+                    label=_('Order'),
+                    initial=index + 1,
+                    required=False,
+                    widget=self.get_ordering_widget(),
+                )
             else:
-                form.fields[ORDERING_FIELD_NAME] = IntegerField(label=_('Order'), required=False)
+                form.fields[ORDERING_FIELD_NAME] = IntegerField(
+                    label=_('Order'),
+                    required=False,
+                    widget=self.get_ordering_widget(),
+                )
         if self.can_delete:
             form.fields[DELETION_FIELD_NAME] = BooleanField(label=_('Delete'), required=False)
 
@@ -429,11 +443,17 @@ def formset_factory(form, formset=BaseFormSet, extra=1, can_order=False,
     # limit is simply max_num + DEFAULT_MAX_NUM (which is 2*DEFAULT_MAX_NUM
     # if max_num is None in the first place)
     absolute_max = max_num + DEFAULT_MAX_NUM
-    attrs = {'form': form, 'extra': extra,
-             'can_order': can_order, 'can_delete': can_delete,
-             'min_num': min_num, 'max_num': max_num,
-             'absolute_max': absolute_max, 'validate_min': validate_min,
-             'validate_max': validate_max}
+    attrs = {
+        'form': form,
+        'extra': extra,
+        'can_order': can_order,
+        'can_delete': can_delete,
+        'min_num': min_num,
+        'max_num': max_num,
+        'absolute_max': absolute_max,
+        'validate_min': validate_min,
+        'validate_max': validate_max,
+    }
     return type(form.__name__ + 'FormSet', (formset,), attrs)
 
 
