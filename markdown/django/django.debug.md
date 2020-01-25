@@ -31,7 +31,6 @@ print inspect.stack()
 ~~~
 
 
-
 ## Exception
 
 - [Django Exceptions](https://docs.djangoproject.com/ja/1.9/ref/exceptions/)
