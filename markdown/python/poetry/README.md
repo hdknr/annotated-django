@@ -27,3 +27,17 @@ $ tree .
 
 3 directories, 5 files
 ~~~
+
+## [add](https://python-poetry.org/docs/cli/#add)
+
+PYPI:
+
+~~~bash
+$ poetry add djangorestframework
+~~~
+
+github url:
+
+~~~bash
+$ poetry add git+https://github.com/philipn/django-rest-framework-filters.git
+~~~
